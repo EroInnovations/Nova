@@ -5,6 +5,7 @@ import { CLEAR } from "./Clear/Clear.js";
 import { CLICK } from "./Click/Click.js";
 import { CREATEELEMENT } from "./CreateElement/CreateElement.js";
 import { DISPLAY } from "./Display/Display.js";
+import { RELOAD } from "./Reload/Reload.js";
 
 const FUNCTIONS=()=>{
 
@@ -15,8 +16,7 @@ const CLEAR=${CLEAR};
 const DISPLAY=${DISPLAY};
 const APPMODE=${APPMODE};
 const BODY=${BODY};
-
-    
+const RELOAD=${RELOAD};
 `;
 localStorage.setItem('FUNCTIONS',DATA)
 };
@@ -24,6 +24,6 @@ export{FUNCTIONS};
 
 `
 
-const BODY=${BODY};
+const RELOAD=${RELOAD};
 
 `
