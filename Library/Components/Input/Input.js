@@ -12,6 +12,8 @@ const INPUT=(ELEMENT,TYPE,COLOR,PLACEHOLDER,callback)=>{
     ELEMENTS.type=TYPE||'text';
     ELEMENTS.placeholder=PLACEHOLDER||'Your Text';
     ELEMENTS.style.color=COLOR||'#cdcdcd';
+    ELEMENTS.style.marginTop='1%';
+    ELEMENTS.style.marginBottom='1%';
 
     if (ELEMENT) {
 
