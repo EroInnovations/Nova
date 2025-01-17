@@ -23,15 +23,7 @@ const NOVASTART=()=>{
 
                     setTimeout(() => {
 
-                        if (localStorage.getItem('Environment')==='Production') {
-    
-                            Android.reloadPage();
-    
-                        }else{
-    
-                            location.href='./index.html';
-    
-                        };
+                        Reload();
                         
                     }, 2000);
 
