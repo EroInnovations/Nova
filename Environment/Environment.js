@@ -13,7 +13,7 @@ const ENVIRONMENT=()=>{
         
     };
 
-    if (localStorage.getItem('Environment') === 'Mobile' ) {
+    if (localStorage.getItem('Environment') === 'Production' ) {
 
         CONFIGURATION();
 
