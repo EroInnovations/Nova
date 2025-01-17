@@ -934,6 +934,26 @@ const FARMERDETAILPAGE=()=>{
             LEFTBUTTONTEXT(ELEMENTS,'98%','','#fff','indigo',`${MyData.staffRegion} `,(ELEMENT)=>{
     
             });
+
+            LEFTTEXT(ELEMENTS,'','Farmer Village','indigo','20px');
+
+            LEFTBUTTONTEXT(ELEMENTS,'98%','','#fff','indigo',`${MyData.staffVillage} `,(ELEMENT)=>{
+    
+            });
+
+            LEFTTEXT(ELEMENTS,'','Farms Year of Establishment','indigo','20px');
+
+            LEFTBUTTONTEXT(ELEMENTS,'98%','','#fff','indigo',`${MyData.created_at
+            } `,(ELEMENT)=>{
+    
+            });
+
+            LEFTTEXT(ELEMENTS,'','Farmers Gender','indigo','20px');
+
+            LEFTBUTTONTEXT(ELEMENTS,'98%','','#fff','indigo',`${MyData.farmerGender
+            } `,(ELEMENT)=>{
+    
+            });
     
             BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
     

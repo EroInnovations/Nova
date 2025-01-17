@@ -17,7 +17,15 @@ const NOVASTARTER=()=>{
 
             if (element.ID === localStorage.getItem('NAME')) {
 
-                localStorage.setItem("PROJECT",element.Functions);
+                if (localStorage.getItem("Environment") === 'Development' ) {
+                    
+                    localStorage.setItem("PROJECT",'');
+
+                }else{
+
+                    localStorage.setItem("PROJECT",element.Functions);
+
+                }
 
                 if (!localStorage.getItem("Updates")) {
 
