@@ -7,6 +7,7 @@ ROUTEJS(localStorage.getItem('AUTOSTART'));
 ROUTEJS(localStorage.getItem('COMPONENTS'));
 ROUTEJS(localStorage.getItem('ICONS'));
 ROUTEJS(localStorage.getItem('APIS'));
+ROUTEJS(localStorage.getItem('PROJECT'));
 `;
 localStorage.setItem('NOVA',DATA);
 localStorage.setItem('Updates','Nova');
@@ -20,5 +21,5 @@ setTimeout(() => {
 };
 export{NOVA};
 `
-ROUTEJS(localStorage.getItem('COMPONENTS'));
+ROUTEJS(localStorage.getItem('PROJECT'));
 `
