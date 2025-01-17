@@ -176,8 +176,6 @@ const ALLFARMERSPAGE=()=>{
 
                 REDUX(data,(MyData)=>{
 
-                    console.log(MyData);
-
                     CREATEELEMENT(ELEMENTS,'div',(HOLDER)=>{
 
                         STYLED(HOLDER,'position','relative');
@@ -240,6 +238,18 @@ const ALLFARMERSPAGE=()=>{
                             DISPLAY(NAME,MyData.farmerPhone);
                             
                         });
+
+                        CLICK(HOLDER,()=>{
+
+                            JSONIFICATION(MyData,(Datata)=>{
+
+                                STOREDATA('','FarmerData',Datata);
+
+                                ROUTE('Yes',FARMERDETAILPAGE,'ALLFARMERSPAGE');
+
+                            });
+
+                        });
                         
                     });
 
@@ -260,7 +270,7 @@ const ALLFARMERSPAGE=()=>{
 
                 CLICK(IMAGER,()=>{
 
-                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+                    ROUTE('',FARMERDETAILPAGE,'HOMEPAGE');
 
                 });
     
@@ -273,6 +283,12 @@ const ALLFARMERSPAGE=()=>{
 };
 
 const NEWFARMERPAGE=()=>{
+
+    setTimeout(() => {
+
+        sessionStorage.setItem("PreviousPage",'HOMEPAGE');
+        
+    }, 500);
 
     CLEAR('');
 
@@ -516,7 +532,6 @@ const NEWFARMERPAGE=()=>{
 
             STYLED(IMAGER,'transform','rotate(180deg)');
             
-
             CLICK(IMAGER,()=>{
 
                 ROUTE('',HOMEPAGE,'HOMEPAGE');
@@ -834,9 +849,112 @@ const MENUPAGE=()=>{
                 });
 
             });
+
+            CREATEELEMENT(ELEMENTS,'div',(DATA)=>{
+
+                STYLED(DATA,'position','relative');
+                STYLED(DATA,'width','98%');
+                STYLED(DATA,'height','50px');
+                STYLED(DATA,'background','indigo');
+                STYLED(DATA,'margin','auto');
+                STYLED(DATA,'margin-top','1%');
+                STYLED(DATA,'border-radius','10px');
+                STYLED(DATA,'display','inline-flex');
+
+                CREATEELEMENT(DATA,'h2',(NAME)=>{
+
+                    STYLED(NAME,'position','relative');
+                    STYLED(NAME,'margin-left','0.5rem');
+                    STYLED(NAME,'text-align','left');
+                    STYLED(NAME,'font-size','18px');
+                    STYLED(NAME,'color','white');
+
+                    DISPLAY(NAME,'Reload App');
+                    
+                });
+
+                CLICK(DATA,()=>{
+                    
+                    Reload();
+                })
+
+            });
     
         });
 
     });
 
 };
+
+const FARMERDETAILPAGE=()=>{
+
+    CLEAR('');
+
+    DEJSON(sessionStorage.getItem('FarmerData'),(MyData)=>{
+
+        FULLSCROLLVIEW('','transparent',(ELEMENTS)=>{
+
+            BREAK(ELEMENTS);
+    
+            IMAGE(ELEMENTS,NAWERIFISKONPHOTOS+MyData.farmerPhoto,'98%','50%',(ELEMENT)=>{
+    
+                STYLED(ELEMENT,'border','1px solid indigo');
+                STYLED(ELEMENT,'border-radius','10px');
+                STYLED(ELEMENT,'background','#cdcdcd');
+    
+            });
+
+            LEFTTEXT(ELEMENTS,'','Farmer Name','indigo','20px');
+
+            LEFTBUTTONTEXT(ELEMENTS,'98%','','#fff','indigo',`${MyData.farmerName} `,(ELEMENT)=>{
+    
+            });
+
+            
+            LEFTTEXT(ELEMENTS,'','Farmer Phone Number','indigo','20px');
+
+            LEFTBUTTONTEXT(ELEMENTS,'98%','','#fff','indigo',`${MyData.farmerPhone} `,(ELEMENT)=>{
+    
+            });
+
+            LEFTTEXT(ELEMENTS,'','Farmer Country','indigo','20px');
+
+            LEFTBUTTONTEXT(ELEMENTS,'98%','','#fff','indigo',`${MyData.farmerCountry} `,(ELEMENT)=>{
+    
+            });
+
+            LEFTTEXT(ELEMENTS,'','Farmer DIstricit','indigo','20px');
+
+            LEFTBUTTONTEXT(ELEMENTS,'98%','','#fff','indigo',`${MyData.farmerDistrict} `,(ELEMENT)=>{
+    
+            });
+
+            LEFTTEXT(ELEMENTS,'','Farmer Region','indigo','20px');
+
+            LEFTBUTTONTEXT(ELEMENTS,'98%','','#fff','indigo',`${MyData.staffRegion} `,(ELEMENT)=>{
+    
+            });
+    
+            BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+    
+        });
+    
+        FLOATFIXEDBUTTON('','black',(ELEMENT)=>{
+    
+            IMAGE(ELEMENT,WHITEBACKICON,'25px','25px',(IMAGER)=>{
+    
+                STYLED(IMAGER,'transform','rotate(180deg)');
+                
+                CLICK(IMAGER,()=>{
+    
+                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                });
+    
+            });
+    
+        });
+
+    });
+
+}

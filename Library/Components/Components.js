@@ -4,6 +4,8 @@ import { FULLSCROLLVIEW } from "./FullScrollView/FullScrollView.js";
 import { IMAGE } from "./Image/Image.js";
 import { IMAGEBUTTON } from "./ImageButton/ImageButton.js";
 import { INPUT } from "./Input/Input.js";
+import { LEFTBUTTONTEXT } from "./LeftButtonText/LeftButtonText.js";
+import { LEFTTEXT } from "./LeftText/LeftText.js";
 import { MESSAGEDISPLAY } from "./MessageDisplay/MessageDisplay.js";
 import { ROUNDBUTTON } from "./RoundButton/RoundButton.js";
 import { ROUNDINPUT } from "./RoundInput/RoundInput.js";
@@ -17,11 +19,13 @@ const FLOATFIXEDBUTTON=${FLOATFIXEDBUTTON};
 const IMAGEBUTTON=${IMAGEBUTTON};
 const FULLSCROLLVIEW=${FULLSCROLLVIEW};
 const BUTTON=${BUTTON};
+const LEFTBUTTONTEXT=${LEFTBUTTONTEXT};
+const LEFTTEXT=${LEFTTEXT};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const BUTTON=${BUTTON};
+const LEFTTEXT=${LEFTTEXT};
 `
