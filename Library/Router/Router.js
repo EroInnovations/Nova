@@ -1,3 +1,4 @@
+import { NOVA } from "../../Model/Model.js";
 import { APIS } from "../Apis/Apis.js";
 import { ASSETSICONS } from "../Assets/Assets.js";
 import { COMPONENTS } from "../Components/Components.js";
@@ -7,5 +8,6 @@ const ROUTER=()=>{
     COMPONENTS();
     ASSETSICONS();
     APIS();
+    NOVA();
 };
 export{ROUTER};

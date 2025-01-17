@@ -11,10 +11,8 @@ ROUTEJS(localStorage.getItem('APIS'));
 
 `;
 localStorage.setItem('NOVA',DATA);
-localStorage.setItem('Updates','Nova');
 AUTORUN();
 AUTOSTART();
-NOVASTART();
 };
 export{NOVA};
 `

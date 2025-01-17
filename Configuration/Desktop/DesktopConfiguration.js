@@ -1,13 +1,9 @@
-import { NOVA } from "../../Model/Model.js";
-import { NOVASTART } from "../../Model/Start.js";
+import { ROUTER } from "../../Library/Router/Router.js";
 
 const DESKTOPCONFIGURATION=()=>{
 
-    NOVASTART();
+    ROUTER();
 
-    NOVA();
-
-    alert("DEsktop")
     
 };
 export{DESKTOPCONFIGURATION};

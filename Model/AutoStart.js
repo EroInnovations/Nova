@@ -1,5 +1,4 @@
 const AUTOSTART=()=>{
-
 const DATA=`AUTORUN();
 BODY();
 `;
