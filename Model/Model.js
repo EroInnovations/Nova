@@ -11,13 +11,9 @@ ROUTEJS(localStorage.getItem('PROJECT'));
 `;
 localStorage.setItem('NOVA',DATA);
 localStorage.setItem('Updates','Nova');
-setTimeout(() => {
 AUTORUN();
 AUTOSTART();
-setTimeout(() => {
-    NOVASTART(); 
-    }, 2000);
-}, 2000);
+NOVASTART();
 };
 export{NOVA};
 `
