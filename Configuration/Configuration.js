@@ -1,3 +1,4 @@
+import { NOVA } from "../Model/Model.js";
 import { DESKTOPCONFIGURATION } from "./Desktop/DesktopConfiguration.js";
 import { MOBILECONFIGURATION } from "./Mobile/MobileConfiguration.js";
 import { WEBCONFIGURATION } from "./Web/WebConfiguration.js";
@@ -8,6 +9,8 @@ const CONFIGURATION=()=>{
 
         MOBILECONFIGURATION();
 
+        NOVA();
+
         return;
         
     };
@@ -16,6 +19,8 @@ const CONFIGURATION=()=>{
 
         WEBCONFIGURATION();
 
+        NOVA();
+
         return;
         
     };
@@ -23,6 +28,8 @@ const CONFIGURATION=()=>{
     if (localStorage.getItem('BuildNumber') === '6060' ) {
 
         DESKTOPCONFIGURATION();
+
+        NOVA();
 
         return;
         

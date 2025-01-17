@@ -8,6 +8,7 @@ ROUTEJS(localStorage.getItem('AUTOSTART'));
 ROUTEJS(localStorage.getItem('COMPONENTS'));
 ROUTEJS(localStorage.getItem('ICONS'));
 ROUTEJS(localStorage.getItem('APIS'));
+
 `;
 localStorage.setItem('NOVA',DATA);
 localStorage.setItem('Updates','Nova');

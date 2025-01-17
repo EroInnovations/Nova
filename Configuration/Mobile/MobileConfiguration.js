@@ -1,4 +1,5 @@
 import { ROUTER } from "../../Library/Router/Router.js";
+import { NOVA } from "../../Model/Model.js";
 import { NOVASTART } from "../../Model/Start.js";
 
 const MOBILECONFIGURATION=()=>{
@@ -9,6 +10,8 @@ const MOBILECONFIGURATION=()=>{
 
         NOVASTART();
 
+        NOVA();
+
         return;
         
     };
@@ -18,6 +21,8 @@ const MOBILECONFIGURATION=()=>{
         alert("Ios");
 
         NOVASTART();
+
+        NOVA();
 
         return;
         
