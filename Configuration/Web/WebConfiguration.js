@@ -1,6 +1,14 @@
+import { ROUTER } from "../../Library/Router/Router.js";
+
 const WEBCONFIGURATION=()=>{
 
-    alert("Web")
-    
+    if (localStorage.getItem("Status") === 'Website' ) {
+
+        ROUTER();
+
+        return;
+        
+    };
+
 };
 export{WEBCONFIGURATION};

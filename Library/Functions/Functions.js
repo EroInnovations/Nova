@@ -1,10 +1,23 @@
 import { ADD } from "./Add/Add.js";
 import { APPMODE } from "./AppMode/AppMode.js";
 import { BODY } from "./Body/Body.js";
+import { BREAK } from "./Break/Break.js";
+import { CHECKER } from "./Checker/Checker.js";
 import { CLEAR } from "./Clear/Clear.js";
 import { CLICK } from "./Click/Click.js";
+import { CONDITION } from "./Condition/Condition.js";
 import { CREATEELEMENT } from "./CreateElement/CreateElement.js";
+import { DEJSON } from "./Dejson/Dejson.js";
+import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
+import { GETPACKAGE } from "./GetPackage/GetPackage.js";
+import { JSONIFICATION } from "./Jsonification/Jsonification.js";
+import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
+import { REDUX } from "./Redux/Redux.js";
+import { RELOAD } from "./Reload/Reload.js";
+import { ROUTE } from "./Route/Route.js";
+import { STOREDATA } from "./StoreData/StoreData.js";
+import { STYLED } from "./Style/Style.js";
 
 const FUNCTIONS=()=>{
 
@@ -15,15 +28,28 @@ const CLEAR=${CLEAR};
 const DISPLAY=${DISPLAY};
 const APPMODE=${APPMODE};
 const BODY=${BODY};
-
-    
+const RELOAD=${RELOAD};
+const BREAK=${BREAK};
+const STYLED=${STYLED};
+const POSTPACKAGE=${POSTPACKAGE};
+const STOREDATA=${STOREDATA};
+const CHECKER=${CHECKER};
+const CONDITION=${CONDITION};
+const DELETEDATA=${DELETEDATA};
+const JSONIFICATION=${JSONIFICATION};
+const ROUTE=${ROUTE};
+const DEJSON=${DEJSON};
+const GETPACKAGE=${GETPACKAGE};
+const REDUX=${REDUX};
 `;
-localStorage.setItem('FUNCTIONS',DATA)
+
+localStorage.setItem('FUNCTIONS',DATA);
+
 };
 export{FUNCTIONS};
 
 `
 
-const BODY=${BODY};
+const REDUX=${REDUX};
 
 `
