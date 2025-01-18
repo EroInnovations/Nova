@@ -1,3 +1,4 @@
+import { ALERTBOX } from "./AlertBox/AlertBox.js";
 import { BUTTON } from "./Button/Button.js";
 import { FLOATFIXEDBUTTON } from "./FloatFixedButton/FixedButton.js";
 import { FULLSCROLLVIEW } from "./FullScrollView/FullScrollView.js";
@@ -23,11 +24,12 @@ const BUTTON=${BUTTON};
 const LEFTBUTTONTEXT=${LEFTBUTTONTEXT};
 const LEFTTEXT=${LEFTTEXT};
 const TEXTAREA=${TEXTAREA};
+const ALERTBOX=${ALERTBOX};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const TEXTAREA=${TEXTAREA};
+const ALERTBOX=${ALERTBOX};
 `
