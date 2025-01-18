@@ -3,9 +3,15 @@ import { NOVA } from "../../Model/Model.js";
 
 const DESKTOPCONFIGURATION=()=>{
 
-    NOVA();
+    if (localStorage.getItem("Status") === 'Desktop' ) {
 
-    ROUTER();
+        ROUTER();
 
+        NOVA();
+
+        return;
+        
+    };
+    
 };
 export{DESKTOPCONFIGURATION};
