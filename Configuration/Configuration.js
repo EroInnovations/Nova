@@ -1,3 +1,4 @@
+import { NOVA } from "../Model/Model.js";
 import { DESKTOPCONFIGURATION } from "./Desktop/DesktopConfiguration.js";
 import { MOBILECONFIGURATION } from "./Mobile/MobileConfiguration.js";
 import { WEBCONFIGURATION } from "./Web/WebConfiguration.js";
