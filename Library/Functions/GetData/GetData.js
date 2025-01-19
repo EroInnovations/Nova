@@ -1,0 +1,4 @@
+const GETDATA=()=>{
+
+};
+export{GETDATA};

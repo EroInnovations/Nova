@@ -10,6 +10,7 @@ import { CREATEELEMENT } from "./CreateElement/CreateElement.js";
 import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
+import { GETDATA } from "./GetData/GetData.js";
 import { GETPACKAGE } from "./GetPackage/GetPackage.js";
 import { JSONIFICATION } from "./Jsonification/Jsonification.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
@@ -41,6 +42,7 @@ const ROUTE=${ROUTE};
 const DEJSON=${DEJSON};
 const GETPACKAGE=${GETPACKAGE};
 const REDUX=${REDUX};
+const GETDATA=${GETDATA};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -50,6 +52,6 @@ export{FUNCTIONS};
 
 `
 
-const REDUX=${REDUX};
+const GETDATA=${GETDATA};
 
 `
