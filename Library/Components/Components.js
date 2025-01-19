@@ -14,6 +14,7 @@ import { LEFTTEXT } from "./LeftText/LeftText.js";
 import { MESSAGEDISPLAY } from "./MessageDisplay/MessageDisplay.js";
 import { ROUNDBUTTON } from "./RoundButton/RoundButton.js";
 import { ROUNDINPUT } from "./RoundInput/RoundInput.js";
+import { TEXT } from "./Text/Text.js";
 import { TEXTAREA } from "./TextArea/TextArea.js";
 const COMPONENTS=()=>{
 const DATA=`const INPUT=${INPUT};
@@ -33,11 +34,12 @@ const HEADER=${HEADER};
 const FOOTER=${FOOTER};
 const ICON=${ICON};
 const LEFTIMAGE=${LEFTIMAGE};
+const TEXT=${TEXT};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const LEFTIMAGE=${LEFTIMAGE};
+const TEXT=${TEXT};
 `
