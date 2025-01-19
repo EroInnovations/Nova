@@ -2,12 +2,16 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    HEADER('','red',(ELEMENT)=>{
+    CREATEDATABASE('','Home',(data)=>{
+
+        console.log(data);
+
+    },(data)=>{
+
+        console.log(data);
 
     })
 
-    FOOTER('','red',(ELEMENT)=>{
-
-    })
+    
     
 }

@@ -6,6 +6,7 @@ import { CHECKER } from "./Checker/Checker.js";
 import { CLEAR } from "./Clear/Clear.js";
 import { CLICK } from "./Click/Click.js";
 import { CONDITION } from "./Condition/Condition.js";
+import { CREATEDATABASE } from "./CreateDataBase/CreateDataBase.js";
 import { CREATEELEMENT } from "./CreateElement/CreateElement.js";
 import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
@@ -43,6 +44,7 @@ const DEJSON=${DEJSON};
 const GETPACKAGE=${GETPACKAGE};
 const REDUX=${REDUX};
 const GETDATA=${GETDATA};
+const CREATEDATABASE=${CREATEDATABASE};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -52,6 +54,6 @@ export{FUNCTIONS};
 
 `
 
-const GETDATA=${GETDATA};
+const CREATEDATABASE=${CREATEDATABASE};
 
 `
