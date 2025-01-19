@@ -8,11 +8,13 @@ import { CLICK } from "./Click/Click.js";
 import { CONDITION } from "./Condition/Condition.js";
 import { CREATEDATABASE } from "./CreateDataBase/CreateDataBase.js";
 import { CREATEELEMENT } from "./CreateElement/CreateElement.js";
+import { CREATETABLE } from "./CreateTable/CreateTable.js";
 import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
 import { GETDATA } from "./GetData/GetData.js";
 import { GETPACKAGE } from "./GetPackage/GetPackage.js";
+import { INSERTDATA } from "./InsertData/InsertData.js";
 import { JSONIFICATION } from "./Jsonification/Jsonification.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
 import { REDUX } from "./Redux/Redux.js";
@@ -45,6 +47,8 @@ const GETPACKAGE=${GETPACKAGE};
 const REDUX=${REDUX};
 const GETDATA=${GETDATA};
 const CREATEDATABASE=${CREATEDATABASE};
+const CREATETABLE=${CREATETABLE};
+const INSERTDATA=${INSERTDATA};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -54,6 +58,6 @@ export{FUNCTIONS};
 
 `
 
-const CREATEDATABASE=${CREATEDATABASE};
+const INSERTDATA=${INSERTDATA};
 
 `
