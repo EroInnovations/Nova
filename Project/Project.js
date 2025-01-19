@@ -2,6 +2,12 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    ALERTBOX("")
+    HEADER('','red',(ELEMENT)=>{
+
+    })
+
+    FOOTER('','red',(ELEMENT)=>{
+
+    })
     
 }

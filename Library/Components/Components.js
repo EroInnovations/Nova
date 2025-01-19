@@ -1,7 +1,9 @@
 import { ALERTBOX } from "./AlertBox/AlertBox.js";
 import { BUTTON } from "./Button/Button.js";
 import { FLOATFIXEDBUTTON } from "./FloatFixedButton/FixedButton.js";
+import { FOOTER } from "./Footer/Footer.js";
 import { FULLSCROLLVIEW } from "./FullScrollView/FullScrollView.js";
+import { HEADER } from "./Header/Header.js";
 import { IMAGE } from "./Image/Image.js";
 import { IMAGEBUTTON } from "./ImageButton/ImageButton.js";
 import { INPUT } from "./Input/Input.js";
@@ -25,11 +27,13 @@ const LEFTBUTTONTEXT=${LEFTBUTTONTEXT};
 const LEFTTEXT=${LEFTTEXT};
 const TEXTAREA=${TEXTAREA};
 const ALERTBOX=${ALERTBOX};
+const HEADER=${HEADER};
+const FOOTER=${FOOTER};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const ALERTBOX=${ALERTBOX};
+const FOOTER=${FOOTER};
 `
