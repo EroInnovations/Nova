@@ -9,6 +9,7 @@ import { IMAGE } from "./Image/Image.js";
 import { IMAGEBUTTON } from "./ImageButton/ImageButton.js";
 import { INPUT } from "./Input/Input.js";
 import { LEFTBUTTONTEXT } from "./LeftButtonText/LeftButtonText.js";
+import { LEFTIMAGE } from "./LeftImage/LeftImage.js";
 import { LEFTTEXT } from "./LeftText/LeftText.js";
 import { MESSAGEDISPLAY } from "./MessageDisplay/MessageDisplay.js";
 import { ROUNDBUTTON } from "./RoundButton/RoundButton.js";
@@ -31,11 +32,12 @@ const ALERTBOX=${ALERTBOX};
 const HEADER=${HEADER};
 const FOOTER=${FOOTER};
 const ICON=${ICON};
+const LEFTIMAGE=${LEFTIMAGE};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const ICON=${ICON};
+const LEFTIMAGE=${LEFTIMAGE};
 `
