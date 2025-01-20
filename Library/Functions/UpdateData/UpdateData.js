@@ -1,9 +1,12 @@
-const GETDATA=(LINK,NAME,callback,callback1)=>{
+const UPDATEDATA=(LINK,NAME,ID,INFO,callback,callback1)=>{
     const DATA={
         "sheetName":NAME,
         "spreadsheetUrl":LINK,
+        "id":ID,
+        "data":INFO,
+        "action":"update"
     };
-    fetch('https://script.google.com/macros/s/AKfycbwc_ZdByDbw4u-OcEcAaJQt11bfAe3znQ7pYre6pl1KOyIrx8E8PN9yIs1KVcLYPjQlOw/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbyVHo8tKvSSKGYliowU6sLvNzSaDxSNOz3k3jXCx_zQuWN1juHFwwThLJPs-LtYNisr/exec',{
         method:'Post',
         mode:'cors',
         body:JSON.stringify(DATA)
@@ -16,4 +19,4 @@ const GETDATA=(LINK,NAME,callback,callback1)=>{
         callback1(error)
     } );
 };
-export{GETDATA};
+export{UPDATEDATA};

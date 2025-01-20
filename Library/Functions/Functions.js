@@ -22,6 +22,7 @@ import { RELOAD } from "./Reload/Reload.js";
 import { ROUTE } from "./Route/Route.js";
 import { STOREDATA } from "./StoreData/StoreData.js";
 import { STYLED } from "./Style/Style.js";
+import { UPDATEDATA } from "./UpdateData/UpdateData.js";
 
 const FUNCTIONS=()=>{
 
@@ -49,6 +50,7 @@ const GETDATA=${GETDATA};
 const CREATEDATABASE=${CREATEDATABASE};
 const CREATETABLE=${CREATETABLE};
 const INSERTDATA=${INSERTDATA};
+const UPDATEDATA=${UPDATEDATA};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -58,6 +60,6 @@ export{FUNCTIONS};
 
 `
 
-const INSERTDATA=${INSERTDATA};
+const UPDATEDATA=${UPDATEDATA};
 
 `

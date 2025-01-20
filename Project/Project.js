@@ -2,40 +2,18 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    CREATEDATABASE('Home',(data)=>{
-
-        console.log(data);
-
-    },(data)=>{
-
-        console.log(data);
-
-    })
-
-    CREATETABLE('https://docs.google.com/spreadsheets/d/1MLiFVK_B4_TcJ1c_LtTfjs7hA-_xHWpxGyoy6mBqTzY/edit?gid=0#gid=0','test',(data)=>{
-
-        console.log(data);
-
-    },(data)=>{
-
-        console.log(data);
-
-    })
-
     const HEADERS=['NAme','Age'];
-    const JJ=['Hen','RR']
 
-    INSERTDATA('https://docs.google.com/spreadsheets/d/1MLiFVK_B4_TcJ1c_LtTfjs7hA-_xHWpxGyoy6mBqTzY/edit?gid=0#gid=0','test',HEADERS,JJ,(data)=>{
+    const JJ=['Hen','ERSR'];
+    
+    UPDATEDATA('https://docs.google.com/spreadsheets/d/1MLiFVK_B4_TcJ1c_LtTfjs7hA-_xHWpxGyoy6mBqTzY/edit?gid=0#gid=0','test','e1087189-d592-48fd-ae39-167de60f7f93',JJ,(data)=>{
 
-        console.log(data)
+        console.log(data);
 
     },(data)=>{
 
-        console.log(data)
+        console.log(data);
 
+    });
 
-    })
-
-    
-    
-}
+};
