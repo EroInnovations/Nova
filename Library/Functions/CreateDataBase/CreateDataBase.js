@@ -7,12 +7,20 @@ const CREATEDATABASE=(NAME,callback,callback1)=>{
         mode:'cors',
         body:JSON.stringify(DATA)
     })
+    
     .then(res =>res.json())
+    
     .then(data =>{
+    
         callback(data)
+    
     } )
+    
     .catch(error =>{
+    
         callback1(error)
+    
     } );
+
 };
 export{CREATEDATABASE};

@@ -9,18 +9,27 @@ import { CONDITION } from "./Condition/Condition.js";
 import { CREATEDATABASE } from "./CreateDataBase/CreateDataBase.js";
 import { CREATEELEMENT } from "./CreateElement/CreateElement.js";
 import { CREATETABLE } from "./CreateTable/CreateTable.js";
+import { DATASORTER } from "./DataSorter/DataSorter.js";
 import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
+import { FINDER } from "./Finder/Finder.js";
 import { GETDATA } from "./GetData/GetData.js";
+import { GETINDEXED } from "./GetIndex/GetIndex.js";
 import { GETPACKAGE } from "./GetPackage/GetPackage.js";
+import { HIDER } from "./Hider/Hider.js";
 import { INSERTDATA } from "./InsertData/InsertData.js";
+import { INSPECTION } from "./Inspection/Inspection.js";
+import { JSONADDER } from "./JsonAdder/JsonAdder.js";
 import { JSONIFICATION } from "./Jsonification/Jsonification.js";
+import { JSONREMOVER } from "./JsonRemover/JsonRemover.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
 import { REDUX } from "./Redux/Redux.js";
 import { RELOAD } from "./Reload/Reload.js";
+import { REPEATER } from "./Repeater/Repeater.js";
 import { ROUTE } from "./Route/Route.js";
 import { STOREDATA } from "./StoreData/StoreData.js";
+import { STOREINDEXED } from "./StoreIndex/StoreIndex.js";
 import { STYLED } from "./Style/Style.js";
 import { UPDATEDATA } from "./UpdateData/UpdateData.js";
 
@@ -51,6 +60,15 @@ const CREATEDATABASE=${CREATEDATABASE};
 const CREATETABLE=${CREATETABLE};
 const INSERTDATA=${INSERTDATA};
 const UPDATEDATA=${UPDATEDATA};
+const STOREINDEXED=${STOREINDEXED};
+const GETINDEXED=${GETINDEXED};
+const HIDER=${HIDER};
+const REPEATER=${REPEATER};
+const DATASORTER=${DATASORTER};
+const JSONADDER=${JSONADDER};
+const INSPECTION=${INSPECTION};
+const FINDER=${FINDER};
+const JSONREMOVER=${JSONREMOVER};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -60,6 +78,6 @@ export{FUNCTIONS};
 
 `
 
-const UPDATEDATA=${UPDATEDATA};
+const JSONREMOVER=${JSONREMOVER};
 
 `
