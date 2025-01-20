@@ -1,5 +1,6 @@
 import { ADD } from "./Add/Add.js";
 import { APPMODE } from "./AppMode/AppMode.js";
+import { AUDIOPICKER } from "./AudioPicker/AudioPicker.js";
 import { BODY } from "./Body/Body.js";
 import { BREAK } from "./Break/Break.js";
 import { CHECKER } from "./Checker/Checker.js";
@@ -18,6 +19,7 @@ import { GETDATA } from "./GetData/GetData.js";
 import { GETINDEXED } from "./GetIndex/GetIndex.js";
 import { GETPACKAGE } from "./GetPackage/GetPackage.js";
 import { HIDER } from "./Hider/Hider.js";
+import { IMAGEPICKER } from "./ImagePicker/ImagePicker.js";
 import { INSERTDATA } from "./InsertData/InsertData.js";
 import { INSPECTION } from "./Inspection/Inspection.js";
 import { JSONADDER } from "./JsonAdder/JsonAdder.js";
@@ -31,7 +33,11 @@ import { ROUTE } from "./Route/Route.js";
 import { STOREDATA } from "./StoreData/StoreData.js";
 import { STOREINDEXED } from "./StoreIndex/StoreIndex.js";
 import { STYLED } from "./Style/Style.js";
+import { TWITTER } from "./Twitter/Twitter.js";
 import { UPDATEDATA } from "./UpdateData/UpdateData.js";
+import { VIDEOPICKER } from "./VideoPicker/VideoPicker.js";
+import { WEBSITE } from "./WebSite/WebSite.js";
+import { ZOOM } from "./Zoom/Zoom.js";
 
 const FUNCTIONS=()=>{
 
@@ -69,6 +75,12 @@ const JSONADDER=${JSONADDER};
 const INSPECTION=${INSPECTION};
 const FINDER=${FINDER};
 const JSONREMOVER=${JSONREMOVER};
+const IMAGEPICKER=${IMAGEPICKER};
+const AUDIOPICKER=${AUDIOPICKER};
+const VIDEOPICKER=${VIDEOPICKER};
+const ZOOM=${ZOOM};
+const WEBSITE=${WEBSITE};
+const TWITTER=${TWITTER};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -78,6 +90,6 @@ export{FUNCTIONS};
 
 `
 
-const JSONREMOVER=${JSONREMOVER};
+const TWITTER=${TWITTER};
 
 `
