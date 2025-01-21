@@ -1,5 +1,6 @@
 import { AUTORUN } from "./AutoRun.js";
 import { AUTOSTART } from "./AutoStart.js";
+import { NOVASTARTER } from "./Start.js";
 const NOVA=()=>{
 const DATA=`ROUTEJS(localStorage.getItem('FUNCTIONS'));
 ROUTEJS(localStorage.getItem('AUTORUN'));
@@ -13,6 +14,7 @@ ROUTEJS(localStorage.getItem('PROJECT'));
 localStorage.setItem('NOVA',DATA);
 AUTORUN();
 AUTOSTART();
+NOVASTARTER();
 };
 export{NOVA};
 `

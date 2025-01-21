@@ -1,7 +1,25 @@
 import { ENVIRONMENT } from "../Environment/Environment.js";
-import { NOVASTARTER } from "../Model/Start.js";
 const START=()=>{
+
+    if (!localStorage.getItem('Updates')) {
+
+        const body=document.querySelector(".body");
+    
+        body.innerHTML=`
+
+            <h1>Updates</h1>
+
+            <p>Please Wait</p>
+            
+            <p>Downloading Updates</p>
+
+            <div class="LoadingIconer"></div>
+        
+        `;
+        
+    }
+   
+    
     ENVIRONMENT();
-    NOVASTARTER();
 };
 export{START};

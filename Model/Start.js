@@ -1,11 +1,12 @@
 const NOVASTARTER=()=>{
     const DATA={
-        "spreadsheetUrl":"https://docs.google.com/spreadsheets/d/1kd15tCp1cX6TIUSsm3GcrfxDvOrmqlTNxAaseR8LBhw/edit?gid=0#gid=0",
-        "sheetName":"AppManager"
+        "spreadsheetUrl":"https://docs.google.com/spreadsheets/d/1Utfr1wkoZSRvM9TOKaTxOX6orYE8AuN2mu4dDtQmhFQ/edit?gid=0#gid=0",
+        "sheetName":"APPMANAGER"
     };
 
-    fetch('https://script.google.com/macros/s/AKfycby5S_I3_hu6iEB0n8I7cmFZ9liA1kGPpQ-9ewmTcJmkUuMCYY540oaGDwJGE4ADs6tv5w/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbwc_ZdByDbw4u-OcEcAaJQt11bfAe3znQ7pYre6pl1KOyIrx8E8PN9yIs1KVcLYPjQlOw/exec',{
         method:"Post",
+        mode:"cors",
         body:JSON.stringify(DATA)
     })
 
@@ -13,33 +14,98 @@ const NOVASTARTER=()=>{
 
     .then(data =>{
 
-        data.forEach(element => {   
+        if (!localStorage.getItem('Updates')) {
 
-            if (element.ID === localStorage.getItem('NAME')) {
+            const body=document.querySelector(".body");
+    
+            body.innerHTML=`
+        
+                <h1>Updates</h1>
+        
+                <p>Almost Ready</p>
+                
+                <p>Installing Updates</p>
+        
+                <div class="LoadingIconer"></div>
+            
+            `;
+            
+        };
 
-                if (localStorage.getItem("Environment") === 'Development' ) {
+        data.forEach(element => {
+
+            if (localStorage.getItem('Environment') === 'Development')  {
+
+                localStorage.setItem("PROJECT",'');
+
+                if (!localStorage.getItem('Updates')) {
+
+                    localStorage.setItem('Updates','On');
+
+                    Reload();
                     
-                    localStorage.setItem("PROJECT",'');
-
-                }else{
-
-                    localStorage.setItem("PROJECT",element.Functions);
-
                 }
 
-                if (!localStorage.getItem("Updates")) {
+            } else {
 
-                    setTimeout(() => {
+                if (Element.ID === localStorage.getItem("NAME") ) {
 
-                        Reload();
+                    if (localStorage.getItem('Environment') === 'Production') {
+
+                        localStorage.setItem("PROJECT",element.AndroidDesign+element.AndroidFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
+                      
+                        if (!localStorage.getItem('Updates')) {
+
+                            localStorage.setItem('Updates','On');
+
+                            Reload();
+                            
+                        }
                         
-                    }, 2000);
+                        return;
 
-                    localStorage.setItem("Updates",'Nova');
+                    };
+
+                    if (localStorage.getItem('Environment') === 'Web') {
+                        
+                        localStorage.setItem("PROJECT",element.WebDesign+element.WebFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
+                      
+                        if (!localStorage.getItem('Updates')) {
+
+                            localStorage.setItem('Updates','On');
+
+                            Reload();
+                            
+                        }
+                        
+                        return;
+
+                    };
+
+                    if (localStorage.getItem('Environment') === 'Desktop') {
+                        
+                        localStorage.setItem("PROJECT",element.DesktopDesign+element.DesktopFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
+                      
+                        if (!localStorage.getItem('Updates')) {
+
+                            localStorage.setItem('Updates','On');
+
+                            Reload();
+                            
+                        }
+                        
+                        return;
+
+                    };
                     
-                };
+                }else{
 
-            } ;
+                    alert("Something Went Wrong");
+
+                }
+                
+            };
+            
         });
 
     } )
