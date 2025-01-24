@@ -14,6 +14,7 @@ import { DATASORTER } from "./DataSorter/DataSorter.js";
 import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
+import { EVENT } from "./Event/Event.js";
 import { FINDER } from "./Finder/Finder.js";
 import { GETDATA } from "./GetData/GetData.js";
 import { GETINDEXED } from "./GetIndex/GetIndex.js";
@@ -81,6 +82,7 @@ const VIDEOPICKER=${VIDEOPICKER};
 const ZOOM=${ZOOM};
 const WEBSITE=${WEBSITE};
 const TWITTER=${TWITTER};
+const EVENT=${EVENT};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -90,6 +92,6 @@ export{FUNCTIONS};
 
 `
 
-const TWITTER=${TWITTER};
+const EVENT=${EVENT};
 
 `

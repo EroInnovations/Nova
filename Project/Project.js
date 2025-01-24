@@ -1,7 +1,11 @@
 const NOVASTART=()=>{
 
+    CLEAR("");
+
     APPMODE('#000');
 
-    CLEAR("")
+    IFRAME("",()=>{
+
+    });
 
 };

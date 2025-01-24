@@ -5,6 +5,7 @@ import { FOOTER } from "./Footer/Footer.js";
 import { FULLSCROLLVIEW } from "./FullScrollView/FullScrollView.js";
 import { HEADER } from "./Header/Header.js";
 import { ICON } from "./Icon/Icon.js";
+import { IFRAME } from "./Iframe/Iframe.js";
 import { IMAGE } from "./Image/Image.js";
 import { IMAGEBUTTON } from "./ImageButton/ImageButton.js";
 import { INPUT } from "./Input/Input.js";
@@ -35,11 +36,12 @@ const FOOTER=${FOOTER};
 const ICON=${ICON};
 const LEFTIMAGE=${LEFTIMAGE};
 const TEXT=${TEXT};
+const IFRAME=${IFRAME};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const TEXT=${TEXT};
+const IFRAME=${IFRAME};
 `
