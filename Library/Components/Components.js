@@ -1,5 +1,6 @@
 import { ALERTBOX } from "./AlertBox/AlertBox.js";
 import { BUTTON } from "./Button/Button.js";
+import { CORNERROUNDINPUT } from "./CornerRoundInput/CornerRoundInout.js";
 import { CORNERROUNDBUTTON } from "./CornerSquareButton/CornernSquareButton.js";
 import { FLOATFIXEDBUTTON } from "./FloatFixedButton/FixedButton.js";
 import { FOOTER } from "./Footer/Footer.js";
@@ -41,11 +42,12 @@ const TEXT=${TEXT};
 const IFRAME=${IFRAME};
 const CORNERROUNDBUTTON=${CORNERROUNDBUTTON};
 const BORDERROUNDBUTTON=${BORDERROUNDBUTTON};
+const CORNERROUNDINPUT=${CORNERROUNDINPUT};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const BORDERROUNDBUTTON=${BORDERROUNDBUTTON};
+const CORNERROUNDINPUT=${CORNERROUNDINPUT};
 `;
