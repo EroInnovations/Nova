@@ -1,10 +1,10 @@
-const CORNERROUNDINPUT=(ELEMENT,TYPE,COLOR,BGCOLOR,PLACEHOLDER,callback)=>{
+const CORNERROUNDINPUT=(ELEMENT,TYPE,COLOR,BGCOLOR,WIDTH,HEIGHT,PLACEHOLDER,callback)=>{
 
     const ELEMENTS=document.createElement("input");
  
-    ELEMENTS.style.width='95%';
+    ELEMENTS.style.width=WIDTH||'95%';
     ELEMENTS.style.borderRadius='10px';
-    ELEMENTS.style.height='32px';
+    ELEMENTS.style.height=HEIGHT||'32px';
     ELEMENTS.style.background=BGCOLOR||'#cdcdcd';
     ELEMENTS.style.border='1px solid #cdcdcd';
     ELEMENTS.style.outline='none';
