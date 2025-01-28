@@ -1,11 +1,12 @@
+
 const NOVASTART=()=>{
 
     CLEAR("");
 
     APPMODE('#000');
 
-    IFRAME("",()=>{
-
+    CORNERROUNDBUTTON('','90%','50px','','','','text',()=>{
+        
     });
-
+    
 };

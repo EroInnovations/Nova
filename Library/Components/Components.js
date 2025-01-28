@@ -1,5 +1,6 @@
 import { ALERTBOX } from "./AlertBox/AlertBox.js";
 import { BUTTON } from "./Button/Button.js";
+import { CORNERROUNDBUTTON } from "./CornerSquareButton/CornernSquareButton.js";
 import { FLOATFIXEDBUTTON } from "./FloatFixedButton/FixedButton.js";
 import { FOOTER } from "./Footer/Footer.js";
 import { FULLSCROLLVIEW } from "./FullScrollView/FullScrollView.js";
@@ -13,6 +14,7 @@ import { LEFTBUTTONTEXT } from "./LeftButtonText/LeftButtonText.js";
 import { LEFTIMAGE } from "./LeftImage/LeftImage.js";
 import { LEFTTEXT } from "./LeftText/LeftText.js";
 import { MESSAGEDISPLAY } from "./MessageDisplay/MessageDisplay.js";
+import { BORDERROUNDBUTTON } from "./RoundBorderButton/RoundBorderButton.js";
 import { ROUNDBUTTON } from "./RoundButton/RoundButton.js";
 import { ROUNDINPUT } from "./RoundInput/RoundInput.js";
 import { TEXT } from "./Text/Text.js";
@@ -37,11 +39,13 @@ const ICON=${ICON};
 const LEFTIMAGE=${LEFTIMAGE};
 const TEXT=${TEXT};
 const IFRAME=${IFRAME};
+const CORNERROUNDBUTTON=${CORNERROUNDBUTTON};
+const BORDERROUNDBUTTON=${BORDERROUNDBUTTON};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const IFRAME=${IFRAME};
-`
+const BORDERROUNDBUTTON=${BORDERROUNDBUTTON};
+`;
