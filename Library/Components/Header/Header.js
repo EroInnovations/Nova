@@ -10,7 +10,6 @@ const HEADER=(ELEMENT,COLOR,callback)=>{
     ELEMENT1.style.left='0';
     ELEMENT1.style.top='0';
 
-
     if (ELEMENT) {
 
         ELEMENT.append(ELEMENT1);
