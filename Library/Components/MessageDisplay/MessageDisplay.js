@@ -4,7 +4,7 @@ const MESSAGEDISPLAY=(ELEMENT,MESSAGE,TIME)=>{
 
     ELEMENT1.style.width='95%';
     ELEMENT1.style.position='absolute';
-    ELEMENT1.style.height='80px';
+    ELEMENT1.style.height='50px';
     ELEMENT1.style.background='#000000';
     ELEMENT1.style.left='2%';
     ELEMENT1.style.display='inline-flex';
