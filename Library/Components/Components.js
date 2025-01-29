@@ -1,7 +1,7 @@
 import { ALERTBOX } from "./AlertBox/AlertBox.js";
 import { BORDERROUNDINPUT } from "./BorderInput/BorderInput.js";
 import { BUTTON } from "./Button/Button.js";
-import { CORNERROUNDINPUT } from "./CornerRoundInput/CornerRoundInout.js";
+import { CORNERROUNDINPUT } from "./CornerRoundInput/CornerRoundInput.js";
 import { CORNERROUNDBUTTON } from "./CornerSquareButton/CornernSquareButton.js";
 import { FLOATFIXEDBUTTON } from "./FloatFixedButton/FixedButton.js";
 import { FOOTER } from "./Footer/Footer.js";

@@ -5,8 +5,8 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    CORNERROUNDBUTTON('','90%','50px','','','','text',()=>{
-        
-    });
+    CORNERROUNDINPUT('','email','','','',()=>{
+
+    })
     
 };
