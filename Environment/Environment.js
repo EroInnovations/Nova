@@ -1,5 +1,4 @@
 import { CONFIGURATION } from "../Configuration/Configuration.js";
-import { NOVA } from "../Model/Model.js";
 
 const ENVIRONMENT=()=>{
 
@@ -7,17 +6,13 @@ const ENVIRONMENT=()=>{
 
         CONFIGURATION();
         
-        NOVA();
-
         return;
         
     };
 
-    if (localStorage.getItem('Environment') === 'Mobile' ) {
+    if (localStorage.getItem('Environment') === 'Production' ) {
 
         CONFIGURATION();
-
-        NOVA();
 
         return;
         
@@ -27,8 +22,6 @@ const ENVIRONMENT=()=>{
 
         CONFIGURATION();
 
-        NOVA();
-
         return;
         
     };
@@ -36,8 +29,6 @@ const ENVIRONMENT=()=>{
     if (localStorage.getItem('Environment') === 'Desktop' ) {
 
         CONFIGURATION();
-
-        NOVA();
 
         return;
         
