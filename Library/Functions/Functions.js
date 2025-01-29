@@ -34,7 +34,10 @@ import { ROUTE } from "./Route/Route.js";
 import { STOREDATA } from "./StoreData/StoreData.js";
 import { STOREINDEXED } from "./StoreIndex/StoreIndex.js";
 import { STYLED } from "./Style/Style.js";
+<<<<<<< HEAD
 import { TEXTFAMILY } from "./TextFamily/TextFamily.js";
+=======
+>>>>>>> 1271f0cb85c893e9315c41c3e80a34dfdf2aad5e
 import { TWITTER } from "./Twitter/Twitter.js";
 import { UPDATEDATA } from "./UpdateData/UpdateData.js";
 import { VIDEOPICKER } from "./VideoPicker/VideoPicker.js";
@@ -84,7 +87,10 @@ const ZOOM=${ZOOM};
 const WEBSITE=${WEBSITE};
 const TWITTER=${TWITTER};
 const EVENT=${EVENT};
+<<<<<<< HEAD
 const TEXTFAMILY=${TEXTFAMILY};
+=======
+>>>>>>> 1271f0cb85c893e9315c41c3e80a34dfdf2aad5e
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -94,6 +100,10 @@ export{FUNCTIONS};
 
 `
 
+<<<<<<< HEAD
 const TEXTFAMILY=${TEXTFAMILY};
+=======
+const EVENT=${EVENT};
+>>>>>>> 1271f0cb85c893e9315c41c3e80a34dfdf2aad5e
 
 `
