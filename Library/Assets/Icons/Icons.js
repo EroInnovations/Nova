@@ -4,6 +4,7 @@ import { APPICON } from "./AppIcon/AppIcon.js";
 import { BAGICON } from "./BagIcon/BagIcon.js";
 import { BICYCLEICON } from "./BicycleIcon/BicycleIcon.js";
 import { DROPDOWNICON } from "./DropDownIcon/DropDownIcon.js";
+import { HOMEICON } from "./HomeIcon/HomeIcon.js";
 import { LEFTBACKICON } from "./LeftBackIcon/LeftBackIcon.js";
 import { FISKONICON } from "./Logos/fiskon/fiskon.js";
 import { WINKSTA } from "./Logos/Winksta/Winksta.js";
@@ -29,6 +30,7 @@ const WHITESONGBACKICON='${SONGBACKICON}';
 const WHITEBAGICON='${BAGICON}';
 const WHITEBICYCLEICON='${BICYCLEICON}';
 const WHITEDROPDOWNICON='${DROPDOWNICON}';
+const WHITEHOMEICON='${HOMEICON}';
 `;
     localStorage.setItem("ICONS",DATA);
 
@@ -36,6 +38,6 @@ const WHITEDROPDOWNICON='${DROPDOWNICON}';
 export{ICONS};
 
 `
-const WHITEDROPDOWNICON='${DROPDOWNICON}';
+const WHITEHOMEICON='${HOMEICON}';
 
 `
