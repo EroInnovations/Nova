@@ -27,6 +27,7 @@ import { INSPECTION } from "./Inspection/Inspection.js";
 import { JSONADDER } from "./JsonAdder/JsonAdder.js";
 import { JSONIFICATION } from "./Jsonification/Jsonification.js";
 import { JSONREMOVER } from "./JsonRemover/JsonRemover.js";
+import { MESSAGEPASSER } from "./MessagePasser/MessagePasser.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
 import { REDUX } from "./Redux/Redux.js";
 import { RELOAD } from "./Reload/Reload.js";
@@ -87,6 +88,7 @@ const TWITTER=${TWITTER};
 const EVENT=${EVENT};
 const TEXTFAMILY=${TEXTFAMILY};
 const CLASS=${CLASS};
+const MESSAGEPASSER=${MESSAGEPASSER};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -96,6 +98,6 @@ export{FUNCTIONS};
 
 `
 
-const CLASS=${CLASS};
+const MESSAGEPASSER=${MESSAGEPASSER};
 
 `
