@@ -98,10 +98,6 @@ const NOVASTARTER=()=>{
 
                     };
                     
-                }else{
-
-                    alert("Something Went Wrong");
-
                 }
                 
             };
