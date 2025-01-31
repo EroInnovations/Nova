@@ -21,6 +21,7 @@ import { ROUNDBUTTON } from "./RoundButton/RoundButton.js";
 import { ROUNDINPUT } from "./RoundInput/RoundInput.js";
 import { TEXT } from "./Text/Text.js";
 import { TEXTAREA } from "./TextArea/TextArea.js";
+import { VIEW } from "./View/Views.js";
 const COMPONENTS=()=>{
 const DATA=`const INPUT=${INPUT};
 const ROUNDINPUT=${ROUNDINPUT};
@@ -45,12 +46,13 @@ const CORNERROUNDBUTTON=${CORNERROUNDBUTTON};
 const BORDERROUNDBUTTON=${BORDERROUNDBUTTON};
 const CORNERROUNDINPUT=${CORNERROUNDINPUT};
 const BORDERROUNDINPUT=${BORDERROUNDINPUT};
+const VIEW=${VIEW};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const BORDERROUNDINPUT=${BORDERROUNDINPUT};
+const VIEW=${VIEW};
 
 `;
