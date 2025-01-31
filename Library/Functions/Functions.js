@@ -39,6 +39,7 @@ import { STYLED } from "./Style/Style.js";
 import { TEXTFAMILY } from "./TextFamily/TextFamily.js";
 import { TWITTER } from "./Twitter/Twitter.js";
 import { UPDATEDATA } from "./UpdateData/UpdateData.js";
+import { UPDATEINDEX } from "./UpdateIndex/UpdateIndex.js";
 import { VIDEOPICKER } from "./VideoPicker/VideoPicker.js";
 import { WEBSITE } from "./WebSite/WebSite.js";
 import { ZOOM } from "./Zoom/Zoom.js";
@@ -89,6 +90,7 @@ const EVENT=${EVENT};
 const TEXTFAMILY=${TEXTFAMILY};
 const CLASS=${CLASS};
 const MESSAGEPASSER=${MESSAGEPASSER};
+const UPDATEINDEX=${UPDATEINDEX};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -98,6 +100,6 @@ export{FUNCTIONS};
 
 `
 
-const MESSAGEPASSER=${MESSAGEPASSER};
+const UPDATEINDEX=${UPDATEINDEX};
 
 `
