@@ -10,6 +10,8 @@ const HEADER=(ELEMENT,COLOR,callback)=>{
     ELEMENT1.style.left='0';
     ELEMENT1.style.top='0';
 
+    callback(ELEMENT1);
+
     if (ELEMENT) {
 
         ELEMENT.append(ELEMENT1);
@@ -20,8 +22,6 @@ const HEADER=(ELEMENT,COLOR,callback)=>{
         document.querySelector("body").append(ELEMENT1);
         
     };
-
-    callback(ELEMENT);
 
 };
 export{HEADER};
