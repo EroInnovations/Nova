@@ -15,7 +15,7 @@ import { BACKICON } from "./WhiteIcons/BackIcon/BackIcon.js";
 import { INFOICON } from "./WhiteIcons/InfoIcon/InfoIcon.js";
 import { MENUICON } from "./WhiteIcons/MenuIcon/MenuIcon.js";
 import { SHOPPINGCART } from "./WhiteIcons/ShoppingCart/ShoppingCart.js";
-import { WHATSAPPICON } from "./WhiteIcons/WhatsAppIcon/WhatsAppIcon.js";
+import { WHATSAPPICON, WHITEWHATSAPPICON } from "./WhiteIcons/WhatsAppIcon/WhatsAppIcon.js";
 import { INSTAGRAMICON } from "./WhiteIcons/InstagramIcon/InstagramIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
@@ -36,6 +36,7 @@ const WHITEDROPDOWNICON='${DROPDOWNICON}';
 const WHITEHOMEICON='${HOMEICON}';
 const COMMUNITYRISELOGO='${COMMUNITYRISELOGO}';
 const WHITEINSTAGRAMICON='${INSTAGRAMICON}';
+const WHITEWHATSAPPICON='${WHATSAPPICON}';
 `;
     localStorage.setItem("ICONS",DATA);
 
@@ -43,6 +44,6 @@ const WHITEINSTAGRAMICON='${INSTAGRAMICON}';
 export{ICONS};
 
 `
-const WHITEINSTAGRAMICON='${INSTAGRAMICON}';
+const WHITEWHATSAPPICON='${WHATSAPPICON}';
 
 `
