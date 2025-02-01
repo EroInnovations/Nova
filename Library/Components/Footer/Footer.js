@@ -22,7 +22,7 @@ const FOOTER=(ELEMENT,COLOR,WIDTH,HEIGHT,callback)=>{
         
     };
 
-    callback(ELEMENT);
+    callback(ELEMENT1);
 
 };
 export{FOOTER};
