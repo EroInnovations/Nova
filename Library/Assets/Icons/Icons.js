@@ -20,6 +20,7 @@ import { INSTAGRAMICON } from "./WhiteIcons/InstagramIcon/InstagramIcon.js";
 import { CONTRASTICON } from "./WhiteIcons/ContrastIcon/ContrastIcon.js";
 import { SETTINGSICON } from "./WhiteIcons/SettingsIcon/SettingsIcons.js";
 import { CAMERAICON } from "./WhiteIcons/CameraIcon/CameraIcon.js";
+import { RETRYICON } from "./WhiteIcons/RetryIcon/RetryIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -43,6 +44,7 @@ const WHITEWHATSAPPICON='${WHATSAPPICON}';
 const WHITECONTRASTICON='${CONTRASTICON}';
 const WHITESETTINGSICON='${SETTINGSICON}';
 const WHITECAMERAICON='${CAMERAICON}';
+const WHITERETRYICON='${RETRYICON}';
 `;
     localStorage.setItem("ICONS",DATA);
 
@@ -50,6 +52,6 @@ const WHITECAMERAICON='${CAMERAICON}';
 export{ICONS};
 
 `
-const WHITECAMERAICON='${CAMERAICON}';
+const WHITERETRYICON='${RETRYICON}';
 
 `
