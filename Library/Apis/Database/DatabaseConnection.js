@@ -10,6 +10,5 @@ const UPDATEDATAAPI='https://script.google.com/macros/s/AKfycbyVHo8tKvSSKGYliowU
 const GETDATAAPI='https://script.google.com/macros/s/AKfycbwc_ZdByDbw4u-OcEcAaJQt11bfAe3znQ7pYre6pl1KOyIrx8E8PN9yIs1KVcLYPjQlOw/exec';
 `;
 localStorage.setItem("APIS",DATA);
-
 };
 export{DATABASECONNECTIONAPI}

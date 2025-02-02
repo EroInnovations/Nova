@@ -6,17 +6,20 @@ import { BICYCLEICON } from "./WhiteIcons/BicycleIcon/BicycleIcon.js";
 import { DROPDOWNICON } from "./WhiteIcons/DropDownIcon/DropDownIcon.js";
 import { HOMEICON } from "./WhiteIcons/HomeIcon/HomeIcon.js";
 import { LEFTBACKICON } from "./WhiteIcons/LeftBackIcon/LeftBackIcon.js";
-import { COMMUNITYRISELOGO } from "./WhiteIcons/Logos/CommunityRise/CommunityRise.js";
-import { FISKONICON } from "./WhiteIcons/Logos/fiskon/fiskon.js";
-import { WINKSTA } from "./WhiteIcons/Logos/Winksta/Winksta.js";
+import { COMMUNITYRISELOGO } from "./Logos/CommunityRise/CommunityRise.js";
+import { FISKONICON } from "./Logos/fiskon/fiskon.js";
+import { WINKSTA } from "./Logos/Winksta/Winksta.js";
 import { SONGBACKICON } from "./WhiteIcons/SongBackIcon/SongBackIcon.js";
 import { ADDICON } from "./WhiteIcons/AddIcon/Addicon.js";
 import { BACKICON } from "./WhiteIcons/BackIcon/BackIcon.js";
 import { INFOICON } from "./WhiteIcons/InfoIcon/InfoIcon.js";
 import { MENUICON } from "./WhiteIcons/MenuIcon/MenuIcon.js";
 import { SHOPPINGCART } from "./WhiteIcons/ShoppingCart/ShoppingCart.js";
-import { WHATSAPPICON, WHITEWHATSAPPICON } from "./WhiteIcons/WhatsAppIcon/WhatsAppIcon.js";
+import { WHATSAPPICON } from "./WhiteIcons/WhatsAppIcon/WhatsAppIcon.js";
 import { INSTAGRAMICON } from "./WhiteIcons/InstagramIcon/InstagramIcon.js";
+import { CONTRASTICON } from "./WhiteIcons/ContrastIcon/ContrastIcon.js";
+import { SETTINGSICON } from "./WhiteIcons/SettingsIcon/SettingsIcons.js";
+import { CAMERAICON } from "./WhiteIcons/CameraIcon/CameraIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -37,6 +40,9 @@ const WHITEHOMEICON='${HOMEICON}';
 const COMMUNITYRISELOGO='${COMMUNITYRISELOGO}';
 const WHITEINSTAGRAMICON='${INSTAGRAMICON}';
 const WHITEWHATSAPPICON='${WHATSAPPICON}';
+const WHITECONTRASTICON='${CONTRASTICON}';
+const WHITESETTINGSICON='${SETTINGSICON}';
+const WHITECAMERAICON='${CAMERAICON}';
 `;
     localStorage.setItem("ICONS",DATA);
 
@@ -44,6 +50,6 @@ const WHITEWHATSAPPICON='${WHATSAPPICON}';
 export{ICONS};
 
 `
-const WHITEWHATSAPPICON='${WHATSAPPICON}';
+const WHITECAMERAICON='${CAMERAICON}';
 
 `

@@ -1,0 +1,2 @@
+const XICON='';
+export{XICON}
