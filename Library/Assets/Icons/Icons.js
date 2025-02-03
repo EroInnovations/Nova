@@ -21,6 +21,8 @@ import { CONTRASTICON } from "./WhiteIcons/ContrastIcon/ContrastIcon.js";
 import { SETTINGSICON } from "./WhiteIcons/SettingsIcon/SettingsIcons.js";
 import { CAMERAICON } from "./WhiteIcons/CameraIcon/CameraIcon.js";
 import { RETRYICON } from "./WhiteIcons/RetryIcon/RetryIcon.js";
+import { FACEBOOKICON } from "./WhiteIcons/FaceBookIcon/FaceBookIcon.js";
+import { GMAILICON } from "./WhiteIcons/GmailIcon/GmailIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -45,6 +47,8 @@ const WHITECONTRASTICON='${CONTRASTICON}';
 const WHITESETTINGSICON='${SETTINGSICON}';
 const WHITECAMERAICON='${CAMERAICON}';
 const WHITERETRYICON='${RETRYICON}';
+const WHITEFACEBOOKICON='${FACEBOOKICON}';
+const WHITEGMAILICON='${GMAILICON}';
 `;
     localStorage.setItem("ICONS",DATA);
 
@@ -52,6 +56,6 @@ const WHITERETRYICON='${RETRYICON}';
 export{ICONS};
 
 `
-const WHITERETRYICON='${RETRYICON}';
+const WHITEGMAILICON='${GMAILICON}';
 
 `
