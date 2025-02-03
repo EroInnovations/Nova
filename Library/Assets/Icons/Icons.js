@@ -62,6 +62,6 @@ const WHITEXICON='${XICON}';
 export{ICONS};
 
 `
-const WHITEXICON='${XICON}';
+const WHITEXICON='${COMMUNITYRISELOGO}';
 
 `
