@@ -25,6 +25,7 @@ import { FACEBOOKICON } from "./WhiteIcons/FaceBookIcon/FaceBookIcon.js";
 import { GMAILICON } from "./WhiteIcons/GmailIcon/GmailIcon.js";
 import { DEVICEICON } from "./WhiteIcons/DeviceIcon/DeviceIcon.js";
 import { CLOSEICON } from "./WhiteIcons/CloseIcon/CloseIcon.js";
+import { XICON } from "./WhiteIcons/XIcon/XIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -53,6 +54,7 @@ const WHITEFACEBOOKICON='${FACEBOOKICON}';
 const WHITEGMAILICON='${GMAILICON}';
 const WHITEDEVICEICON='${DEVICEICON}';
 const WHITECLOSEICON='${CLOSEICON}';
+const WHITEXICON='${XICON}';
 `;
     localStorage.setItem("ICONS",DATA);
 
@@ -60,6 +62,6 @@ const WHITECLOSEICON='${CLOSEICON}';
 export{ICONS};
 
 `
-const WHITECLOSEICON='${CLOSEICON}';
+const WHITEXICON='${XICON}';
 
 `
