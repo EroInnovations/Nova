@@ -26,6 +26,9 @@ import { GMAILICON } from "./WhiteIcons/GmailIcon/GmailIcon.js";
 import { DEVICEICON } from "./WhiteIcons/DeviceIcon/DeviceIcon.js";
 import { CLOSEICON } from "./WhiteIcons/CloseIcon/CloseIcon.js";
 import { XICON } from "./WhiteIcons/XIcon/XIcon.js";
+import { MOSQUECONSTRUCTION } from "../CompanyImages/CommunityRise/MosqueConstruction.js";
+import { COMMUNITYRISEPADS } from "../CompanyImages/CommunityRise/CommunityRisePads.js";
+import { CommunityRiseBoreHole } from "../CompanyImages/CommunityRise/CommunityRiseBoreHole.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -55,6 +58,9 @@ const WHITEGMAILICON='${GMAILICON}';
 const WHITEDEVICEICON='${DEVICEICON}';
 const WHITECLOSEICON='${CLOSEICON}';
 const WHITEXICON='${XICON}';
+const COMMUNITYRISEMOSQUECONSTRUCTION='${MOSQUECONSTRUCTION}';
+const COMMUNITYRISEPADS='${COMMUNITYRISEPADS}';
+const CommunityRiseBoreHole='${CommunityRiseBoreHole}';
 `;
     localStorage.setItem("ICONS",DATA);
 
@@ -62,6 +68,6 @@ const WHITEXICON='${XICON}';
 export{ICONS};
 
 `
-const WHITEXICON='${COMMUNITYRISELOGO}';
+const CommunityRiseBoreHole='${CommunityRiseBoreHole}';
 
 `
