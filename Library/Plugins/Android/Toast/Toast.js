@@ -1,0 +1,4 @@
+const TOAST=()=>{
+
+}
+export{TOAST};
