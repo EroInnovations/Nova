@@ -29,6 +29,11 @@ import { XICON } from "./WhiteIcons/XIcon/XIcon.js";
 import { MOSQUECONSTRUCTION } from "../CompanyImages/CommunityRise/MosqueConstruction.js";
 import { COMMUNITYRISEPADS } from "../CompanyImages/CommunityRise/CommunityRisePads.js";
 import { CommunityRiseBoreHole } from "../CompanyImages/CommunityRise/CommunityRiseBoreHole.js";
+import { CONTACTICON } from "./WhiteIcons/ContactIcon/ContactIcon.js";
+import { DELETEICON } from "./WhiteIcons/DeleteIcon/DeleteIcon.js";
+import { CARICON } from "./WhiteIcons/CarIcon/CarIcon.js";
+import { CAKEICON } from "./WhiteIcons/CakeIcon/CakeIcon.js";
+import { CREADTEDONICON } from "./WhiteIcons/CreatedOnIcon/CreatedOnIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -61,6 +66,11 @@ const WHITEXICON='${XICON}';
 const COMMUNITYRISEMOSQUECONSTRUCTION='${MOSQUECONSTRUCTION}';
 const COMMUNITYRISEPADS='${COMMUNITYRISEPADS}';
 const CommunityRiseBoreHole='${CommunityRiseBoreHole}';
+const WHITECONTACTICON='${CONTACTICON}';
+const WHITEDELETEICON='${DELETEICON}';
+const WHITECARICON='${CARICON}';
+const WHITECAKEICON='${CAKEICON}';
+const WHITECREADTEDONICON='${CREADTEDONICON}';
 `;
     localStorage.setItem("ICONS",DATA);
 
@@ -68,6 +78,6 @@ const CommunityRiseBoreHole='${CommunityRiseBoreHole}';
 export{ICONS};
 
 `
-const CommunityRiseBoreHole='${CommunityRiseBoreHole}';
+const WHITECREADTEDONICON='${CREADTEDONICON}';
 
 `
