@@ -34,6 +34,8 @@ import { DELETEICON } from "./WhiteIcons/DeleteIcon/DeleteIcon.js";
 import { CARICON } from "./WhiteIcons/CarIcon/CarIcon.js";
 import { CAKEICON } from "./WhiteIcons/CakeIcon/CakeIcon.js";
 import { CREADTEDONICON } from "./WhiteIcons/CreatedOnIcon/CreatedOnIcon.js";
+import { DRIVEICON } from "./WhiteIcons/DriveIcon/DriveIcon.js";
+import { CAMERAMOVIEICON } from "./WhiteIcons/CameraMovieIcon/CameraMovieIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -71,6 +73,8 @@ const WHITEDELETEICON='${DELETEICON}';
 const WHITECARICON='${CARICON}';
 const WHITECAKEICON='${CAKEICON}';
 const WHITECREADTEDONICON='${CREADTEDONICON}';
+const WHITEDRIVEICONDRIVEICON='${DRIVEICON}';
+const WHITECAMERAMOVIEICON='${CAMERAMOVIEICON}';
 `;
     localStorage.setItem("ICONS",DATA);
 
@@ -78,6 +82,6 @@ const WHITECREADTEDONICON='${CREADTEDONICON}';
 export{ICONS};
 
 `
-const WHITECREADTEDONICON='${CREADTEDONICON}';
+const WHITECAMERAMOVIEICON='${CAMERAMOVIEICON}';
 
 `
