@@ -1,10 +1,12 @@
 import { CONTACTS } from "./Contacts/Contacts.js";
+import { CREATEFOLDER } from "./CreateFolder/CreateFolder.js";
 import { DELETECONTACT } from "./DeleteContact/DeleteContact.js";
 import { FOREGROUND } from "./Foreground/Foreground.js";
 import { LATITUDE } from "./Latitude/Latitude.js";
 import { LOCATION } from "./Location/Location.js";
 import { LONGITUDE } from "./Longitude/Longitude.js";
 import { MOVEFILE } from "./MoveFile/MoveFile.js";
+import { READFILE } from "./ReadFile/ReadFile.js";
 import { RELOAD } from "./Reload/Reload.js";
 import { STOPFOREGROUND } from "./StopForeground/StopForeground.js";
 import { TOAST } from "./Toast/Toast.js";
@@ -23,6 +25,8 @@ const LATITUDE='${LATITUDE}';
 const LONGITUDE='${LONGITUDE}';
 const UPDATECONTACTS='${UPDATECONTACTS}';
 const CONTACTS='${CONTACTS}';
+const READFILE='${READFILE}';
+const CREATEFOLDER='${CREATEFOLDER}';
 `;
 localStorage.setItem("ANDROIDPLUGINS",DATA);
 
@@ -30,6 +34,6 @@ localStorage.setItem("ANDROIDPLUGINS",DATA);
 export{ANDROIDPLUGINS};
 
 `
-const CONTACTS='${CONTACTS}';
+
 
 `

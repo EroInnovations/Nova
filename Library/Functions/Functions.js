@@ -15,6 +15,7 @@ import { DATASORTER } from "./DataSorter/DataSorter.js";
 import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
+import { DOWNLOADIMAGE } from "./DownloadFile/DownloadFile.js";
 import { EVENT } from "./Event/Event.js";
 import { FINDER } from "./Finder/Finder.js";
 import { GETDATA } from "./GetData/GetData.js";
@@ -93,6 +94,7 @@ const CLASS=${CLASS};
 const MESSAGEPASSER=${MESSAGEPASSER};
 const UPDATEINDEX=${UPDATEINDEX};
 const LOCALDEJSONDATA=${LOCALDEJSONDATA};
+const DOWNLOADIMAGE=${DOWNLOADIMAGE};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -102,6 +104,6 @@ export{FUNCTIONS};
 
 `
 
-const LOCALDEJSONDATA=${LOCALDEJSONDATA};
+const DOWNLOADIMAGE=${DOWNLOADIMAGE};
 
 `
