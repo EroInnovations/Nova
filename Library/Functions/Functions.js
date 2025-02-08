@@ -32,6 +32,7 @@ import { JSONREMOVER } from "./JsonRemover/JsonRemover.js";
 import { LOCALDEJSONDATA } from "./localDejsonData/localDejsonData.js";
 import { MESSAGEPASSER } from "./MessagePasser/MessagePasser.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
+import { RANDOMCODE } from "./RandomCode/RandomCode.js";
 import { REDUX } from "./Redux/Redux.js";
 import { RELOAD } from "./Reload/Reload.js";
 import { REPEATER } from "./Repeater/Repeater.js";
@@ -97,6 +98,7 @@ const UPDATEINDEX=${UPDATEINDEX};
 const LOCALDEJSONDATA=${LOCALDEJSONDATA};
 const DOWNLOADIMAGE=${DOWNLOADIMAGE};
 const EMAILSENDER=${EMAILSENDER};
+const RANDOMCODE=${RANDOMCODE};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -106,6 +108,6 @@ export{FUNCTIONS};
 
 `
 
-const EMAILSENDER=${EMAILSENDER};
+const RANDOMCODE=${RANDOMCODE};
 
 `
