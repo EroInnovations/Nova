@@ -1,8 +1,8 @@
 const EMAILSENDER=(EMAIL,SUBJECT,MESSAGE,callback,callback1)=>{
 
     const DATA={
-        "recipentEmail":EMAIL,
-        "Subject":SUBJECT,
+        "recipientEmail":EMAIL,
+        "subject":SUBJECT,
         "body":MESSAGE
     };
 
