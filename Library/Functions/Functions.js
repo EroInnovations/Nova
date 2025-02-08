@@ -16,6 +16,7 @@ import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
 import { DOWNLOADIMAGE } from "./DownloadFile/DownloadFile.js";
+import { EMAILSENDER } from "./EmailSender/EmailSender.js";
 import { EVENT } from "./Event/Event.js";
 import { FINDER } from "./Finder/Finder.js";
 import { GETDATA } from "./GetData/GetData.js";
@@ -95,6 +96,7 @@ const MESSAGEPASSER=${MESSAGEPASSER};
 const UPDATEINDEX=${UPDATEINDEX};
 const LOCALDEJSONDATA=${LOCALDEJSONDATA};
 const DOWNLOADIMAGE=${DOWNLOADIMAGE};
+const EMAILSENDER=${EMAILSENDER};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -104,6 +106,6 @@ export{FUNCTIONS};
 
 `
 
-const DOWNLOADIMAGE=${DOWNLOADIMAGE};
+const EMAILSENDER=${EMAILSENDER};
 
 `
