@@ -10,7 +10,7 @@ const EMAILSENDER=(EMAIL,SUBJECT,MESSAGE,callback,callback1)=>{
 
         method:'Post',
 
-        mode:'no-cors',
+        mode:'cors',
 
         body:JSON.stringify(DATA)
 
