@@ -1,11 +1,20 @@
-
 const NOVASTART=()=>{
 
     CLEAR("");
 
     APPMODE('#000');
 
-    CORNERROUNDINPUT('','email','','','',()=>{
+    AUDIO('','',(ELES)=>{
+
+        CLICK(ELES,()=>{
+
+            AUDIOPICKER(ELES,(data)=>{
+
+                ELES.src=data;
+
+            }) 
+
+        })
 
     })
     

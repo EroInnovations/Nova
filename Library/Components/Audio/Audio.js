@@ -1,20 +1,27 @@
-const AUDIO=(ELEMENTS,SRC,callback)=>{
+const AUDIO=(ELEMENTS,SOURCE,callback)=>{
 
-    const ELEMENT=document.createElement("Audio");
+    const ELEMENT=document.createElement("audio");
 
-    ELEMENT.src=SRC;
+    ELEMENT.style.width='97%';
+    ELEMENT.style.height='50px';
+    ELEMENT.style.background='#fff';
+    ELEMENT.style.margin='1%';
 
-    callback(ELEMENT);
+    ELEMENT.controls='true';
+
+    ELEMENT.src=SOURCE||'#';
 
     if (ELEMENTS) {
 
-        ELEMENTS.append(ELEMENTS)
+        ELEMENTS.append(ELEMENT)
         
     } else {
         
         document.querySelector("body").append(ELEMENT);
 
-    }
+    };
 
-}
+    callback(ELEMENT);
+
+};
 export{AUDIO};
