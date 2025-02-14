@@ -84,8 +84,7 @@ const WHITECAUTIONICON='${CAUTIONICON}';
 const WHITECOMMENTICON='${COMMENTICON}';
 const WHITEENTERICON='${ENTERICON}';
 `;
-    localStorage.setItem("ICONS",DATA);
-
+localStorage.setItem("ICONS",DATA);
 };
 export{ICONS};
 

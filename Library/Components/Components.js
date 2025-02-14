@@ -1,4 +1,5 @@
 import { ALERTBOX } from "./AlertBox/AlertBox.js";
+import { AUDIO } from "./Audio/Audio.js";
 import { BORDERROUNDINPUT } from "./BorderInput/BorderInput.js";
 import { BUTTON } from "./Button/Button.js";
 import { CORNERROUNDINPUT } from "./CornerRoundInput/CornerRoundInput.js";
@@ -47,12 +48,13 @@ const BORDERROUNDBUTTON=${BORDERROUNDBUTTON};
 const CORNERROUNDINPUT=${CORNERROUNDINPUT};
 const BORDERROUNDINPUT=${BORDERROUNDINPUT};
 const VIEW=${VIEW};
+const AUDIO=${AUDIO};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const VIEW=${VIEW};
+const AUDIO=${AUDIO};
 
 `;

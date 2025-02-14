@@ -20,13 +20,13 @@ const EMAILSENDER=(EMAIL,SUBJECT,MESSAGE,callback,callback1)=>{
 
     .then(data =>{
 
-        callback(data)
+        callback(data);
 
     } )
 
     .catch(error =>{
 
-        callback1(error)
+        callback1(error);
 
     } );
 
