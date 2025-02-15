@@ -4,18 +4,8 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    AUDIO('','',(ELES)=>{
+    BUTTON('','','','forestgreen','','Get Audio',(ELEMENT)=>{
 
-        CLICK(ELES,()=>{
-
-            AUDIOPICKER(ELES,(data)=>{
-
-                ELES.src=data;
-
-            }) 
-
-        })
-
-    })
+    });
     
 };
