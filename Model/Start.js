@@ -19,6 +19,8 @@ const NOVASTARTER=()=>{
             const body=document.querySelector(".body");
     
             body.innerHTML=`
+
+                <br><br><br>
         
                 <h1>Updates</h1>
         

@@ -7,6 +7,8 @@ const START=()=>{
     
         body.innerHTML=`
 
+            <br><br><br><br>
+
             <h1>Updates</h1>
 
             <p>Please Wait</p>
