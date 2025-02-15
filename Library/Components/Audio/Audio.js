@@ -6,13 +6,16 @@ const AUDIO=(ELEMENTS,SOURCE,callback)=>{
     ELEMENT.style.height='50px';
     ELEMENT.style.background='#fff';
     ELEMENT.style.margin='1%';
+    ELEMENT.style.border='none';
+    ELEMENT.style.outline='none';
 
     ELEMENT.controls='true';
+
     ELEMENT.src=SOURCE||'#';
 
     if (ELEMENTS) {
 
-        ELEMENTS.append(ELEMENT)
+        ELEMENTS.append(ELEMENT);
         
     } else {
         

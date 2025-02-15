@@ -4,8 +4,9 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    VIDEO('','#',()=>{
-        
-    })
+    AUDIO('','',()=>{
+
+    });
+
     
 };
