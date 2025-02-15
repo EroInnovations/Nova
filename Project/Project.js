@@ -4,8 +4,8 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    BUTTON('','','','forestgreen','','Get Audio',(ELEMENT)=>{
-
-    });
+    VIDEO('','#',()=>{
+        
+    })
     
 };

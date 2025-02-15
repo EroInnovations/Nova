@@ -108,6 +108,6 @@ export{FUNCTIONS};
 
 `
 
-const AUDIOMATHS=${AUDIOMATHS};
+const AUDIOMATHS=${RANDOMCODE};
 
 `
