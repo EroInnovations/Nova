@@ -8,6 +8,7 @@ import { CHECKER } from "./Checker/Checker.js";
 import { CLASS } from "./Class/Class.js";
 import { CLEAR } from "./Clear/Clear.js";
 import { CLICK } from "./Click/Click.js";
+import { COLORCHANGER } from "./ColorChanger/ColorChanger.js";
 import { CONDITION } from "./Condition/Condition.js";
 import { CREATEDATABASE } from "./CreateDataBase/CreateDataBase.js";
 import { CREATEELEMENT } from "./CreateElement/CreateElement.js";
@@ -42,6 +43,7 @@ import { REDUX } from "./Redux/Redux.js";
 import { RELOAD } from "./Reload/Reload.js";
 import { REPEATER } from "./Repeater/Repeater.js";
 import { ROUTE } from "./Route/Route.js";
+import { STOPCOLORCHANGER } from "./StopColorChanger/StopColorChanger.js";
 import { STOREDATA } from "./StoreData/StoreData.js";
 import { STOREINDEXED } from "./StoreIndex/StoreIndex.js";
 import { STYLED } from "./Style/Style.js";
@@ -111,6 +113,8 @@ const INSTAGRAM=${INSTAGRAM};
 const DATENOW=${DATENOW};
 const DECLASS=${DECLASS};
 const CALL=${CALL};
+const COLORCHANGER=${COLORCHANGER};
+const STOPCOLORCHANGER=${STOPCOLORCHANGER};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -120,6 +124,6 @@ export{FUNCTIONS};
 
 `
 
-const CALL=${CALL};
+const STOPCOLORCHANGER=${STOPCOLORCHANGER};
 
 `
