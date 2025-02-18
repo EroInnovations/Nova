@@ -3,6 +3,7 @@ import { APPMODE } from "./AppMode/AppMode.js";
 import { AUDIOPICKER } from "./AudioPicker/AudioPicker.js";
 import { BODY } from "./Body/Body.js";
 import { BREAK } from "./Break/Break.js";
+import { CALL } from "./Call/Call.js";
 import { CHECKER } from "./Checker/Checker.js";
 import { CLASS } from "./Class/Class.js";
 import { CLEAR } from "./Clear/Clear.js";
@@ -13,6 +14,7 @@ import { CREATEELEMENT } from "./CreateElement/CreateElement.js";
 import { CREATETABLE } from "./CreateTable/CreateTable.js";
 import { DATASORTER } from "./DataSorter/DataSorter.js";
 import { DATENOW } from "./DateNow/DateNow.js";
+import { DECLASS } from "./Declass/Declass.js";
 import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
@@ -107,6 +109,8 @@ const GMAIL=${GMAIL};
 const WHATSAPP=${WHATSAPP};
 const INSTAGRAM=${INSTAGRAM};
 const DATENOW=${DATENOW};
+const DECLASS=${DECLASS};
+const CALL=${CALL};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -116,6 +120,6 @@ export{FUNCTIONS};
 
 `
 
-const DATENOW=${DATENOW};
+const CALL=${CALL};
 
 `

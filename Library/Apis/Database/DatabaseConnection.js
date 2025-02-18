@@ -8,6 +8,7 @@ const CREATETABLEAPI='https://script.google.com/macros/s/AKfycby1mVvqOsNL6dziqyC
 const INSERTDATAAPI='https://script.google.com/macros/s/AKfycbw_d9NafTQycKhhTL0Yhjy12g8DRP7bfBVoLqrdaofT6SI1_zxCEZKtl-Bsaoz0omIOCQ/exec';
 const UPDATEDATAAPI='https://script.google.com/macros/s/AKfycbyVHo8tKvSSKGYliowU6sLvNzSaDxSNOz3k3jXCx_zQuWN1juHFwwThLJPs-LtYNisr/exec';
 const GETDATAAPI='https://script.google.com/macros/s/AKfycbwc_ZdByDbw4u-OcEcAaJQt11bfAe3znQ7pYre6pl1KOyIrx8E8PN9yIs1KVcLYPjQlOw/exec';
+const INTERNALSTORAGE='/sdcard/';
 `;
 localStorage.setItem("APIS",DATA);
 };

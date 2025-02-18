@@ -11,4 +11,4 @@ const DATASORTER = (ARRAY, ELEMENT, callback) => {
     }
 
 };
-export{DATASORTER};
+export{DATASORTER}
