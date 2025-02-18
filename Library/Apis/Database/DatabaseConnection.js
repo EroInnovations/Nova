@@ -9,7 +9,10 @@ const INSERTDATAAPI='https://script.google.com/macros/s/AKfycbw_d9NafTQycKhhTL0Y
 const UPDATEDATAAPI='https://script.google.com/macros/s/AKfycbyVHo8tKvSSKGYliowU6sLvNzSaDxSNOz3k3jXCx_zQuWN1juHFwwThLJPs-LtYNisr/exec';
 const GETDATAAPI='https://script.google.com/macros/s/AKfycbwc_ZdByDbw4u-OcEcAaJQt11bfAe3znQ7pYre6pl1KOyIrx8E8PN9yIs1KVcLYPjQlOw/exec';
 const INTERNALSTORAGE='/sdcard/';
+const DRIVEDIRECTLINK='https://drive.google.com/uc?export=download&id=';
+const YOUTTUBEEMBER='https://www.youtube.com/embed/';
 `;
 localStorage.setItem("APIS",DATA);
 };
 export{DATABASECONNECTIONAPI};
+
