@@ -12,4 +12,4 @@ const INTERNALSTORAGE='/sdcard/';
 `;
 localStorage.setItem("APIS",DATA);
 };
-export{DATABASECONNECTIONAPI}
+export{DATABASECONNECTIONAPI};
