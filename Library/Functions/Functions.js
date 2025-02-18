@@ -38,6 +38,7 @@ import { JSONIFICATION } from "./Jsonification/Jsonification.js";
 import { JSONREMOVER } from "./JsonRemover/JsonRemover.js";
 import { LOCALDEJSONDATA } from "./localDejsonData/localDejsonData.js";
 import { MESSAGEPASSER } from "./MessagePasser/MessagePasser.js";
+import { MONTHS } from "./Months/Months.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
 import { RANDOMCODE } from "./RandomCode/RandomCode.js";
 import { REDUX } from "./Redux/Redux.js";
@@ -117,6 +118,7 @@ const CALL=${CALL};
 const COLORCHANGER=${COLORCHANGER};
 const STOPCOLORCHANGER=${STOPCOLORCHANGER};
 const COLOR=${COLOR};
+const MONTHS=${MONTHS};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -126,6 +128,6 @@ export{FUNCTIONS};
 
 `
 
-const COLOR=${COLOR};
+const MONTHS=${MONTHS};
 
 `
