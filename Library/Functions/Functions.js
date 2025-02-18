@@ -8,6 +8,7 @@ import { CHECKER } from "./Checker/Checker.js";
 import { CLASS } from "./Class/Class.js";
 import { CLEAR } from "./Clear/Clear.js";
 import { CLICK } from "./Click/Click.js";
+import { COLOR } from "./Color/Color.js";
 import { COLORCHANGER } from "./ColorChanger/ColorChanger.js";
 import { CONDITION } from "./Condition/Condition.js";
 import { CREATEDATABASE } from "./CreateDataBase/CreateDataBase.js";
@@ -115,6 +116,7 @@ const DECLASS=${DECLASS};
 const CALL=${CALL};
 const COLORCHANGER=${COLORCHANGER};
 const STOPCOLORCHANGER=${STOPCOLORCHANGER};
+const COLOR=${COLOR};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -124,6 +126,6 @@ export{FUNCTIONS};
 
 `
 
-const STOPCOLORCHANGER=${STOPCOLORCHANGER};
+const COLOR=${COLOR};
 
 `

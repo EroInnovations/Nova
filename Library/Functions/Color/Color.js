@@ -1,0 +1,2 @@
+const COLOR=[{ "name":"red"},{ "name":"blue"},{ "name":"green"},{ "name":"purple"}, { "name":"orange"},{ "name":"teal"},{ "name":"forestgreen"},{ "name":"brown"},{ "name":"redpurple"},{ "name":"grainsboro"},{ "name":"black"},{ "name":"yellow"}];
+export{COLOR};
