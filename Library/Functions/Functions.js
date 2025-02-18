@@ -12,6 +12,7 @@ import { CREATEDATABASE } from "./CreateDataBase/CreateDataBase.js";
 import { CREATEELEMENT } from "./CreateElement/CreateElement.js";
 import { CREATETABLE } from "./CreateTable/CreateTable.js";
 import { DATASORTER } from "./DataSorter/DataSorter.js";
+import { DATENOW } from "./DateNow/DateNow.js";
 import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
@@ -22,10 +23,12 @@ import { FINDER } from "./Finder/Finder.js";
 import { GETDATA } from "./GetData/GetData.js";
 import { GETINDEXED } from "./GetIndex/GetIndex.js";
 import { GETPACKAGE } from "./GetPackage/GetPackage.js";
+import { GMAIL } from "./Gmail/Gmail.js";
 import { HIDER } from "./Hider/Hider.js";
 import { IMAGEPICKER } from "./ImagePicker/ImagePicker.js";
 import { INSERTDATA } from "./InsertData/InsertData.js";
 import { INSPECTION } from "./Inspection/Inspection.js";
+import { INSTAGRAM } from "./Instagram/Instagram.js";
 import { JSONADDER } from "./JsonAdder/JsonAdder.js";
 import { JSONIFICATION } from "./Jsonification/Jsonification.js";
 import { JSONREMOVER } from "./JsonRemover/JsonRemover.js";
@@ -46,6 +49,7 @@ import { UPDATEDATA } from "./UpdateData/UpdateData.js";
 import { UPDATEINDEX } from "./UpdateIndex/UpdateIndex.js";
 import { VIDEOPICKER } from "./VideoPicker/VideoPicker.js";
 import { WEBSITE } from "./WebSite/WebSite.js";
+import { WHATSAPP } from "./WhatsApp/WhatsApp.js";
 import { ZOOM } from "./Zoom/Zoom.js";
 
 const FUNCTIONS=()=>{
@@ -99,6 +103,10 @@ const LOCALDEJSONDATA=${LOCALDEJSONDATA};
 const DOWNLOADIMAGE=${DOWNLOADIMAGE};
 const EMAILSENDER=${EMAILSENDER};
 const RANDOMCODE=${RANDOMCODE};
+const GMAIL=${GMAIL};
+const WHATSAPP=${WHATSAPP};
+const INSTAGRAM=${INSTAGRAM};
+const DATENOW=${DATENOW};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -108,6 +116,6 @@ export{FUNCTIONS};
 
 `
 
-const AUDIOMATHS=${RANDOMCODE};
+const DATENOW=${DATENOW};
 
 `
