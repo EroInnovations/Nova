@@ -17,4 +17,3 @@ const MONTHS=[{"Name":"January","ShortForm":"Jan","Days":"31"},{"Name":"February
 localStorage.setItem("APIS",DATA);
 };
 export{DATABASECONNECTIONAPI};
-
