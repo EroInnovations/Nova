@@ -42,6 +42,6 @@ localStorage.setItem("ANDROIDPLUGINS",DATA);
 export{ANDROIDPLUGINS};
 
 `
-const DELETEFILE='${DELETECONTACT}';
+
 
 `
