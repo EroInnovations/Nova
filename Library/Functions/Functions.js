@@ -23,6 +23,7 @@ import { DISPLAY } from "./Display/Display.js";
 import { DOWNLOADIMAGE } from "./DownloadFile/DownloadFile.js";
 import { EMAILSENDER } from "./EmailSender/EmailSender.js";
 import { EVENT } from "./Event/Event.js";
+import { FACEBOOK } from "./FaceBook/FaceBook.js";
 import { FINDER } from "./Finder/Finder.js";
 import { GETDATA } from "./GetData/GetData.js";
 import { GETINDEXED } from "./GetIndex/GetIndex.js";
@@ -44,12 +45,18 @@ import { RANDOMCODE } from "./RandomCode/RandomCode.js";
 import { REDUX } from "./Redux/Redux.js";
 import { RELOAD } from "./Reload/Reload.js";
 import { REPEATER } from "./Repeater/Repeater.js";
+import { REVERSE } from "./Reverse/Reverse.js";
 import { ROUTE } from "./Route/Route.js";
+import { SCREENHEIGHT } from "./ScreenHeight/ScreenHeight.js";
+import { SMS } from "./Sms/Sms.js";
 import { STOPCOLORCHANGER } from "./StopColorChanger/StopColorChanger.js";
 import { STOREDATA } from "./StoreData/StoreData.js";
 import { STOREINDEXED } from "./StoreIndex/StoreIndex.js";
 import { STYLED } from "./Style/Style.js";
+import { TELEGRAM } from "./Telegram/Telegram.js";
 import { TEXTFAMILY } from "./TextFamily/TextFamily.js";
+import { TIMENOW } from "./TimeNow/TimeNow.js";
+import { TIMER } from "./Timer/Timer.js";
 import { TWITTER } from "./Twitter/Twitter.js";
 import { UPDATEDATA } from "./UpdateData/UpdateData.js";
 import { UPDATEINDEX } from "./UpdateIndex/UpdateIndex.js";
@@ -119,6 +126,13 @@ const COLORCHANGER=${COLORCHANGER};
 const STOPCOLORCHANGER=${STOPCOLORCHANGER};
 const COLOR=${COLOR};
 const MONTHS=${MONTHS};
+const FACEBOOK=${FACEBOOK};
+const TELEGRAM=${TELEGRAM};
+const TIMER=${TIMER};
+const TIMENOW=${TIMENOW};
+const SMS=${SMS};
+const REVERSE=${REVERSE};
+const SCREENHEIGHT=${SCREENHEIGHT};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -128,6 +142,6 @@ export{FUNCTIONS};
 
 `
 
-const MONTHS=${MONTHS};
+const SCREENHEIGHT=${SCREENHEIGHT};
 
 `

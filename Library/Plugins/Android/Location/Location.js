@@ -3,4 +3,4 @@ const LOCATION=()=>{
     Android.requestLocation();
 
 };
-export{LOCATION}
+export{LOCATION};

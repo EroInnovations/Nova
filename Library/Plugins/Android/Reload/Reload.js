@@ -1,6 +1,6 @@
 const RELOAD=()=>{
 
-    Android.reloadPage()
+    Android.reloadPage();
 
 }
 

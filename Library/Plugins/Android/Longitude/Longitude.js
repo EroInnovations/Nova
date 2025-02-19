@@ -4,5 +4,5 @@ const LONGITUDE=(callback)=>{
     
     callback(ME);
 
-}
-export{LONGITUDE}
+};
+export{LONGITUDE};
