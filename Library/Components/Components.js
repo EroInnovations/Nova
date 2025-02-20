@@ -2,6 +2,7 @@ import { ALERTBOX } from "./AlertBox/AlertBox.js";
 import { AUDIO } from "./Audio/Audio.js";
 import { BORDERROUNDINPUT } from "./BorderInput/BorderInput.js";
 import { BUTTON } from "./Button/Button.js";
+import { CENTERTEXT } from "./CenterText/CenterText.js";
 import { CORNERROUNDINPUT } from "./CornerRoundInput/CornerRoundInput.js";
 import { CORNERROUNDBUTTON } from "./CornerSquareButton/CornernSquareButton.js";
 import { FLOATFIXEDBUTTON } from "./FloatFixedButton/FixedButton.js";
@@ -17,8 +18,10 @@ import { LEFTBUTTONTEXT } from "./LeftButtonText/LeftButtonText.js";
 import { LEFTIMAGE } from "./LeftImage/LeftImage.js";
 import { LEFTTEXT } from "./LeftText/LeftText.js";
 import { MESSAGEDISPLAY } from "./MessageDisplay/MessageDisplay.js";
+import { RIGHTTEXT } from "./RightText/RightText.js";
 import { BORDERROUNDBUTTON } from "./RoundBorderButton/RoundBorderButton.js";
 import { ROUNDBUTTON } from "./RoundButton/RoundButton.js";
+import { ROUNDFOOTER } from "./RoundFooter/RoundFooter.js";
 import { ROUNDINPUT } from "./RoundInput/RoundInput.js";
 import { TEXT } from "./Text/Text.js";
 import { TEXTAREA } from "./TextArea/TextArea.js";
@@ -51,12 +54,15 @@ const BORDERROUNDINPUT=${BORDERROUNDINPUT};
 const VIEW=${VIEW};
 const AUDIO=${AUDIO};
 const VIDEO=${VIDEO};
+const ROUNDFOOTER=${ROUNDFOOTER};
+const RIGHTTEXT=${RIGHTTEXT};
+const CENTERTEXT=${CENTERTEXT};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const VIDEO=${VIDEO};
+const CENTERTEXT=${CENTERTEXT};
 
 `;

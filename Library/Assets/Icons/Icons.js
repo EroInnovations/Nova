@@ -118,6 +118,7 @@ import { COMMUNICATEICON } from "./WhiteIcons/CommunicateIcon/CommunicateIcon.js
 import { BACKSONGICON } from "./WhiteIcons/BackSongIcon/BackSongIcon.js";
 import { GOOGLEICON } from "./WhiteIcons/GoogleIcon/GoogleIcon.js";
 import { HAMBURGICON } from "./BlackIcons/HamburgIcon/HamburgIcon.js";
+import { GRIEDICON } from "./BlackIcons/GridIcon/GridIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -239,12 +240,13 @@ const WHITECOMMUNICATEICON='${COMMUNICATEICON}';
 const WHITEBACKSONGICON='${BACKSONGICON}';
 const WHITEGOOGLEICON='${GOOGLEICON}';
 const BLACKHAMBURGICON='${HAMBURGICON}';
+const BLACKGRIDICON='${GRIEDICON}';
 `;
 localStorage.setItem("ICONS",DATA);
 };
 export{ICONS};
 
 `
-const BLACKHAMBURGICON='${HAMBURGICON}';
+const BLACKGRIDICON='${GRIEDICON}';
 
 `

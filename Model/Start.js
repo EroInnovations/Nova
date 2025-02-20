@@ -4,115 +4,131 @@ const NOVASTARTER=()=>{
         "sheetName":"APPMANAGER"
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbwc_ZdByDbw4u-OcEcAaJQt11bfAe3znQ7pYre6pl1KOyIrx8E8PN9yIs1KVcLYPjQlOw/exec',{
-        method:"Post",
-        mode:"cors",
-        body:JSON.stringify(DATA)
-    })
+    if ( localStorage.getItem('Environment') === 'Development' ) {
 
-    .then(res =>res.json())
-
-    .then(data =>{
+        localStorage.setItem("PROJECT",'');
 
         if (!localStorage.getItem('Updates')) {
 
-            const body=document.querySelector(".body");
-    
-            body.innerHTML=`
+            localStorage.setItem('Updates','On');
 
-                <br><br><br>
-        
-                <h1>Updates</h1>
-        
-                <p>Almost Ready</p>
-                
-                <p>Installing Updates</p>
-        
-                <div class="LoadingIconer"></div>
-            
-            `;
+            Reload();
             
         };
+        
+    } else {
 
-        data.forEach(element => {
-
-            if (localStorage.getItem('Environment') === 'Development')  {
-
-                localStorage.setItem("PROJECT",'');
-
-                if (!localStorage.getItem('Updates')) {
-
-                    localStorage.setItem('Updates','On');
-
-                    Reload();
+        fetch('https://script.google.com/macros/s/AKfycbwc_ZdByDbw4u-OcEcAaJQt11bfAe3znQ7pYre6pl1KOyIrx8E8PN9yIs1KVcLYPjQlOw/exec',{
+            method:"Post",
+            mode:"cors",
+            body:JSON.stringify(DATA)
+        })
+    
+        .then(res =>res.json())
+    
+        .then(data =>{
+    
+            if (!localStorage.getItem('Updates')) {
+    
+                const body=document.querySelector(".body");
+        
+                body.innerHTML=`
+    
+                    <br><br><br>
+            
+                    <h1>Updates</h1>
+            
+                    <p>Almost Ready</p>
                     
-                }
-
-            } else {
-
-                if (element.ID === localStorage.getItem("NAME") ) {
-
-                    if (localStorage.getItem('Environment') === 'Production') {
-
-                        localStorage.setItem("PROJECT",element.AndroidDesign+element.AndroidFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
-                      
-                        if (!localStorage.getItem('Updates')) {
-
-                            localStorage.setItem('Updates','On');
-
-                            Reload();
-                            
-                        }
-                        
-                        return;
-
-                    };
-
-                    if (localStorage.getItem('Environment') === 'Web') {
-                        
-                        localStorage.setItem("PROJECT",element.WebDesign+element.WebFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
-                      
-                        if (!localStorage.getItem('Updates')) {
-
-                            localStorage.setItem('Updates','On');
-
-                            Reload();
-                            
-                        }
-                        
-                        return;
-
-                    };
-
-                    if (localStorage.getItem('Environment') === 'Desktop') {
-                        
-                        localStorage.setItem("PROJECT",element.DesktopDesign+element.DesktopFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
-                      
-                        if (!localStorage.getItem('Updates')) {
-
-                            localStorage.setItem('Updates','On');
-
-                            Reload();
-                            
-                        }
-                        
-                        return;
-
-                    };
-                    
-                }
+                    <p>Installing Updates</p>
+            
+                    <div class="LoadingIconer"></div>
+                
+                `;
                 
             };
-            
+    
+            data.forEach(element => {
+    
+                if (localStorage.getItem('Environment') === 'Development')  {
+    
+                    localStorage.setItem("PROJECT",'');
+    
+                    if (!localStorage.getItem('Updates')) {
+    
+                        localStorage.setItem('Updates','On');
+    
+                        Reload();
+                        
+                    };
+    
+                } else {
+    
+                    if (element.ID === localStorage.getItem("NAME") ) {
+    
+                        if (localStorage.getItem('Environment') === 'Production') {
+    
+                            localStorage.setItem("PROJECT",element.AndroidDesign+element.AndroidFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
+                          
+                            if (!localStorage.getItem('Updates')) {
+    
+                                localStorage.setItem('Updates','On');
+    
+                                Reload();
+                                
+                            };
+                            
+                            return;
+    
+                        };
+    
+                        if (localStorage.getItem('Environment') === 'Web') {
+                            
+                            localStorage.setItem("PROJECT",element.WebDesign+element.WebFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
+                          
+                            if (!localStorage.getItem('Updates')) {
+    
+                                localStorage.setItem('Updates','On');
+    
+                                Reload();
+                                
+                            };
+                            
+                            return;
+    
+                        };
+    
+                        if (localStorage.getItem('Environment') === 'Desktop') {
+                            
+                            localStorage.setItem("PROJECT",element.DesktopDesign+element.DesktopFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
+                          
+                            if (!localStorage.getItem('Updates')) {
+    
+                                localStorage.setItem('Updates','On');
+    
+                                Reload();
+                                
+                            };
+                            
+                            return;
+    
+                        };
+                        
+                    };
+                    
+                };
+                
+            });
+    
+        } )
+    
+        .catch(error =>{
+    
+            console.log(error);
+    
         });
-
-    } )
-
-    .catch(error =>{
-
-        console.log(error);
-
-    });
+        
+    };
 
 };
 export{NOVASTARTER};
