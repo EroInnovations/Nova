@@ -82,9 +82,39 @@ const USERACCOUNTPAGE=()=>{
 
         STYLED(ELEMENT,'top','50px');
 
+        IMAGEBUTTON(ELEMENT,'forestgreen','Community','',WHITEGROUPICON,'50px',(ELEMENT)=>{
+
+            
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Business Tools','',WHITECREATEDONICON,'50px',(ELEMENT)=>{
+
+            
+
+        });
+
         IMAGEBUTTON(ELEMENT,'forestgreen','Sync','',WHITERETRYICON,'50px',(ELEMENT)=>{
 
             RELOAD();
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Settings','',WHITESETTINGSICON,'50px',(ELEMENT)=>{
+
+            
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Help','',WHITEINFOICON,'50px',(ELEMENT)=>{
+
+            
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','LogOut','',WHITELOGOUTICON,'50px',(ELEMENT)=>{
+
+           
 
         });
 
