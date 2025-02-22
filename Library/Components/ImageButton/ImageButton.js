@@ -1,10 +1,10 @@
-const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,callback)=>{
+const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,callback)=>{
 
     const ELEMENT1=document.createElement("div");
 
     ELEMENT1.style.position='relative';
     ELEMENT1.style.width='98%';
-    ELEMENT1.style.height='100px';
+    ELEMENT1.style.height=HEIGHT||'100px';
     ELEMENT1.style.background=COLOR||'#000000';
     ELEMENT1.style.margin='auto';
     ELEMENT1.style.marginTop='2%';
@@ -47,7 +47,12 @@ const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,callback)=>{
         
     };
 
-    callback(ELEMENT1);
+    ELEMENT1.addEventListener('click',()=>{
+
+        callback(ELEMENT1);
+
+    });
 
 };
+
 export{IMAGEBUTTON};

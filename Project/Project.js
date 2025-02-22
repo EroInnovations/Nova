@@ -78,6 +78,18 @@ const USERACCOUNTPAGE=()=>{
 
     });
 
+    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'top','50px');
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Sync','',WHITERETRYICON,'50px',(ELEMENT)=>{
+
+            RELOAD();
+
+        });
+
+    });
+
 };
 
 const CATERGORYPAGE=()=>{
