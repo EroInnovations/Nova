@@ -159,6 +159,12 @@ const LOGINPAGE=()=>{
 
         STYLED(ELEMENT,'margin-right','1rem');
 
+        CLICK(ELEMENT,()=>{
+
+            ROUTE(' ',FORGOTPASSWORDPAGE,'LOGINPAGE');
+
+        });
+
     });
 
     BUTTON('','','','forestgreen','#fff','Sign In',(ELEMENT)=>{
@@ -200,6 +206,30 @@ const CREATEACCOUNTPAGE=()=>{
     });
 
     BUTTON('','','','blue','#fff','LogIn',(ELEMENT)=>{
+
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+    });
+   
+};
+
+const FORGOTPASSWORDPAGE=()=>{
+
+    CLEAR("");
+
+    BREAK('');BREAK('');
+
+    ROUNDINPUT('','email','','transparent','Enter User Email',(ELEMENT)=>{
+
+    });
+
+    BUTTON('','','','forestgreen','#fff','Recover',(ELEMENT)=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    });
+
+    BUTTON('','','','blue','#fff','Cancel',(ELEMENT)=>{
 
         ROUTE('',LOGINPAGE,'LOGINPAGE');
 
