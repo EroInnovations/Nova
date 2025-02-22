@@ -20,6 +20,7 @@ import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
 import { DOWNLOADIMAGE } from "./DownloadFile/DownloadFile.js";
+import { ECORPMAIL } from "./EcorpMail/EcorpMail.js";
 import { EMAILSENDER } from "./EmailSender/EmailSender.js";
 import { EVENT } from "./Event/Event.js";
 import { FACEBOOK } from "./FaceBook/FaceBook.js";
@@ -129,6 +130,7 @@ const TIMENOW=${TIMENOW};
 const SMS=${SMS};
 const REVERSE=${REVERSE};
 const SCREENHEIGHT=${SCREENHEIGHT};
+const ECORPMAIL=${ECORPMAIL};
 `;
 
 localStorage.setItem('FUNCTIONS',DATA);
@@ -138,6 +140,6 @@ export{FUNCTIONS};
 
 `
 
-const SCREENHEIGHT=${SCREENHEIGHT};
+const ECORPMAIL=${ECORPMAIL};
 
 `
