@@ -6,6 +6,6 @@ const LOCALDEJSONDATA=(MYDATA,callback)=>{
 
     callback(MYDATATA);
 
-}
+};
 
 export{LOCALDEJSONDATA};

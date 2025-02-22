@@ -28,4 +28,5 @@ const UPDATEDATA=(LINK,NAME,ID,INFO,callback,callback1)=>{
     } );
 
 };
+
 export{UPDATEDATA};

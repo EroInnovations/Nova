@@ -5,4 +5,5 @@ const TELEGRAM=(NAME)=>{
     window.open(telegramLink);
 
 };
+
 export{TELEGRAM};

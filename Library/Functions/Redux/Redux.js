@@ -7,4 +7,5 @@ const REDUX=(DATA,callback)=>{
     });
 
 };
+
 export{REDUX};

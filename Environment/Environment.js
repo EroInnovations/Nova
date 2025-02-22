@@ -1,5 +1,4 @@
 import { CONFIGURATION } from "../Configuration/Configuration.js";
-
 const ENVIRONMENT=()=>{
 
     if (localStorage.getItem('Environment') === 'Development' ) {

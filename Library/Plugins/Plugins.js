@@ -4,5 +4,6 @@ const PLUGINS=()=>{
 
     ANDROIDPLUGINS();
 
-}
+};
+
 export{PLUGINS};

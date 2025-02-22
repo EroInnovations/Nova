@@ -7,4 +7,5 @@ const CONTACTS=(callback)=>{
     callback(parsedContacts)
 
 };
+
 export{CONTACTS};

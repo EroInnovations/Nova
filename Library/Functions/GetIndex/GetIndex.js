@@ -65,4 +65,5 @@ const GETINDEXED = (dbName, storeName, callback) => {
     };
     
 };
+
 export{GETINDEXED};

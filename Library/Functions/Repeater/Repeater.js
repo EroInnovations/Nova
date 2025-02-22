@@ -8,4 +8,5 @@ const REPEATER=(TIME,callback)=>{
     }, TIME||500);
 
 };
-export{REPEATER}
+
+export{REPEATER};

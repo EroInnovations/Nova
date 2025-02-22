@@ -11,4 +11,5 @@ const CONDITION=(CONDITIONER,callback,callback1)=>{
     };
 
 };
+
 export{CONDITION};

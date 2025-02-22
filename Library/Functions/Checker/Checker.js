@@ -9,4 +9,5 @@ const CHECKER=(CONDITIONER,callback)=>{
     };
 
 };
+
 export{CHECKER}

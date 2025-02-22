@@ -2,7 +2,7 @@ const INSPECTION = () => {
 
     if (localStorage.getItem("Environment") === 'Development') {
 
-        //code To Inspect Page
+        
     } else {
 
         document.addEventListener('contextmenu', function (e) {
@@ -52,4 +52,5 @@ const INSPECTION = () => {
     };
     
 };
+
 export { INSPECTION };

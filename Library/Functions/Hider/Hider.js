@@ -7,4 +7,5 @@ const HIDER=(TIME,callback)=>{
     }, TIME||500);
 
 };
+
 export{HIDER};

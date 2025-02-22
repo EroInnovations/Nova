@@ -29,4 +29,5 @@ const JSONREMOVER = (data, contents, callback) => {
     callback(updatedJSON);
     
 };
+
 export{JSONREMOVER};

@@ -25,4 +25,5 @@ const GETDATA=(LINK,NAME,callback,callback1)=>{
     } );
 
 };
+
 export{GETDATA};

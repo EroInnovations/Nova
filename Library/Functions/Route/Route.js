@@ -43,4 +43,5 @@ const ROUTE=(NEWPAGE, FUNCTION, FUNCTIONBACK)=>{
     });
 
 };
+
 export{ROUTE};

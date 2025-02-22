@@ -11,4 +11,5 @@ const CLEAR=(ELEMENT)=>{
     };
 
 };
+
 export{CLEAR};

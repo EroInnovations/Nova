@@ -7,4 +7,5 @@ const CLICK=(ELEMENT,callback)=>{
     });
 
 };
+
 export{CLICK};

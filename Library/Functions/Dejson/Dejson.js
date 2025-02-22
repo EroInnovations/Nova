@@ -5,4 +5,5 @@ const DEJSON=(DATA,callback)=>{
     callback(DAA);
 
 };
+
 export{DEJSON};

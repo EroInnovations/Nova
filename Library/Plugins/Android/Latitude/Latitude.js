@@ -5,4 +5,5 @@ const LATITUDE=(callback)=>{
     callback(ME);
 
 };
+
 export{LATITUDE};

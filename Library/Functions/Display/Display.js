@@ -11,4 +11,5 @@ const DISPLAY=(ELEMENT,DATA)=>{
     };
 
 };
+
 export{DISPLAY};

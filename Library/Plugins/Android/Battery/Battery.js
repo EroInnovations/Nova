@@ -5,4 +5,5 @@ const BATTERY=(callback)=>{
     callback(battery);
     
 };
+
 export{BATTERY};

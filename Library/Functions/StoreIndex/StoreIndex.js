@@ -97,4 +97,5 @@ const STOREINDEXED = (dbName, storeName, data, callback) => {
     request.onerror = (e) => cb(false);
 
 };
+
 export{STOREINDEXED};

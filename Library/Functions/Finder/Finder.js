@@ -5,4 +5,5 @@ const FINDER = (DATA, ELEMENT, ELEMENT1, ACTION) => {
     return ACTION(user ? user : false);
 
 };
+
 export{FINDER};

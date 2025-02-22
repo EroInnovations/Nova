@@ -5,4 +5,5 @@ const SMS=(NUMBER)=>{
     window.location.href = 'sms:' + phoneNumber;
 
 };
+
 export{SMS};

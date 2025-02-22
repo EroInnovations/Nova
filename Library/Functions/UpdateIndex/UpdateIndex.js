@@ -29,4 +29,5 @@ const UPDATEINDEX= (dbName, storeName, data,callback) => {
         console.error("Error opening database", event.target.error);
     };
 };
+
 export{UPDATEINDEX}

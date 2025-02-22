@@ -29,4 +29,5 @@ const ZOOM = () => {
     });
 
 };
+
 export{ZOOM};

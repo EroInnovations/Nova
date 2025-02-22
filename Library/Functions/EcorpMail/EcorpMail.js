@@ -1,9 +1,13 @@
 const ECORPMAIL=(EMAIL,SUBJECT,MESSAGE,callback,callback1)=>{
 
     const DATA={
+
         "recipientEmail":EMAIL,
+
         "subject":SUBJECT,
+
         "body":MESSAGE
+        
     };
 
     fetch('https://script.google.com/macros/s/AKfycbxDobmQuvJyGBSvSf-Od4rLjsIhj9R535gTIxDohkQrmGOMCTRblk19d0lMjSPP7u2Y/exec',{
@@ -31,4 +35,5 @@ const ECORPMAIL=(EMAIL,SUBJECT,MESSAGE,callback,callback1)=>{
     } );
 
 };
+
 export{ECORPMAIL};

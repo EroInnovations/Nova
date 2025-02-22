@@ -11,4 +11,5 @@ const STOREDATA=(TYPE,NAME,DATA)=>{
     };
 
 };
+
 export{STOREDATA};

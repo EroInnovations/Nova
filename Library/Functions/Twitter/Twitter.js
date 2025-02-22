@@ -5,4 +5,5 @@ const TWITTER = (username) => {
     window.open(twitterLink);
 
 };
+
 export{TWITTER};

@@ -21,6 +21,7 @@ import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
 import { DOWNLOADIMAGE } from "./DownloadFile/DownloadFile.js";
 import { ECORPMAIL } from "./EcorpMail/EcorpMail.js";
+import { ECORPPAY } from "./EcorpPay/EcorpPay.js";
 import { EMAILSENDER } from "./EmailSender/EmailSender.js";
 import { EVENT } from "./Event/Event.js";
 import { FACEBOOK } from "./FaceBook/FaceBook.js";
@@ -38,7 +39,6 @@ import { JSONADDER } from "./JsonAdder/JsonAdder.js";
 import { JSONIFICATION } from "./Jsonification/Jsonification.js";
 import { JSONREMOVER } from "./JsonRemover/JsonRemover.js";
 import { LOCALDEJSONDATA } from "./localDejsonData/localDejsonData.js";
-import { MESSAGEPASSER } from "./MessagePasser/MessagePasser.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
 import { RANDOMCODE } from "./RandomCode/RandomCode.js";
 import { REDUX } from "./Redux/Redux.js";
@@ -63,9 +63,7 @@ import { VIDEOPICKER } from "./VideoPicker/VideoPicker.js";
 import { WEBSITE } from "./WebSite/WebSite.js";
 import { WHATSAPP } from "./WhatsApp/WhatsApp.js";
 import { ZOOM } from "./Zoom/Zoom.js";
-
 const FUNCTIONS=()=>{
-
 const DATA=`const ADD=${ADD};
 const CLICK=${CLICK};
 const CREATEELEMENT=${CREATEELEMENT};
@@ -109,7 +107,6 @@ const TWITTER=${TWITTER};
 const EVENT=${EVENT};
 const TEXTFAMILY=${TEXTFAMILY};
 const CLASS=${CLASS};
-const MESSAGEPASSER=${MESSAGEPASSER};
 const UPDATEINDEX=${UPDATEINDEX};
 const LOCALDEJSONDATA=${LOCALDEJSONDATA};
 const DOWNLOADIMAGE=${DOWNLOADIMAGE};
@@ -131,15 +128,15 @@ const SMS=${SMS};
 const REVERSE=${REVERSE};
 const SCREENHEIGHT=${SCREENHEIGHT};
 const ECORPMAIL=${ECORPMAIL};
+const ECORPPAY=${ECORPPAY};
 `;
-
 localStorage.setItem('FUNCTIONS',DATA);
-
 };
+
 export{FUNCTIONS};
 
 `
 
-const ECORPMAIL=${ECORPMAIL};
+const ECORPPAY=${ECORPPAY};
 
 `

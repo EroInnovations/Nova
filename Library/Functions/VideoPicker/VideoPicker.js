@@ -59,4 +59,5 @@ const VIDEOPICKER = (videoElement, callback) => {
     }
 
 };
+
 export{VIDEOPICKER};

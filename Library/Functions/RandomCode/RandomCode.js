@@ -7,4 +7,5 @@ const RANDOMCODE=(callback)=>{
     callback(randomDigits);
 
 };
+
 export{RANDOMCODE};

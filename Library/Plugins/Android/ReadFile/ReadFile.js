@@ -5,4 +5,5 @@ const READFILE=(Path,fileData)=>{
     callback(fileData);
     
 };
+
 export{READFILE};

@@ -30,5 +30,5 @@ const EMAILSENDER=(EMAIL,SUBJECT,MESSAGE,callback,callback1)=>{
 
     } );
 
-}
+};
 export{EMAILSENDER}

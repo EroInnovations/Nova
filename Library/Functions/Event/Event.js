@@ -11,4 +11,5 @@ const EVENT=(ELEMENT)=>{
     }
 
 };
-export{EVENT}
+
+export{EVENT};

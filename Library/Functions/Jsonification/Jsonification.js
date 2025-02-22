@@ -5,4 +5,5 @@ const JSONIFICATION=(DATA,callback)=>{
     callback(DAA);
 
 };
-export{JSONIFICATION}
+
+export{JSONIFICATION};

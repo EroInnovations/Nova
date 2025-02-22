@@ -115,4 +115,5 @@ const IMAGEPICKER = (imageElement, callback) => {
     input.remove();
 
 };
+
 export{IMAGEPICKER};

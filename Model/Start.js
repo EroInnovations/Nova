@@ -1,8 +1,4 @@
 const NOVASTARTER=()=>{
-    const DATA={
-        "spreadsheetUrl":"https://docs.google.com/spreadsheets/d/1Utfr1wkoZSRvM9TOKaTxOX6orYE8AuN2mu4dDtQmhFQ/edit?gid=0#gid=0",
-        "sheetName":"APPMANAGER"
-    };
 
     if ( localStorage.getItem('Environment') === 'Development' ) {
 
@@ -17,6 +13,11 @@ const NOVASTARTER=()=>{
         };
         
     } else {
+
+        const DATA={
+            "spreadsheetUrl":"https://docs.google.com/spreadsheets/d/1Utfr1wkoZSRvM9TOKaTxOX6orYE8AuN2mu4dDtQmhFQ/edit?gid=0#gid=0",
+            "sheetName":"APPMANAGER"
+        };
 
         fetch('https://script.google.com/macros/s/AKfycbwc_ZdByDbw4u-OcEcAaJQt11bfAe3znQ7pYre6pl1KOyIrx8E8PN9yIs1KVcLYPjQlOw/exec',{
             method:"Post",
