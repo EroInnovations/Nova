@@ -11,7 +11,7 @@ const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,callback)=>{
     ELEMENT1.style.borderRadius='10px';
     ELEMENT1.style.display='inline-flex';
 
-    const TEXTER=document.createElement("h2");
+    const TEXTER=document.createElement("p");
 
     TEXTER.style.position='relative';
     TEXTER.style.margin='auto';
@@ -26,8 +26,8 @@ const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,callback)=>{
 
     IMAGER.style.position='relative';
     IMAGER.style.margin='auto';
-    IMAGER.style.width='30px';
-    IMAGER.style.height='30px';
+    IMAGER.style.width='25px';
+    IMAGER.style.height='25px';
     IMAGER.style.marginRight='0.5rem';
     IMAGER.style.padding='2%';
     IMAGER.style.background='transparent';
