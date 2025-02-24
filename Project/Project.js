@@ -4,7 +4,7 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    CONDITION(localStorage.getItem('User'),()=>{
+    CONDITION(!localStorage.getItem('User'),()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
@@ -90,22 +90,18 @@ const USERACCOUNTPAGE=()=>{
  
         });
 
-        IMAGEBUTTON(ELEMENT,'forestgreen','Sync','',WHITERETRYICON,'50px',(ELEMENT)=>{
-
-            RELOAD();
-
-        });
-
         IMAGEBUTTON(ELEMENT,'forestgreen','Settings','',WHITESETTINGSICON,'50px',(ELEMENT)=>{
   
+            CLICK(ELEMENT,()=>{
+
+                ROUTE(' ',SETTINGSPAGE,'USERACCOUNTPAGE')
+
+            });
+
         });
 
         IMAGEBUTTON(ELEMENT,'forestgreen','Help','',WHITEINFOICON,'50px',(ELEMENT)=>{
    
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','LogOut','',WHITELOGOUTICON,'50px',(ELEMENT)=>{
- 
         });
 
     });
@@ -175,7 +171,7 @@ const LOGINPAGE=()=>{
 
     });
 
-    RIGHTTEXT('','p','Forgot Password','#fff','18px',(ELEMENT)=>{
+    RIGHTTEXT('','p','Forgot Password?','#fff','18px',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin-right','1rem');
 
@@ -221,7 +217,7 @@ const CREATEACCOUNTPAGE=()=>{
 
     BUTTON('','','','forestgreen','#fff','Sign Up',(ELEMENT)=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+        ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
 
     });
 
@@ -255,4 +251,90 @@ const FORGOTPASSWORDPAGE=()=>{
 
     });
    
+};
+
+const EMAILVERIFICATIONPAGE=()=>{
+
+    CLEAR("");
+
+    BREAK('');BREAK('');
+
+    ROUNDINPUT('','tel','','transparent','Enter Verification Code',(ELEMENT)=>{
+
+    });
+
+    BUTTON('','','','forestgreen','#fff','Verify',(ELEMENT)=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    });
+
+    BUTTON('','','','blue','#fff','Cancel',(ELEMENT)=>{
+
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+    });
+   
+};
+
+const SETTINGSPAGE=()=>{  
+
+    CLEAR('');
+
+    HEADER('','transparent',(ELEMENT)=>{
+
+        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px',(ELEMENTS)=>{
+
+            CLICK(ELEMENTS,()=>{
+
+                ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
+                
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Settings','','',()=>{
+
+        });
+
+    });
+
+    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'top','50px');
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','App Lock','',WHITELOCKICON,'50px',(ELEMENT)=>{
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Sync','',WHITERETRYICON,'50px',(ELEMENT)=>{
+
+            RELOAD();
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Privacy Policy','',WHITEPRIVACYPOLICYICON,'50px',(ELEMENT)=>{
+  
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Device','',WHITEDEVICEICON,'50px',(ELEMENT)=>{
+   
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Player Mode','',WHITEPLAYICON,'50px',(ELEMENT)=>{
+ 
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Delete Account','',WHITEDELETEICON,'50px',(ELEMENT)=>{
+ 
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','LogOut','',WHITELOGOUTICON,'50px',(ELEMENT)=>{
+ 
+            RELOAD();
+
+        });
+
+    });
+
 };

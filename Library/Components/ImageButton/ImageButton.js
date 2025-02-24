@@ -31,7 +31,6 @@ const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,callback)=>{
     IMAGER.style.marginRight='0.5rem';
     IMAGER.style.padding='2%';
     IMAGER.style.background='transparent';
-    IMAGER.style.borderRadius='50px';
     
     IMAGER.src=SOURCE;
 
