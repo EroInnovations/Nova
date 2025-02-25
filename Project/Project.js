@@ -12,7 +12,15 @@ const NOVASTART=()=>{
 
     },()=>{
 
-        ROUTE('',LOGINPAGE,'LOGINPAGE');
+        CONDITION(localStorage.getItem('VeriifcationCode'),()=>{
+
+            ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+
+        },()=>{
+
+            ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+        });
 
     });
     
@@ -301,8 +309,50 @@ const CREATEACCOUNTPAGE=()=>{
             CONDITION(sessionStorage.getItem('UserEmail'),()=>{
 
                 CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        DISPLAY(ELEMENT,'Please Wait .....');
+
+                        RANDOMCODE((Code)=>{
+
+                            const Message=`Dear ${sessionStorage.getItem('UserName')},\n\n Your Verification Code is ${Code}.`;
     
-                    ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+                            MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Account Creation',Message,(data)=>{
+    
+                                STOREDATA(' ','VeriifcationCode',Code);
+    
+                                const USERS={
+                                    'UserName':sessionStorage.getItem('UserName'),
+                                    'UserEmail':sessionStorage.getItem('UserEmail'),
+                                    'UserPassword':sessionStorage.getItem('UserPassword'),
+                                }
+    
+                                JSONIFICATION(USERS,(Mydata)=>{
+    
+                                    STOREDATA('','MyData',Mydata);
+    
+                                    ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+    
+                                });
+    
+                            },(datata)=>{
+
+                                console.log(datata);
+    
+                                MESSAGEDISPLAY('','Failed TO Send Verification Code');
+    
+                                DISPLAY(ELEMENT,'Sign In');
+
+                            });
+            
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Check Your Internet','');
+
+                    });
         
                 },()=>{
         
