@@ -1,10 +1,12 @@
+const MOVIELANDERAPI='https://docs.google.com/spreadsheets/d/1t0yjEoSVX7qnI3L3tv1N7gBCI-A5e0Y67wu74qzXnUs/edit?usp=sharing';
+
 const NOVASTART=()=>{
 
     CLEAR("");
 
     APPMODE('#000');
 
-    CONDITION(!localStorage.getItem('User'),()=>{
+    CONDITION(localStorage.getItem('User'),()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
@@ -72,7 +74,9 @@ const USERACCOUNTPAGE=()=>{
 
         });
 
-        RIGHTTEXT(ELEMENT,'','Profile','','',()=>{
+        RIGHTTEXT(ELEMENT,'','Profile','','',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'height','40%');
 
         });
 
@@ -81,6 +85,16 @@ const USERACCOUNTPAGE=()=>{
     FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
 
         STYLED(ELEMENT,'top','50px');
+
+        VIEW(ELEMENT,'transparent',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'height','40%');
+            STYLED(ELEMENTS,'width','98%');
+            STYLED(ELEMENTS,'margin-top','1rem');
+            STYLED(ELEMENTS,'border','1px solid #cdcdcd50');
+            STYLED(ELEMENTS,'overflow-Y','hidden');
+
+        });
 
         IMAGEBUTTON(ELEMENT,'forestgreen','Community','',WHITEGROUPICON,'50px',(ELEMENT)=>{
 
@@ -101,6 +115,10 @@ const USERACCOUNTPAGE=()=>{
         });
 
         IMAGEBUTTON(ELEMENT,'forestgreen','Help','',WHITEINFOICON,'50px',(ELEMENT)=>{
+   
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Contact Us','',WHITEPHONEICON,'50px',(ELEMENT)=>{
    
         });
 
@@ -158,16 +176,36 @@ const FREEMOVIESPAGE=()=>{
 
 const LOGINPAGE=()=>{
 
+    DELETEDATA('','UserEmail');
+
+    DELETEDATA('','UserPassword');
+
     CLEAR("");
 
     BREAK('');BREAK('');
 
-    ROUNDINPUT('','email','','transparent','Enter User Email',(ELEMENT)=>{
+    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
 
     });
 
-    ROUNDINPUT('','password','','transparent','Enter User Password',(ELEMENT)=>{
+    BREAK('');
 
+    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
+
+        STOREDATA('','UserEmail',ELEMENT);
+        
+    });
+
+    ROUNDINPUT('','password','','transparent','********',(ELEMENT)=>{
+
+        STOREDATA('','UserPassword',ELEMENT);
 
     });
 
@@ -185,7 +223,23 @@ const LOGINPAGE=()=>{
 
     BUTTON('','','','forestgreen','#fff','Sign In',(ELEMENT)=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+            CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            },()=>{
+    
+                MESSAGEDISPLAY('','Enter Password','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Email','');
+
+        });
 
     });
 
@@ -199,29 +253,78 @@ const LOGINPAGE=()=>{
 
 const CREATEACCOUNTPAGE=()=>{
 
+    DELETEDATA('','UserName');
+
+    DELETEDATA('','UserEmail');
+
+    DELETEDATA('','UserPassword');
+
     CLEAR("");
 
     BREAK('');BREAK('');
 
-    ROUNDINPUT('','text','','transparent','Enter User Name',()=>{
+    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
 
     });
 
-    ROUNDINPUT('','email','','transparent','Enter User Email',()=>{
+    BREAK('');
+
+    ROUNDINPUT('','text','','transparent','User Name',(ELEMENT)=>{
+
+        STOREDATA('','UserName',ELEMENT);
 
     });
 
-    ROUNDINPUT('','password','','transparent','Enter User Password',()=>{
+    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
+
+        STOREDATA('','UserEmail',ELEMENT);
+
+    });
+
+    ROUNDINPUT('','password','','transparent','********',(ELEMENT)=>{
+
+        STOREDATA('','UserPassword',ELEMENT);
 
     });
 
     BUTTON('','','','forestgreen','#fff','Sign Up',(ELEMENT)=>{
 
-        ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+        CONDITION(sessionStorage.getItem('UserName'),()=>{
+
+            CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+                CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+    
+                    ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+        
+                },()=>{
+        
+                    MESSAGEDISPLAY('','Enter Password','');
+        
+                });
+    
+            },()=>{
+    
+                MESSAGEDISPLAY('','Enter Email','');
+    
+            });
+            
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter UserName','');
+
+        });
 
     });
 
-    BUTTON('','','','blue','#fff','LogIn',(ELEMENT)=>{
+    BUTTON('','','','blue','#fff','Log In',(ELEMENT)=>{
 
         ROUTE('',LOGINPAGE,'LOGINPAGE');
 
@@ -231,17 +334,42 @@ const CREATEACCOUNTPAGE=()=>{
 
 const FORGOTPASSWORDPAGE=()=>{
 
+    DELETEDATA('','UserEmail');
+
     CLEAR("");
 
     BREAK('');BREAK('');
 
-    ROUNDINPUT('','email','','transparent','Enter User Email',(ELEMENT)=>{
+    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
+
+        STOREDATA('','UserEmail',ELEMENT);
 
     });
 
     BUTTON('','','','forestgreen','#fff','Recover',(ELEMENT)=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Email','');
+
+        });
 
     });
 
@@ -255,17 +383,42 @@ const FORGOTPASSWORDPAGE=()=>{
 
 const EMAILVERIFICATIONPAGE=()=>{
 
+    DELETEDATA('','VerificationCode');
+
     CLEAR("");
 
     BREAK('');BREAK('');
 
+    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
     ROUNDINPUT('','tel','','transparent','Enter Verification Code',(ELEMENT)=>{
+
+        STOREDATA('','VerificationCode',ELEMENT);
 
     });
 
     BUTTON('','','','forestgreen','#fff','Verify',(ELEMENT)=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+        CONDITION(sessionStorage.getItem('VerificationCode'),()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Verification Code','');
+
+        });
 
     });
 
@@ -335,6 +488,13 @@ const SETTINGSPAGE=()=>{
 
         });
 
+        IMAGEBUTTON(ELEMENT,'forestgreen','LogOut','',WHIT,'50px',(ELEMENT)=>{
+ 
+            RELOAD();
+
+        });
+        
+
     });
 
-};
+}; 

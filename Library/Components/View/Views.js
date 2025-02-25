@@ -9,7 +9,8 @@ const VIEW=(ELEMENT,COLOR,callback)=>{
     ELEMENT1.style.overflowY='auto';
     ELEMENT1.style.display='block';
     ELEMENT1.style.background=COLOR||'#cdcdcd';
-
+    ELEMENT1.style.margin='auto';
+    
     if (ELEMENT) {
         
         ELEMENT.append(ELEMENT1);

@@ -1,8 +1,8 @@
-const  CENTERTEXT=(ELEMENT,TYPE,WORDS,COLOR,SIZE,callback)=>{
+const CENTERTEXT=(ELEMENT,TYPE,WORDS,COLOR,SIZE,callback)=>{
 
     const ELEMENT1=document.createElement(TYPE||"p");
 
-    ELEMENT1.style.color=COLOR||'#000';
+    ELEMENT1.style.color=COLOR||'#cdcdcd';
     ELEMENT1.style.fontSize=SIZE||'20px';
     ELEMENT1.style.textAlign='center';
     ELEMENT1.style.margin='auto';

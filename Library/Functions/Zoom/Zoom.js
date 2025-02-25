@@ -1,4 +1,4 @@
-const ZOOM = () => {
+const ZOOM=()=>{
     
     document.addEventListener(
     

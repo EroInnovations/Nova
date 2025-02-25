@@ -5,6 +5,7 @@ const RIGHTTEXT=(ELEMENT,TYPE,WORDS,COLOR,SIZE,callback)=>{
     ELEMENT1.style.color=COLOR||'#cdcdcd';
     ELEMENT1.style.fontSize=SIZE||'20px';
     ELEMENT1.style.textAlign='right';
+    ELEMENT1.style.margin='auto';
     ELEMENT1.style.marginRight='1%';
 
     ELEMENT1.innerHTML=WORDS||'Your Word'

@@ -9,6 +9,7 @@ const HEADER=(ELEMENT,COLOR,callback)=>{
     ELEMENT1.style.display='inline-flex';
     ELEMENT1.style.left='0';
     ELEMENT1.style.top='0';
+    ELEMENT1.style.margin='auto';
 
     if (ELEMENT) {
 

@@ -11,12 +11,13 @@ const MESSAGEDISPLAY=(ELEMENT,MESSAGE,TIME)=>{
     ELEMENT1.style.bottom='3%';
     ELEMENT1.style.borderRadius='10px';
     ELEMENT1.style.color='#cdcdcd';
+    ELEMENT1.style.border='1px solid #cdcdcd20';
 
-    const TEXTER=document.createElement("h1");
+    const TEXTER=document.createElement("p");
 
     TEXTER.innerHTML=MESSAGE||"Your Message";
     TEXTER.style.margin='auto';
-    TEXTER.style.fontSize='25px';
+    TEXTER.style.fontSize='20px';
 
     ELEMENT1.append(TEXTER);
 

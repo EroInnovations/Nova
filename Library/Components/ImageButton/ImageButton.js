@@ -8,7 +8,7 @@ const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,callback)=>{
     ELEMENT1.style.background=COLOR||'#000000';
     ELEMENT1.style.margin='auto';
     ELEMENT1.style.marginTop='2%';
-    ELEMENT1.style.borderRadius='10px';
+    ELEMENT1.style.borderRadius='5px';
     ELEMENT1.style.display='inline-flex';
 
     const TEXTER=document.createElement("p");
@@ -26,8 +26,8 @@ const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,callback)=>{
 
     IMAGER.style.position='relative';
     IMAGER.style.margin='auto';
-    IMAGER.style.width='25px';
-    IMAGER.style.height='25px';
+    IMAGER.style.width='20px';
+    IMAGER.style.height='20px';
     IMAGER.style.marginRight='0.5rem';
     IMAGER.style.padding='2%';
     IMAGER.style.background='transparent';

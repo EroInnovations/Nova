@@ -39,6 +39,7 @@ import { JSONADDER } from "./JsonAdder/JsonAdder.js";
 import { JSONIFICATION } from "./Jsonification/Jsonification.js";
 import { JSONREMOVER } from "./JsonRemover/JsonRemover.js";
 import { LOCALDEJSONDATA } from "./localDejsonData/localDejsonData.js";
+import { MOVIELANDEREMAIL } from "./MovieLanderEmail/MovieLanderEmail.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
 import { RANDOMCODE } from "./RandomCode/RandomCode.js";
 import { REDUX } from "./Redux/Redux.js";
@@ -129,6 +130,7 @@ const REVERSE=${REVERSE};
 const SCREENHEIGHT=${SCREENHEIGHT};
 const ECORPMAIL=${ECORPMAIL};
 const ECORPPAY=${ECORPPAY};
+const MOVIELANDEREMAIL=${MOVIELANDEREMAIL};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -137,6 +139,6 @@ export{FUNCTIONS};
 
 `
 
-const ECORPPAY=${ECORPPAY};
+const MOVIELANDEREMAIL=${MOVIELANDEREMAIL};
 
 `
