@@ -10,7 +10,7 @@ const MOVIELANDEREMAIL=(EMAIL,SUBJECT,MESSAGE,callback,callback1)=>{
         
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbzmJa92eilnyZLZPKlBB3Oj9cyVy_xRb56TA2UbnTvDJBvppd8duPI_PgP-FUt0NElA/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbz8A6vVp37gtWzpCACtEwCU2sDtBkKMtGB2amKk8doKkFGtffnZaeRtgry5v9xeoMyl/exec',{
 
         method:'Post',
 
