@@ -6,7 +6,7 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    CONDITION(localStorage.getItem('User'),()=>{
+    CONDITION(localStorage.getItem('UserData'),()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
@@ -219,7 +219,7 @@ const LOGINPAGE=()=>{
 
     RIGHTTEXT('','p','Forgot Password?','#fff','18px',(ELEMENT)=>{
 
-        STYLED(ELEMENT,'margin-right','1rem');
+        STYLED(ELEMENT,'margin','1rem');
 
         CLICK(ELEMENT,()=>{
 
@@ -235,7 +235,62 @@ const LOGINPAGE=()=>{
 
             CONDITION(sessionStorage.getItem('UserPassword'),()=>{
 
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
+                CONDITION(navigator.onLine,()=>{
+
+                    DISPLAY(ELEMENT,'Please Wait ...');
+
+                    GETDATA(MOVIELANDERAPI,'Users',(data)=>{
+
+                        FINDER(data,'UserEmail', sessionStorage.getItem('UserEmail'),(ReturnedData)=>{
+
+                            CONDITION(ReturnedData.UserEmail ===sessionStorage.getItem('UserEmail') ,()=>{
+
+                                CONDITION(ReturnedData.UserPassword === sessionStorage.getItem('UserPassword'),()=>{
+
+                                    JSONIFICATION(ReturnedData,(ThisData)=>{
+
+                                        STOREDATA(' ','UserData',ThisData);
+            
+                                        DELETEDATA(' ','VeriifcationCode');
+            
+                                        DELETEDATA(' ','MyData');
+            
+                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+            
+                                    });
+
+                                },()=>{
+    
+                                    DISPLAY(ELEMENT,'Sign In');
+    
+                                    MESSAGEDISPLAY('','Wrong User Password','');
+    
+                                });
+ 
+
+                            },()=>{
+
+                                DISPLAY(ELEMENT,'Sign In');
+
+                                MESSAGEDISPLAY('','No User Account Found','');
+
+                            });
+
+                        });
+                        
+                    },(data)=>{
+
+                        DISPLAY(ELEMENT,'Verify');
+
+                        MESSAGEDISPLAY('','Something Went Wrong','');
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
     
             },()=>{
     
@@ -330,7 +385,7 @@ const CREATEACCOUNTPAGE=()=>{
     
                                 JSONIFICATION(USERS,(Mydata)=>{
     
-                                    STOREDATA('','MyData',Mydata);
+                                    STOREDATA(' ','MyData',Mydata);
     
                                     ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
     
@@ -342,7 +397,7 @@ const CREATEACCOUNTPAGE=()=>{
     
                                 MESSAGEDISPLAY('','Failed TO Send Verification Code');
     
-                                DISPLAY(ELEMENT,'Sign In');
+                                DISPLAY(ELEMENT,'Sign Up');
 
                             });
             
@@ -413,7 +468,55 @@ const FORGOTPASSWORDPAGE=()=>{
 
         CONDITION(sessionStorage.getItem('UserEmail'),()=>{
 
-            ROUTE('',HOMEPAGE,'HOMEPAGE');
+            CONDITION(navigator.onLine,()=>{
+
+                DISPLAY(ELEMENT,'Please Wait ...');
+
+                GETDATA(MOVIELANDERAPI,'Users',(data)=>{
+
+                    FINDER(data,'UserEmail', sessionStorage.getItem('UserEmail'),(ReturnedData)=>{
+
+                        CONDITION(ReturnedData.UserEmail ===sessionStorage.getItem('UserEmail') ,()=>{
+
+                            const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
+    
+                            MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Password Recovery',Message,(data)=>{
+    
+                                ROUTE(' ',FORGOTPASSWORDMESSAGEPASSWORD,'FORGOTPASSWORDMESSAGEPASSWORD');
+    
+                            },(datata)=>{
+
+                                console.log(datata);
+    
+                                MESSAGEDISPLAY('','Failed To Recover Password');
+    
+                                DISPLAY(ELEMENT,'Recover');
+
+                            }); 
+
+                        },()=>{
+
+                            DISPLAY(ELEMENT,'Recover');
+
+                            MESSAGEDISPLAY('','No User Account Found','');
+
+                        });
+
+                    });
+                    
+                },(data)=>{
+
+                    DISPLAY(ELEMENT,'Verify');
+
+                    MESSAGEDISPLAY('','Something Went Wrong','');
+
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Check Your Internet','');
+
+            });
 
         },()=>{
 
@@ -462,7 +565,95 @@ const EMAILVERIFICATIONPAGE=()=>{
 
         CONDITION(sessionStorage.getItem('VerificationCode'),()=>{
 
-            ROUTE('',HOMEPAGE,'HOMEPAGE');
+            CONDITION(sessionStorage.getItem('VerificationCode') === localStorage.getItem('VeriifcationCode') ,()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    DISPLAY(ELEMENT,'Please Wait ...');
+
+                    GETDATA(MOVIELANDERAPI,'Users',(data)=>{
+
+                        LOCALDEJSONDATA('MyData',(MyData)=>{
+
+                            FINDER(data,'UserEmail', MyData.UserEmail,(ReturnedData)=>{
+
+                                CONDITION(ReturnedData.UserEmail === MyData.UserEmail,()=>{
+
+                                    DISPLAY(ELEMENT,'Verify');
+
+                                    MESSAGEDISPLAY('','User With Account Exists','');
+
+                                },()=>{
+
+                                    const HEADER=['UserName','UserEmail','UserPassword'];
+
+                                    const INFOS=[MyData.UserName,MyData.UserEmail,MyData.UserPassword];
+
+                                    INSERTDATA(MOVIELANDERAPI,'Users',HEADER,INFOS,(data)=>{
+
+                                        GETDATA(MOVIELANDERAPI,'Users',(data)=>{
+
+                                            FINDER(data,'UserEmail', MyData.UserEmail,(ReturnedData)=>{
+
+                                                CONDITION(ReturnedData.UserEmail === MyData.UserEmail,()=>{
+
+                                                    JSONIFICATION(ReturnedData,(ThisData)=>{
+
+                                                        STOREDATA(' ','UserData',ThisData);
+
+                                                        DELETEDATA(' ','VeriifcationCode');
+
+                                                        DELETEDATA(' ','MyData');
+
+                                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                                    });
+                
+                                                },()=>{
+
+                                                    DISPLAY(ELEMENT,'Verify');
+
+                                                    MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                                })
+
+                                            });
+
+                                        })
+
+                                    },(data)=>{
+
+                                        DISPLAY(ELEMENT,'Verify');
+
+                                        MESSAGEDISPLAY('','Failed to Create Account!','');
+
+                                    });
+
+                                });
+
+                            });
+
+                        });
+
+                    },(data)=>{
+
+                        DISPLAY(ELEMENT,'Verify');
+
+                        MESSAGEDISPLAY('','Something Went Wrong','');
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
+    
+            },()=>{
+    
+                MESSAGEDISPLAY('','Wrong Verification Code','');
+    
+            });
 
         },()=>{
 
@@ -474,7 +665,9 @@ const EMAILVERIFICATIONPAGE=()=>{
 
     BUTTON('','','','blue','#fff','Cancel',(ELEMENT)=>{
 
-        ROUTE('',LOGINPAGE,'LOGINPAGE');
+        DELETEDATA(' ','VeriifcationCode');
+
+        ROUTE('',CREATEACCOUNTPAGE,'CREATEACCOUNTPAGE');
 
     });
    
@@ -534,17 +727,49 @@ const SETTINGSPAGE=()=>{
 
         IMAGEBUTTON(ELEMENT,'forestgreen','LogOut','',WHITELOGOUTICON,'50px',(ELEMENT)=>{
  
-            RELOAD();
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','LogOut','',WHIT,'50px',(ELEMENT)=>{
+            DELETEDATA(' ','UserData');
  
             RELOAD();
 
         });
-        
 
+        IMAGEBUTTON(ELEMENT,'forestgreen','Updates','',WHITEMOBILEDEVELOPMENTICON,'50px',(ELEMENT)=>{
+
+        });
+        
     });
 
 }; 
+
+const FORGOTPASSWORDMESSAGEPASSWORD=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    CLEAR("");
+
+    BREAK('');BREAK('');
+
+    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    CENTERTEXT('','p','The Password has been Sent to Your Email!','','',(ELEMENT)=>{
+
+    });
+
+    BUTTON('','','','blue','#fff','Back',(ELEMENT)=>{
+
+        ROUTE('',FORGOTPASSWORDPAGE,'FORGOTPASSWORDPAGE');
+
+    });
+   
+};
