@@ -23,6 +23,10 @@ const NOVASTART=()=>{
         });
 
     });
+
+    MOVIESCATERGORY();
+
+    MOVIESUPDATERS();
     
 };
 
@@ -156,6 +160,30 @@ const CATERGORYPAGE=()=>{
 
     });
 
+    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'top','50px');
+
+        DISPLAY(ELEMENT,'Please Wait ...');
+
+        GETINDEXED('Catergoy', 'Catergoy', (data)=>{
+
+            REDUX(data,(element)=>{
+
+                REDUX(element.data,(elements)=>{
+
+                    DISPLAY(ELEMENT,elements);
+
+                    console.log(elements);
+    
+                });
+
+            });
+
+        });
+
+    });
+
 };
 
 const FREEMOVIESPAGE=()=>{
@@ -192,14 +220,19 @@ const LOGINPAGE=()=>{
 
     BREAK('');BREAK('');
 
-    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
+    IMAGE('',MOVIZ,'','auto',(ELEMENT)=>{
 
-        STYLED(ELEMENT,'margin-top','25px');
-        STYLED(ELEMENT,'margin-bottom','25px');
+        STYLED(ELEMENT,'bottom','50%');
+        STYLED(ELEMENT,'padding','50px');
+        STYLED(ELEMENT,'position','absolute');
+        STYLED(ELEMENT,'left','-5%');
 
     }),
 
-    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+    BREAK('');BREAK('');BREAK('');BREAK('');
+    BREAK('');BREAK('');BREAK('');BREAK('');
+
+    CENTERTEXT('','p','Watch and Save','','',(ELEMENT)=>{
 
     });
 
@@ -772,4 +805,90 @@ const FORGOTPASSWORDMESSAGEPASSWORD=()=>{
 
     });
    
+};
+
+const MOVIESCATERGORY=()=>{
+
+    CHECKER(navigator.onLine,()=>{
+
+        GETDATA(MOVIELANDERAPI,'Catergory',(data)=>{
+
+            const MYDATA={
+                'Name':'Catergoy',
+                'data':data
+            }
+
+            CONDITION(localStorage.getItem('MoviesUpdated'),()=>{
+
+                UPDATEINDEX('Catergoy', 'Catergoy', MYDATA, ()=>{
+
+                    STOREDATA(' ','MoviesUpdated',new Date());
+
+                });
+
+            },()=>{
+
+                STOREINDEXED('Catergoy', 'Catergoy', MYDATA, (data)=>{
+
+                    CHECKER(data === true,()=>{
+
+                        STOREDATA(' ','MoviesUpdated',new Date());
+                    
+                    });
+
+                });
+
+            });
+
+        },(data)=>{
+    
+            console.log(data);
+            
+        });
+
+    });
+
+};
+
+const MOVIESUPDATERS=()=>{
+
+    CHECKER(navigator.onLine,()=>{
+
+        GETDATA(MOVIELANDERAPI,'Movies',(data)=>{
+
+            const MYDATA={
+                'Name':'Movies',
+                'data':data
+            }
+
+            CONDITION(localStorage.getItem('MoviesUpdate'),()=>{
+
+                UPDATEINDEX('Movies', 'Movies', MYDATA, ()=>{
+
+                    STOREDATA(' ','MoviesUpdate',new Date());
+
+                });
+
+            },()=>{
+
+                STOREINDEXED('Movies', 'Movies', MYDATA, (data)=>{
+
+                    CHECKER(data === true,()=>{
+
+                        STOREDATA(' ','MoviesUpdate',new Date());
+                    
+                    });
+
+                });
+
+            });
+
+        },(data)=>{
+    
+            console.log(data);
+            
+        });
+
+    });
+
 };

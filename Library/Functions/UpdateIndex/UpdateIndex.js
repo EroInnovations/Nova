@@ -6,7 +6,7 @@ const UPDATEINDEX= (dbName, storeName, data,callback) => {
             console.error(`Object store "${storeName}" not found.`);
             db.close();
             return;
-        }
+        };
         const transaction = db.transaction(storeName, "readwrite");
         const store = transaction.objectStore(storeName);
         const putRequest = store.put(data);
@@ -30,4 +30,4 @@ const UPDATEINDEX= (dbName, storeName, data,callback) => {
     };
 };
 
-export{UPDATEINDEX}
+export{UPDATEINDEX};
