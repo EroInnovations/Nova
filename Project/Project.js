@@ -6,7 +6,7 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    CONDITION(localStorage.getItem('UserData'),()=>{
+    CONDITION(!localStorage.getItem('UserData'),()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
@@ -33,6 +33,10 @@ const NOVASTART=()=>{
 const HOMEPAGE=()=>{
 
     CLEAR("");
+
+    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+
+    });
 
     ROUNDFOOTER('','#333','','50px','50px',(ELEMENT)=>{
 
