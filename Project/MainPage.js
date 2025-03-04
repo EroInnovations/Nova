@@ -34,7 +34,7 @@ const MOBILEHOMEPAGE=()=>{
 
     HEADER('',' ',(ELEMENT)=>{
 
-        LEFTIMAGE(ELEMENT,WHITEHOMEICON,'25px','25px','2%',()=>{
+        LEFTIMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'50px','50px','2%',()=>{
 
         });
 
@@ -84,3 +84,4 @@ const DESKTOPWEBSITE=()=>{
 
 };
 
+'44a683c3-6ba2-4377-936c-898176776656'

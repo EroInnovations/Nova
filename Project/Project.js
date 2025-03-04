@@ -34,7 +34,7 @@ const MOBILEHOMEPAGE=()=>{
 
     HEADER('',' ',(ELEMENT)=>{
 
-        LEFTIMAGE(ELEMENT,WHITEHOMEICON,'25px','25px','2%',()=>{
+        LEFTIMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'50px','50px','2%',()=>{
 
         });
 
