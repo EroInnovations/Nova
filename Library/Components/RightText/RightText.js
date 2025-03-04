@@ -1,4 +1,4 @@
-const RIGHTTEXT=(ELEMENT,TYPE,WORDS,COLOR,SIZE,callback)=>{
+const RIGHTTEXT=(ELEMENT,TYPE,WORDS,COLOR,SIZE,RIGHT,callback)=>{
 
     const ELEMENT1=document.createElement(TYPE||"p");
 
@@ -6,7 +6,7 @@ const RIGHTTEXT=(ELEMENT,TYPE,WORDS,COLOR,SIZE,callback)=>{
     ELEMENT1.style.fontSize=SIZE||'20px';
     ELEMENT1.style.textAlign='right';
     ELEMENT1.style.margin='auto';
-    ELEMENT1.style.marginRight='1%';
+    ELEMENT1.style.marginRight=RIGHT||'1%';
 
     ELEMENT1.innerHTML=WORDS||'Your Word'
 

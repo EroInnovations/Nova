@@ -18,6 +18,7 @@ import { LEFTBUTTONTEXT } from "./LeftButtonText/LeftButtonText.js";
 import { LEFTIMAGE } from "./LeftImage/LeftImage.js";
 import { LEFTTEXT } from "./LeftText/LeftText.js";
 import { MESSAGEDISPLAY } from "./MessageDisplay/MessageDisplay.js";
+import { RIGHTIMAGE } from "./RightImage/RightImage.js";
 import { RIGHTTEXT } from "./RightText/RightText.js";
 import { BORDERROUNDBUTTON } from "./RoundBorderButton/RoundBorderButton.js";
 import { ROUNDBUTTON } from "./RoundButton/RoundButton.js";
@@ -57,12 +58,13 @@ const VIDEO=${VIDEO};
 const ROUNDFOOTER=${ROUNDFOOTER};
 const RIGHTTEXT=${RIGHTTEXT};
 const CENTERTEXT=${CENTERTEXT};
+const RIGHTIMAGE=${RIGHTIMAGE};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const CENTERTEXT=${CENTERTEXT};
+const RIGHTIMAGE=${RIGHTIMAGE};
 
 `;

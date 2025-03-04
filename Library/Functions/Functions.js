@@ -48,6 +48,7 @@ import { REPEATER } from "./Repeater/Repeater.js";
 import { REVERSE } from "./Reverse/Reverse.js";
 import { ROUTE } from "./Route/Route.js";
 import { SCREENHEIGHT } from "./ScreenHeight/ScreenHeight.js";
+import { SCREENWIDTH } from "./ScreenWidth/ScreenWidth.js";
 import { SMS } from "./Sms/Sms.js";
 import { STOPCOLORCHANGER } from "./StopColorChanger/StopColorChanger.js";
 import { STOREDATA } from "./StoreData/StoreData.js";
@@ -131,6 +132,7 @@ const SCREENHEIGHT=${SCREENHEIGHT};
 const ECORPMAIL=${ECORPMAIL};
 const ECORPPAY=${ECORPPAY};
 const MOVIELANDEREMAIL=${MOVIELANDEREMAIL};
+const SCREENWIDTH=${SCREENWIDTH};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -139,6 +141,6 @@ export{FUNCTIONS};
 
 `
 
-const MOVIELANDEREMAIL=${MOVIELANDEREMAIL};
+const SCREENWIDTH=${SCREENWIDTH};
 
 `

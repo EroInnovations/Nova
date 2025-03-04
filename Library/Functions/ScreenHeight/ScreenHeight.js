@@ -1,6 +1,6 @@
 const SCREENHEIGHT=(callback)=>{
 
-    callback(JSON.stringify({ screenHeight: screen.height }));
+    callback(screen.height);
 
 };
 
