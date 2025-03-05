@@ -42,7 +42,13 @@ const MOBILEHOMEPAGE=()=>{
 
         });
 
-        RIGHTIMAGE(ELEMENT,WHITEMENUICON,'25px','25px','5%',()=>{
+        RIGHTIMAGE(ELEMENT,WHITEMENUICON,'25px','25px','5%',(ELEMENTS)=>{
+
+            CLICK(ELEMENTS,()=>{
+
+                MENUPAGE();
+
+            });
 
         });
 
@@ -93,6 +99,72 @@ const MOBILEHOMEPAGE=()=>{
     });
 
 };
+
+const MENUPAGE=()=>{
+
+    FULLSCROLLVIEW('','#06173b',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'width','50%');
+
+        STYLED(ELEMENT,'display','block');
+
+        STYLED(ELEMENT,'overflow','hidden');
+
+        STYLED(ELEMENT,'border-right','1px solid #cdcdcd');
+
+        HEADER(ELEMENT,' ',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'position','relative');
+
+            LEFTIMAGE(ELEMENTS,EROINNOVATIONSLOGOONE,'50px','50px','2%',()=>{
+    
+            });
+    
+            RIGHTIMAGE(ELEMENTS,WHITECLOSEICON,'25px','25px','5%',(ELEMENTS)=>{
+    
+                CLICK(ELEMENTS,()=>{
+
+                    STYLED(ELEMENT,'display','none');
+                    
+    
+                });
+    
+            });
+    
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Apps','',WHITEAPPICON,'50px',(ELEMENT)=>{
+
+           
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Systems','',WHITESECRETCODEICON,'50px',(ELEMENT)=>{
+
+           
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Docs','',WHITEPENCILICON,'50px',(ELEMENT)=>{
+
+          
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Help','',WHITEINFOICON,'50px',(ELEMENT)=>{
+
+          
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Sync','',WHITERETRYICON,'50px',(ELEMENT)=>{
+
+            RELOAD();
+
+        });
+
+    })
+
+}
 
 const DESKTOPWEBSITE=()=>{
 
