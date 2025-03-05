@@ -64,13 +64,27 @@ const MOBILEHOMEPAGE=()=>{
 
        const MESSAGES='Software Development Company Located In Mbale City.<br><br> We Develop Android Apps,Desktop Apps and WebSites. <br><br> We offer Cloud Based Systems that are scalable and Easy To Use. <br><br> We let You Imagine ,We Build It and Inspire the Rest. <br><br> Get Your Dream App Built Today Using the Cutting Edge Cloud Based Softwares that are approved to The European Union and More .<br><br> Click the Button Below Today to get Started.';
 
-       LEFTTEXT(ELEMENT,'p',MESSAGES,'','','',()=>{
+       LEFTTEXT(ELEMENT,'p',MESSAGES,'','16px','',()=>{
 
        });
 
        IMAGEBUTTON(ELEMENT,'forestgreen','Contact Us ','',WHITEPHONEICON,'50px',()=>{
 
         GMAIL('eroinnovations9@gmail.com');
+
+       });
+
+       BREAK(ELEMENT);BREAK(ELEMENT);
+
+       CENTERTEXT(ELEMENT,'h5','Mission','','20px',()=>{
+
+       });
+
+       BREAK(ELEMENT);
+
+       const MESSAGEONE='Our Mission is to create Long Life Solutions that are solve a Problem in society with a permanet method not a temporary Solution.';
+       
+       LEFTTEXT(ELEMENT,'p',MESSAGEONE,'','16px','',()=>{
 
        });
 
