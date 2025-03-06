@@ -1,0 +1,7 @@
+const CLOUDLOGINTEMPLATE=()=>{
+
+
+
+
+};
+export{CLOUDLOGINTEMPLATE};

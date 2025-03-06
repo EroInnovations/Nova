@@ -10,6 +10,7 @@ ROUTEJS(localStorage.getItem('ICONS'));
 ROUTEJS(localStorage.getItem('APIS'));
 ROUTEJS(localStorage.getItem('PROJECT'));
 ROUTEJS(localStorage.getItem('ANDROIDPLUGINS'));
+ROUTEJS(localStorage.getItem('TEMPLATES'));
 `;
 localStorage.setItem('NOVA',DATA);
 AUTORUN();
@@ -18,6 +19,6 @@ NOVASTARTER();
 };
 export{NOVA};
 `
-ROUTEJS(localStorage.getItem('ANDROIDPLUGINS'));
+ROUTEJS(localStorage.getItem('TEMPLATES'));
 `
 

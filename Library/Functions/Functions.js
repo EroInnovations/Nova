@@ -28,6 +28,7 @@ import { FACEBOOK } from "./FaceBook/FaceBook.js";
 import { FINDER } from "./Finder/Finder.js";
 import { GETDATA } from "./GetData/GetData.js";
 import { GETINDEXED } from "./GetIndex/GetIndex.js";
+import { GETINDEXEDDATA } from "./GetIndexedData/GetIndexedData.js";
 import { GETPACKAGE } from "./GetPackage/GetPackage.js";
 import { GMAIL } from "./Gmail/Gmail.js";
 import { HIDER } from "./Hider/Hider.js";
@@ -135,6 +136,7 @@ const ECORPPAY=${ECORPPAY};
 const MOVIELANDEREMAIL=${MOVIELANDEREMAIL};
 const SCREENWIDTH=${SCREENWIDTH};
 const SCROLL=${SCROLL};
+const GETINDEXEDDATA=${GETINDEXEDDATA};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -143,6 +145,6 @@ export{FUNCTIONS};
 
 `
 
-const SCROLL=${SCROLL};
+const GETINDEXEDDATA=${GETINDEXEDDATA};
 
 `

@@ -46,7 +46,7 @@ const MOBILEHOMEPAGE=()=>{
 
             CLICK(ELEMENTS,()=>{
 
-                MENUPAGE();
+                MENUPAGE('');
 
             });
 
@@ -126,7 +126,6 @@ const MENUPAGE=()=>{
 
                     STYLED(ELEMENT,'display','none');
                     
-    
                 });
     
             });
@@ -162,9 +161,9 @@ const MENUPAGE=()=>{
 
         });
 
-    })
+    });
 
-}
+};
 
 const DESKTOPWEBSITE=()=>{
 
