@@ -2,6 +2,10 @@ const NOVASTART=()=>{
 
     CLEAR('');
 
-    RIGHTTEXTBACKHEADER('',()=>{},'Profile',' ',()=>{}); 
+    RIGHTTEXTBACKHEADERBODY('',()=>{},'Home','',()=>{},(ELEMENT)=>{
+
+        DISPLAY(ELEMENT,'Hi')
+
+    })
 
 };

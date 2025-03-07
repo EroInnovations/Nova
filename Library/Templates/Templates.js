@@ -1,5 +1,7 @@
 import { LEFTTEXTBACKHEADER } from "./Components/LeftTextBackHeader/LeftTextBackHeader.js";
+import { LEFTTEXTBACKHEADERBODY } from "./Components/LeftTextBackHeaderBody/LeftTextBackHeaderBody.js";
 import { RIGHTTEXTBACKHEADER } from "./Components/RightTextBackHeader/RightTextBackHeader.js";
+import { RIGHTTEXTBACKHEADERBODY } from "./Components/RightTextBackHeaderBody/RightTextBackHeaderBody.js";
 import { CLOUDCREATEACCOUNTTEMPLATE } from "./Functions/CloudCreateAccountTemplate/CloudCreateAccountTemplate.js";
 import { CLOUDLOGINTEMPLATE } from "./Functions/CloudLoginTemplate/CloudLoginTemplate.js";
 import { EMAILVERIFICATIONTEMPLATE } from "./Functions/EmailVerificationTemplate/EmailVerificationTemplate.js";
@@ -12,6 +14,8 @@ const EMAILVERIFICATIONTEMPLATE=${EMAILVERIFICATIONTEMPLATE};
 const FORGOTPASSWORDTEMPLATE=${FORGOTPASSWORDTEMPLATE};
 const LEFTTEXTBACKHEADER=${LEFTTEXTBACKHEADER};
 const RIGHTTEXTBACKHEADER=${RIGHTTEXTBACKHEADER};
+const LEFTTEXTBACKHEADERBODY=${LEFTTEXTBACKHEADERBODY};
+const RIGHTTEXTBACKHEADERBODY=${RIGHTTEXTBACKHEADERBODY};
 `;
 localStorage.setItem('TEMPLATES',DATA);
 };
@@ -19,6 +23,6 @@ export{TEMPLATES};
 
 `
 
-const RIGHTTEXTBACKHEADER=${RIGHTTEXTBACKHEADER};
+const RIGHTTEXTBACKHEADERBODY=${RIGHTTEXTBACKHEADERBODY};
 
 `
