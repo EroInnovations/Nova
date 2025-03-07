@@ -447,53 +447,21 @@ const FORGOTPASSWORDPAGE=()=>{
 
         CONDITION(sessionStorage.getItem('UserEmail'),()=>{
 
-            CONDITION(navigator.onLine,()=>{
+            FORGOTPASSWORDTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Please Wait','Recover','UserEmail',sessionStorage.getItem('UserEmail'),'Failed to Recover','No User Account',(ReturnedData)=>{
 
-                DISPLAY(ELEMENT,'Please Wait ...');
-
-                GETDATA(MOVIELANDERAPI,'Users',(data)=>{
-
-                    FINDER(data,'UserEmail', sessionStorage.getItem('UserEmail'),(ReturnedData)=>{
-
-                        CONDITION(ReturnedData.UserEmail ===sessionStorage.getItem('UserEmail') ,()=>{
-
-                            const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
+                const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
     
-                            MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Password Recovery',Message,(data)=>{
-    
-                                ROUTE(' ',FORGOTPASSWORDMESSAGEPASSWORD,'FORGOTPASSWORDMESSAGEPASSWORD');
-    
-                            },(datata)=>{
+                MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Password Recovery',Message,(data)=>{
 
-                                console.log(datata);
-    
-                                MESSAGEDISPLAY('','Failed To Recover Password');
-    
-                                DISPLAY(ELEMENT,'Recover');
+                    ROUTE(' ',FORGOTPASSWORDMESSAGEPASSWORD,'FORGOTPASSWORDMESSAGEPASSWORD');
 
-                            }); 
+                },(datata)=>{
 
-                        },()=>{
+                    MESSAGEDISPLAY('','Failed To Recover Password');
 
-                            DISPLAY(ELEMENT,'Recover');
+                    DISPLAY(ELEMENT,'Recover');
 
-                            MESSAGEDISPLAY('','No User Account Found','');
-
-                        });
-
-                    });
-                    
-                },(data)=>{
-
-                    DISPLAY(ELEMENT,'Verify');
-
-                    MESSAGEDISPLAY('','Something Went Wrong','');
-
-                });
-
-            },()=>{
-
-                MESSAGEDISPLAY('','Check Your Internet','');
+                }); 
 
             });
 
