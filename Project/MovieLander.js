@@ -224,12 +224,12 @@ const LOGINPAGE=()=>{
 
     BREAK('');BREAK('');
 
-    IMAGE('',MOVIZ,'','auto',(ELEMENT)=>{
+    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
 
     }),
-
-    BREAK('');BREAK('');BREAK('');BREAK('');
-    BREAK('');BREAK('');BREAK('');BREAK('');
 
     CENTERTEXT('','p','Watch and Save','','',(ELEMENT)=>{
 
@@ -267,63 +267,12 @@ const LOGINPAGE=()=>{
 
             CONDITION(sessionStorage.getItem('UserPassword'),()=>{
 
-                CONDITION(navigator.onLine,()=>{
+                CLOUDLOGINTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Ready For ','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
 
-                    DISPLAY(ELEMENT,'Please Wait ...');
-
-                    GETDATA(MOVIELANDERAPI,'Users',(data)=>{
-
-                        FINDER(data,'UserEmail', sessionStorage.getItem('UserEmail'),(ReturnedData)=>{
-
-                            CONDITION(ReturnedData.UserEmail ===sessionStorage.getItem('UserEmail') ,()=>{
-
-                                CONDITION(ReturnedData.UserPassword === sessionStorage.getItem('UserPassword'),()=>{
-
-                                    JSONIFICATION(ReturnedData,(ThisData)=>{
-
-                                        STOREDATA(' ','UserData',ThisData);
-            
-                                        DELETEDATA(' ','VeriifcationCode');
-            
-                                        DELETEDATA(' ','MyData');
-            
-                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
-            
-                                    });
-
-                                },()=>{
-    
-                                    DISPLAY(ELEMENT,'Sign In');
-    
-                                    MESSAGEDISPLAY('','Wrong User Password','');
-    
-                                });
- 
-
-                            },()=>{
-
-                                DISPLAY(ELEMENT,'Sign In');
-
-                                MESSAGEDISPLAY('','No User Account Found','');
-
-                            });
-
-                        });
-                        
-                    },(data)=>{
-
-                        DISPLAY(ELEMENT,'Verify');
-
-                        MESSAGEDISPLAY('','Something Went Wrong','');
-
-                    });
-
-                },()=>{
-
-                    MESSAGEDISPLAY('','Check Your Internet','');
+                    console.log(data);
 
                 });
-    
+                
             },()=>{
     
                 MESSAGEDISPLAY('','Enter Password','');
@@ -356,9 +305,7 @@ const CREATEACCOUNTPAGE=()=>{
 
     CLEAR("");
 
-    BREAK('');BREAK('');
-
-    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
+    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin-top','25px');
         STYLED(ELEMENT,'margin-bottom','25px');
@@ -477,7 +424,7 @@ const FORGOTPASSWORDPAGE=()=>{
 
     BREAK('');BREAK('');
 
-    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
+    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin-top','25px');
         STYLED(ELEMENT,'margin-bottom','25px');
@@ -500,53 +447,21 @@ const FORGOTPASSWORDPAGE=()=>{
 
         CONDITION(sessionStorage.getItem('UserEmail'),()=>{
 
-            CONDITION(navigator.onLine,()=>{
+            FORGOTPASSWORDTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Please Wait','Recover','UserEmail',sessionStorage.getItem('UserEmail'),'Failed to Recover','No User Account',(ReturnedData)=>{
 
-                DISPLAY(ELEMENT,'Please Wait ...');
-
-                GETDATA(MOVIELANDERAPI,'Users',(data)=>{
-
-                    FINDER(data,'UserEmail', sessionStorage.getItem('UserEmail'),(ReturnedData)=>{
-
-                        CONDITION(ReturnedData.UserEmail ===sessionStorage.getItem('UserEmail') ,()=>{
-
-                            const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
+                const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
     
-                            MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Password Recovery',Message,(data)=>{
-    
-                                ROUTE(' ',FORGOTPASSWORDMESSAGEPASSWORD,'FORGOTPASSWORDMESSAGEPASSWORD');
-    
-                            },(datata)=>{
+                MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Password Recovery',Message,(data)=>{
 
-                                console.log(datata);
-    
-                                MESSAGEDISPLAY('','Failed To Recover Password');
-    
-                                DISPLAY(ELEMENT,'Recover');
+                    ROUTE(' ',FORGOTPASSWORDMESSAGEPASSWORD,'FORGOTPASSWORDMESSAGEPASSWORD');
 
-                            }); 
+                },(datata)=>{
 
-                        },()=>{
+                    MESSAGEDISPLAY('','Failed To Recover Password');
 
-                            DISPLAY(ELEMENT,'Recover');
+                    DISPLAY(ELEMENT,'Recover');
 
-                            MESSAGEDISPLAY('','No User Account Found','');
-
-                        });
-
-                    });
-                    
-                },(data)=>{
-
-                    DISPLAY(ELEMENT,'Verify');
-
-                    MESSAGEDISPLAY('','Something Went Wrong','');
-
-                });
-
-            },()=>{
-
-                MESSAGEDISPLAY('','Check Your Internet','');
+                }); 
 
             });
 
@@ -572,9 +487,7 @@ const EMAILVERIFICATIONPAGE=()=>{
 
     CLEAR("");
 
-    BREAK('');BREAK('');
-
-    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
+    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin-top','25px');
         STYLED(ELEMENT,'margin-bottom','25px');
