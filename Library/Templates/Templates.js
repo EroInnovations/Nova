@@ -2,6 +2,7 @@ import { LEFTTEXTBACKHEADER } from "./Components/LeftTextBackHeader/LeftTextBack
 import { LEFTTEXTBACKHEADERBODY } from "./Components/LeftTextBackHeaderBody/LeftTextBackHeaderBody.js";
 import { RIGHTTEXTBACKHEADER } from "./Components/RightTextBackHeader/RightTextBackHeader.js";
 import { RIGHTTEXTBACKHEADERBODY } from "./Components/RightTextBackHeaderBody/RightTextBackHeaderBody.js";
+import { ACCOUNTCHECKER } from "./Functions/AccountChecker/AccountChecker.js";
 import { CLOUDCREATEACCOUNTTEMPLATE } from "./Functions/CloudCreateAccountTemplate/CloudCreateAccountTemplate.js";
 import { CLOUDLOGINTEMPLATE } from "./Functions/CloudLoginTemplate/CloudLoginTemplate.js";
 import { EMAILVERIFICATIONTEMPLATE } from "./Functions/EmailVerificationTemplate/EmailVerificationTemplate.js";
@@ -16,6 +17,7 @@ const LEFTTEXTBACKHEADER=${LEFTTEXTBACKHEADER};
 const RIGHTTEXTBACKHEADER=${RIGHTTEXTBACKHEADER};
 const LEFTTEXTBACKHEADERBODY=${LEFTTEXTBACKHEADERBODY};
 const RIGHTTEXTBACKHEADERBODY=${RIGHTTEXTBACKHEADERBODY};
+const ACCOUNTCHECKER=${ACCOUNTCHECKER};
 `;
 localStorage.setItem('TEMPLATES',DATA);
 };
@@ -23,6 +25,6 @@ export{TEMPLATES};
 
 `
 
-const RIGHTTEXTBACKHEADERBODY=${RIGHTTEXTBACKHEADERBODY};
+const ACCOUNTCHECKER=${ACCOUNTCHECKER};
 
 `
