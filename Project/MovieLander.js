@@ -6,7 +6,7 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    CONDITION(!localStorage.getItem('UserData'),()=>{
+    CONDITION(localStorage.getItem('UserData'),()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
@@ -226,11 +226,6 @@ const LOGINPAGE=()=>{
 
     IMAGE('',MOVIZ,'','auto',(ELEMENT)=>{
 
-        STYLED(ELEMENT,'bottom','50%');
-        STYLED(ELEMENT,'padding','50px');
-        STYLED(ELEMENT,'position','absolute');
-        STYLED(ELEMENT,'left','-5%');
-
     }),
 
     BREAK('');BREAK('');BREAK('');BREAK('');
@@ -254,7 +249,7 @@ const LOGINPAGE=()=>{
 
     });
 
-    RIGHTTEXT('','p','Forgot Password?','#fff','18px',(ELEMENT)=>{
+    RIGHTTEXT('','p','Forgot Password?','#fff','18px','',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin','1rem');
 

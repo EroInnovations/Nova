@@ -1,185 +1,682 @@
+const MOVIELANDERAPI='https://docs.google.com/spreadsheets/d/1t0yjEoSVX7qnI3L3tv1N7gBCI-A5e0Y67wu74qzXnUs/edit?usp=sharing';
+
 const NOVASTART=()=>{
 
-    APPMODE('#06173b');
+    CLEAR("");
 
-    SCREENWIDTH((Width)=>{
+    APPMODE('#000');
 
-        CONDITION(Width <= 800 ,()=>{
+    CONDITION(localStorage.getItem('UserData'),()=>{
 
-            ROUTE('',MOBILEWEBSITE,'MOBILEWEBSITE');
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },()=>{
+
+        CONDITION(localStorage.getItem('VeriifcationCode'),()=>{
+
+            ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
 
         },()=>{
 
-            ROUTE('',DESKTOPWEBSITE,'DESKTOPWEBSITE');
+            ROUTE('',LOGINPAGE,'LOGINPAGE');
 
         });
 
     });
 
+    MOVIESCATERGORY();
+
+    MOVIESUPDATERS();
+    
 };
 
-const MOBILEWEBSITE=()=>{
+const HOMEPAGE=()=>{
 
-    CLEAR('');
+    CLEAR("");
 
-    ROUTE('',MOBILEHOMEPAGE,'MOBILEHOMEPAGE');
+    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
 
-};
+    });
 
-const MOBILEHOMEPAGE=()=>{
+    ROUNDFOOTER('','#333','','50px','50px',(ELEMENT)=>{
 
-    CLEAR('');
-
-    HEADER('',' ',(ELEMENT)=>{
-
-        LEFTIMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'50px','50px','2%',()=>{
-
-        });
-
-        CENTERTEXT(ELEMENT,'h3','Ero Innovations','','20px',()=>{
-
-        });
-
-        RIGHTIMAGE(ELEMENT,WHITEMENUICON,'25px','25px','5%',(ELEMENTS)=>{
+        ICON(ELEMENT,WHITELISTICON,'25px','25px',(ELEMENTS)=>{
 
             CLICK(ELEMENTS,()=>{
 
-                MENUPAGE('');
-
+                ROUTE(' ',CATERGORYPAGE,'HOMEPAGE');
+                
             });
 
         });
 
-    });
+        ICON(ELEMENT,WHITEMOVIEICON,'25px','25px',(ELEMENTS)=>{
 
-    FULLSCROLLVIEW('',' ',(ELEMENT)=>{
+            CLICK(ELEMENTS,()=>{
 
-        STYLED(ELEMENT,'top','50px');
-
-        IMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'93%','50%',()=>{
-
-        });
-
-        CENTERTEXT(ELEMENT,'h5','About Us','','20px',()=>{
-
-        });
-
-        BREAK(ELEMENT);
-
-        const MESSAGES='Software Development Company Located In Mbale City.<br><br> We Develop Android Apps,Desktop Apps and WebSites. <br><br> We offer Cloud Based Systems that are scalable and Easy To Use. <br><br> We let You Imagine ,We Build It and Inspire the Rest. <br><br> Get Your Dream App Built Today Using the Cutting Edge Cloud Based Softwares that are approved to The European Union and More .<br><br> Click the Button Below Today to get Started.';
-
-        LEFTTEXT(ELEMENT,'p',MESSAGES,'','16px','',()=>{
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Order Now','',WHITEPHONEICON,'50px',()=>{
-
-            GMAIL('eroinnovations9@gmail.com');
-
-        });
-
-        BREAK(ELEMENT);BREAK(ELEMENT);
-
-        CENTERTEXT(ELEMENT,'h5','Mission','','20px',()=>{
-
-        });
-
-        BREAK(ELEMENT);
-
-        const MESSAGEONE='Our Mission is to create Long Life Solutions that are solve a Problem in society with a permanet method not a temporary Solution.';
+                ROUTE(' ',FREEMOVIESPAGE,'HOMEPAGE');
+                
+            });
         
-        LEFTTEXT(ELEMENT,'p',MESSAGEONE,'','16px','',()=>{
-
         });
 
-        BREAK(ELEMENT);
+        ICON(ELEMENT,WHITEUSERICON,'25px','25px',(ELEMENTS)=>{
 
-        FOOTER(ELEMENT,' ','100%','50px',(ELEMENTS)=>{
+            CLICK(ELEMENTS,()=>{
 
-            STYLED(ELEMENTS,'position','relative');
-
-            CENTERTEXT(ELEMENTS,'h5','&copy Ero Innovations 2025','','20px',()=>{
-
+                ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
+                
             });
 
         });
-
-       BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
     });
 
 };
 
-const MENUPAGE=()=>{
+const USERACCOUNTPAGE=()=>{
 
-    FULLSCROLLVIEW('','#06173b',(ELEMENT)=>{
+    CLEAR('');
 
-        STYLED(ELEMENT,'width','50%');
+    HEADER('','transparent',(ELEMENT)=>{
 
-        STYLED(ELEMENT,'display','block');
+        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px',(ELEMENTS)=>{
 
-        STYLED(ELEMENT,'overflow','hidden');
+            CLICK(ELEMENTS,()=>{
 
-        STYLED(ELEMENT,'border-right','1px solid #cdcdcd');
-
-        HEADER(ELEMENT,' ',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'position','relative');
-
-            LEFTIMAGE(ELEMENTS,EROINNOVATIONSLOGOONE,'50px','50px','2%',()=>{
-    
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+                
             });
-    
-            RIGHTIMAGE(ELEMENTS,WHITECLOSEICON,'25px','25px','5%',(ELEMENTS)=>{
-    
-                CLICK(ELEMENTS,()=>{
 
-                    STYLED(ELEMENT,'display','none');
-                    
-                });
-    
-            });
-    
         });
 
-        IMAGEBUTTON(ELEMENT,'forestgreen','Apps','',WHITEAPPICON,'50px',(ELEMENT)=>{
+        RIGHTTEXT(ELEMENT,'','Profile','','',(ELEMENTS)=>{
 
-            CLICK(ELEMENT,()=>{
+            STYLED(ELEMENTS,'height','40%');
 
-                ROUTE(' ',MOBILEAPPSPAGE,'MOBILEHOMEPAGE');
+        });
 
-            });
+    });
+
+    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'top','50px');
+
+        VIEW(ELEMENT,'transparent',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'height','40%');
+            STYLED(ELEMENTS,'width','98%');
+            STYLED(ELEMENTS,'margin-top','1rem');
+            STYLED(ELEMENTS,'border','1px solid #cdcdcd50');
+            STYLED(ELEMENTS,'overflow-Y','hidden');
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Community','',WHITEGROUPICON,'50px',(ELEMENT)=>{
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Business Tools','',WHITECREATEDONICON,'50px',(ELEMENT)=>{
  
         });
 
-        IMAGEBUTTON(ELEMENT,'forestgreen','Systems','',WHITESECRETCODEICON,'50px',(ELEMENT)=>{
-
+        IMAGEBUTTON(ELEMENT,'forestgreen','Settings','',WHITESETTINGSICON,'50px',(ELEMENT)=>{
+  
             CLICK(ELEMENT,()=>{
 
-                ROUTE(' ',MOBILESYSTEMPAGE,'MOBILEHOMEPAGE');
-
-            });
-
-           
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Docs','',WHITEPENCILICON,'50px',(ELEMENT)=>{
-
-            CLICK(ELEMENT,()=>{
-
-                ROUTE(' ',MOBILEDOCSPAGE,'MOBILEHOMEPAGE');
+                ROUTE(' ',SETTINGSPAGE,'USERACCOUNTPAGE')
 
             });
 
         });
 
         IMAGEBUTTON(ELEMENT,'forestgreen','Help','',WHITEINFOICON,'50px',(ELEMENT)=>{
+   
+        });
 
-            CLICK(ELEMENT,()=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','Contact Us','',WHITEPHONEICON,'50px',(ELEMENT)=>{
+   
+        });
 
-                ROUTE(' ',MOBILEHELPPAGE,'MOBILEHOMEPAGE');
+    });
+
+};
+
+const CATERGORYPAGE=()=>{
+
+    CLEAR('');
+
+    HEADER('','transparent',(ELEMENT)=>{
+
+        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px',(ELEMENTS)=>{
+
+            CLICK(ELEMENTS,()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+                
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Catergory','','',()=>{
+
+        });
+
+    });
+
+    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'top','50px');
+
+        DISPLAY(ELEMENT,'Please Wait ...');
+
+        GETINDEXED('Catergoy', 'Catergoy', (data)=>{
+
+            REDUX(data,(element)=>{
+
+                REDUX(element.data,(elements)=>{
+
+                    DISPLAY(ELEMENT,elements);
+
+                    console.log(elements);
+    
+                });
 
             });
+
+        });
+
+    });
+
+};
+
+const FREEMOVIESPAGE=()=>{
+
+    CLEAR('');
+
+    HEADER('','transparent',(ELEMENT)=>{
+
+        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px',(ELEMENTS)=>{
+
+            CLICK(ELEMENTS,()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+                
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Free Movies','','',()=>{
+
+        });
+
+    });
+
+};
+
+const LOGINPAGE=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    DELETEDATA('','UserPassword');
+
+    CLEAR("");
+
+    BREAK('');BREAK('');
+
+    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Watch and Save','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
+
+        STOREDATA('','UserEmail',ELEMENT);
+        
+    });
+
+    ROUNDINPUT('','password','','transparent','********',(ELEMENT)=>{
+
+        STOREDATA('','UserPassword',ELEMENT);
+
+    });
+
+    RIGHTTEXT('','p','Forgot Password?','#fff','18px','',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin','1rem');
+
+        CLICK(ELEMENT,()=>{
+
+            ROUTE(' ',FORGOTPASSWORDPAGE,'LOGINPAGE');
+
+        });
+
+    });
+
+    BUTTON('','','','forestgreen','#fff','Sign In',(ELEMENT)=>{
+
+        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+            CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+
+                CLOUDLOGINTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Ready For ','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
+
+                    console.log(data);
+
+                });
+                
+            },()=>{
+    
+                MESSAGEDISPLAY('','Enter Password','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Email','');
+
+        });
+
+    });
+
+    BUTTON('','','','blue','#fff','Create Account',(ELEMENT)=>{
+
+        ROUTE(' ',CREATEACCOUNTPAGE,'LOGINPAGE');
+
+    });
+   
+};
+
+const CREATEACCOUNTPAGE=()=>{
+
+    DELETEDATA('','UserName');
+
+    DELETEDATA('','UserEmail');
+
+    DELETEDATA('','UserPassword');
+
+    CLEAR("");
+
+    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    ROUNDINPUT('','text','','transparent','User Name',(ELEMENT)=>{
+
+        STOREDATA('','UserName',ELEMENT);
+
+    });
+
+    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
+
+        STOREDATA('','UserEmail',ELEMENT);
+
+    });
+
+    ROUNDINPUT('','password','','transparent','********',(ELEMENT)=>{
+
+        STOREDATA('','UserPassword',ELEMENT);
+
+    });
+
+    BUTTON('','','','forestgreen','#fff','Sign Up',(ELEMENT)=>{
+
+        CONDITION(sessionStorage.getItem('UserName'),()=>{
+
+            CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+                CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        DISPLAY(ELEMENT,'Please Wait .....');
+
+                        RANDOMCODE((Code)=>{
+
+                            const Message=`Dear ${sessionStorage.getItem('UserName')},\n\n Your Verification Code is ${Code}.`;
+    
+                            MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Account Creation',Message,(data)=>{
+    
+                                STOREDATA(' ','VeriifcationCode',Code);
+    
+                                const USERS={
+                                    'UserName':sessionStorage.getItem('UserName'),
+                                    'UserEmail':sessionStorage.getItem('UserEmail'),
+                                    'UserPassword':sessionStorage.getItem('UserPassword'),
+                                }
+    
+                                JSONIFICATION(USERS,(Mydata)=>{
+    
+                                    STOREDATA(' ','MyData',Mydata);
+    
+                                    ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+    
+                                });
+    
+                            },(datata)=>{
+
+                                console.log(datata);
+    
+                                MESSAGEDISPLAY('','Failed TO Send Verification Code');
+    
+                                DISPLAY(ELEMENT,'Sign Up');
+
+                            });
+            
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Check Your Internet','');
+
+                    });
+        
+                },()=>{
+        
+                    MESSAGEDISPLAY('','Enter Password','');
+        
+                });
+    
+            },()=>{
+    
+                MESSAGEDISPLAY('','Enter Email','');
+    
+            });
+            
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter UserName','');
+
+        });
+
+    });
+
+    BUTTON('','','','blue','#fff','Log In',(ELEMENT)=>{
+
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+    });
+   
+};
+
+const FORGOTPASSWORDPAGE=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    CLEAR("");
+
+    BREAK('');BREAK('');
+
+    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
+
+        STOREDATA('','UserEmail',ELEMENT);
+
+    });
+
+    BUTTON('','','','forestgreen','#fff','Recover',(ELEMENT)=>{
+
+        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+            CONDITION(navigator.onLine,()=>{
+
+                DISPLAY(ELEMENT,'Please Wait ...');
+
+                GETDATA(MOVIELANDERAPI,'Users',(data)=>{
+
+                    FINDER(data,'UserEmail', sessionStorage.getItem('UserEmail'),(ReturnedData)=>{
+
+                        CONDITION(ReturnedData.UserEmail ===sessionStorage.getItem('UserEmail') ,()=>{
+
+                            const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
+    
+                            MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Password Recovery',Message,(data)=>{
+    
+                                ROUTE(' ',FORGOTPASSWORDMESSAGEPASSWORD,'FORGOTPASSWORDMESSAGEPASSWORD');
+    
+                            },(datata)=>{
+
+                                console.log(datata);
+    
+                                MESSAGEDISPLAY('','Failed To Recover Password');
+    
+                                DISPLAY(ELEMENT,'Recover');
+
+                            }); 
+
+                        },()=>{
+
+                            DISPLAY(ELEMENT,'Recover');
+
+                            MESSAGEDISPLAY('','No User Account Found','');
+
+                        });
+
+                    });
+                    
+                },(data)=>{
+
+                    DISPLAY(ELEMENT,'Verify');
+
+                    MESSAGEDISPLAY('','Something Went Wrong','');
+
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Check Your Internet','');
+
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Email','');
+
+        });
+
+    });
+
+    BUTTON('','','','blue','#fff','Cancel',(ELEMENT)=>{
+
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+    });
+   
+};
+
+const EMAILVERIFICATIONPAGE=()=>{
+
+    DELETEDATA('','VerificationCode');
+
+    CLEAR("");
+
+    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    ROUNDINPUT('','tel','','transparent','Enter Verification Code',(ELEMENT)=>{
+
+        STOREDATA('','VerificationCode',ELEMENT);
+
+    });
+
+    BUTTON('','','','forestgreen','#fff','Verify',(ELEMENT)=>{
+
+        CONDITION(sessionStorage.getItem('VerificationCode'),()=>{
+
+            CONDITION(sessionStorage.getItem('VerificationCode') === localStorage.getItem('VeriifcationCode') ,()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    DISPLAY(ELEMENT,'Please Wait ...');
+
+                    GETDATA(MOVIELANDERAPI,'Users',(data)=>{
+
+                        LOCALDEJSONDATA('MyData',(MyData)=>{
+
+                            FINDER(data,'UserEmail', MyData.UserEmail,(ReturnedData)=>{
+
+                                CONDITION(ReturnedData.UserEmail === MyData.UserEmail,()=>{
+
+                                    DISPLAY(ELEMENT,'Verify');
+
+                                    MESSAGEDISPLAY('','User With Account Exists','');
+
+                                },()=>{
+
+                                    const HEADER=['UserName','UserEmail','UserPassword'];
+
+                                    const INFOS=[MyData.UserName,MyData.UserEmail,MyData.UserPassword];
+
+                                    INSERTDATA(MOVIELANDERAPI,'Users',HEADER,INFOS,(data)=>{
+
+                                        GETDATA(MOVIELANDERAPI,'Users',(data)=>{
+
+                                            FINDER(data,'UserEmail', MyData.UserEmail,(ReturnedData)=>{
+
+                                                CONDITION(ReturnedData.UserEmail === MyData.UserEmail,()=>{
+
+                                                    JSONIFICATION(ReturnedData,(ThisData)=>{
+
+                                                        STOREDATA(' ','UserData',ThisData);
+
+                                                        DELETEDATA(' ','VeriifcationCode');
+
+                                                        DELETEDATA(' ','MyData');
+
+                                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                                    });
+                
+                                                },()=>{
+
+                                                    DISPLAY(ELEMENT,'Verify');
+
+                                                    MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                                })
+
+                                            });
+
+                                        })
+
+                                    },(data)=>{
+
+                                        DISPLAY(ELEMENT,'Verify');
+
+                                        MESSAGEDISPLAY('','Failed to Create Account!','');
+
+                                    });
+
+                                });
+
+                            });
+
+                        });
+
+                    },(data)=>{
+
+                        DISPLAY(ELEMENT,'Verify');
+
+                        MESSAGEDISPLAY('','Something Went Wrong','');
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
+    
+            },()=>{
+    
+                MESSAGEDISPLAY('','Wrong Verification Code','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Verification Code','');
+
+        });
+
+    });
+
+    BUTTON('','','','blue','#fff','Cancel',(ELEMENT)=>{
+
+        DELETEDATA(' ','VeriifcationCode');
+
+        ROUTE('',CREATEACCOUNTPAGE,'CREATEACCOUNTPAGE');
+
+    });
+   
+};
+
+const SETTINGSPAGE=()=>{  
+
+    CLEAR('');
+
+    HEADER('','transparent',(ELEMENT)=>{
+
+        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px',(ELEMENTS)=>{
+
+            CLICK(ELEMENTS,()=>{
+
+                ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
+                
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Settings','','',()=>{
+
+        });
+
+    });
+
+    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'top','50px');
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','App Lock','',WHITELOCKICON,'50px',(ELEMENT)=>{
 
         });
 
@@ -189,184 +686,153 @@ const MENUPAGE=()=>{
 
         });
 
-        FOOTER(ELEMENT,' ','100%','50px',(ELEMENTS)=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','Privacy Policy','',WHITEPRIVACYPOLICYICON,'50px',(ELEMENT)=>{
+  
+        });
 
-            CENTERTEXT(ELEMENTS,'h5','&copy Ero Innovations 2025','','13px',()=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','Device','',WHITEDEVICEICON,'50px',(ELEMENT)=>{
+   
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Player Mode','',WHITEPLAYICON,'50px',(ELEMENT)=>{
+ 
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Delete Account','',WHITEDELETEICON,'50px',(ELEMENT)=>{
+ 
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','LogOut','',WHITELOGOUTICON,'50px',(ELEMENT)=>{
+ 
+            DELETEDATA(' ','UserData');
+ 
+            RELOAD();
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Updates','',WHITEMOBILEDEVELOPMENTICON,'50px',(ELEMENT)=>{
+
+        });
+        
+    });
+
+}; 
+
+const FORGOTPASSWORDMESSAGEPASSWORD=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    CLEAR("");
+
+    BREAK('');BREAK('');
+
+    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    CENTERTEXT('','p','The Password has been Sent to Your Email!','','',(ELEMENT)=>{
+
+    });
+
+    BUTTON('','','','blue','#fff','Back',(ELEMENT)=>{
+
+        ROUTE('',FORGOTPASSWORDPAGE,'FORGOTPASSWORDPAGE');
+
+    });
+   
+};
+
+const MOVIESCATERGORY=()=>{
+
+    CHECKER(navigator.onLine,()=>{
+
+        GETDATA(MOVIELANDERAPI,'Catergory',(data)=>{
+
+            const MYDATA={
+                'Name':'Catergoy',
+                'data':data
+            }
+
+            CONDITION(localStorage.getItem('MoviesUpdated'),()=>{
+
+                UPDATEINDEX('Catergoy', 'Catergoy', MYDATA, ()=>{
+
+                    STOREDATA(' ','MoviesUpdated',new Date());
+
+                });
+
+            },()=>{
+
+                STOREINDEXED('Catergoy', 'Catergoy', MYDATA, (data)=>{
+
+                    CHECKER(data === true,()=>{
+
+                        STOREDATA(' ','MoviesUpdated',new Date());
+                    
+                    });
+
+                });
 
             });
 
+        },(data)=>{
+    
+            console.log(data);
+            
         });
 
     });
 
 };
 
-const MOBILEAPPSPAGE=()=>{
+const MOVIESUPDATERS=()=>{
 
-    CLEAR('');
+    CHECKER(navigator.onLine,()=>{
 
-    HEADER('',' ',(ELEMENT)=>{
+        GETDATA(MOVIELANDERAPI,'Movies',(data)=>{
 
-        LEFTIMAGE(ELEMENT,WHITEBACKICON,'20px','20px','2%',(ELEMENTS)=>{
+            const MYDATA={
+                'Name':'Movies',
+                'data':data
+            }
 
-            CLICK(ELEMENTS,()=>{
+            CONDITION(localStorage.getItem('MoviesUpdate'),()=>{
 
-                ROUTE('',MOBILEHOMEPAGE,'MOBILEHOMEPAGE');
+                UPDATEINDEX('Movies', 'Movies', MYDATA, ()=>{
+
+                    STOREDATA(' ','MoviesUpdate',new Date());
+
+                });
+
+            },()=>{
+
+                STOREINDEXED('Movies', 'Movies', MYDATA, (data)=>{
+
+                    CHECKER(data === true,()=>{
+
+                        STOREDATA(' ','MoviesUpdate',new Date());
+                    
+                    });
+
+                });
 
             });
 
-        });
-
-        CENTERTEXT(ELEMENT,'h3','Apps','','20px',()=>{
-
-        });
-
-        RIGHTIMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'50px','50px','2%',()=>{
-
-        });
-
-    });
-
-    FULLSCROLLVIEW('',' ',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'top','50px');
-
-    });
-
-};
-
-const MOBILESYSTEMPAGE=()=>{
-
-    CLEAR('');
-
-    HEADER('',' ',(ELEMENT)=>{
-
-        LEFTIMAGE(ELEMENT,WHITEBACKICON,'20px','20px','2%',(ELEMENTS)=>{
-
-            CLICK(ELEMENTS,()=>{
-
-                ROUTE('',MOBILEHOMEPAGE,'MOBILEHOMEPAGE');
-
-            });
-
-        });
-
-        CENTERTEXT(ELEMENT,'h3','Systems','','20px',()=>{
-
-        });
-
-        RIGHTIMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'50px','50px','2%',()=>{
-
-        });
-
-    });
-
-    FULLSCROLLVIEW('',' ',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'top','50px');
-
-    });
-
-};
-
-const MOBILEDOCSPAGE=()=>{
-
-    CLEAR('');
-
-    HEADER('',' ',(ELEMENT)=>{
-
-        LEFTIMAGE(ELEMENT,WHITEBACKICON,'20px','20px','2%',(ELEMENTS)=>{
-
-            CLICK(ELEMENTS,()=>{
-
-                ROUTE('',MOBILEHOMEPAGE,'MOBILEHOMEPAGE');
-
-            });
-
-        });
-
-        CENTERTEXT(ELEMENT,'h3','Docs','','20px',()=>{
-
-        });
-
-        RIGHTIMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'50px','50px','2%',()=>{
-
-        });
-
-    });
-
-    FULLSCROLLVIEW('',' ',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'top','50px');
-
-    });
-
-};
-
-const MOBILEHELPPAGE=()=>{
-
-    CLEAR('');
-
-    HEADER('',' ',(ELEMENT)=>{
-
-        LEFTIMAGE(ELEMENT,WHITEBACKICON,'20px','20px','2%',(ELEMENTS)=>{
-
-            CLICK(ELEMENTS,()=>{
-
-                ROUTE('',MOBILEHOMEPAGE,'MOBILEHOMEPAGE');
-
-            });
-
-        });
-
-        CENTERTEXT(ELEMENT,'h3','Help','','20px',()=>{
-
-        });
-
-        RIGHTIMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'50px','50px','2%',()=>{
-
-        });
-
-    });
-
-    FULLSCROLLVIEW('',' ',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'top','50px');
-
-        CENTERTEXT(ELEMENT,'h3','Intouch Today ','','20px',()=>{
-
-        });
-
-        LEFTTEXT(ELEMENT,'p','Please Get Intouch With Us to Get More Details Via','','15px','',()=>{
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Gmail ','',WHITEGMAILICON,'50px',()=>{
-
-            GMAIL('eroinnovations9@gmail.com');
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Instagram','',WHITEINSTAGRAMICON,'50px',()=>{
-
-            GMAIL('eroinnovations9@gmail.com');
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Contact Us ','',WHITEPHONEICON,'50px',()=>{
-
-            GMAIL('eroinnovations9@gmail.com');
-
+        },(data)=>{
+    
+            console.log(data);
+            
         });
 
     });
 
 };
-
-const DESKTOPWEBSITE=()=>{
-
-    CLEAR('');
-
-};
-
-'44a683c3-6ba2-4377-936c-898176776656'
