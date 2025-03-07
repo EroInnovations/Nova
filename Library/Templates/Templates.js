@@ -1,4 +1,5 @@
 import { HOMEFOOTERTEMPLATE } from "./Components/HomeFooterTemplate/HomeFooterTemplate.js";
+import { HOMEROUNDFOOTERTEMPLATE } from "./Components/HomeRoundFooterTemplate/HomeRoundFooterTemplate.js";
 import { LEFTTEXTBACKHEADER } from "./Components/LeftTextBackHeader/LeftTextBackHeader.js";
 import { LEFTTEXTBACKHEADERBODY } from "./Components/LeftTextBackHeaderBody/LeftTextBackHeaderBody.js";
 import { RIGHTTEXTBACKHEADER } from "./Components/RightTextBackHeader/RightTextBackHeader.js";
@@ -20,6 +21,7 @@ const LEFTTEXTBACKHEADERBODY=${LEFTTEXTBACKHEADERBODY};
 const RIGHTTEXTBACKHEADERBODY=${RIGHTTEXTBACKHEADERBODY};
 const ACCOUNTCHECKER=${ACCOUNTCHECKER};
 const HOMEFOOTERTEMPLATE=${HOMEFOOTERTEMPLATE};
+const HOMEROUNDFOOTERTEMPLATE=${HOMEROUNDFOOTERTEMPLATE};
 `;
 localStorage.setItem('TEMPLATES',DATA);
 };
@@ -27,6 +29,6 @@ export{TEMPLATES};
 
 `
 
-const HOMEFOOTERTEMPLATE=${HOMEFOOTERTEMPLATE};
+const HOMEROUNDFOOTERTEMPLATE=${HOMEROUNDFOOTERTEMPLATE};
 
 `

@@ -1,6 +1,7 @@
 import { ADD } from "./Add/Add.js";
 import { APPMODE } from "./AppMode/AppMode.js";
 import { AUDIOPICKER } from "./AudioPicker/AudioPicker.js";
+import { BACKPAGE } from "./BackPage/BackPage.js";
 import { BODY } from "./Body/Body.js";
 import { BREAK } from "./Break/Break.js";
 import { CALL } from "./Call/Call.js";
@@ -137,6 +138,7 @@ const MOVIELANDEREMAIL=${MOVIELANDEREMAIL};
 const SCREENWIDTH=${SCREENWIDTH};
 const SCROLL=${SCROLL};
 const GETINDEXEDDATA=${GETINDEXEDDATA};
+const BACKPAGE=${BACKPAGE};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -145,6 +147,6 @@ export{FUNCTIONS};
 
 `
 
-const GETINDEXEDDATA=${GETINDEXEDDATA};
+const BACKPAGE=${BACKPAGE};
 
 `

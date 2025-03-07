@@ -1,4 +1,4 @@
-const HOMEFOOTERTEMPLATE=(ELEMENT,HomeCallBack,FooterCallBack)=>{
+const HOMEFOOTERTEMPLATE=(ELEMENT,FooterColor,HomeCallBack,FooterCallBack)=>{
 
     CLEAR(ELEMENT);
 
@@ -8,7 +8,9 @@ const HOMEFOOTERTEMPLATE=(ELEMENT,HomeCallBack,FooterCallBack)=>{
 
     });
 
-    ROUNDFOOTER(ELEMENT,'#333','','50px','50px',(ELEMS)=>{
+    FOOTER(ELEMENT,FooterColor,'100%','50px',(ELEMS)=>{
+
+        STYLED(ELEMS,'border-top','1px solid #cdcdcd20');
 
         FooterCallBack(ELEMS);
 

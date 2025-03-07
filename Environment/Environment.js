@@ -23,6 +23,10 @@ const ENVIRONMENT=()=>{
 
     if (localStorage.getItem('Environment') === 'Development' ) {
 
+        localStorage.setItem('BuildNumber','0101');
+
+        localStorage.setItem('Status','Development');
+
         CONFIGURATION();
         
         return;
@@ -30,6 +34,10 @@ const ENVIRONMENT=()=>{
     };
 
     if (localStorage.getItem('Environment') === 'Production' ) {
+
+        localStorage.setItem('BuildNumber','1010');
+        
+        localStorage.setItem('Status','Android');
 
         CONFIGURATION();
 
@@ -39,6 +47,10 @@ const ENVIRONMENT=()=>{
 
     if (localStorage.getItem('Environment') === 'Web' ) {
 
+        localStorage.setItem('BuildNumber','8080');
+        
+        localStorage.setItem('Status','Website');
+
         CONFIGURATION();
 
         return;
@@ -46,6 +58,10 @@ const ENVIRONMENT=()=>{
     };
 
     if (localStorage.getItem('Environment') === 'Desktop' ) {
+
+        localStorage.setItem('BuildNumber','6060');
+        
+        localStorage.setItem('Status','Desktop');
 
         CONFIGURATION();
 
