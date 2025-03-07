@@ -28,42 +28,41 @@ const NOVASTART=()=>{
 
 const HOMEPAGE=()=>{
 
-    CLEAR("");
+    HOMEFOOTERTEMPLATE('',(ELEMENT)=>{
 
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
 
-    });
+        DISPLAY(ELEMENT,'HomePage');
 
-    ROUNDFOOTER('','#333','','50px','50px',(ELEMENT)=>{
+    },(ELEMENT)=>{
 
         ICON(ELEMENT,WHITELISTICON,'25px','25px',(ELEMENTS)=>{
 
             CLICK(ELEMENTS,()=>{
-
+    
                 ROUTE(' ',CATERGORYPAGE,'HOMEPAGE');
                 
             });
-
+    
         });
-
+    
         ICON(ELEMENT,WHITEMOVIEICON,'25px','25px',(ELEMENTS)=>{
-
+    
             CLICK(ELEMENTS,()=>{
-
+    
                 ROUTE(' ',FREEMOVIESPAGE,'HOMEPAGE');
                 
             });
         
         });
-
+    
         ICON(ELEMENT,WHITEUSERICON,'25px','25px',(ELEMENTS)=>{
-
+    
             CLICK(ELEMENTS,()=>{
-
+    
                 ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
                 
             });
-
+    
         });
 
     });
@@ -154,8 +153,6 @@ const LOGINPAGE=()=>{
 
     CLEAR("");
 
-    BREAK('');BREAK('');
-
     IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin-top','25px');
@@ -166,8 +163,6 @@ const LOGINPAGE=()=>{
     CENTERTEXT('','p','Watch and Save','','',(ELEMENT)=>{
 
     });
-
-    BREAK('');
 
     ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
 
@@ -199,10 +194,16 @@ const LOGINPAGE=()=>{
 
             CONDITION(sessionStorage.getItem('UserPassword'),()=>{
 
-                CLOUDLOGINTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Ready For ','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
+                CLOUDLOGINTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Please Wait','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
 
-                    console.log(data);
+                    JSONIFICATION(data,(MyData)=>{
 
+                        STOREDATA(' ','UserData',MyData);
+
+                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                    });
+                   
                 });
                 
             },()=>{

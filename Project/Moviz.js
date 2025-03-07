@@ -6,68 +6,63 @@ const NOVASTART=()=>{
 
     APPMODE('#000');
 
-    CONDITION(localStorage.getItem('UserData'),()=>{
+    MOVIESCATERGORY();
+
+    MOVIESUPDATERS();
+
+    ACCOUNTCHECKER(()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
     },()=>{
 
-        CONDITION(localStorage.getItem('VeriifcationCode'),()=>{
+        ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
 
-            ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+    },()=>{
 
-        },()=>{
-
-            ROUTE('',LOGINPAGE,'LOGINPAGE');
-
-        });
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
 
     });
 
-    MOVIESCATERGORY();
-
-    MOVIESUPDATERS();
-    
 };
 
 const HOMEPAGE=()=>{
 
-    CLEAR("");
+    HOMEFOOTERTEMPLATE('',(ELEMENT)=>{
 
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
 
-    });
+        DISPLAY(ELEMENT,'HomePage');
 
-    ROUNDFOOTER('','#333','','50px','50px',(ELEMENT)=>{
+    },(ELEMENT)=>{
 
         ICON(ELEMENT,WHITELISTICON,'25px','25px',(ELEMENTS)=>{
 
             CLICK(ELEMENTS,()=>{
-
+    
                 ROUTE(' ',CATERGORYPAGE,'HOMEPAGE');
                 
             });
-
+    
         });
-
+    
         ICON(ELEMENT,WHITEMOVIEICON,'25px','25px',(ELEMENTS)=>{
-
+    
             CLICK(ELEMENTS,()=>{
-
+    
                 ROUTE(' ',FREEMOVIESPAGE,'HOMEPAGE');
                 
             });
         
         });
-
+    
         ICON(ELEMENT,WHITEUSERICON,'25px','25px',(ELEMENTS)=>{
-
+    
             CLICK(ELEMENTS,()=>{
-
+    
                 ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
                 
             });
-
+    
         });
 
     });
@@ -76,31 +71,11 @@ const HOMEPAGE=()=>{
 
 const USERACCOUNTPAGE=()=>{
 
-    CLEAR('');
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-    HEADER('','transparent',(ELEMENT)=>{
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px',(ELEMENTS)=>{
-
-            CLICK(ELEMENTS,()=>{
-
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
-                
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Profile','','',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'height','40%');
-
-        });
-
-    });
-
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'top','50px');
+    },'My Profile','',()=>{},(ELEMENT)=>{
 
         VIEW(ELEMENT,'transparent',(ELEMENTS)=>{
 
@@ -144,47 +119,13 @@ const USERACCOUNTPAGE=()=>{
 
 const CATERGORYPAGE=()=>{
 
-    CLEAR('');
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-    HEADER('','transparent',(ELEMENT)=>{
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px',(ELEMENTS)=>{
+    },'Catergories','',()=>{},(ELEMENT)=>{
 
-            CLICK(ELEMENTS,()=>{
-
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
-                
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Catergory','','',()=>{
-
-        });
-
-    });
-
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'top','50px');
-
-        DISPLAY(ELEMENT,'Please Wait ...');
-
-        GETINDEXED('Catergoy', 'Catergoy', (data)=>{
-
-            REDUX(data,(element)=>{
-
-                REDUX(element.data,(elements)=>{
-
-                    DISPLAY(ELEMENT,elements);
-
-                    console.log(elements);
-    
-                });
-
-            });
-
-        });
+        DISPLAY(ELEMENT,'Catergories');
 
     });
 
@@ -192,23 +133,13 @@ const CATERGORYPAGE=()=>{
 
 const FREEMOVIESPAGE=()=>{
 
-    CLEAR('');
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-    HEADER('','transparent',(ELEMENT)=>{
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px',(ELEMENTS)=>{
+    },'Movies','',()=>{},(ELEMENT)=>{
 
-            CLICK(ELEMENTS,()=>{
-
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
-                
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Free Movies','','',()=>{
-
-        });
+        DISPLAY(ELEMENT,'Catergories');
 
     });
 
@@ -222,8 +153,6 @@ const LOGINPAGE=()=>{
 
     CLEAR("");
 
-    BREAK('');BREAK('');
-
     IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin-top','25px');
@@ -234,8 +163,6 @@ const LOGINPAGE=()=>{
     CENTERTEXT('','p','Watch and Save','','',(ELEMENT)=>{
 
     });
-
-    BREAK('');
 
     ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
 
@@ -267,10 +194,16 @@ const LOGINPAGE=()=>{
 
             CONDITION(sessionStorage.getItem('UserPassword'),()=>{
 
-                CLOUDLOGINTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Ready For ','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
+                CLOUDLOGINTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Please Wait','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
 
-                    console.log(data);
+                    JSONIFICATION(data,(MyData)=>{
 
+                        STOREDATA(' ','UserData',MyData);
+
+                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                    });
+                   
                 });
                 
             },()=>{
@@ -620,29 +553,11 @@ const EMAILVERIFICATIONPAGE=()=>{
 
 const SETTINGSPAGE=()=>{  
 
-    CLEAR('');
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-    HEADER('','transparent',(ELEMENT)=>{
+        ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
 
-        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px',(ELEMENTS)=>{
-
-            CLICK(ELEMENTS,()=>{
-
-                ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
-                
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Settings','','',()=>{
-
-        });
-
-    });
-
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'top','50px');
+    },'Settings','',()=>{},(ELEMENT)=>{
 
         IMAGEBUTTON(ELEMENT,'forestgreen','App Lock','',WHITELOCKICON,'50px',(ELEMENT)=>{
 
@@ -681,7 +596,7 @@ const SETTINGSPAGE=()=>{
         IMAGEBUTTON(ELEMENT,'forestgreen','Updates','',WHITEMOBILEDEVELOPMENTICON,'50px',(ELEMENT)=>{
 
         });
-        
+
     });
 
 }; 
