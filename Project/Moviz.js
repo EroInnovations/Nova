@@ -2,9 +2,7 @@ const MOVIELANDERAPI='https://docs.google.com/spreadsheets/d/1t0yjEoSVX7qnI3L3tv
 
 const NOVASTART=()=>{
 
-    CLEAR("");
-
-    APPMODE('#000');
+    APPMODE('#000000');
 
     MOVIESCATERGORY();
 
@@ -28,8 +26,7 @@ const NOVASTART=()=>{
 
 const HOMEPAGE=()=>{
 
-    HOMEFOOTERTEMPLATE('',(ELEMENT)=>{
-
+    HOMEROUNDFOOTERTEMPLATE('','forestgreen',(ELEMENT)=>{
 
         DISPLAY(ELEMENT,'HomePage');
 
@@ -70,6 +67,8 @@ const HOMEPAGE=()=>{
 };
 
 const USERACCOUNTPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 

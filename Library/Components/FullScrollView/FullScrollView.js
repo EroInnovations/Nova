@@ -11,6 +11,7 @@ const FULLSCROLLVIEW=(ELEMENT,COLOR,callback)=>{
     ELEMENT1.style.background=COLOR||'#cdcdcd';
     ELEMENT1.style.textAlign='center';
     ELEMENT1.style.margin='auto';
+    ELEMENT1.style.left='0';
 
     if (ELEMENT) {
         

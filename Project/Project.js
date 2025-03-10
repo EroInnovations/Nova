@@ -1,12 +1,8 @@
-const MOVIELANDERAPI='https://docs.google.com/spreadsheets/d/1t0yjEoSVX7qnI3L3tv1N7gBCI-A5e0Y67wu74qzXnUs/edit?usp=sharing';
+const API='https://docs.google.com/spreadsheets/d/1Utfr1wkoZSRvM9TOKaTxOX6orYE8AuN2mu4dDtQmhFQ/edit?usp=sharing';
 
 const NOVASTART=()=>{
 
-    APPMODE('#000000');
-
-    MOVIESCATERGORY();
-
-    MOVIESUPDATERS();
+    APPDOWNLOAD();
 
     ACCOUNTCHECKER(()=>{
 
@@ -19,129 +15,50 @@ const NOVASTART=()=>{
     },()=>{
 
         ROUTE('',LOGINPAGE,'LOGINPAGE');
-
+        
     });
-
+    
 };
 
 const HOMEPAGE=()=>{
 
-    HOMEROUNDFOOTERTEMPLATE('','forestgreen',(ELEMENT)=>{
+    HOMEFOOTERTEMPLATE('',' ',(ELEMENTS)=>{
 
-        DISPLAY(ELEMENT,'HomePage');
-
-    },(ELEMENT)=>{
-
-        ICON(ELEMENT,WHITELISTICON,'25px','25px',(ELEMENTS)=>{
-
-            CLICK(ELEMENTS,()=>{
-    
-                ROUTE(' ',CATERGORYPAGE,'HOMEPAGE');
-                
-            });
-    
-        });
-    
-        ICON(ELEMENT,WHITEMOVIEICON,'25px','25px',(ELEMENTS)=>{
-    
-            CLICK(ELEMENTS,()=>{
-    
-                ROUTE(' ',FREEMOVIESPAGE,'HOMEPAGE');
-                
-            });
         
-        });
-    
-        ICON(ELEMENT,WHITEUSERICON,'25px','25px',(ELEMENTS)=>{
-    
+
+    },(ELEMENTS)=>{
+
+        ICON(ELEMENTS,WHITELISTICON,'25px','25px',(ELEMENTS)=>{
+
             CLICK(ELEMENTS,()=>{
     
-                ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
+               
+            });
+    
+        });
+
+        ICON(ELEMENTS,WHITEPOSTICON,'25px','25px',(ELEMENTS)=>{
+
+            CLICK(ELEMENTS,()=>{
+
+                ROUTE(' ',POSTPAGE,'HOMEPAGE');
+    
+            });
+    
+        });
+
+        ICON(ELEMENTS,WHITEUSERICON,'25px','25px',(ELEMENTS)=>{
+
+            CLICK(ELEMENTS,()=>{
+    
+
                 
             });
     
         });
 
     });
-
-};
-
-const USERACCOUNTPAGE=()=>{
-
-    BACKPAGE('HOMEPAGE');
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-    },'My Profile','',()=>{},(ELEMENT)=>{
-
-        VIEW(ELEMENT,'transparent',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'height','40%');
-            STYLED(ELEMENTS,'width','98%');
-            STYLED(ELEMENTS,'margin-top','1rem');
-            STYLED(ELEMENTS,'border','1px solid #cdcdcd50');
-            STYLED(ELEMENTS,'overflow-Y','hidden');
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Community','',WHITEGROUPICON,'50px',(ELEMENT)=>{
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Business Tools','',WHITECREATEDONICON,'50px',(ELEMENT)=>{
- 
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Settings','',WHITESETTINGSICON,'50px',(ELEMENT)=>{
-  
-            CLICK(ELEMENT,()=>{
-
-                ROUTE(' ',SETTINGSPAGE,'USERACCOUNTPAGE')
-
-            });
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Help','',WHITEINFOICON,'50px',(ELEMENT)=>{
    
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Contact Us','',WHITEPHONEICON,'50px',(ELEMENT)=>{
-   
-        });
-
-    });
-
-};
-
-const CATERGORYPAGE=()=>{
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-    },'Catergories','',()=>{},(ELEMENT)=>{
-
-        DISPLAY(ELEMENT,'Catergories');
-
-    });
-
-};
-
-const FREEMOVIESPAGE=()=>{
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-    },'Movies','',()=>{},(ELEMENT)=>{
-
-        DISPLAY(ELEMENT,'Catergories');
-
-    });
-
 };
 
 const LOGINPAGE=()=>{
@@ -152,14 +69,14 @@ const LOGINPAGE=()=>{
 
     CLEAR("");
 
-    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
+    IMAGE('',WHITEFOLDERICON,'50%','30%',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin-top','25px');
         STYLED(ELEMENT,'margin-bottom','25px');
 
     }),
 
-    CENTERTEXT('','p','Watch and Save','','',(ELEMENT)=>{
+    CENTERTEXT('','p','Manage and Collect','','',(ELEMENT)=>{
 
     });
 
@@ -193,7 +110,7 @@ const LOGINPAGE=()=>{
 
             CONDITION(sessionStorage.getItem('UserPassword'),()=>{
 
-                CLOUDLOGINTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Please Wait','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
+                CLOUDLOGINTEMPLATE(ELEMENT,API,'Users','Please Wait','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
 
                     JSONIFICATION(data,(MyData)=>{
 
@@ -237,14 +154,14 @@ const CREATEACCOUNTPAGE=()=>{
 
     CLEAR("");
 
-    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
+    IMAGE('',WHITEFOLDERICON,'50%','30%',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin-top','25px');
         STYLED(ELEMENT,'margin-bottom','25px');
 
     }),
 
-    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+    CENTERTEXT('','p','Manage and Collect','','',(ELEMENT)=>{
 
     });
 
@@ -284,7 +201,7 @@ const CREATEACCOUNTPAGE=()=>{
 
                             const Message=`Dear ${sessionStorage.getItem('UserName')},\n\n Your Verification Code is ${Code}.`;
     
-                            MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Account Creation',Message,(data)=>{
+                            EMAILSENDER(sessionStorage.getItem('UserEmail'),'Account Creation',Message,(data)=>{
     
                                 STOREDATA(' ','VeriifcationCode',Code);
     
@@ -356,14 +273,14 @@ const FORGOTPASSWORDPAGE=()=>{
 
     BREAK('');BREAK('');
 
-    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
+    IMAGE('',WHITEFOLDERICON,'50%','30%',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin-top','25px');
         STYLED(ELEMENT,'margin-bottom','25px');
 
     }),
 
-    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+    CENTERTEXT('','p','Manage and Collect','','',(ELEMENT)=>{
 
     });
 
@@ -379,7 +296,7 @@ const FORGOTPASSWORDPAGE=()=>{
 
         CONDITION(sessionStorage.getItem('UserEmail'),()=>{
 
-            FORGOTPASSWORDTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Please Wait','Recover','UserEmail',sessionStorage.getItem('UserEmail'),'Failed to Recover','No User Account',(ReturnedData)=>{
+            FORGOTPASSWORDTEMPLATE(ELEMENT,API,'Users','Please Wait','Recover','UserEmail',sessionStorage.getItem('UserEmail'),'Failed to Recover','No User Account',(ReturnedData)=>{
 
                 const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
     
@@ -419,14 +336,14 @@ const EMAILVERIFICATIONPAGE=()=>{
 
     CLEAR("");
 
-    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
+    IMAGE('',WHITEFOLDERICON,'50%','30%',(ELEMENT)=>{
 
         STYLED(ELEMENT,'margin-top','25px');
         STYLED(ELEMENT,'margin-bottom','25px');
 
     }),
 
-    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
+    CENTERTEXT('','p','Manage and Collect','','',(ELEMENT)=>{
 
     });
 
@@ -448,7 +365,7 @@ const EMAILVERIFICATIONPAGE=()=>{
 
                     DISPLAY(ELEMENT,'Please Wait ...');
 
-                    GETDATA(MOVIELANDERAPI,'Users',(data)=>{
+                    GETDATA(API,'Users',(data)=>{
 
                         LOCALDEJSONDATA('MyData',(MyData)=>{
 
@@ -466,9 +383,9 @@ const EMAILVERIFICATIONPAGE=()=>{
 
                                     const INFOS=[MyData.UserName,MyData.UserEmail,MyData.UserPassword];
 
-                                    INSERTDATA(MOVIELANDERAPI,'Users',HEADER,INFOS,(data)=>{
+                                    INSERTDATA(API,'Users',HEADER,INFOS,(data)=>{
 
-                                        GETDATA(MOVIELANDERAPI,'Users',(data)=>{
+                                        GETDATA(API,'Users',(data)=>{
 
                                             FINDER(data,'UserEmail', MyData.UserEmail,(ReturnedData)=>{
 
@@ -550,171 +467,77 @@ const EMAILVERIFICATIONPAGE=()=>{
    
 };
 
-const SETTINGSPAGE=()=>{  
+const APPDOWNLOAD=()=>{
+
+    GETDATA(API,'APPMANAGER',(data)=>{
+
+        const MYDATA={
+                'Name':'AppManager',
+                'data':data,
+            }     
+        STOREINDEXED('AppManager', 'AppManager', MYDATA, (data)=>{
+
+            CHECKER(data === false,()=>{
+
+                UPDATEINDEX('AppManager', 'AppManager', MYDATA,(datata)=>{
+
+
+                });
+
+            });
+
+        });
+          
+    },(data)=>{
+
+        console.log(data);
+
+    });
+
+};
+
+const POSTPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-    },'Settings','',()=>{},(ELEMENT)=>{
+    },'Create','COLOR',()=>{
 
-        IMAGEBUTTON(ELEMENT,'forestgreen','App Lock','',WHITELOCKICON,'50px',(ELEMENT)=>{
+    },(ELEMENT)=>{
+
+        VIEW(ELEMENT,'','45%','30%',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'display','inline-table');
+            STYLED(ELEMENTS,'margin-left','2%');
+            STYLED(ELEMENTS,'margin-right','2%');
 
         });
 
-        IMAGEBUTTON(ELEMENT,'forestgreen','Sync','',WHITERETRYICON,'50px',(ELEMENT)=>{
+        VIEW(ELEMENT,'red','45%','30%',(ELEMENTS)=>{
 
-            RELOAD();
+            STYLED(ELEMENTS,'display','inline-table');
+            STYLED(ELEMENTS,'margin-left','2%');
+            STYLED(ELEMENTS,'margin-right','2%');
 
         });
 
-        IMAGEBUTTON(ELEMENT,'forestgreen','Privacy Policy','',WHITEPRIVACYPOLICYICON,'50px',(ELEMENT)=>{
+        VIEW(ELEMENT,'red','45%','30%',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'display','inline-table');
+            STYLED(ELEMENTS,'margin-left','2%');
+            STYLED(ELEMENTS,'margin-right','2%');
+
+        });
+
+        VIEW(ELEMENT,'','45%','30%',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'display','inline-table');
+            STYLED(ELEMENTS,'margin-left','2%');
+            STYLED(ELEMENTS,'margin-right','2%');
+
+        });
+       
+    });
   
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Device','',WHITEDEVICEICON,'50px',(ELEMENT)=>{
-   
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Player Mode','',WHITEPLAYICON,'50px',(ELEMENT)=>{
- 
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Delete Account','',WHITEDELETEICON,'50px',(ELEMENT)=>{
- 
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','LogOut','',WHITELOGOUTICON,'50px',(ELEMENT)=>{
- 
-            DELETEDATA(' ','UserData');
- 
-            RELOAD();
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Updates','',WHITEMOBILEDEVELOPMENTICON,'50px',(ELEMENT)=>{
-
-        });
-
-    });
-
-}; 
-
-const FORGOTPASSWORDMESSAGEPASSWORD=()=>{
-
-    DELETEDATA('','UserEmail');
-
-    CLEAR("");
-
-    BREAK('');BREAK('');
-
-    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'margin-top','25px');
-        STYLED(ELEMENT,'margin-bottom','25px');
-
-    }),
-
-    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
-
-    });
-
-    BREAK('');
-
-    CENTERTEXT('','p','The Password has been Sent to Your Email!','','',(ELEMENT)=>{
-
-    });
-
-    BUTTON('','','','blue','#fff','Back',(ELEMENT)=>{
-
-        ROUTE('',FORGOTPASSWORDPAGE,'FORGOTPASSWORDPAGE');
-
-    });
-   
-};
-
-const MOVIESCATERGORY=()=>{
-
-    CHECKER(navigator.onLine,()=>{
-
-        GETDATA(MOVIELANDERAPI,'Catergory',(data)=>{
-
-            const MYDATA={
-                'Name':'Catergoy',
-                'data':data
-            }
-
-            CONDITION(localStorage.getItem('MoviesUpdated'),()=>{
-
-                UPDATEINDEX('Catergoy', 'Catergoy', MYDATA, ()=>{
-
-                    STOREDATA(' ','MoviesUpdated',new Date());
-
-                });
-
-            },()=>{
-
-                STOREINDEXED('Catergoy', 'Catergoy', MYDATA, (data)=>{
-
-                    CHECKER(data === true,()=>{
-
-                        STOREDATA(' ','MoviesUpdated',new Date());
-                    
-                    });
-
-                });
-
-            });
-
-        },(data)=>{
-    
-            console.log(data);
-            
-        });
-
-    });
-
-};
-
-const MOVIESUPDATERS=()=>{
-
-    CHECKER(navigator.onLine,()=>{
-
-        GETDATA(MOVIELANDERAPI,'Movies',(data)=>{
-
-            const MYDATA={
-                'Name':'Movies',
-                'data':data
-            }
-
-            CONDITION(localStorage.getItem('MoviesUpdate'),()=>{
-
-                UPDATEINDEX('Movies', 'Movies', MYDATA, ()=>{
-
-                    STOREDATA(' ','MoviesUpdate',new Date());
-
-                });
-
-            },()=>{
-
-                STOREINDEXED('Movies', 'Movies', MYDATA, (data)=>{
-
-                    CHECKER(data === true,()=>{
-
-                        STOREDATA(' ','MoviesUpdate',new Date());
-                    
-                    });
-
-                });
-
-            });
-
-        },(data)=>{
-    
-            console.log(data);
-            
-        });
-
-    });
-
 };
