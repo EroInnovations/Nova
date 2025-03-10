@@ -11,6 +11,7 @@ import { CLEAR } from "./Clear/Clear.js";
 import { CLICK } from "./Click/Click.js";
 import { COLORCHANGER } from "./ColorChanger/ColorChanger.js";
 import { CONDITION } from "./Condition/Condition.js";
+import { COPY } from "./CopyText/CopyText.js";
 import { CREATEDATABASE } from "./CreateDataBase/CreateDataBase.js";
 import { CREATEELEMENT } from "./CreateElement/CreateElement.js";
 import { CREATETABLE } from "./CreateTable/CreateTable.js";
@@ -139,6 +140,7 @@ const SCREENWIDTH=${SCREENWIDTH};
 const SCROLL=${SCROLL};
 const GETINDEXEDDATA=${GETINDEXEDDATA};
 const BACKPAGE=${BACKPAGE};
+const COPY=${COPY};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -147,6 +149,6 @@ export{FUNCTIONS};
 
 `
 
-const BACKPAGE=${BACKPAGE};
+const COPY=${COPY};
 
 `
