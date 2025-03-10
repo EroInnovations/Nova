@@ -28,8 +28,12 @@ const GETINDEXEDDATA = (dbName, storeName, callback) => {
 
             data.forEach(element => {
 
-                callback(element);
-  
+                element.data.forEach(elements => {
+
+                    callback(elements);
+ 
+                });
+
             });
         
         };
