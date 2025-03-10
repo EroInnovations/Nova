@@ -28,7 +28,6 @@ const HOMEPAGE=()=>{
 
     HOMEROUNDFOOTERTEMPLATE('','forestgreen',(ELEMENT)=>{
 
-
         DISPLAY(ELEMENT,'HomePage');
 
     },(ELEMENT)=>{
