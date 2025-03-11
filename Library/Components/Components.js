@@ -2,9 +2,11 @@ import { ALERTBOX } from "./AlertBox/AlertBox.js";
 import { AUDIO } from "./Audio/Audio.js";
 import { BORDERROUNDINPUT } from "./BorderInput/BorderInput.js";
 import { BUTTON } from "./Button/Button.js";
+import { BUTTONIMAGE } from "./ButtonImage/ButtonImage.js";
 import { CENTERTEXT } from "./CenterText/CenterText.js";
 import { CORNERROUNDINPUT } from "./CornerRoundInput/CornerRoundInput.js";
 import { CORNERROUNDBUTTON } from "./CornerSquareButton/CornernSquareButton.js";
+import { DISPLAYVIEW } from "./DisplayView/DisplayView.js";
 import { FLOATFIXEDBUTTON } from "./FloatFixedButton/FixedButton.js";
 import { FOOTER } from "./Footer/Footer.js";
 import { FULLSCROLLVIEW } from "./FullScrollView/FullScrollView.js";
@@ -59,12 +61,14 @@ const ROUNDFOOTER=${ROUNDFOOTER};
 const RIGHTTEXT=${RIGHTTEXT};
 const CENTERTEXT=${CENTERTEXT};
 const RIGHTIMAGE=${RIGHTIMAGE};
+const BUTTONIMAGE=${BUTTONIMAGE};
+const DISPLAYVIEW=${DISPLAYVIEW};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const RIGHTIMAGE=${RIGHTIMAGE};
+const DISPLAYVIEW=${DISPLAYVIEW};
 
 `;

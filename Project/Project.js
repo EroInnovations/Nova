@@ -24,11 +24,17 @@ const NOVASTART=()=>{
 
 const HOMEPAGE=()=>{
 
+    USERACCOUNTDOWNLOAD(()=>{
+
+    });
+
+    DELETEDATA('','MyProject');
+
     HOMEFOOTERTEMPLATE('',' ',(ELEMENTS)=>{
 
         DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-            IMAGEBUTTON(ELEMENTS,'transparent',data.UserName,'',data.UserImage||WHITEUSERICON,'50px',()=>{
+            IMAGEBUTTON(ELEMENTS,'transparent',data.UserName,'',WHITEUSERICON,'50px',()=>{
 
                 ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
 
@@ -44,7 +50,7 @@ const HOMEPAGE=()=>{
 
                 DISPLAY(ELEMENT,'<br><br><br><br> ... Please Wait....');
 
-                USERDATA(ELEMENT,data.UserName,'');
+                USERDATA(ELEMENT,data.ID,'');
     
             });
         
@@ -56,6 +62,7 @@ const HOMEPAGE=()=>{
 
             CLICK(ELEMENTS,()=>{
     
+                ROUTE(' ',MYCOLLECTIONPAGE,'HOMEPAGE');
                
             });
     
@@ -75,7 +82,7 @@ const HOMEPAGE=()=>{
 
             CLICK(ELEMENTS,()=>{
     
-
+                ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
                 
             });
     
@@ -136,14 +143,24 @@ const LOGINPAGE=()=>{
 
                 CLOUDLOGINTEMPLATE(ELEMENT,API,'Users','Please Wait','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
 
-                    JSONIFICATION(data,(MyData)=>{
+                    CONDITION(!data.AccountDeleted,()=>{
 
-                        STOREDATA(' ','UserData',MyData);
+                        JSONIFICATION(data,(MyData)=>{
 
-                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+                            STOREDATA(' ','UserData',MyData);
+    
+                            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                        });
+                        
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Something Went Wrong ,Try Again','');
+
+                        DISPLAY(ELEMENT,'Sign In');
 
                     });
-                   
+
                 });
                 
             },()=>{
@@ -322,19 +339,29 @@ const FORGOTPASSWORDPAGE=()=>{
 
             FORGOTPASSWORDTEMPLATE(ELEMENT,API,'Users','Please Wait','Recover','UserEmail',sessionStorage.getItem('UserEmail'),'Failed to Recover','No User Account',(ReturnedData)=>{
 
-                const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
+                CONDITION(!ReturnedData.AccountDeleted,()=>{
+
+                    const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
     
-                MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Password Recovery',Message,(data)=>{
+                    EMAILSENDER(sessionStorage.getItem('UserEmail'),'Password Recovery',Message,(data)=>{
+    
+                        ROUTE(' ',FORGOTPASSWORDMESSAGEPASSWORD,'FORGOTPASSWORDMESSAGEPASSWORD');
+    
+                    },(datata)=>{
+    
+                        MESSAGEDISPLAY('','Failed To Recover Password');
+    
+                        DISPLAY(ELEMENT,'Recover');
+    
+                    }); 
+                    
+                },()=>{
 
-                    ROUTE(' ',FORGOTPASSWORDMESSAGEPASSWORD,'FORGOTPASSWORDMESSAGEPASSWORD');
-
-                },(datata)=>{
-
-                    MESSAGEDISPLAY('','Failed To Recover Password');
+                    MESSAGEDISPLAY('','Something Went Wrong ,Try Again','');
 
                     DISPLAY(ELEMENT,'Recover');
 
-                }); 
+                });
 
             });
 
@@ -349,6 +376,39 @@ const FORGOTPASSWORDPAGE=()=>{
     BUTTON('','','','blue','#fff','Cancel',(ELEMENT)=>{
 
         ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+    });
+   
+};
+
+const FORGOTPASSWORDMESSAGEPASSWORD=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    CLEAR("");
+
+    BREAK('');BREAK('');
+
+    IMAGE('',WHITEFOLDERICON,'25%','15%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Manage and Collect','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    CENTERTEXT('','p','The Password has been Sent to Your Email!','','',(ELEMENT)=>{
+
+    });
+
+    BUTTON('','','','blue','#fff','Back',(ELEMENT)=>{
+
+        ROUTE('',FORGOTPASSWORDPAGE,'FORGOTPASSWORDPAGE');
 
     });
    
@@ -493,29 +553,33 @@ const EMAILVERIFICATIONPAGE=()=>{
 
 const APPDOWNLOAD=(callback)=>{
 
-    GETDATA(API,'APPMANAGER',(data)=>{
+    CHECKER(navigator.onLine,()=>{
+        
+        GETDATA(API,'APPMANAGER',(data)=>{
 
-        const MYDATA={
-                'Name':'AppManager',
-                'data':data,
-            }     
-        STOREINDEXED('AppManager', 'AppManager', MYDATA, (data)=>{
+            const MYDATA={
+                    'Name':'AppManager',
+                    'data':data,
+                }     
+            STOREINDEXED('AppManager', 'AppManager', MYDATA, (data)=>{
 
-            CHECKER(data === false,()=>{
+                CHECKER(data === false,()=>{
 
-                UPDATEINDEX('AppManager', 'AppManager', MYDATA,(datata)=>{
+                    UPDATEINDEX('AppManager', 'AppManager', MYDATA,(datata)=>{
 
-                    callback();
+                        callback();
+
+                    });
 
                 });
 
             });
+            
+        },(data)=>{
+
+            console.log(data);
 
         });
-          
-    },(data)=>{
-
-        console.log(data);
 
     });
 
@@ -531,38 +595,24 @@ const POSTPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        VIEW(ELEMENT,'','45%','30%',(ELEMENTS)=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','New DataBase','',WHITELIBRARYICON,'50px',()=>{
 
-            STYLED(ELEMENTS,'display','inline-table');
-            STYLED(ELEMENTS,'margin-left','2%');
-            STYLED(ELEMENTS,'margin-right','2%');
+            ROUTE(' ',NEWDATABASEPAGE,'POSTPAGE');
 
         });
 
-        VIEW(ELEMENT,'red','45%','30%',(ELEMENTS)=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','New Table','',WHITELISTICON,'50px',()=>{
 
-            STYLED(ELEMENTS,'display','inline-table');
-            STYLED(ELEMENTS,'margin-left','2%');
-            STYLED(ELEMENTS,'margin-right','2%');
+            ROUTE('',NEWTABLEPAGE,'POSTPAGE');
 
         });
 
-        VIEW(ELEMENT,'red','45%','30%',(ELEMENTS)=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','New Project ','',WHITEPOSTICON,'50px',()=>{
 
-            STYLED(ELEMENTS,'display','inline-table');
-            STYLED(ELEMENTS,'margin-left','2%');
-            STYLED(ELEMENTS,'margin-right','2%');
+            ROUTE('',NEWPROJECTPAGE,'POSTPAGE');
 
         });
-
-        VIEW(ELEMENT,'','45%','30%',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'display','inline-table');
-            STYLED(ELEMENTS,'margin-left','2%');
-            STYLED(ELEMENTS,'margin-right','2%');
-
-        });
-       
+        
     });
   
 };
@@ -575,7 +625,7 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
 
         GETINDEXEDDATA ('AppManager', 'AppManager', (data)=>{
 
-            CHECKER( data.Owner === Name && data.Deleted ,()=>{
+            CHECKER( data.Owner === Name && data.AppDeleted ,()=>{
 
                 VIEW(ELEMENT,' ','46%','35%',(ELEMENTS)=>{
     
@@ -593,9 +643,9 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
                         STYLED(ELEMENTSE,'border-radius','5px');
     
                         CLICK(ELEMENTSE,()=>{
-    
-                            CHECKER(navigator.onLine,()=>{
-    
+
+                            CONDITION(navigator.onLine,()=>{
+
                                 MESSAGEDISPLAY('',`${data.AppName} is Being Restored`,'');
     
                                 const INFO=[data.AppName,data.AppDescription,data.AppColors,data.AppConfiguration,data.AppCreatedOn,data.AppVersion,'',data.AppKeyWord,data.AppPackageName,data.AppCompany,data.AndroidDesign,data.AndroidFunctions,data.DesktopDesign,data.DesktopFunctions,data.WebDesign,data.WebFunctions,data.SharedDesign,data.SharedFunctions,data.AppLogic,data.AppRegion,data.AppState,data.AppCatergory,data.AppIcon,data.UpdatedOn,data.Owner];
@@ -615,11 +665,13 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
                                     }
     
                                 );
-        
-                            });
 
-                            NOINTERNETTEMPLATE();
-    
+                            },()=>{
+
+                                NOINTERNETTEMPLATE();
+
+                            });
+        
                         });
                 
                     });
@@ -644,7 +696,7 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
 
         GETINDEXEDDATA ('AppManager', 'AppManager', (data)=>{
 
-            CHECKER( data.Owner === Name && !data.Deleted ,()=>{
+            CHECKER( data.Owner === Name && !data.AppDeleted ,()=>{
 
                 VIEW(ELEMENT,' ','46%','35%',(ELEMENTS)=>{
     
@@ -662,7 +714,15 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
                         STYLED(ELEMENTSE,'border-radius','5px');
         
                         CLICK(ELEMENTSE,()=>{
-                
+
+                            JSONIFICATION(data,(MyData)=>{
+
+                                STOREDATA('','MyProject',MyData);
+
+                                ROUTE(' ',UPDATEPROJECTPAGE,'HOMEPAGE');
+
+                            });
+
                         });
                 
                     });
@@ -714,8 +774,20 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
         
                     });
         
-                    CENTERTEXT(ELEMENTS,'',data.AppName,'','18px',()=>{
-        
+                    CENTERTEXT(ELEMENTS,'',data.AppName,'','18px',(ELEMENTSE)=>{
+
+                        CLICK(ELEMENTSE,()=>{
+
+                            JSONIFICATION(data,(MyData)=>{
+
+                                STOREDATA('','MyProject',MyData);
+    
+                                ROUTE(' ',MYPROJECTDETAILSPAGE,'HOMEPAGE');
+    
+                            });
+
+                        });
+
                     });
         
                 });
@@ -745,11 +817,9 @@ const USERACCOUNTPAGE=()=>{
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-                BREAK(ELEMENTS);
-
                 IMAGEBUTTON(ELEMENTS,'forestgreen','My Profile','',WHITEPROFILEICON,'50px',()=>{
 
-                    ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
+                    ROUTE('',MYPROFILEPAGE,'USERACCOUNTPAGE');
     
                 });
 
@@ -761,7 +831,7 @@ const USERACCOUNTPAGE=()=>{
 
                 IMAGEBUTTON(ELEMENTS,'forestgreen','Settings ','',WHITESETTINGSICON,'50px',()=>{
 
-                    ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
+                    ROUTE('',SETTINGSPAGE,'USERACCOUNTPAGE');
     
                 });
 
@@ -798,8 +868,1336 @@ const DELETEDATAPAGE=()=>{
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-                USERDATA(ELEMENT,data.UserName,'Deleted');
+                USERDATA(ELEMENT,data.ID,'Deleted');
                 
+            });
+
+        });
+
+    });
+
+};
+
+const UPDATEPROJECTPAGE=()=>{
+
+    DELETEDATA('','AppName');
+    DELETEDATA('','AppVersion');
+    DELETEDATA('','AppPackageName');
+    DELETEDATA('','AppColors');
+    DELETEDATA('','AppCompany');
+    DELETEDATA('','AppRegion');
+    DELETEDATA('','AppCatergory');
+    DELETEDATA('','SharedFunctions');
+    DELETEDATA('','SharedDesign');
+    DELETEDATA('','WebFunctions');
+    DELETEDATA('','WebDesign');
+    DELETEDATA('','AppDescription');
+    DELETEDATA('','AppConfiguration');
+    DELETEDATA('','AppKeyWord');
+    DELETEDATA('','AndroidDesign');
+    DELETEDATA('','AndroidFunctions');
+    DELETEDATA('','DesktopFunctions');
+    DELETEDATA('','AppIcon');
+
+    DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
+
+        console.log(data);
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },data.AppName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppName||'Project Name',(Appdata)=>{
+
+                    STOREDATA('','AppName',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppVersion||'App Version',(Appdata)=>{
+
+                    STOREDATA('','AppVersion',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppPackageName||'Package Name',(Appdata)=>{
+
+                    STOREDATA('','AppPackageName',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppColors||'Colours',(Appdata)=>{
+
+                    STOREDATA('','AppColors',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppCompany||'App Company',(Appdata)=>{
+
+                    STOREDATA('','AppCompany',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppRegion||'App Region',(Appdata)=>{
+
+                    STOREDATA('','AppRegion',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppCatergory||'App Catergory',(Appdata)=>{
+
+                    STOREDATA('','AppCatergory',Appdata);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.AppDescription||'App Description',(data)=>{
+
+                    STOREDATA('','AppDescription',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.AppConfiguration||'App Configuration',(data)=>{
+
+                    STOREDATA('','AppConfiguration',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.AppKeyWord||'App KeyWord',(data)=>{
+
+                    STOREDATA('','AppKeyWord',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.AndroidDesign||'Android Design',(data)=>{
+
+                    STOREDATA('','AndroidDesign',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.AndroidFunctions||'Android Functions',(data)=>{
+
+                    STOREDATA('','AndroidFunctions',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.DesktopDesign||'Desktop Design',(data)=>{
+
+                    STOREDATA('','DesktopDesign',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.DesktopFunctions||'Desktop Functions',(data)=>{
+
+                    STOREDATA('','DesktopFunctions',data);
+                    
+                });
+
+                TEXTAREA(ELEMENT,'','',data.WebDesign||'Web Design',(data)=>{
+
+                    STOREDATA('','WebDesign',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.WebFunctions||'Web Functions',(data)=>{
+
+                    STOREDATA('','WebFunctions',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.SharedDesign||'Shared Design',(data)=>{
+
+                    STOREDATA('','SharedDesign',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.SharedFunctions||'Shared Functions',(data)=>{
+
+                    STOREDATA('','SharedFunctions',data);
+
+                });
+
+                IMAGE(ELEMENT,data.AppIcon||WHITEFOLDERICON,'','50%',(ELEMENTS)=>{
+
+                    STYLED(ELEMENTS,'border','1px solid forestgreen');
+
+                    CLICK(ELEMENTS,()=>{
+
+                        IMAGEPICKER(ELEMENTS, (ImageData)=>{
+
+                            STOREDATA('','AppIcon',ImageData);
+
+                        });
+
+                    });
+
+                });
+
+                BUTTON(ELEMENT,'','50px','forestgreen','','Update',(ELEMENTSE)=>{
+
+                    CONDITION(sessionStorage.getItem('AppName')||sessionStorage.getItem('AppVersion')||sessionStorage.getItem('AppPackageName')||sessionStorage.getItem('AppCompany')||sessionStorage.getItem('AppRegion')||sessionStorage.getItem('AppCatergory')||sessionStorage.getItem('AppDescription')||sessionStorage.getItem('AppConfiguration')||sessionStorage.getItem('AppKeyWord')||sessionStorage.getItem('AndroidDesign')||sessionStorage.getItem('AndroidFunctions')||sessionStorage.getItem('DesktopDesign')||sessionStorage.getItem('DesktopFunctions')||sessionStorage.getItem('WebDesign')||sessionStorage.getItem('WebFunctions')||sessionStorage.getItem('SharedDesign')||sessionStorage.getItem('SharedFunctions')||sessionStorage.getItem('AppIcon'),()=>{
+
+                        CONDITION(navigator.onLine,()=>{
+
+                            DEJSON(localStorage.getItem('UserData'),(MyDatate)=>{
+
+                                MESSAGEDISPLAY('',data.AppName+'Is Being Updated...','');
+
+                                const INFO=[sessionStorage.getItem('AppName')||data.AppName,sessionStorage.getItem('AppDescription')||data.AppDescription,sessionStorage.getItem('AppColors')||data.AppColors,sessionStorage.getItem('AppConfiguration')||data.AppConfiguration,data.AppCreatedOn,sessionStorage.getItem('AppVersion')||data.AppVersion,data.AppDeleted,sessionStorage.getItem('AppKeyWord')||data.AppKeyWord,sessionStorage.getItem('AppPackageName')||data.AppPackageName,sessionStorage.getItem('AppCompany')||data.AppCompany,sessionStorage.getItem('AndroidDesign')||data.AndroidDesign,sessionStorage.getItem('AndroidFunctions')||data.AndroidFunctions,sessionStorage.getItem('DesktopDesign')||data.DesktopDesign,sessionStorage.getItem('DesktopFunctions')||data.DesktopFunctions,sessionStorage.getItem('WebDesign')||data.WebDesign,sessionStorage.getItem('WebFunctions')||data.WebFunctions,sessionStorage.getItem('SharedDesign')||data.SharedDesign,sessionStorage.getItem('SharedFunctions')||data.SharedFunctions,sessionStorage.getItem('AppLogic')||data.AppLogic,sessionStorage.getItem('AppRegion')||data.AppRegion,sessionStorage.getItem('AppState')||data.AppState,sessionStorage.getItem('AppCatergory')||data.AppCatergory,sessionStorage.getItem('AppIcon')||data.AppIcon,new Date(),MyDatate.ID];
+
+                                UPDATEDATA(API,'APPMANAGER',data.ID,INFO,()=>{
+
+                                    APPDOWNLOAD(()=>{
+                                        
+                                        ROUTE('',HOMEPAGE,HOMEPAGE);
+
+                                    });
+    
+                                },()=>{
+
+                                    MESSAGEDISPLAY('','Failed to Update' + data.AppName,'');
+    
+                                });
+
+                            });
+
+                        },()=>{
+
+                            MESSAGEDISPLAY('','Check Your Internet','');
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Fill Any Part','');
+
+                    });
+
+                });
+
+                BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
+
+            });
+    
+        });
+
+    });
+
+};
+
+const MYPROFILEPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        console.log(data);
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
+    
+        },data.UserName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+
+                BREAK(ELEMENTS);
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                IMAGE(ELEMENTS,data.UserProfilePhoto||WHITEFOLDERICON,'','50%',(ELEMENT)=>{
+
+                    STYLED(ELEMENT,'border','1px solid forestgreen');
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.ID,'',WHITESECRETCODEICON,'50px',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.UserName,'',WHITEUSERICON,'50px',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.UserEmail,'',WHITEGMAILICON,'50px',()=>{
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);
+
+                DISPLAYVIEW(ELEMENTS,'forestgreen','97%','50px',(ELEMENT)=>{
+
+                    ICON(ELEMENT,WHITEPENCILICON,'25px','25px',(ELEMENTS)=>{
+
+                        CLICK(ELEMENTS,()=>{
+
+                            ROUTE(' ',UPDATEUSERDATAPAGE,'MYPROFILEPAGE');
+
+                        });
+
+                    });
+            
+                    ICON(ELEMENT,WHITEEDITICON,'25px','25px',(ELEMENTS)=>{
+
+                        CLICK(ELEMENTS,()=>{
+
+                            ROUTE(' ',MYPROFILEPHOTO,'MYPROFILEPAGE');
+
+                        });
+                
+                    });
+
+                    ICON(ELEMENT,WHITEDOWNLOADICON,'25px','25px',(ELEMENTS)=>{
+                
+                    });
+            
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
+        });
+            
+    });
+
+};
+
+const SETTINGSPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
+    
+        },'Settings','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Link Device','',WHITEDEVICEICON,'50px',()=>{
+
+                    ROUTE(' ',LINKDEVICEPAGE,'SETTINGSPAGE');
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Sync','',WHITERETRYICON,'50px',()=>{
+
+                   RELOAD();
+    
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','App Lock','',WHITELOCKICON,'50px',()=>{
+
+                    ROUTE(' ',APPLOCKPAGE,'SETTINGSPAGE');
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Delete Account','',WHITEDELETEICON,'50px',()=>{
+     
+                    ROUTE(' ',DELETEACCOUNTPAGE,'SETTINGSPAGE');
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Privacy Policy','',WHITEPRIVACYPOLICYICON,'50px',()=>{
+
+                    ROUTE(' ',PRIVACYPOLICYPAGE,'SETTINGSPAGE');
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Notifications','',WHITENOTIFICATIONICON,'50px',()=>{
+
+                    ROUTE(' ',APPNOTIFICATIONSPAGE,'SETTINGSPAGE');
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Log Out','',WHITELOGOUTICON,'50px',()=>{
+
+                    DELETEDATA(' ','UserData');
+     
+                    RELOAD();
+
+                });
+                
+            });
+    
+        });
+            
+    });
+
+};
+
+const NEWDATABASEPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',POSTPAGE,'POSTPAGE');
+    
+        },'DataBase Creation','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter DataBase Name','','18px',()=>{
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent','DataBase Name',(Appdata)=>{
+
+                    CONDITION(data.AppName === Appdata,()=>{
+
+                        DELETEDATA('','AppName');
+
+                    },()=>{
+
+                        STOREDATA('','AppName',Appdata);
+
+                    });
+
+                });
+
+                BUTTON(ELEMENT,'','50px','forestgreen','','Create DataBase',(ELEMENTSE)=>{
+
+                });
+                
+            });
+    
+        });
+            
+    });
+
+};
+
+const NEWTABLEPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',POSTPAGE,'POSTPAGE');
+    
+        },'Table Creation','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter Table Name','','18px',()=>{
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent','Table Name',(Appdata)=>{
+
+                    CONDITION(data.AppName === Appdata,()=>{
+
+                        DELETEDATA('','AppName');
+
+                    },()=>{
+
+                        STOREDATA('','AppName',Appdata);
+
+                    });
+
+                });
+
+                BUTTON(ELEMENT,'','50px','forestgreen','','Create Table',(ELEMENTSE)=>{
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const NEWPROJECTPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',POSTPAGE,'POSTPAGE');
+    
+        },'Project Creation','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                ROUNDINPUT(ELEMENT,'','','transparent','Project Name',(Appdata)=>{
+
+                    CONDITION(data.AppName === Appdata,()=>{
+
+                        DELETEDATA('','AppName');
+
+                    },()=>{
+
+                        STOREDATA('','AppName',Appdata);
+
+                    });
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent','App Version',(Appdata)=>{
+
+                    CONDITION(data.AppName === Appdata,()=>{
+
+                        DELETEDATA('','AppVersion');
+
+                    },()=>{
+
+                        STOREDATA('','AppVersion',Appdata);
+
+                    });
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent','Package Name',(Appdata)=>{
+
+                    CONDITION(data.AppName === Appdata,()=>{
+
+                        DELETEDATA('','AppVersion');
+
+                    },()=>{
+
+                        STOREDATA('','AppVersion',Appdata);
+
+                    });
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent','Colours',(Appdata)=>{
+
+                    CONDITION(data.AppName === Appdata,()=>{
+
+                        DELETEDATA('','AppVersion');
+
+                    },()=>{
+
+                        STOREDATA('','AppVersion',Appdata);
+
+                    });
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent','App Company',(Appdata)=>{
+
+                    CONDITION(data.AppName === Appdata,()=>{
+
+                        DELETEDATA('','AppVersion');
+
+                    },()=>{
+
+                        STOREDATA('','AppVersion',Appdata);
+
+                    });
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent','App Region',(Appdata)=>{
+
+                    CONDITION(data.AppName === Appdata,()=>{
+
+                        DELETEDATA('','AppVersion');
+
+                    },()=>{
+
+                        STOREDATA('','AppVersion',Appdata);
+
+                    });
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent','App Catergory',(Appdata)=>{
+
+                    CONDITION(data.AppName === Appdata,()=>{
+
+                        DELETEDATA('','AppVersion');
+
+                    },()=>{
+
+                        STOREDATA('','AppVersion',Appdata);
+
+                    });
+
+                });
+
+                TEXTAREA(ELEMENT,'','','App Description',(data)=>{
+
+                });
+
+                TEXTAREA(ELEMENT,'','','App Configuration',(data)=>{
+
+                });
+
+                TEXTAREA(ELEMENT,'','','App KeyWord',(data)=>{
+
+                });
+
+                TEXTAREA(ELEMENT,'','','Android Design',(data)=>{
+
+                });
+
+                TEXTAREA(ELEMENT,'','','Android Functions',(data)=>{
+
+                });
+
+                TEXTAREA(ELEMENT,'','','Desktop Design',(data)=>{
+
+                });
+
+                TEXTAREA(ELEMENT,'','','Desktop Functions',(data)=>{
+
+                });
+
+                TEXTAREA(ELEMENT,'','','Web Design',(data)=>{
+
+                });
+
+                TEXTAREA(ELEMENT,'','','Web Functions',(data)=>{
+
+                });
+
+                TEXTAREA(ELEMENT,'','','Shared Design',(data)=>{
+
+                });
+
+                TEXTAREA(ELEMENT,'','','Shared Functions',(data)=>{
+
+                });
+
+                IMAGE(ELEMENT,WHITEFOLDERICON,'','50%',(ELEMENTS)=>{
+
+                    STYLED(ELEMENTS,'border','1px solid forestgreen');
+
+                    CLICK(ELEMENTS,()=>{
+
+                        IMAGEPICKER(ELEMENTS, ()=>{
+
+                        });
+
+                    });
+
+                });
+
+                BUTTON(ELEMENT,'','50px','forestgreen','','Update',(ELEMENTSE)=>{
+
+                });
+
+                BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
+                
+            });
+    
+        });
+            
+    });
+
+};
+
+const MYCOLLECTIONPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },'Account Collection','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+                
+            });
+    
+        });
+            
+    });
+
+};
+
+const MYPROJECTDETAILSPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
+
+        console.log(data);
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },data.AppName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+
+                BREAK(ELEMENTS);
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'','50%',(ELEMENT)=>{
+
+                    STYLED(ELEMENT,'border','1px solid forestgreen');
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.ID,'',WHITESECRETCODEICON,'50px',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.Owner,'',WHITEUSERICON,'50px',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppCompany||'Ero Innovations','',WHITEGMAILICON,'50px',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppCreatedOn||new Date(),'',WHITECREATEDONICON,'50px',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppVersion||'1','',WHITEMOBILEDEVELOPMENTICON,'50px',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppState||'Active','',WHITESUBSCRIPTIONICON,'50px',()=>{
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);
+
+                DISPLAYVIEW(ELEMENTS,'forestgreen','97%','50px',(ELEMENT)=>{
+
+                    ICON(ELEMENT,WHITEAPPICON,'25px','25px',(ELEMENTS)=>{
+
+                        CLICK(ELEMENTS,()=>{
+
+                            ROUTE('',ANDROIDCODEPAGE,'MYPROJECTDETAILSPAGE');
+
+                        });
+
+                    });
+            
+                    ICON(ELEMENT,WHITESCREENICON,'25px','25px',(ELEMENTS)=>{
+
+                        CLICK(ELEMENTS,()=>{
+
+                            ROUTE(' ',DESKTOPCODEPAGE,'MYPROJECTDETAILSPAGE');
+
+                        });
+                
+                    });
+
+                    ICON(ELEMENT,WHITEINTERNETICON,'25px','25px',(ELEMENTS)=>{
+
+                        CLICK(ELEMENTS,()=>{
+
+                            ROUTE(' ',WEBSITECODEPAGE,'MYPROJECTDETAILSPAGE');
+
+                        });
+                
+                    });
+            
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
+        });
+            
+    });
+
+};
+
+const ANDROIDCODEPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
+
+        console.log(data);
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',MYPROJECTDETAILSPAGE,'MYPROJECTDETAILSPAGE');
+    
+        },data.AppName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                LEFTTEXT(ELEMENTS,'',data.AndroidDesign||'<br><br>... No Code Added....','','18px','2%',(ELEMENTSE)=>{
+
+                    STYLED(ELEMENTSE,'width','95%');
+                    STYLED(ELEMENTSE,'word-break','break-all');
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
+        });
+            
+    });
+
+};
+
+const DESKTOPCODEPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
+
+        console.log(data);
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',MYPROJECTDETAILSPAGE,'MYPROJECTDETAILSPAGE');
+    
+        },data.AppName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                LEFTTEXT(ELEMENTS,'',data.DesktopDesign||'<br><br>... No Code Added....','','18px','2%',(ELEMENTSE)=>{
+
+                    STYLED(ELEMENTSE,'width','95%');
+                    STYLED(ELEMENTSE,'word-break','break-all');
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
+        });
+            
+    });
+
+};
+
+const WEBSITECODEPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
+
+        console.log(data);
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',MYPROJECTDETAILSPAGE,'MYPROJECTDETAILSPAGE');
+    
+        },data.AppName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                LEFTTEXT(ELEMENTS,'',data.WebDesign||'<br><br>... No Code Added....','','18px','2%',(ELEMENTSE)=>{
+
+                    STYLED(ELEMENTSE,'width','95%');
+                    STYLED(ELEMENTSE,'word-break','break-all');
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
+        });
+            
+    });
+
+};
+
+const MYPROFILEPHOTO=()=>{
+
+    DELETEDATA('','MyImage');
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        console.log(data);
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+    
+        },data.UserName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+
+                BREAK(ELEMENTS);
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                IMAGE(ELEMENTS,data.UserProfilePhoto||WHITEPROFILEICON,'','50%',(ELEMENT)=>{
+
+                    STYLED(ELEMENT,'border','1px solid forestgreen');
+
+                    CLICK(ELEMENT,()=>{
+
+                        IMAGEPICKER(ELEMENT, (MyImageData)=>{
+
+                            STOREDATA('','MyImage',MyImageData);
+
+                        });
+
+                    });
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Update Profile Photo','',WHITECHECKICON,'50px',(ELEMENTSE)=>{
+
+                    CONDITION(sessionStorage.getItem('MyImage'),()=>{
+
+                        CONDITION(navigator.onLine,()=>{
+
+                            MESSAGEDISPLAY('','Please Wait ,Updating Profile Image','');
+
+                            const INFO=[data.UserName,data.UserEmail,data.UserPassword,sessionStorage.getItem('MyImage')];
+
+                            UPDATEDATA(API,'Users',data.ID,INFO,()=>{
+
+                                USERACCOUNTDOWNLOAD(()=>{
+
+                                    ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+
+                                });
+
+                            },()=>{
+
+                                MESSAGEDISPLAY('','Failed to Update Profile Picture',''); 
+
+                            })
+
+                        },()=>{
+
+                            MESSAGEDISPLAY('','Check Your Internet','');
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Select Profile Photo','');
+
+                    });
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'brown','Remove Profile Photo','',WHITEDELETEICON,'50px',(ELEMENTSE)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Please Wait ,Removing Profile Image','');
+
+                        const INFO=[data.UserName,data.UserEmail,data.UserPassword,''];
+
+                        UPDATEDATA(API,'Users',data.ID,INFO,()=>{
+
+                            USERACCOUNTDOWNLOAD(()=>{
+
+                                ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+
+                            });
+
+                        },()=>{
+
+                            MESSAGEDISPLAY('','Failed to Update Profile Picture',''); 
+
+                        })
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Check Your Internet','');
+
+                    });
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
+        });
+            
+    });
+
+}
+
+const UPDATEUSERDATAPAGE=()=>{
+
+    DELETEDATA('','UserName');
+    DELETEDATA('','UserEmail');
+    DELETEDATA('','UserPassword');
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+        
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+    
+        },'Profile Update','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter New User Name','','18px',()=>{
+
+                });
+
+                ROUNDINPUT(ELEMENTS,'','','transparent','User Name',(Appdata)=>{
+
+                    STOREDATA('','UserName',Appdata);
+                    
+                });
+
+                CENTERTEXT(ELEMENTS,'','Enter New Email ','','18px',()=>{
+
+                });
+
+                ROUNDINPUT(ELEMENTS,'','','transparent','New Email',(Appdata)=>{
+
+                    STOREDATA('','UserEmail',Appdata);
+                    
+                });
+
+                CENTERTEXT(ELEMENTS,'','Enter New Password','','18px',()=>{
+
+                });
+
+                ROUNDINPUT(ELEMENTS,'','','transparent','New Password',(Appdata)=>{
+
+                    STOREDATA('','UserPassword',Appdata);
+                    
+                });
+
+                BUTTON(ELEMENT,'','50px','forestgreen','','Update User Details',(ELEMENTSE)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        CONDITION(sessionStorage.getItem('UserName')||sessionStorage.getItem('UserEmail') || sessionStorage.getItem('UserPassword'),()=>{
+
+                            MESSAGEDISPLAY('','Please Wait ,Updating User Profile Data','');
+
+                            const INFO=[sessionStorage.getItem('UserName')||data.UserName,sessionStorage.getItem('UserEmail')||data.UserEmail,sessionStorage.getItem('UserPassword')||data.UserPassword,data.UserProfilePhoto];
+    
+                            UPDATEDATA(API,'Users',data.ID,INFO,()=>{
+    
+                                USERACCOUNTDOWNLOAD(()=>{
+    
+                                    ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+    
+                                });
+    
+                            },()=>{
+    
+                                MESSAGEDISPLAY('','Failed to Update User Profile Data',''); 
+    
+                            })
+
+                        },()=>{
+
+                            MESSAGEDISPLAY('','Please Fill Any Part','');
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Check Your Internet','');
+
+                    });
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const DELETEACCOUNTPAGE=()=>{
+
+    DELETEDATA('','Deleted');
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+        },'Table Creation','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px',()=>{
+
+                });
+
+                ROUNDINPUT(ELEMENTS,'','','transparent',' ',(Appdata)=>{
+                    
+                    STOREDATA('','Deleted',Appdata);
+
+                });
+
+                BUTTON(ELEMENT,'','50px','red','','Delete My  Account',(ELEMENTSE)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        CONDITION(sessionStorage.getItem('Deleted'),()=>{
+
+                            MESSAGEDISPLAY('','Please Wait ,Deleting Your Account','');
+
+                            const INFO=[data.UserName,data.UserEmail,data.UserPassword,data.UserProfilePhoto,sessionStorage.getItem('Deleted')];
+    
+                            UPDATEDATA(API,'Users',data.ID,INFO,()=>{
+    
+                                USERACCOUNTDOWNLOAD(()=>{
+    
+                                    ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+    
+                                });
+    
+                            },()=>{
+    
+                                MESSAGEDISPLAY('','Failed to Deleted User Account',''); 
+    
+                            })
+
+                        },()=>{
+
+                            MESSAGEDISPLAY('','Please Enter Reason For Account Deletion','');
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Check Your Internet','');
+
+                    });
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const PRIVACYPOLICYPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+        },'Policy','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px',()=>{
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const LINKDEVICEPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+        },'Link Device','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px',()=>{
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const APPLOCKPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+        },'App Lock Device','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px',()=>{
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const APPNOTIFICATIONSPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+        },'App Notifications','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px',()=>{
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const USERACCOUNTDOWNLOAD=(callback)=>{
+
+    GETDATA(API,'Users',(data)=>{
+
+        DEJSON(localStorage.getItem('UserData'),(MyData)=>{
+
+            FINDER(data,'UserEmail',MyData.UserEmail,(Users)=>{
+
+                CONDITION(Users.UserEmail === MyData.UserEmail && !Users.AccountDeleted,()=>{
+
+                    JSONIFICATION(Users,(MeData)=>{
+
+                        STOREDATA(' ','UserData',MeData);
+
+                        callback();
+
+                    });
+
+                },()=>{
+
+                    DELETEDATA(' ','UserData');
+
+                    RELOAD();
+
+                });
+
             });
 
         });
