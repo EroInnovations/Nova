@@ -12,6 +12,8 @@ const HOMEPAGE=()=>{
 
             FULLMENUTEMPLATE('','#333333','50%','left',(ELEMENT)=>{
 
+                MENUPAGE(ELEMENT);
+
             });
         
         });
@@ -32,7 +34,9 @@ const HOMEPAGE=()=>{
 
 const MENUPAGE=(ELEMENT)=>{
 
-    BUTTONIMAGE=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,callback)
+    BUTTONIMAGE(ELEMENT,'forestgreen','New Project','',WHITEPOSTICON,'50px',()=>{
+
+    });
 
 
 }
