@@ -12,7 +12,17 @@ const CLOUDLOGINTEMPLATE=(ELEMENT,API,DATABASENAME,ELEMENTLOADINGMESSAGE,CLOUDEM
 
                     CONDITION(ReturnedData[CLOUDPASSWORD] === PASSWORD,()=>{
 
-                        callback(ReturnedData);
+                        CONDITION(ReturnedData.AccountDeleted ,()=>{
+
+                            DISPLAY(ELEMENT,ORIGINALTEXT);
+    
+                            MESSAGEDISPLAY('','Unable to Login','');
+
+                        },()=>{
+
+                            callback(ReturnedData);
+
+                        });
 
                     },()=>{
 

@@ -1,3 +1,4 @@
+import { CENTERVIEW } from "./Components/CenterView/CenterView.js";
 import { HOMEFOOTERTEMPLATE } from "./Components/HomeFooterTemplate/HomeFooterTemplate.js";
 import { HOMEHEADERTEMPLATE } from "./Components/HomeHeaderTemplate/HomeHeaderTemplate.js";
 import { HOMEROUNDFOOTERTEMPLATE } from "./Components/HomeRoundFooterTemplate/HomeRoundFooterTemplate.js";
@@ -30,6 +31,7 @@ const NOINTERNETTEMPLATE=${NOINTERNETTEMPLATE};
 const OFFLINEPAGETEMPLATE=${OFFLINEPAGETEMPLATE};
 const FULLMENUTEMPLATE=${FULLMENUTEMPLATE};
 const HOMEHEADERTEMPLATE=${HOMEHEADERTEMPLATE};
+const CENTERVIEW=${CENTERVIEW};
 `;
 localStorage.setItem('TEMPLATES',DATA);
 };
@@ -37,6 +39,6 @@ export{TEMPLATES};
 
 `
 
-const HOMEHEADERTEMPLATE=${HOMEHEADERTEMPLATE};
+const CENTERVIEW=${CENTERVIEW};
 
 `

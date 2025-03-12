@@ -1,6 +1,6 @@
 const FULLMENUTEMPLATE=(ELEMENT,COLOR,WIDTH,POSITION,callback)=>{
 
-    VIEW(ELEMENT,COLOR,WIDTH||'50%','100%',(ELEMENTSES)=>{
+    VIEW(ELEMENT,COLOR,WIDTH||'50%','100%','',(ELEMENTSES)=>{
 
         STYLED(ELEMENTSES,'display','block');
 
@@ -42,7 +42,7 @@ const FULLMENUTEMPLATE=(ELEMENT,COLOR,WIDTH,POSITION,callback)=>{
         STYLED(ELEMENTSES,POSITION,'0');
         STYLED(ELEMENTSES,'overflow','hidden');
 
-        VIEW(ELEMENTSES,'transparent','100%','auto',(ELEMENTSE)=>{
+        VIEW(ELEMENTSES,'transparent','100%','auto','',(ELEMENTSE)=>{
 
             STYLED(ELEMENTSE,'position','absolute');
             STYLED(ELEMENTSE,'top','55px');
