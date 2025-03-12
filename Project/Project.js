@@ -30,7 +30,7 @@ const HOMEPAGE=()=>{
 
     });
     
-}
+};
 
 const MENUPAGE=(ELEMENT)=>{
 
