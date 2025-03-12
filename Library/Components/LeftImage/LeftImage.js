@@ -1,15 +1,13 @@
-const LEFTIMAGE=(ELEMENT,SOURCE,WIDTH,HEIGHT,LEFT,callback)=>{
+const LEFTIMAGE=(ELEMENT,SOURCE,WIDTH,HEIGHT,LEFT,MARGIN,callback)=>{
 
     const ELEMENT1=document.createElement('img');
 
     ELEMENT1.style.width=WIDTH||'95%';
     ELEMENT1.style.height=HEIGHT||'95%';
-    ELEMENT1.style.margin='auto';
+    ELEMENT1.style.margin=MARGIN||'auto';
     ELEMENT1.style.marginLeft=LEFT||'1%';
 
     ELEMENT1.src=SOURCE;
-
-    callback(ELEMENT1);
 
     if (ELEMENT) {
         
@@ -20,6 +18,12 @@ const LEFTIMAGE=(ELEMENT,SOURCE,WIDTH,HEIGHT,LEFT,callback)=>{
         document.querySelector("body").append(ELEMENT1);
         
     }
+
+    ELEMENT1.addEventListener('click',()=>{
+
+        callback(ELEMENT1);
+
+    });
 
 };
 export{LEFTIMAGE};

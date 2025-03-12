@@ -117,10 +117,8 @@ const HOMEPAGE=()=>{
 
         });
 
-        VIEW(ELEMENT,'transparent',(ELEMENTS)=>{
+        VIEW(ELEMENT,'transparent','98%','50%',(ELEMENTS)=>{
 
-            STYLED(ELEMENTS,'width','98%');
-            STYLED(ELEMENTS,'height','50%');
             STYLED(ELEMENTS,'margin','auto');
             STYLED(ELEMENTS,'border-radius','10px');
             STYLED(ELEMENTS,'margin-top','10px');
@@ -147,10 +145,8 @@ const HOMEPAGE=()=>{
 
         });
 
-        VIEW(ELEMENT,'transparent',(ELEMENTS)=>{
+        VIEW(ELEMENT,'transparent','98%','50%',(ELEMENTS)=>{
 
-            STYLED(ELEMENTS,'width','98%');
-            STYLED(ELEMENTS,'height','50%');
             STYLED(ELEMENTS,'margin','auto');
             STYLED(ELEMENTS,'border-radius','10px');
             STYLED(ELEMENTS,'margin-top','10px');
@@ -189,10 +185,8 @@ const HOMEPAGE=()=>{
 
         });
 
-        VIEW(ELEMENT,'transparent',(ELEMENTS)=>{
+        VIEW(ELEMENT,'transparent','98%','50%',(ELEMENTS)=>{
 
-            STYLED(ELEMENTS,'width','98%');
-            STYLED(ELEMENTS,'height','50%');
             STYLED(ELEMENTS,'margin','auto');
             STYLED(ELEMENTS,'border-radius','10px');
             STYLED(ELEMENTS,'margin-top','10px');
@@ -209,10 +203,8 @@ const HOMEPAGE=()=>{
 
         });
 
-        VIEW(ELEMENT,'blue',(ELEMENTS)=>{
+        VIEW(ELEMENT,'blue','98%','50px',(ELEMENTS)=>{
 
-            STYLED(ELEMENTS,'width','98%');
-            STYLED(ELEMENTS,'height','50px');
             STYLED(ELEMENTS,'margin','auto');
             STYLED(ELEMENTS,'border-radius','10px');
             STYLED(ELEMENTS,'margin-top','10px');
@@ -324,10 +316,8 @@ const NEWSPAGE=()=>{
 
                     console.log(Elements)
 
-                    VIEW(ELEMENT,'',(ELEMENTS)=>{
+                    VIEW(ELEMENT,'','98%','auto',(ELEMENTS)=>{
 
-                        STYLED(ELEMENTS,'width','98%');
-                        STYLED(ELEMENTS,'height','auto');
                         STYLED(ELEMENTS,'margin','auto');
                         STYLED(ELEMENTS,'border-radius','10px');
                         STYLED(ELEMENTS,'margin-top','10px');
@@ -352,10 +342,8 @@ const NEWSPAGE=()=>{
             
                         });
 
-                        VIEW(ELEMENTS,'blue',(ELEMENTSES)=>{
+                        VIEW(ELEMENTS,'blue','100%','90%',(ELEMENTSES)=>{
 
-                            STYLED(ELEMENTSES,'width','100%');
-                            STYLED(ELEMENTSES,'height','90%');
                             STYLED(ELEMENTSES,'margin','auto');
                             STYLED(ELEMENTSES,'border-radius','0px');
                             STYLED(ELEMENTSES,'margin-top','10px');

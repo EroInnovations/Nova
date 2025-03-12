@@ -4,7 +4,7 @@ const LEFTTEXTBACKHEADERBODY=(ELEMENT,Backcallback,WORD,COLOR,TextCallback,BodyC
 
     HEADER(ELEMENT,' ',(ELEMENTS)=>{
 
-        LEFTIMAGE(ELEMENTS,WHITEBACKICON,'20px','20px','0.5rem',(ELEMS)=>{
+        LEFTIMAGE(ELEMENTS,WHITEBACKICON,'20px','20px','0.5rem','',(ELEMS)=>{
 
             CLICK(ELEMS,()=>{
 
@@ -14,7 +14,7 @@ const LEFTTEXTBACKHEADERBODY=(ELEMENT,Backcallback,WORD,COLOR,TextCallback,BodyC
 
         });
 
-        RIGHTTEXT(ELEMENTS,'p',WORD,COLOR,'20px','0.5rem',(ELEMS)=>{
+        RIGHTTEXT(ELEMENTS,'p',WORD,COLOR,'20px','0.5rem','',(ELEMS)=>{
 
             CLICK(ELEMS,()=>{
 

@@ -20,7 +20,11 @@ const LEFTTEXT=(ELEMENT,TYPE,WORDS,COLOR,SIZE,LEFT,callback)=>{
         
     };
 
-    callback(ELEMENT1);
+    ELEMENT1.addEventListener('click',()=>{
+
+        callback(ELEMENT1);
+
+    });
 
 };
 export{LEFTTEXT}

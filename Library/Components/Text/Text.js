@@ -19,7 +19,11 @@ const TEXT=(ELEMENT,TYPE,WORDS,COLOR,SIZE,callback)=>{
         
     };
 
-    callback(ELEMENT1);
+    ELEMENT1.addEventListener('click',()=>{
+
+        callback(ELEMENT1);
+
+    });
 
 };
 export{TEXT}

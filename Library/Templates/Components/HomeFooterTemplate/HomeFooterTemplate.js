@@ -4,13 +4,13 @@ const HOMEFOOTERTEMPLATE=(ELEMENT,FooterColor,HomeCallBack,FooterCallBack)=>{
 
     FULLSCROLLVIEW(ELEMENT,'transparent',(ELEMS)=>{
 
+        STYLED(ELEMS,'bottom','50px');
+
         HomeCallBack(ELEMS);
 
     });
 
     FOOTER(ELEMENT,FooterColor,'100%','50px',(ELEMS)=>{
-
-        STYLED(ELEMS,'border-top','1px solid #cdcdcd20');
 
         FooterCallBack(ELEMS);
 

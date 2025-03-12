@@ -1,4 +1,4 @@
-const OFFLINEPAGETEMPLATE=(HomeCallBack,ReconnectCallBack)=>{
+const OFFLINEPAGETEMPLATE=(ReconnectCallBack,HomeCallBack,Margin)=>{
 
     CHECKER(!navigator.onLine,()=>{
 
@@ -6,17 +6,15 @@ const OFFLINEPAGETEMPLATE=(HomeCallBack,ReconnectCallBack)=>{
 
         FULLSCROLLVIEW('','transparent',(ELEMS)=>{
     
-            IMAGE(ELEMS,WHITENOWIFIICON,'50%','30%',(NOIFI)=>{
-    
-                STYLED(NOIFI,'margin-top','10%');
+            IMAGE(ELEMS,WHITENOWIFIICON,'50%','30%',Margin,(NOIFI)=>{
         
             });
     
-            CENTERTEXT(ELEMS,'','Your Offline','','20px',()=>{
+            CENTERTEXT(ELEMS,'','Your Offline','','20px','',()=>{
     
             });
     
-            CENTERTEXT(ELEMS,'','Please Check Your Internet Connection <br> Click Reconnect to try Again <br> Click Cancel To Close. ','','16px',()=>{
+            CENTERTEXT(ELEMS,'','Please Check Your Internet Connection <br> Click Reconnect to try Again <br> Click Cancel To Close. ','','16px','',()=>{
     
             });
     
