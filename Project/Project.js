@@ -38,5 +38,16 @@ const MENUPAGE=(ELEMENT)=>{
 
     });
 
+    FOOTER(ELEMENT,' ','','',(ELES)=> {
 
-}
+        LEFTTEXT(ELES,'','Log Out','','20px','1rem',()=>{
+
+        });
+
+        RIGHTIMAGE(ELES,WHITENEXTICON,'25px','25px','1rem','',(ELEMENTS)=>{
+
+        });
+
+    });
+
+};
