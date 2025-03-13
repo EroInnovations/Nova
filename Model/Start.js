@@ -73,7 +73,7 @@ const NOVASTARTER=()=>{
 
                             fetch(PROJECTPATH+element.AndroidDesign)
                         
-                            .then(res =>res.data())
+                            .then(res =>res.text())
                         
                             .then(data =>{
 
@@ -105,7 +105,7 @@ const NOVASTARTER=()=>{
                             
                             fetch(PROJECTPATH+element.WebDesign)
                         
-                            .then(res =>res.data())
+                            .then(res =>res.text())
                         
                             .then(data =>{
 
@@ -137,7 +137,7 @@ const NOVASTARTER=()=>{
                             
                             fetch(PROJECTPATH+element.DesktopDesign)
                         
-                            .then(res =>res.data())
+                            .then(res =>res.text())
                         
                             .then(data =>{
 
