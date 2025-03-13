@@ -70,7 +70,7 @@ const LOGINPAGE=()=>{
 
         BREAK(ELEMENT);BREAK(ELEMENT);
 
-        IMAGE(ELEMENT,WHITEFOLDERICON,'50%','40%','',()=>{
+        IMAGE(ELEMENT,WHITEFOLDERICON,'30%','30%','',()=>{
 
         });
 
@@ -386,10 +386,9 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
 
             CHECKER( data.Owner === Name && data.AppDeleted ,()=>{
 
-                VIEW(ELEMENT,' ','46%','35%','',(ELEMENTS)=>{
+                VIEW(ELEMENT,' ','20%','20%','',(ELEMENTS)=>{
     
                     STYLED(ELEMENTS,'display','inline-table');
-                    STYLED(ELEMENTS,'margin','1.5%');
                     STYLED(ELEMENTS,'border','1px solid forestgreen');
     
                     ICON(ELEMENTS,WHITECHECKICON,'25px','25px','',(ELEMENTSE)=>{
@@ -457,7 +456,7 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
 
             CHECKER( data.Owner === Name && !data.AppDeleted ,()=>{
 
-                VIEW(ELEMENT,' ','46%','35%','',(ELEMENTS)=>{
+                VIEW(ELEMENT,' ','30%','30%','',(ELEMENTS)=>{
     
                     STYLED(ELEMENTS,'display','inline-table');
                     STYLED(ELEMENTS,'margin','1.5%');
@@ -529,7 +528,7 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
                 
                     });
             
-                    IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'50%','70%','',()=>{
+                    IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'50%','70%','10% 10% 10% 50%  auto',()=>{
         
                     });
         
