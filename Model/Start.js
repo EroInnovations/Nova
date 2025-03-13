@@ -109,8 +109,6 @@ const NOVASTARTER=()=>{
                         
                             .then(data =>{
 
-                                console.log(data);
-
                                 localStorage.setItem("PROJECT",data);
                           
                                 if (!localStorage.getItem('Updates')) {
@@ -140,8 +138,6 @@ const NOVASTARTER=()=>{
                             .then(res =>res.text())
                         
                             .then(data =>{
-
-                                console.log(data);
 
                                 localStorage.setItem("PROJECT",data);
                           
