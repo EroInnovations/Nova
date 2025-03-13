@@ -34,7 +34,10 @@ const HOMEPAGE=()=>{
 
         DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-            IMAGEBUTTON(ELEMENTS,'transparent',data.UserName,'',WHITEUSERICON,'50px','',()=>{
+            BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+
+            IMAGEBUTTON(ELEMENTS,'forestgreen',data.UserName,'',WHITEUSERICON,'50px',()=>{
+
 
                 ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
 
@@ -680,74 +683,48 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
 
             CHECKER( data.Owner === Name && !data.AppDeleted ,()=>{
 
-                VIEW(ELEMENT,' ','46%','35%',(ELEMENTS)=>{
+                VIEW(ELEMENT,' ','46%','35%','',(ELEMENTS)=>{
     
                     STYLED(ELEMENTS,'display','inline-table');
                     STYLED(ELEMENTS,'margin','1.5%');
                     STYLED(ELEMENTS,'border','1px solid forestgreen');
         
-                    ICON(ELEMENTS,WHITEPENCILICON,'25px','25px',(ELEMENTSE)=>{
+                    ICON(ELEMENTS,WHITEPENCILICON,'25px','25px','',(ELEMENTSE)=>{
         
-                        STYLED(ELEMENTSE,'position','absolute');
-                        STYLED(ELEMENTSE,'top','5%');
-                        STYLED(ELEMENTSE,'right','5%');
-                        STYLED(ELEMENTSE,'background','forestgreen');
-                        STYLED(ELEMENTSE,'padding','2%');
-                        STYLED(ELEMENTSE,'border-radius','5px');
-        
-                        CLICK(ELEMENTSE,()=>{
+                        STOREDATA('','MyProject',MyData);
 
-                            JSONIFICATION(data,(MyData)=>{
-
-                                STOREDATA('','MyProject',MyData);
-
-                                ROUTE(' ',UPDATEPROJECTPAGE,'HOMEPAGE');
-
-                            });
-
-                        });
+                        ROUTE(' ',UPDATEPROJECTPAGE,'HOMEPAGE');
                 
                     });
         
-                    ICON(ELEMENTS,WHITEDELETEICON,'25px','25px',(ELEMENTSE)=>{
+                    ICON(ELEMENTS,WHITEDELETEICON,'25px','25px','',(ELEMENTSE)=>{
         
-                        STYLED(ELEMENTSE,'position','absolute');
-                        STYLED(ELEMENTSE,'top','5%');
-                        STYLED(ELEMENTSE,'left','5%');
-                        STYLED(ELEMENTSE,'background','transparent');
-                        STYLED(ELEMENTSE,'padding','2%');
-                        STYLED(ELEMENTSE,'border-radius','5px');
-        
-                        CLICK(ELEMENTSE,()=>{
+                        CONDITION(navigator.onLine,()=>{
 
-                            CONDITION(navigator.onLine,()=>{
-
-                                MESSAGEDISPLAY('',`${data.AppName} is Being Deleted`,'');
-        
-                                const INFO=[data.AppName,data.AppDescription,data.AppColors,data.AppConfiguration,data.AppCreatedOn,data.AppVersion,'Deleted',data.AppKeyWord,data.AppPackageName,data.AppCompany,data.AndroidDesign,data.AndroidFunctions,data.DesktopDesign,data.DesktopFunctions,data.WebDesign,data.WebFunctions,data.SharedDesign,data.SharedFunctions,data.AppLogic,data.AppRegion,data.AppState,data.AppCatergory,data.AppIcon,data.UpdatedOn,data.Owner];
-        
-                                UPDATEDATA(API,'APPMANAGER',data.ID,INFO,()=>{
-        
-                                    APPDOWNLOAD(()=>{
-        
-                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
-        
-                                    });
-        
-                                },()=>{
-        
-                                        MESSAGEDISPLAY('','Failed to Delete App','');
-        
-                                    }
-        
-                                );
-
+                            MESSAGEDISPLAY('',`${data.AppName} is Being Deleted`,'');
+    
+                            const INFO=[data.AppName,data.AppDescription,data.AppColors,data.AppConfiguration,data.AppCreatedOn,data.AppVersion,'Deleted',data.AppKeyWord,data.AppPackageName,data.AppCompany,data.AndroidDesign,data.AndroidFunctions,data.DesktopDesign,data.DesktopFunctions,data.WebDesign,data.WebFunctions,data.SharedDesign,data.SharedFunctions,data.AppLogic,data.AppRegion,data.AppState,data.AppCatergory,data.AppIcon,data.UpdatedOn,data.Owner];
+    
+                            UPDATEDATA(API,'APPMANAGER',data.ID,INFO,()=>{
+    
+                                APPDOWNLOAD(()=>{
+    
+                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                                });
+    
                             },()=>{
+    
+                                    MESSAGEDISPLAY('','Failed to Delete App','');
+    
+                                }
+    
+                            );
 
-                                NOINTERNETTEMPLATE();
+                        },()=>{
 
-                            });
-        
+                            NOINTERNETTEMPLATE();
+
                         });
                 
                     });
