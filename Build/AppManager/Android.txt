@@ -123,15 +123,9 @@ const LOGINPAGE=()=>{
 
     });
 
-    RIGHTTEXT('','p','Forgot Password?','#fff','18px','',(ELEMENT)=>{
+    RIGHTTEXT('','p','Forgot Password?','#fff','18px','1rem','4%  auto',(ELEMENT)=>{
 
-        STYLED(ELEMENT,'margin','1rem');
-
-        CLICK(ELEMENT,()=>{
-
-            ROUTE(' ',FORGOTPASSWORDPAGE,'LOGINPAGE');
-
-        });
+        ROUTE(' ',FORGOTPASSWORDPAGE,'LOGINPAGE');
 
     });
 
