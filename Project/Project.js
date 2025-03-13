@@ -43,9 +43,13 @@ const HOMEPAGE=()=>{
 
             });
 
+            BREAK(ELEMENTS);BREAK(ELEMENTS);
+
             CENTERTEXT(ELEMENTS,'','My Apps','','18px','',()=>{
 
             });
+
+            BREAK(ELEMENTS);
 
             VIEW(ELEMENTS,'transparent','100%','80%','',(ELEMENT)=>{
 
