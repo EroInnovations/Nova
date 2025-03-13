@@ -77,8 +77,6 @@ const NOVASTARTER=()=>{
                         
                             .then(data =>{
 
-                                console.log(data);
-
                                 localStorage.setItem("PROJECT",data);
                           
                                 if (!localStorage.getItem('Updates')) {
