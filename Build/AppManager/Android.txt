@@ -1706,8 +1706,6 @@ const ANDROIDCODEPAGE=()=>{
 
 };
 
-// Half Code
-
 const DESKTOPCODEPAGE=()=>{
 
     DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
