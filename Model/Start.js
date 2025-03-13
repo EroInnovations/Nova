@@ -97,22 +97,37 @@ const NOVASTARTER=()=>{
                         
                             });
 
-                            
                             return;
 
                         };
     
                         if (localStorage.getItem('Environment') === 'Web') {
                             
-                            localStorage.setItem("PROJECT",element.WebDesign+element.WebFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
+                            fetch(PROJECTPATH+element.WebDesign)
+                        
+                            .then(res =>res.json())
+                        
+                            .then(data =>{
+
+                                console.log(data);
+
+                                localStorage.setItem("PROJECT",data);
                           
-                            if (!localStorage.getItem('Updates')) {
+                                if (!localStorage.getItem('Updates')) {
+        
+                                    localStorage.setItem('Updates','On');
+        
+                                    Reload();
+                                    
+                                };
+
+                            })
+
+                            .catch(error =>{
     
-                                localStorage.setItem('Updates','On');
-    
-                                Reload();
-                                
-                            };
+                                console.log(error);
+                        
+                            });
                             
                             return;
     
@@ -120,15 +135,31 @@ const NOVASTARTER=()=>{
     
                         if (localStorage.getItem('Environment') === 'Desktop') {
                             
-                            localStorage.setItem("PROJECT",element.DesktopDesign+element.DesktopFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
+                            fetch(PROJECTPATH+element.DesktopDesign)
+                        
+                            .then(res =>res.json())
+                        
+                            .then(data =>{
+
+                                console.log(data);
+
+                                localStorage.setItem("PROJECT",data);
                           
-                            if (!localStorage.getItem('Updates')) {
+                                if (!localStorage.getItem('Updates')) {
+        
+                                    localStorage.setItem('Updates','On');
+        
+                                    Reload();
+                                    
+                                };
+
+                            })
+
+                            .catch(error =>{
     
-                                localStorage.setItem('Updates','On');
-    
-                                Reload();
-                                
-                            };
+                                console.log(error);
+                        
+                            });
                             
                             return;
     
