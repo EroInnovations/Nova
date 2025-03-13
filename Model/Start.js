@@ -71,11 +71,7 @@ const NOVASTARTER=()=>{
     
                         if (localStorage.getItem('Environment') === 'Production') {
 
-                            fetch(PROJECTPATH+element.AndroidDesign,{
-                                method:"Get",
-                                mode:"cors",
-                                body:JSON.stringify(DATA)
-                            })
+                            fetch(PROJECTPATH+element.AndroidDesign)
                         
                             .then(res =>res.json())
                         
