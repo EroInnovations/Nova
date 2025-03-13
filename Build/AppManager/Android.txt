@@ -34,17 +34,17 @@ const HOMEPAGE=()=>{
 
         DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-            IMAGEBUTTON(ELEMENTS,'transparent',data.UserName,'',WHITEUSERICON,'50px',()=>{
+            IMAGEBUTTON(ELEMENTS,'transparent',data.UserName,'',WHITEUSERICON,'50px','',()=>{
 
                 ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
 
             });
 
-            CENTERTEXT(ELEMENTS,'','My Apps','','18px',()=>{
+            CENTERTEXT(ELEMENTS,'','My Apps','','18px','',()=>{
 
             });
 
-            VIEW(ELEMENTS,'transparent','100%','80%',(ELEMENT)=>{
+            VIEW(ELEMENTS,'transparent','100%','80%','',(ELEMENT)=>{
 
                 STYLED(ELEMENT,'border-top','1px solid forestgreen');
 
@@ -58,33 +58,21 @@ const HOMEPAGE=()=>{
 
     },(ELEMENTS)=>{
 
-        ICON(ELEMENTS,WHITELISTICON,'25px','25px',(ELEMENTS)=>{
+        ICON(ELEMENTS,WHITELISTICON,'25px','25px','',(ELEMENTS)=>{
 
-            CLICK(ELEMENTS,()=>{
-    
-                ROUTE(' ',MYCOLLECTIONPAGE,'HOMEPAGE');
-               
-            });
+            ROUTE(' ',MYCOLLECTIONPAGE,'HOMEPAGE');
     
         });
 
-        ICON(ELEMENTS,WHITEPOSTICON,'25px','25px',(ELEMENTS)=>{
+        ICON(ELEMENTS,WHITEPOSTICON,'25px','25px','',(ELEMENTS)=>{
 
-            CLICK(ELEMENTS,()=>{
-
-                ROUTE(' ',POSTPAGE,'HOMEPAGE');
-    
-            });
+            ROUTE(' ',POSTPAGE,'HOMEPAGE');;
     
         });
 
-        ICON(ELEMENTS,WHITEUSERICON,'25px','25px',(ELEMENTS)=>{
+        ICON(ELEMENTS,WHITEUSERICON,'25px','25px','',(ELEMENTS)=>{
 
-            CLICK(ELEMENTS,()=>{
-    
-                ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
-                
-            });
+            ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
     
         });
 
