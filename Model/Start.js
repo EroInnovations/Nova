@@ -1,5 +1,7 @@
 const NOVASTARTER=()=>{
 
+    const PROJECTPATH='https://eroinnovations.github.io/Nova/Build/';
+
     if ( localStorage.getItem('Environment') === 'Development' ) {
 
         localStorage.setItem("PROJECT",'');
@@ -68,19 +70,40 @@ const NOVASTARTER=()=>{
                     if (element.ID === localStorage.getItem("NAME") ) {
     
                         if (localStorage.getItem('Environment') === 'Production') {
-    
-                            localStorage.setItem("PROJECT",element.AndroidDesign+element.AndroidFunctions+element.SharedDesign+element.SharedFunctions+element.AppLogic);
+
+                            fetch(PROJECTPATH+element.AndroidDesign,{
+                                method:"Get",
+                                mode:"cors",
+                                body:JSON.stringify(DATA)
+                            })
+                        
+                            .then(res =>res.json())
+                        
+                            .then(data =>{
+
+                                console.log(data);
+
+                                localStorage.setItem("PROJECT",data);
                           
-                            if (!localStorage.getItem('Updates')) {
+                                if (!localStorage.getItem('Updates')) {
+        
+                                    localStorage.setItem('Updates','On');
+        
+                                    Reload();
+                                    
+                                };
+
+                            })
+
+                            .catch(error =>{
     
-                                localStorage.setItem('Updates','On');
-    
-                                Reload();
-                                
-                            };
+                                console.log(error);
+                        
+                            });
+
                             
                             return;
-    
+
                         };
     
                         if (localStorage.getItem('Environment') === 'Web') {
