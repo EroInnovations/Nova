@@ -749,6 +749,8 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
 
 const USERACCOUNTPAGE=()=>{
 
+    BACKPAGE('HOMEPAGE');
+
     LEFTTEXTBACKHEADERBODY('',(ELEMENT)=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
@@ -1041,9 +1043,9 @@ const UPDATEPROJECTPAGE=()=>{
 
 const MYPROFILEPAGE=()=>{
 
-    DEJSON(localStorage.getItem('UserData'),(data)=>{
+    BACKPAGE('USERACCOUNTPAGE');
 
-        console.log(data);
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
 
         LEFTTEXTBACKHEADERBODY('',()=>{
 
@@ -1053,14 +1055,14 @@ const MYPROFILEPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
 
                 BREAK(ELEMENTS);
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-                IMAGE(ELEMENTS,data.UserProfilePhoto||WHITEFOLDERICON,'','50%',(ELEMENT)=>{
+                IMAGE(ELEMENTS,data.UserProfilePhoto||WHITEFOLDERICON,'','50%','',(ELEMENT)=>{
 
                     STYLED(ELEMENT,'border','1px solid forestgreen');
 
@@ -1082,27 +1084,19 @@ const MYPROFILEPAGE=()=>{
 
                 DISPLAYVIEW(ELEMENTS,'forestgreen','97%','50px',(ELEMENT)=>{
 
-                    ICON(ELEMENT,WHITEPENCILICON,'25px','25px',(ELEMENTS)=>{
+                    ICON(ELEMENT,WHITEPENCILICON,'25px','25px','',(ELEMENTS)=>{
 
-                        CLICK(ELEMENTS,()=>{
-
-                            ROUTE(' ',UPDATEUSERDATAPAGE,'MYPROFILEPAGE');
-
-                        });
+                        ROUTE(' ',UPDATEUSERDATAPAGE,'MYPROFILEPAGE');
 
                     });
             
-                    ICON(ELEMENT,WHITEEDITICON,'25px','25px',(ELEMENTS)=>{
+                    ICON(ELEMENT,WHITEEDITICON,'25px','25px','',(ELEMENTS)=>{
 
-                        CLICK(ELEMENTS,()=>{
-
-                            ROUTE(' ',MYPROFILEPHOTO,'MYPROFILEPAGE');
-
-                        });
+                        ROUTE(' ',MYPROFILEPHOTO,'MYPROFILEPAGE');
                 
                     });
 
-                    ICON(ELEMENT,WHITEDOWNLOADICON,'25px','25px',(ELEMENTS)=>{
+                    ICON(ELEMENT,WHITEDOWNLOADICON,'25px','25px','',(ELEMENTS)=>{
                 
                     });
             
@@ -1120,6 +1114,8 @@ const MYPROFILEPAGE=()=>{
 
 const SETTINGSPAGE=()=>{
 
+    BACKPAGE('USERACCOUNTPAGE');
+
     DEJSON(localStorage.getItem('UserData'),(data)=>{
 
         LEFTTEXTBACKHEADERBODY('',()=>{
@@ -1130,7 +1126,7 @@ const SETTINGSPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
@@ -1741,24 +1737,18 @@ const MYPROFILEPHOTO=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
 
                 BREAK(ELEMENTS);
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-                IMAGE(ELEMENTS,data.UserProfilePhoto||WHITEPROFILEICON,'','50%',(ELEMENT)=>{
+                IMAGE(ELEMENTS,data.UserProfilePhoto||WHITEPROFILEICON,'','50%','',(ELEMENT)=>{
 
-                    STYLED(ELEMENT,'border','1px solid forestgreen');
+                    IMAGEPICKER(ELEMENT, (MyImageData)=>{
 
-                    CLICK(ELEMENT,()=>{
-
-                        IMAGEPICKER(ELEMENT, (MyImageData)=>{
-
-                            STOREDATA('','MyImage',MyImageData);
-
-                        });
+                        STOREDATA('','MyImage',MyImageData);
 
                     });
 
@@ -1858,14 +1848,14 @@ const UPDATEUSERDATAPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
                 BREAK(ELEMENTS);
 
-                CENTERTEXT(ELEMENTS,'','Enter New User Name','','18px',()=>{
+                CENTERTEXT(ELEMENTS,'','Enter New User Name','','18px','',()=>{
 
                 });
 
@@ -1875,7 +1865,7 @@ const UPDATEUSERDATAPAGE=()=>{
                     
                 });
 
-                CENTERTEXT(ELEMENTS,'','Enter New Email ','','18px',()=>{
+                CENTERTEXT(ELEMENTS,'','Enter New Email ','','18px','',()=>{
 
                 });
 
@@ -1885,7 +1875,7 @@ const UPDATEUSERDATAPAGE=()=>{
                     
                 });
 
-                CENTERTEXT(ELEMENTS,'','Enter New Password','','18px',()=>{
+                CENTERTEXT(ELEMENTS,'','Enter New Password','','18px','',()=>{
 
                 });
 
