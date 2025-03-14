@@ -692,17 +692,17 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
                     STYLED(ELEMENTS,'display','inline-table');
                     STYLED(ELEMENTS,'margin','1.5%');
                     STYLED(ELEMENTS,'border','1px solid forestgreen');
-        
-                    ICON(ELEMENTS,WHITEPENCILICON,'25px','25px','',(ELEMENTSE)=>{
-        
+
+                    TOPLEFTIMAGE(ELEMENTS,WHITEPENCILICON,'25px','25px','','',(ELEMENTSE)=>{
+
                         STOREDATA('','MyProject',MyData);
 
                         ROUTE(' ',UPDATEPROJECTPAGE,'HOMEPAGE');
-                
+
                     });
-        
-                    ICON(ELEMENTS,WHITEDELETEICON,'25px','25px','',(ELEMENTSE)=>{
-        
+
+                    TOPLEFTIMAGE(ELEMENTS,WHITEDELETEICON,'25px','25px','0',' 5% 5% auto ',(ELEMENTSE)=>{
+
                         CONDITION(navigator.onLine,()=>{
 
                             MESSAGEDISPLAY('',`${data.AppName} is Being Deleted`,'');
@@ -730,9 +730,9 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
                             NOINTERNETTEMPLATE();
 
                         });
-                
+                        
                     });
-            
+                    
                     IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'50%','70%',()=>{
         
                     });
