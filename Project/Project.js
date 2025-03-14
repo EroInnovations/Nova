@@ -1928,7 +1928,7 @@ const DELETEACCOUNTPAGE=()=>{
 
                 BREAK(ELEMENTS);
 
-                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px',()=>{
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px','',()=>{
 
                 });
 
@@ -2034,7 +2034,7 @@ const LINKDEVICEPAGE=()=>{
 
                 BREAK(ELEMENTS);
 
-                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px',()=>{
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px','',()=>{
 
                 });
  
@@ -2058,14 +2058,14 @@ const APPLOCKPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
                 BREAK(ELEMENTS);
 
-                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px',()=>{
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px','',()=>{
 
                 });
  
@@ -2089,14 +2089,14 @@ const APPNOTIFICATIONSPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
                 BREAK(ELEMENTS);
 
-                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px',()=>{
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px','',()=>{
 
                 });
  
