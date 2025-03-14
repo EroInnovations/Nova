@@ -749,7 +749,7 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
 
 const USERACCOUNTPAGE=()=>{
 
-    LEFTTEXTBACKHEADERBODY('',()=>{
+    LEFTTEXTBACKHEADERBODY('',(ELEMENT)=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
@@ -759,32 +759,32 @@ const USERACCOUNTPAGE=()=>{
 
         DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
 
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
                 IMAGEBUTTON(ELEMENTS,'forestgreen','My Profile','',WHITEPROFILEICON,'50px',()=>{
 
-                    ROUTE('',MYPROFILEPAGE,'USERACCOUNTPAGE');
+                    ROUTE(' ',MYPROFILEPAGE,'USERACCOUNTPAGE');
     
                 });
 
                 IMAGEBUTTON(ELEMENTS,'forestgreen','Deleted Projects','',WHITEDELETEICON,'50px',()=>{
 
-                    ROUTE('',DELETEDATAPAGE,'USERACCOUNTPAGE');
+                    ROUTE(' ',DELETEDATAPAGE,'USERACCOUNTPAGE');
     
                 });
 
                 IMAGEBUTTON(ELEMENTS,'forestgreen','Settings ','',WHITESETTINGSICON,'50px',()=>{
 
-                    ROUTE('',SETTINGSPAGE,'USERACCOUNTPAGE');
+                    ROUTE(' ',SETTINGSPAGE,'USERACCOUNTPAGE');
     
                 });
 
                 IMAGEBUTTON(ELEMENTS,'forestgreen','App Version ','',WHITEMOBILEDEVELOPMENTICON,'50px',()=>{
 
-                    ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
+                    ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
     
                 });
 
