@@ -1197,14 +1197,14 @@ const NEWDATABASEPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
                 BREAK(ELEMENTS);
 
-                CENTERTEXT(ELEMENTS,'','Enter DataBase Name','','18px',()=>{
+                CENTERTEXT(ELEMENTS,'','Enter DataBase Name','','18px','',()=>{
 
                 });
 
@@ -1246,14 +1246,14 @@ const NEWTABLEPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
                 BREAK(ELEMENTS);
 
-                CENTERTEXT(ELEMENTS,'','Enter Table Name','','18px',()=>{
+                CENTERTEXT(ELEMENTS,'','Enter Table Name','','18px','',()=>{
 
                 });
 
