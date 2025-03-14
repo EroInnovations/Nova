@@ -1520,9 +1520,7 @@ const MYPROJECTDETAILSPAGE=()=>{
 
     DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
 
-        console.log(data);
-
-        LEFTTEXTBACKHEADERBODY('',()=>{
+        LEFTTEXTBACKHEADERBODY('',(ELEMENT)=>{
 
             ROUTE('',HOMEPAGE,'HOMEPAGE');
     
@@ -1530,7 +1528,7 @@ const MYPROJECTDETAILSPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
 
                 BREAK(ELEMENTS);
     
@@ -1571,33 +1569,21 @@ const MYPROJECTDETAILSPAGE=()=>{
 
                 DISPLAYVIEW(ELEMENTS,'forestgreen','97%','50px',(ELEMENT)=>{
 
-                    ICON(ELEMENT,WHITEAPPICON,'25px','25px',(ELEMENTS)=>{
+                    ICON(ELEMENT,WHITEAPPICON,'25px','25px','',(ELEMENTS)=>{
 
-                        CLICK(ELEMENTS,()=>{
-
-                            ROUTE('',ANDROIDCODEPAGE,'MYPROJECTDETAILSPAGE');
-
-                        });
+                        ROUTE('',ANDROIDCODEPAGE,'MYPROJECTDETAILSPAGE');
 
                     });
             
-                    ICON(ELEMENT,WHITESCREENICON,'25px','25px',(ELEMENTS)=>{
+                    ICON(ELEMENT,WHITESCREENICON,'25px','25px','',(ELEMENTS)=>{
 
-                        CLICK(ELEMENTS,()=>{
-
-                            ROUTE(' ',DESKTOPCODEPAGE,'MYPROJECTDETAILSPAGE');
-
-                        });
+                        ROUTE(' ',DESKTOPCODEPAGE,'MYPROJECTDETAILSPAGE');
                 
                     });
 
-                    ICON(ELEMENT,WHITEINTERNETICON,'25px','25px',(ELEMENTS)=>{
+                    ICON(ELEMENT,WHITEINTERNETICON,'25px','25px','',(ELEMENTS)=>{
 
-                        CLICK(ELEMENTS,()=>{
-
-                            ROUTE(' ',WEBSITECODEPAGE,'MYPROJECTDETAILSPAGE');
-
-                        });
+                        ROUTE(' ',WEBSITECODEPAGE,'MYPROJECTDETAILSPAGE');
                 
                     });
             
@@ -1616,8 +1602,6 @@ const MYPROJECTDETAILSPAGE=()=>{
 const ANDROIDCODEPAGE=()=>{
 
     DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
-
-        console.log(data);
 
         LEFTTEXTBACKHEADERBODY('',()=>{
 
