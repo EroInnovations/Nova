@@ -575,6 +575,8 @@ const APPDOWNLOAD=(callback)=>{
 
 const POSTPAGE=()=>{
 
+    BACKPAGE('HOMEPAGE');
+
     LEFTTEXTBACKHEADERBODY('',()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
