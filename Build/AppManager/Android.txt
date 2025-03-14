@@ -1312,7 +1312,7 @@ const NEWPROJECTPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+        VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'display','inline-table');
             STYLED(ELEMENTS,'border-top','1px solid forestgreen');
@@ -1425,20 +1425,13 @@ const NEWPROJECTPAGE=()=>{
 
             });
 
-            IMAGE(ELEMENT,WHITEFOLDERICON,'','50%',(ELEMENTS)=>{
+            IMAGE(ELEMENT,WHITEFOLDERICON,'','50%','',(ELEMENTS)=>{
 
-                STYLED(ELEMENTS,'border','1px solid forestgreen');
+                IMAGEPICKER(ELEMENTS, (ImageData)=>{
 
-                CLICK(ELEMENTS,()=>{
-
-                    IMAGEPICKER(ELEMENTS, (ImageData)=>{
-
-                        STOREDATA('','AppIcon',ImageData);
-
-                    });
+                    STOREDATA('','AppIcon',ImageData);
 
                 });
-
             });
 
             BUTTON(ELEMENT,'','50px','forestgreen','','Update',(ELEMENTSE)=>{
