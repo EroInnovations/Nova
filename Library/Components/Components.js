@@ -29,6 +29,7 @@ import { ROUNDINPUT } from "./RoundInput/RoundInput.js";
 import { TEXT } from "./Text/Text.js";
 import { TEXTAREA } from "./TextArea/TextArea.js";
 import { TOPLEFTIMAGE } from "./TopLeftImage/TopLeftIcon.js";
+import { TOPRIGHTIMAGE } from "./TopRightImage/TopRightIcon.js";
 import { VIDEO } from "./Video/Video.js";
 import { VIEW } from "./View/Views.js";
 const COMPONENTS=()=>{
@@ -65,12 +66,13 @@ const RIGHTIMAGE=${RIGHTIMAGE};
 const BUTTONIMAGE=${BUTTONIMAGE};
 const DISPLAYVIEW=${DISPLAYVIEW};
 const TOPLEFTIMAGE=${TOPLEFTIMAGE};
+const TOPRIGHTIMAGE=${TOPRIGHTIMAGE};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const TOPLEFTIMAGE=${TOPLEFTIMAGE};
+const TOPRIGHTIMAGE=${TOPRIGHTIMAGE};
 
 `;

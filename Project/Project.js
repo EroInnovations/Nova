@@ -616,60 +616,49 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
 
             CHECKER( data.Owner === Name && data.AppDeleted ,()=>{
 
-                VIEW(ELEMENT,' ','46%','35%',(ELEMENTS)=>{
+                VIEW(ELEMENT,' ','46%','43%','',(ELEMENTS)=>{
     
                     STYLED(ELEMENTS,'display','inline-table');
                     STYLED(ELEMENTS,'margin','1.5%');
                     STYLED(ELEMENTS,'border','1px solid forestgreen');
     
-                    ICON(ELEMENTS,WHITECHECKICON,'25px','25px',(ELEMENTSE)=>{
+                    TOPRIGHTIMAGE(ELEMENTS,WHITECHECKICON,'25px','25px','5%','5% auto',(ELEMENTSE)=>{
     
-                        STYLED(ELEMENTSE,'position','absolute');
-                        STYLED(ELEMENTSE,'top','5%');
-                        STYLED(ELEMENTSE,'right','5%');
-                        STYLED(ELEMENTSE,'background','forestgreen');
-                        STYLED(ELEMENTSE,'padding','2%');
-                        STYLED(ELEMENTSE,'border-radius','5px');
-    
-                        CLICK(ELEMENTSE,()=>{
+                        CONDITION(navigator.onLine,()=>{
 
-                            CONDITION(navigator.onLine,()=>{
+                            MESSAGEDISPLAY('',`${data.AppName} is Being Restored`,'');
 
-                                MESSAGEDISPLAY('',`${data.AppName} is Being Restored`,'');
-    
-                                const INFO=[data.AppName,data.AppDescription,data.AppColors,data.AppConfiguration,data.AppCreatedOn,data.AppVersion,'',data.AppKeyWord,data.AppPackageName,data.AppCompany,data.AndroidDesign,data.AndroidFunctions,data.DesktopDesign,data.DesktopFunctions,data.WebDesign,data.WebFunctions,data.SharedDesign,data.SharedFunctions,data.AppLogic,data.AppRegion,data.AppState,data.AppCatergory,data.AppIcon,data.UpdatedOn,data.Owner];
-    
-                                UPDATEDATA(API,'APPMANAGER',data.ID,INFO,()=>{
-        
-                                    APPDOWNLOAD(()=>{
-        
-                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
-        
-                                    });
-        
-                                },()=>{
-        
-                                        MESSAGEDISPLAY('','Failed to Delete App','');
-        
-                                    }
-    
-                                );
+                            const INFO=[data.AppName,data.AppDescription,data.AppColors,data.AppConfiguration,data.AppCreatedOn,data.AppVersion,'',data.AppKeyWord,data.AppPackageName,data.AppCompany,data.AndroidDesign,data.AndroidFunctions,data.DesktopDesign,data.DesktopFunctions,data.WebDesign,data.WebFunctions,data.SharedDesign,data.SharedFunctions,data.AppLogic,data.AppRegion,data.AppState,data.AppCatergory,data.AppIcon,data.UpdatedOn,data.Owner];
 
+                            UPDATEDATA(API,'APPMANAGER',data.ID,INFO,()=>{
+    
+                                APPDOWNLOAD(()=>{
+    
+                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                                });
+    
                             },()=>{
+    
+                                    MESSAGEDISPLAY('','Failed to Delete App','');
+    
+                                }
 
-                                NOINTERNETTEMPLATE();
+                            );
 
-                            });
-        
+                        },()=>{
+
+                            NOINTERNETTEMPLATE();
+
                         });
-                
+    
                     });
             
-                    IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'50%','70%',()=>{
+                    IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'50%','70%','5% auto',()=>{
     
                     });
     
-                    CENTERTEXT(ELEMENTS,'',data.AppName,'','18px',()=>{
+                    CENTERTEXT(ELEMENTS,'',data.AppName,'','16px','',()=>{
     
                     });
         
@@ -687,13 +676,13 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
 
             CHECKER( data.Owner === Name && !data.AppDeleted ,()=>{
 
-                VIEW(ELEMENT,' ','46%','35%','',(ELEMENTS)=>{
+                VIEW(ELEMENT,' ','46%','43%','',(ELEMENTS)=>{
     
                     STYLED(ELEMENTS,'display','inline-table');
                     STYLED(ELEMENTS,'margin','1.5%');
                     STYLED(ELEMENTS,'border','1px solid forestgreen');
 
-                    TOPLEFTIMAGE(ELEMENTS,WHITEPENCILICON,'25px','25px','','',(ELEMENTSE)=>{
+                    TOPRIGHTIMAGE(ELEMENTS,WHITEPENCILICON,'25px','25px','',' 5% 5% auto',(ELEMENTSE)=>{
 
                         STOREDATA('','MyProject',MyData);
 
@@ -733,21 +722,17 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
                         
                     });
                     
-                    IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'50%','70%',()=>{
+                    IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'50%','70%','5% auto',()=>{
         
                     });
         
-                    CENTERTEXT(ELEMENTS,'',data.AppName,'','18px',(ELEMENTSE)=>{
+                    CENTERTEXT(ELEMENTS,'',data.AppName,'','16px','',(ELEMENTSE)=>{
 
-                        CLICK(ELEMENTSE,()=>{
+                        JSONIFICATION(data,(MyData)=>{
 
-                            JSONIFICATION(data,(MyData)=>{
+                            STOREDATA('','MyProject',MyData);
 
-                                STOREDATA('','MyProject',MyData);
-    
-                                ROUTE(' ',MYPROJECTDETAILSPAGE,'HOMEPAGE');
-    
-                            });
+                            ROUTE(' ',MYPROJECTDETAILSPAGE,'HOMEPAGE');
 
                         });
 
