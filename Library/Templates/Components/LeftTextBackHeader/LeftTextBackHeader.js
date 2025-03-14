@@ -4,21 +4,13 @@ const LEFTTEXTBACKHEADER=(ELEMENT,Backcallback,WORD,COLOR,TextCallback)=>{
 
         LEFTIMAGE(ELEMENTS,WHITEBACKICON,'20px','20px','0.5rem','',(ELEMS)=>{
 
-            CLICK(ELEMS,()=>{
-
-                Backcallback();
-
-            });
+            Backcallback();
 
         });
 
         RIGHTTEXT(ELEMENTS,'p',WORD,COLOR,'20px','0.5rem','',(ELEMS)=>{
 
-            CLICK(ELEMS,()=>{
-
-                TextCallback();
-
-            });
+            TextCallback();
 
         });
 
