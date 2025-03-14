@@ -1,6 +1,7 @@
 import { ALERTBOX } from "./AlertBox/AlertBox.js";
 import { AUDIO } from "./Audio/Audio.js";
 import { BORDERROUNDINPUT } from "./BorderInput/BorderInput.js";
+import { BOTTOMLEFTIMAGE } from "./BottomLeftImage/BottomLeftImage.js";
 import { BUTTON } from "./Button/Button.js";
 import { BUTTONIMAGE } from "./ButtonImage/ButtonImage.js";
 import { CENTERTEXT } from "./CenterText/CenterText.js";
@@ -67,12 +68,13 @@ const BUTTONIMAGE=${BUTTONIMAGE};
 const DISPLAYVIEW=${DISPLAYVIEW};
 const TOPLEFTIMAGE=${TOPLEFTIMAGE};
 const TOPRIGHTIMAGE=${TOPRIGHTIMAGE};
+const BOTTOMLEFTIMAGE=${BOTTOMLEFTIMAGE};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const TOPRIGHTIMAGE=${TOPRIGHTIMAGE};
+const BOTTOMLEFTIMAGE=${BOTTOMLEFTIMAGE};
 
 `;
