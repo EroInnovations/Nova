@@ -593,7 +593,7 @@ const POSTPAGE=()=>{
 
         IMAGEBUTTON(ELEMENT,'forestgreen','New Table','',WHITELISTICON,'50px',()=>{
 
-            ROUTE('',NEWTABLEPAGE,'POSTPAGE');
+            ROUTE(' ',NEWTABLEPAGE,'POSTPAGE');
 
         });
 
