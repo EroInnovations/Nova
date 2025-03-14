@@ -72,7 +72,7 @@ const HOMEPAGE=()=>{
 
         ICON(ELEMENTS,WHITEPOSTICON,'25px','25px','',(ELEMENTS)=>{
 
-            ROUTE(' ',POSTPAGE,'HOMEPAGE');;
+            ROUTE(' ',POSTPAGE,'HOMEPAGE');
     
         });
 
