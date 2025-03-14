@@ -979,17 +979,11 @@ const UPDATEPROJECTPAGE=()=>{
 
                 });
 
-                IMAGE(ELEMENT,data.AppIcon||WHITEFOLDERICON,'','50%',(ELEMENTS)=>{
+                IMAGE(ELEMENT,data.AppIcon||WHITEFOLDERICON,'','50%','',(ELEMENTS)=>{
 
-                    STYLED(ELEMENTS,'border','1px solid forestgreen');
+                    IMAGEPICKER(ELEMENTS, (ImageData)=>{
 
-                    CLICK(ELEMENTS,()=>{
-
-                        IMAGEPICKER(ELEMENTS, (ImageData)=>{
-
-                            STOREDATA('','AppIcon',ImageData);
-
-                        });
+                        STOREDATA('','AppIcon',ImageData);
 
                     });
 
