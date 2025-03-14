@@ -685,9 +685,13 @@ const USERDATA=(ELEMENT,Name,Delete)=>{
 
                     TOPRIGHTIMAGE(ELEMENTS,WHITEPENCILICON,'25px','25px','',' 5% 5% auto',(ELEMENTSE)=>{
 
-                        STOREDATA('','MyProject',MyData);
+                        JSONIFICATION(data,(MyData)=>{
 
-                        ROUTE(' ',UPDATEPROJECTPAGE,'HOMEPAGE');
+                            STOREDATA('','MyProject',MyData);
+
+                            ROUTE(' ',UPDATEPROJECTPAGE,'HOMEPAGE');
+
+                        });
 
                     });
 
@@ -862,7 +866,7 @@ const UPDATEPROJECTPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
@@ -1913,11 +1917,11 @@ const DELETEACCOUNTPAGE=()=>{
 
             ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
     
-        },'Table Creation','',()=>{
+        },'Delete Account','',()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
@@ -1992,7 +1996,7 @@ const PRIVACYPOLICYPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
@@ -2023,7 +2027,7 @@ const LINKDEVICEPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
