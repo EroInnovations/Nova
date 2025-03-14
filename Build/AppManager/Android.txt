@@ -79,7 +79,7 @@ const HOMEPAGE=()=>{
 
         ICON(ELEMENTS,WHITEUSERICON,'25px','25px','',(ELEMENTS)=>{
 
-            ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
+            ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
     
         });
 
