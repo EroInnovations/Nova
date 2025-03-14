@@ -5,13 +5,13 @@ const MESSAGEDISPLAY=(ELEMENT,MESSAGE,TIME)=>{
     ELEMENT1.style.width='95%';
     ELEMENT1.style.position='absolute';
     ELEMENT1.style.height='50px';
-    ELEMENT1.style.background='#000000';
+    ELEMENT1.style.background='#333333';
     ELEMENT1.style.left='2%';
     ELEMENT1.style.display='inline-flex';
     ELEMENT1.style.bottom='3%';
     ELEMENT1.style.borderRadius='10px';
     ELEMENT1.style.color='#cdcdcd';
-    ELEMENT1.style.border='1px solid #cdcdcd20';
+    ELEMENT1.style.border='1px solid #cdcdcd50';
 
     const TEXTER=document.createElement("p");
 
