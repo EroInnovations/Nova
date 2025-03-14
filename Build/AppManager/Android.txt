@@ -1613,15 +1613,12 @@ const ANDROIDCODEPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-                LEFTTEXT(ELEMENTS,'',data.AndroidDesign||'<br><br>... No Code Added....','','18px','2%',(ELEMENTSE)=>{
-
-                    STYLED(ELEMENTSE,'width','95%');
-                    STYLED(ELEMENTSE,'word-break','break-all');
+                LEFTTEXT(ELEMENTS,'',data.AndroidDesign||'<br><br>... No Code Added....','','18px','2%','',(ELEMENTSE)=>{
 
                 });
 
@@ -1649,15 +1646,12 @@ const DESKTOPCODEPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-                LEFTTEXT(ELEMENTS,'',data.DesktopDesign||'<br><br>... No Code Added....','','18px','2%',(ELEMENTSE)=>{
-
-                    STYLED(ELEMENTSE,'width','95%');
-                    STYLED(ELEMENTSE,'word-break','break-all');
+                LEFTTEXT(ELEMENTS,'',data.DesktopDesign||'<br><br>... No Code Added....','','18px','2%','',(ELEMENTSE)=>{
 
                 });
 
@@ -1685,15 +1679,12 @@ const WEBSITECODEPAGE=()=>{
     
         },(ELEMENT)=>{
     
-            VIEW(ELEMENT,'transparent','100%','auto',(ELEMENTS)=>{
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
     
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-                LEFTTEXT(ELEMENTS,'',data.WebDesign||'<br><br>... No Code Added....','','18px','2%',(ELEMENTSE)=>{
-
-                    STYLED(ELEMENTSE,'width','95%');
-                    STYLED(ELEMENTSE,'word-break','break-all');
+                LEFTTEXT(ELEMENTS,'',data.WebDesign||'<br><br>... No Code Added....','','18px','2%','',(ELEMENTSE)=>{
 
                 });
 
