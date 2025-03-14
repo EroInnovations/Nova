@@ -8,6 +8,7 @@ const BOTTOMLEFTIMAGE=(ELEMENT,SOURCE,WIDTH,HEIGHT,BOTTOM,MARGIN,callback)=>{
     ELEMENT1.style.height=HEIGHT||'95%';
     ELEMENT1.style.margin=MARGIN||'auto';
     ELEMENT1.style.bottom=BOTTOM||'1%';
+    ELEMENT1.style.left='1%';
 
     ELEMENT1.src=SOURCE;
 
