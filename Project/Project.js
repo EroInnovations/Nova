@@ -599,7 +599,7 @@ const POSTPAGE=()=>{
 
         IMAGEBUTTON(ELEMENT,'forestgreen','New Project ','',WHITEPOSTICON,'50px',()=>{
 
-            ROUTE('',NEWPROJECTPAGE,'POSTPAGE');
+            ROUTE(' ',NEWPROJECTPAGE,'POSTPAGE');
 
         });
         
