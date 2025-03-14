@@ -1518,6 +1518,8 @@ const MYCOLLECTIONPAGE=()=>{
 
 const MYPROJECTDETAILSPAGE=()=>{
 
+    BACKPAGE('HOMEPAGE');
+
     DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
 
         LEFTTEXTBACKHEADERBODY('',(ELEMENT)=>{
