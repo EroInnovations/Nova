@@ -1,6 +1,7 @@
 import { ADD } from "./Add/Add.js";
 import { APPMODE } from "./AppMode/AppMode.js";
 import { AUDIOPICKER } from "./AudioPicker/AudioPicker.js";
+import { AUDIOPICKERFREE } from "./AudioPickerFree/AudioPickerFree.js";
 import { BACKPAGE } from "./BackPage/BackPage.js";
 import { BODY } from "./Body/Body.js";
 import { BREAK } from "./Break/Break.js";
@@ -22,16 +23,20 @@ import { DEJSON } from "./Dejson/Dejson.js";
 import { DELETEDATA } from "./DeleteStorage/DeleteStorage.js";
 import { DISPLAY } from "./Display/Display.js";
 import { DOWNLOADIMAGE } from "./DownloadFile/DownloadFile.js";
+import { DRIVEID } from "./DriveId/DriveId.js";
 import { ECORPMAIL } from "./EcorpMail/EcorpMail.js";
 import { ECORPPAY } from "./EcorpPay/EcorpPay.js";
 import { EMAILSENDER } from "./EmailSender/EmailSender.js";
 import { EVENT } from "./Event/Event.js";
 import { FACEBOOK } from "./FaceBook/FaceBook.js";
+import { FILEPICKER } from "./FilePicker/FilePicker.js";
 import { FINDER } from "./Finder/Finder.js";
 import { GETDATA } from "./GetData/GetData.js";
+import { GETDRIVEFILE } from "./GetDriveFile/GetDriveFile.js";
 import { GETINDEXED } from "./GetIndex/GetIndex.js";
 import { GETINDEXEDDATA } from "./GetIndexedData/GetIndexedData.js";
 import { GETPACKAGE } from "./GetPackage/GetPackage.js";
+import { GETTEXTPACKAGE } from "./GetTextPackage/GetTextPackage.js";
 import { GMAIL } from "./Gmail/Gmail.js";
 import { HIDER } from "./Hider/Hider.js";
 import { IMAGEPICKER } from "./ImagePicker/ImagePicker.js";
@@ -43,7 +48,9 @@ import { JSONIFICATION } from "./Jsonification/Jsonification.js";
 import { JSONREMOVER } from "./JsonRemover/JsonRemover.js";
 import { LOCALDEJSONDATA } from "./localDejsonData/localDejsonData.js";
 import { MOVIELANDEREMAIL } from "./MovieLanderEmail/MovieLanderEmail.js";
+import { POSTDRIVEFILE } from "./PostDriveFile/PostDriveFile.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
+import { POSTTEXTPACKAGE } from "./PostTextPackage/PostTextPackage.js";
 import { RANDOMCODE } from "./RandomCode/RandomCode.js";
 import { REDUX } from "./Redux/Redux.js";
 import { RELOAD } from "./Reload/Reload.js";
@@ -62,6 +69,7 @@ import { TELEGRAM } from "./Telegram/Telegram.js";
 import { TEXTFAMILY } from "./TextFamily/TextFamily.js";
 import { TIMENOW } from "./TimeNow/TimeNow.js";
 import { TIMER } from "./Timer/Timer.js";
+import { TOAST } from "./Toast/Toast.js";
 import { TWITTER } from "./Twitter/Twitter.js";
 import { UPDATEDATA } from "./UpdateData/UpdateData.js";
 import { UPDATEINDEX } from "./UpdateIndex/UpdateIndex.js";
@@ -141,6 +149,15 @@ const SCROLL=${SCROLL};
 const GETINDEXEDDATA=${GETINDEXEDDATA};
 const BACKPAGE=${BACKPAGE};
 const COPY=${COPY};
+const GETTEXTPACKAGE=${GETTEXTPACKAGE};
+const POSTTEXTPACKAGE=${POSTTEXTPACKAGE};
+const GETDRIVEFILE=${GETDRIVEFILE};
+const AUDIOPICKERFREE=${AUDIOPICKERFREE};
+const FILEPICKER=${FILEPICKER};
+const POSTDRIVEFILE=${POSTDRIVEFILE};
+const DRIVEID=${DRIVEID};
+const TOAST=${TOAST};
+
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -149,6 +166,6 @@ export{FUNCTIONS};
 
 `
 
-const COPY=${COPY};
+const TOAST=${TOAST};
 
 `

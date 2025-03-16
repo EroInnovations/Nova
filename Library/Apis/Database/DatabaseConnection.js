@@ -15,6 +15,8 @@ const COLOR=[{ "name":"red"},{ "name":"blue"},{ "name":"green"},{ "name":"purple
 const MONTHS=[{"Name":"January","ShortForm":"Jan","Days":"31"},{"Name":"February","ShortForm":"Feb","Days":"28"},{"Name":"March","ShortForm":"Mar","Days":"31"},{"Name":"April","ShortForm":"Apr","Days":"30"},{"Name":"May","ShortForm":"May","Days":"31"},{"Name":"June","ShortForm":"Jun","Days":"30"},{"Name":"July","ShortForm":"Jul","Days":"31"},{"Name":"August","ShortForm":"Aug","Days":"31"},{"Name":"September","ShortForm":"Sep","Days":"30"},{"Name":"October","ShortForm":"Oct","Days":"31"},{"Name":"November","ShortForm":"Nov","Days":"30"},{"Name":"December","ShortForm":"Dec","Days":"31"}];
 const ECORPMAILER='https://script.google.com/macros/s/AKfycbxDobmQuvJyGBSvSf-Od4rLjsIhj9R535gTIxDohkQrmGOMCTRblk19d0lMjSPP7u2Y/exec';
 const MOVIELANDEREMAILER='https://script.google.com/macros/s/AKfycbz8A6vVp37gtWzpCACtEwCU2sDtBkKMtGB2amKk8doKkFGtffnZaeRtgry5v9xeoMyl/exec';
+const GETFILEAPI='https://script.google.com/macros/s/AKfycbyZXeB9GlsrIOMu6C2jK7ImRgDq1ms0J0HbmjKDor4HwzjMRYK4S3YQ8QmMTJcqkkH9Iw/exec';
+const WRITEFILEAPI='https://script.google.com/macros/s/AKfycby1jTq3nFarX-VHnad99IzkmupTqI0s-GtUWI4EJUcH1UwUIutM8Q8ZXwePsrss9WFIJw/exec';
 `;
 localStorage.setItem("APIS",DATA);
 };

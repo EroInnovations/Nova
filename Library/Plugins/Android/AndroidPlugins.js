@@ -18,7 +18,7 @@ import { VIBRATION } from "./Vibration/Vibration.js";
 import { WRITEFILE } from "./WriteFile/WriteFile.js";
 const ANDROIDPLUGINS=()=>{
 const DATA=`const VIBRATION='${VIBRATION}';
-const TOAST='${TOAST}';
+const TOASTED='${TOAST}';
 const RELOAD='${RELOAD}';
 const FOREGROUND='${FOREGROUND}';
 const STOPFOREGROUND='${STOPFOREGROUND}';
