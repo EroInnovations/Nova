@@ -1,6 +1,6 @@
 const CONNECTIONLINK='https://docs.google.com/spreadsheets/d/15BPlgHpUmm65nUNSLRwlRzaWv1hPenriWVvL5MDcmiw/edit?gid=0#gid=0';
 
-const TEXTCOLOR='#ffffff';
+const TEXTCOLOR='#000000';
 
 const NOVASTART=()=>{
 
