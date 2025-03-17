@@ -1,5 +1,7 @@
 const CONNECTIONLINK='https://docs.google.com/spreadsheets/d/15BPlgHpUmm65nUNSLRwlRzaWv1hPenriWVvL5MDcmiw/edit?gid=0#gid=0';
 
+const TEXTCOLOR='#ffffff';
+
 const NOVASTART=()=>{
 
     APPMODE('#cdcdcd');
@@ -53,19 +55,19 @@ const HOMEPAGE=()=>{
 
         });
 
-        TEXT(ELEMENT,'h2','News','#ffffff','20px','',(ELE)=>{
+        TEXT(ELEMENT,'h2','News',TEXTCOLOR,'20px','',(ELE)=>{
 
             ROUTE(' ',NEWSPAGE,'HOMEPAGE');
 
         });
 
-        TEXT(ELEMENT,'h2','Services','#ffffff','20px','',(ELE)=>{
+        TEXT(ELEMENT,'h2','Services',TEXTCOLOR,'20px','',(ELE)=>{
 
             ROUTE(' ',SERVICESPAGE,'HOMEPAGE');
 
         });
 
-        TEXT(ELEMENT,'h2','About Us','#ffffff','20px','',(ELE)=>{
+        TEXT(ELEMENT,'h2','About Us',TEXTCOLOR,'20px','',(ELE)=>{
 
             ROUTE(' ',ABOUTUSPAGE,'HOMEPAGE');
 
@@ -77,21 +79,110 @@ const HOMEPAGE=()=>{
 
         });
 
-        TEXT(ELEMENT,'p','Creating a Smile and making a difference!','#fff','20px','2% auto',()=>{
+        TEXT(ELEMENT,'p','Creating a Smile and making a difference!',TEXTCOLOR,'20px','2% auto',()=>{
 
         });
 
-        TEXT(ELEMENT,'p','By One Donation at a time.','#ffffff','20px','2% auto',()=>{
+        TEXT(ELEMENT,'p','By One Donation at a time.',TEXTCOLOR,'20px','2% auto',()=>{
 
         });
 
-        TEXT(ELEMENT,'p','Donate Today and Change The World','#ffffff','20px','5% auto',()=>{
+        TEXT(ELEMENT,'p','Donate Today and Change The World',TEXTCOLOR,'20px','5% auto',()=>{
 
         });
 
         LEFTTEXT(ELEMENT,'h3','Updates','blue','25px','1rem','3% auto',()=>{
 
         });
+
+        IMAGE(ELEMENT,COMMUNITYRISEMOSQUECONSTRUCTION,'95%','50%','',(ELE)=>{
+
+        });
+
+        TEXT(ELEMENT,'p',' Whats Happening in Community Rise',TEXTCOLOR,'20px','2% auto',()=>{
+
+        });
+
+        ROUNDBUTTON(ELEMENT,'50%','50px','blue','','Latest News',(ELE)=>{
+
+            ROUTE(' ',NEWSPAGE,'HOMEPAGE');
+
+        });
+
+        IMAGE(ELEMENT,CommunityRiseBoreHole,'95%','50%','2% auto',(ELE)=>{
+
+        });
+
+        TEXT(ELEMENT,'p',' Create a differences Today',TEXTCOLOR,'20px','',()=>{
+
+        });
+
+        ROUNDBUTTON(ELEMENT,'50%','50px','blue','','Donate Today',(ELE)=>{
+
+            ROUTE(' ',DONATEPAGE,'HOMEPAGE');
+
+        });
+
+        LEFTTEXT(ELEMENT,'h3','Who We Are!','blue','25px','1rem','3% auto',()=>{
+
+        });
+
+        TEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that has taken steps to try and solve the community problems ,Our Vision is to create a stable and sustainable Community for enhanced Development`,TEXTCOLOR,'20px','',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'h3','Community Changes','blue','25px','1rem','3% auto',()=>{
+
+        });
+
+        TEXT(ELEMENT,'p',`Join Us Today in the Health and Safety of Girl Children Via the Information Below`,TEXTCOLOR,'20px','',()=>{
+
+        });
+
+        IMAGE(ELEMENT,COMMUNITYRISEPADS,'95%','50%','2% auto',(EL)=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'h3','Reach Us Today','blue','25px','1rem','3% auto',()=>{
+
+        });
+
+        FOOTER(ELEMENT,'blue','95%','',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'position','relative');
+
+            ICON(ELEMENTS,WHITEXICON,'25px','25px','',(ELEMENT)=>{
+
+
+            });
+
+            ICON(ELEMENTS,WHITEFACEBOOKICON,'25px','25px','',(ELEMENT)=>{
+
+                FACEBOOK('');
+
+            });
+
+            ICON(ELEMENTS,WHITEINSTAGRAMICON,'25px','25px','',(ELEMENT)=>{
+
+                INSTAGRAM('community_rise_ventures');
+
+            });
+
+            ICON(ELEMENTS,WHITEWHATSAPPICON,'25px','25px','',(ELEMENT)=>{
+
+                WHATSAPP('0779332496');
+
+            });
+
+            ICON(ELEMENTS,WHITEGMAILICON,'25px','25px','',(ELEMENT)=>{
+
+                GMAIL('Communityriseventures@gmail.com');;
+
+            });
+
+        });
+
+        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
     });
 
