@@ -2,14 +2,12 @@ const NOVASTART=()=>{
 
     CLEAR('');
 
-    BUTTON('','','50px','forestgreen','','pick file',(ELEMENT)=>{
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-        FILEPICKER ((da)=>{
+    },'WORD','',()=>{
 
-            console.log(da)
-
-        });
+    },()=>{
 
     });
-  
+   
 };

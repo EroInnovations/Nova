@@ -10,7 +10,7 @@ const RIGHTTEXTBACKHEADERBODY=(ELEMENT,Backcallback,WORD,COLOR,TextCallback,Body
 
         });
 
-        RIGHTIMAGE(ELEMENTS,WHITEBACKICON,'20px','20px','0.5rem','',(ELEMS)=>{
+        RIGHTIMAGE(ELEMENTS,WHITENEXTICON,'20px','20px','0.5rem','',(ELEMS)=>{
            
             Backcallback();
 

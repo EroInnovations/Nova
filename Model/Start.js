@@ -66,6 +66,8 @@ const NOVASTARTER=()=>{
                     };
     
                 } else {
+
+                    localStorage.setItem("AppIcon",data.AppIcon);
     
                     if (element.ID === localStorage.getItem("NAME") ) {
     

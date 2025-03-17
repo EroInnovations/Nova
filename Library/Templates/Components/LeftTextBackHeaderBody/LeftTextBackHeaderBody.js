@@ -4,7 +4,7 @@ const LEFTTEXTBACKHEADERBODY=(ELEMENT,Backcallback,WORD,COLOR,TextCallback,BodyC
 
     HEADER(ELEMENT,' ',(ELEMENTS)=>{
 
-        LEFTIMAGE(ELEMENTS,WHITEBACKICON,'20px','20px','0.5rem','',(ELEMS)=>{
+        LEFTIMAGE(ELEMENTS,WHITELEFTBACKICON,'20px','20px','0.5rem','',(ELEMS)=>{
 
             Backcallback();
 

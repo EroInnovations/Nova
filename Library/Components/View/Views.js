@@ -8,7 +8,7 @@ const VIEW=(ELEMENT,COLOR,WIDTH,HEIGHT,MARGIN,callback)=>{
     ELEMENT1.style.overflow='hidden';
     ELEMENT1.style.overflowY='auto';
     ELEMENT1.style.display='block';
-    ELEMENT1.style.background=COLOR||'#cdcdcd';
+    ELEMENT1.style.background=COLOR||'#333333';
     ELEMENT1.style.margin=MARGIN||'auto';
     
     if (ELEMENT) {

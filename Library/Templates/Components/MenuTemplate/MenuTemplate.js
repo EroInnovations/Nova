@@ -39,8 +39,9 @@ const FULLMENUTEMPLATE=(ELEMENT,COLOR,WIDTH,POSITION,callback)=>{
         });
 
         STYLED(ELEMENTSES,'position','absolute');
-        STYLED(ELEMENTSES,POSITION,'0');
         STYLED(ELEMENTSES,'overflow','hidden');
+        STYLED(ELEMENTSES,'top','0');
+        STYLED(ELEMENTSES,POSITION,'0');
 
         VIEW(ELEMENTSES,'transparent','100%','auto','',(ELEMENTSE)=>{
 

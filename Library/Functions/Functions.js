@@ -1,7 +1,6 @@
 import { ADD } from "./Add/Add.js";
 import { APPMODE } from "./AppMode/AppMode.js";
 import { AUDIOPICKER } from "./AudioPicker/AudioPicker.js";
-import { AUDIOPICKERFREE } from "./AudioPickerFree/AudioPickerFree.js";
 import { BACKPAGE } from "./BackPage/BackPage.js";
 import { BODY } from "./Body/Body.js";
 import { BREAK } from "./Break/Break.js";
@@ -152,7 +151,6 @@ const COPY=${COPY};
 const GETTEXTPACKAGE=${GETTEXTPACKAGE};
 const POSTTEXTPACKAGE=${POSTTEXTPACKAGE};
 const GETDRIVEFILE=${GETDRIVEFILE};
-const AUDIOPICKERFREE=${AUDIOPICKERFREE};
 const FILEPICKER=${FILEPICKER};
 const POSTDRIVEFILE=${POSTDRIVEFILE};
 const DRIVEID=${DRIVEID};
