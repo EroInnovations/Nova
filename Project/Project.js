@@ -226,7 +226,7 @@ const HOMEPAGE=()=>{
 
         BREAK(ELEMENT); BREAK(ELEMENT);
 
-    })
+    });
 
 };
 
@@ -240,30 +240,15 @@ const NEWSPAGE=()=>{
 
         HEADER(ELEMENT,'transparent',(ELEMENTS)=>{
 
-            ICON(ELEMENTS,WHITEBACKICON,'25px','25px',(ELE)=>{
+            ICON(ELEMENTS,WHITEBACKICON,'25px','25px','',(ELE)=>{
 
-                STYLED(ELE,'margin-left','0.5rem');
-                STYLED(ELE,'background','#000');
-                STYLED(ELE,'padding','2%');
-                STYLED(ELE,'border-radius','50px');
-
-                CLICK(ELE,()=>{
-
-                    ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-                });
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
 
             });
 
             TEXT(ELEMENTS,'h3','Updates','#000000','20px',(ELE)=>{
 
-                STYLED(ELE,'margin-right','0.5rem');
-
-                CLICK(ELE,()=>{
-
-                    ROUTE(' ',NEWSPAGE,'HOMEPAGE');
-
-                });
+                ROUTE(' ',NEWSPAGE,'HOMEPAGE');
 
             });
 
@@ -279,7 +264,7 @@ const NEWSPAGE=()=>{
 
                     console.log(Elements)
 
-                    VIEW(ELEMENT,'','98%','auto',(ELEMENTS)=>{
+                    VIEW(ELEMENT,'','98%','auto','',(ELEMENTS)=>{
 
                         STYLED(ELEMENTS,'margin','auto');
                         STYLED(ELEMENTS,'border-radius','10px');
@@ -287,25 +272,19 @@ const NEWSPAGE=()=>{
                         STYLED(ELEMENTS,'margin-bottom','10px');
                         STYLED(ELEMENTS,'overflow','hidden');
 
-                        IMAGE(ELEMENTS,Elements.ImageOne,'100%','50%',(ELEMENTSS)=>{
+                        IMAGE(ELEMENTS,Elements.ImageOne,'100%','50%','',(ELEMENTSS)=>{
 
-                            STYLED(ELEMENTSS,'background','red');
+                           
 
                         });
 
-                        TEXT(ELEMENTS,'p',Elements.Story,'#000000','20px',(ELE)=>{
+                        TEXT(ELEMENTS,'p',Elements.Story,'#000000','20px','',(ELE)=>{
 
-                            STYLED(ELE,'margin-right','0.5rem');
-            
-                            CLICK(ELE,()=>{
-            
-                                ROUTE(' ',NEWSPAGE,'HOMEPAGE');
-            
-                            })
+                            ROUTE(' ',NEWSPAGE,'HOMEPAGE');
             
                         });
 
-                        VIEW(ELEMENTS,'blue','100%','90%',(ELEMENTSES)=>{
+                        VIEW(ELEMENTS,'blue','100%','90%','',(ELEMENTSES)=>{
 
                             STYLED(ELEMENTSES,'margin','auto');
                             STYLED(ELEMENTSES,'border-radius','0px');
@@ -315,35 +294,20 @@ const NEWSPAGE=()=>{
                             STYLED(ELEMENTSES,'overflowX','auto');
                             STYLED(ELEMENTSES,'display','inline-flex');
                            
-                            IMAGE(ELEMENTSES,Elements.ImageOne||COMMUNITYRISELOGO,'90%','50%',(ELEMENTSS)=>{
+                            IMAGE(ELEMENTSES,Elements.ImageOne||COMMUNITYRISELOGO,'90%','50%','',(ELEMENTSS)=>{
 
-                                STYLED(ELEMENTSS,'margin','auto');
-                                STYLED(ELEMENTSS,'margin-left','1%');
-                                STYLED(ELEMENTSS,'margin-right','1%');
-    
+                               
                             });
 
-                            IMAGE(ELEMENTSES,Elements.ImageTwo||COMMUNITYRISELOGO,'90%','50%',(ELEMENTSS)=>{
+                            IMAGE(ELEMENTSES,Elements.ImageTwo||COMMUNITYRISELOGO,'90%','50%','',(ELEMENTSS)=>{
 
-                                STYLED(ELEMENTSS,'margin','auto');
-                                STYLED(ELEMENTSS,'margin-left','1%');
-                                STYLED(ELEMENTSS,'margin-right','1%');
-    
                             });
 
-                            IMAGE(ELEMENTSES,Elements.ImageThree||COMMUNITYRISELOGO,'90%','50%',(ELEMENTSS)=>{
+                            IMAGE(ELEMENTSES,Elements.ImageThree||COMMUNITYRISELOGO,'90%','50%','',(ELEMENTSS)=>{
 
-                                STYLED(ELEMENTSS,'margin','auto');
-                                STYLED(ELEMENTSS,'margin-left','1%');
-                                STYLED(ELEMENTSS,'margin-right','1%');
-    
                             });
 
-                            IMAGE(ELEMENTSES,Elements.ImageFour||COMMUNITYRISELOGO,'90%','50%',(ELEMENTSS)=>{
-
-                                STYLED(ELEMENTSS,'margin','auto');
-                                STYLED(ELEMENTSS,'margin-left','1%');
-                                STYLED(ELEMENTSS,'margin-right','1%');
+                            IMAGE(ELEMENTSES,Elements.ImageFour||COMMUNITYRISELOGO,'90%','50%','',(ELEMENTSS)=>{
     
                             });
 
@@ -361,15 +325,9 @@ const NEWSPAGE=()=>{
 
     FLOATFIXEDBUTTON('','black',(ELEMENT)=>{
     
-        IMAGE(ELEMENT,WHITEADDICON,'25px','25px',(IMAGER)=>{
+        IMAGE(ELEMENT,WHITEADDICON,'25px','25px','',(IMAGER)=>{
 
-            STYLED(IMAGER,'transform','rotate(180deg)');
-            
-            CLICK(IMAGER,()=>{
-
-                ROUTE('',UPDATENEWSPAGE,'NEWSPAGE');
-
-            });
+            ROUTE('',UPDATENEWSPAGE,'NEWSPAGE');
 
         });
 
@@ -385,30 +343,15 @@ const SERVICESPAGE=()=>{
 
         HEADER(ELEMENT,'transparent',(ELEMENTS)=>{
 
-            ICON(ELEMENTS,WHITEBACKICON,'25px','25px',(ELE)=>{
+            ICON(ELEMENTS,WHITEBACKICON,'25px','25px','',(ELE)=>{
 
-                STYLED(ELE,'margin-left','0.5rem');
-                STYLED(ELE,'background','#000');
-                STYLED(ELE,'padding','2%');
-                STYLED(ELE,'border-radius','50px');
-
-                CLICK(ELE,()=>{
-
-                    ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-                });
+                ROUTE('',HOMEPAGE,'HOMEPAGE');;
 
             });
 
-            TEXT(ELEMENTS,'h3','Services','#000000','20px',(ELE)=>{
+            TEXT(ELEMENTS,'h3','Services','#000000','20px','',(ELE)=>{
 
-                STYLED(ELE,'margin-right','0.5rem');
-
-                CLICK(ELE,()=>{
-
-                    ROUTE(' ',NEWSPAGE,'HOMEPAGE');
-
-                })
+                ROUTE(' ',NEWSPAGE,'HOMEPAGE');
 
             });
 
@@ -416,23 +359,11 @@ const SERVICESPAGE=()=>{
 
         BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
 
         });
 
-        TEXT(ELEMENT,'h2','Our Services','blue','20px',(ELE)=>{
-
-            STYLED(ELE,'margin','auto');
-
-        });
-
-        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','',()=>{
-
-        });
-
-        TEXT(ELEMENT,'h2','Quality Education','blue','20px',(ELE)=>{
-
-            STYLED(ELE,'margin','auto');
+        TEXT(ELEMENT,'h2','Our Services','blue','20px','',(ELE)=>{
 
         });
 
@@ -440,13 +371,8 @@ const SERVICESPAGE=()=>{
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%',(ELE)=>{
+        TEXT(ELEMENT,'h2','Quality Education','blue','20px','',(ELE)=>{
 
-        });
-
-        TEXT(ELEMENT,'h2','Quality Health','blue','20px',(ELE)=>{
-
-            STYLED(ELE,'margin','auto');
 
         });
 
@@ -455,13 +381,23 @@ const SERVICESPAGE=()=>{
         });
 
         IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%',(ELE)=>{
+
+        });
+
+        TEXT(ELEMENT,'h2','Quality Health','blue','20px','',(ELE)=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','',()=>{
+
+        });
+
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
 
         });
 
         
-        TEXT(ELEMENT,'h2','Housing For Orphans','blue','20px',(ELE)=>{
-
-            STYLED(ELE,'margin','auto');
+        TEXT(ELEMENT,'h2','Housing For Orphans','blue','20px','',(ELE)=>{
 
         });
 
@@ -469,37 +405,34 @@ const SERVICESPAGE=()=>{
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
 
         });
 
         
-        TEXT(ELEMENT,'h2','Worship Center Constructions','blue','20px',(ELE)=>{
+        TEXT(ELEMENT,'h2','Worship Center Constructions','blue','20px','',(ELE)=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','','',()=>{
+
+        });
+
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
+
+        });
+
+        TEXT(ELEMENT,'h2','Quality Water Supply','blue','20px','',(ELE)=>{
 
             STYLED(ELE,'margin','auto');
 
         });
 
-        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','',()=>{
+        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','','',()=>{
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%',(ELE)=>{
-
-        });
-
-        
-        TEXT(ELEMENT,'h2','Quality Water Supply','blue','20px',(ELE)=>{
-
-            STYLED(ELE,'margin','auto');
-
-        });
-
-        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','',()=>{
-
-        });
-
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','','',(ELE)=>{
 
         });
 
