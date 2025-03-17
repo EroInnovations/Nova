@@ -190,102 +190,85 @@ const HOMEPAGE=()=>{
 
 const NEWSPAGE=()=>{
 
-    CLEAR("");
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-        CLEAR(ELEMENT);
+    },'Latest News',TEXTCOLOR,()=>{
 
-        HEADER(ELEMENT,'transparent',(ELEMENTS)=>{
+        ROUTE(' ',NEWSPAGE,'HOMEPAGE');
 
-            ICON(ELEMENTS,WHITEBACKICON,'25px','25px','',(ELE)=>{
+    },(ELEMENT)=>{
 
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
+        NEWSDATA(ELEMENT);
 
-            });
+        FLOATFIXEDBUTTON('','forestgreen',(ELEMENTS)=>{
 
-            TEXT(ELEMENTS,'h3','Updates','#000000','20px',(ELE)=>{
+            IMAGE(ELEMENTS,WHITEADDICON,'25px','25px','',(IMAGER)=>{
 
-                ROUTE(' ',NEWSPAGE,'HOMEPAGE');
-
+                ROUTE(' ',UPDATENEWSPAGE,'NEWSPAGE');
+    
             });
 
         });
 
-        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
-        GETINDEXED ('CommunityRise', 'CommunityRise', (data)=>{
+    });
 
-            REDUX(data,(Element)=>{
+};
 
-                REDUX(Element.Data,(Elements)=>{
+const NEWSDATA=(ELEMENT)=>{
 
-                    console.log(Elements)
+    GETINDEXED ('CommunityRise', 'CommunityRise', (data)=>{
 
-                    VIEW(ELEMENT,'','98%','auto','',(ELEMENTS)=>{
+        REDUX(data,(Element)=>{
 
-                        STYLED(ELEMENTS,'margin','auto');
-                        STYLED(ELEMENTS,'border-radius','10px');
-                        STYLED(ELEMENTS,'margin-top','10px');
-                        STYLED(ELEMENTS,'margin-bottom','10px');
-                        STYLED(ELEMENTS,'overflow','hidden');
+            REDUX(Element.Data,(Elements)=>{
 
-                        IMAGE(ELEMENTS,Elements.ImageOne,'100%','50%','',(ELEMENTSS)=>{
+                console.log(Elements)
 
+                VIEW(ELEMENT,' ','98%','auto','',(ELEMENTS)=>{
+
+                    STYLED(ELEMENTS,'overflow','hidden');
+
+                    IMAGE(ELEMENTS,Elements.ImageOne,'100%','50%','',(ELE)=>{
+
+                    });
+
+                    LEFTTEXT(ELEMENTS,'p',Elements.Story,TEXTCOLOR,'20px','1rem','3% auto',()=>{
+
+                    });
+
+                    VIEW(ELEMENTS,'','98%','98%','1% auto',(ELEMENTSES)=>{
+
+                        STYLED(ELEMENTSES,'overflow','hidden');
+                        STYLED(ELEMENTSES,'overflowX','auto');
+                        STYLED(ELEMENTSES,'display','inline-flex');
                            
-
-                        });
-
-                        TEXT(ELEMENTS,'p',Elements.Story,'#000000','20px','',(ELE)=>{
-
-                            ROUTE(' ',NEWSPAGE,'HOMEPAGE');
-            
-                        });
-
-                        VIEW(ELEMENTS,'blue','100%','90%','',(ELEMENTSES)=>{
-
-                            STYLED(ELEMENTSES,'margin','auto');
-                            STYLED(ELEMENTSES,'border-radius','0px');
-                            STYLED(ELEMENTSES,'margin-top','10px');
-                            STYLED(ELEMENTSES,'margin-bottom','10px');
-                            STYLED(ELEMENTSES,'overflow','hidden');
-                            STYLED(ELEMENTSES,'overflowX','auto');
-                            STYLED(ELEMENTSES,'display','inline-flex');
-                           
-                            IMAGE(ELEMENTSES,Elements.ImageOne||COMMUNITYRISELOGO,'90%','50%','',(ELEMENTSS)=>{
+                        IMAGE(ELEMENTSES,Elements.ImageOne||COMMUNITYRISELOGO,'90%','100%','2%',(ELEMENTSS)=>{
 
                                
-                            });
+                        });
 
-                            IMAGE(ELEMENTSES,Elements.ImageTwo||COMMUNITYRISELOGO,'90%','50%','',(ELEMENTSS)=>{
+                        IMAGE(ELEMENTSES,Elements.ImageTwo||COMMUNITYRISELOGO,'90%','100%','2%',(ELEMENTSS)=>{
 
-                            });
+                        });
 
-                            IMAGE(ELEMENTSES,Elements.ImageThree||COMMUNITYRISELOGO,'90%','50%','',(ELEMENTSS)=>{
+                        IMAGE(ELEMENTSES,Elements.ImageThree||COMMUNITYRISELOGO,'90%','100%','2%',(ELEMENTSS)=>{
 
-                            });
+                        });
 
-                            IMAGE(ELEMENTSES,Elements.ImageFour||COMMUNITYRISELOGO,'90%','50%','',(ELEMENTSS)=>{
+                        IMAGE(ELEMENTSES,Elements.ImageFour||COMMUNITYRISELOGO,'90%','100%','2%',(ELEMENTSS)=>{
     
-                            });
-
                         });
 
                     });
 
+                    BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
+
                 });
 
             });
-
-        });
-
-    });
-
-    FLOATFIXEDBUTTON('','black',(ELEMENT)=>{
-    
-        IMAGE(ELEMENT,WHITEADDICON,'25px','25px','',(IMAGER)=>{
-
-            ROUTE('',UPDATENEWSPAGE,'NEWSPAGE');
 
         });
 
