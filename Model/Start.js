@@ -52,6 +52,8 @@ const NOVASTARTER=()=>{
             };
     
             data.forEach(element => {
+
+                localStorage.setItem("AppIcon",element.AppIcon);
     
                 if (localStorage.getItem('Environment') === 'Development')  {
     
@@ -67,8 +69,6 @@ const NOVASTARTER=()=>{
     
                 } else {
 
-                    localStorage.setItem("AppIcon",data.AppIcon);
-    
                     if (element.ID === localStorage.getItem("NAME") ) {
     
                         if (localStorage.getItem('Environment') === 'Production') {
