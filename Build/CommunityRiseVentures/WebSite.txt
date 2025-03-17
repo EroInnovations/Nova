@@ -53,43 +53,25 @@ const HOMEPAGE=()=>{
 
         HEADER(ELEMENT,'transparent',(ELEMENTS)=>{
 
-            ICON(ELEMENTS,COMMUNITYRISELOGO,'25px','25px',()=>{
+            ICON(ELEMENTS,COMMUNITYRISELOGO,'25px','25px','',()=>{
 
             });
 
-            TEXT(ELEMENTS,'h2','News','#000000','20px',(ELE)=>{
+            TEXT(ELEMENTS,'h2','News','#000000','20px','',(ELE)=>{
 
-                STYLED(ELE,'margin','auto');
-
-                CLICK(ELE,()=>{
-
-                    ROUTE(' ',NEWSPAGE,'HOMEPAGE');
-
-                })
+                ROUTE(' ',NEWSPAGE,'HOMEPAGE');
 
             });
 
-            TEXT(ELEMENTS,'h2','Services','#000000','20px',(ELE)=>{
+            TEXT(ELEMENTS,'h2','Services','#000000','20px','',(ELE)=>{
 
-                STYLED(ELE,'margin','auto');
-
-                CLICK(ELE,()=>{
-
-                    ROUTE(' ',SERVICESPAGE,'HOMEPAGE');
-
-                })
+                ROUTE(' ',SERVICESPAGE,'HOMEPAGE');
 
             });
 
-            TEXT(ELEMENTS,'h2','About Us','#000000','20px',(ELE)=>{
+            TEXT(ELEMENTS,'h2','About Us','#000000','20px','',(ELE)=>{
 
-                STYLED(ELE,'margin','auto');
-
-                CLICK(ELE,()=>{
-
-                    ROUTE(' ',ABOUTUSPAGE,'HOMEPAGE');
-
-                })
+                ROUTE(' ',ABOUTUSPAGE,'HOMEPAGE');
 
             });
 
@@ -97,27 +79,27 @@ const HOMEPAGE=()=>{
 
         BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
 
         });
 
-        TEXT(ELEMENT,'p','Creating a Smile and making a difference!','#000000','20px',()=>{
+        TEXT(ELEMENT,'p','Creating a Smile and making a difference!','#000000','20px','',()=>{
 
         });
 
-        TEXT(ELEMENT,'p','By One Donation at a time.','#000000','20px',()=>{
+        TEXT(ELEMENT,'p','By One Donation at a time.','#000000','20px','',()=>{
 
         });
 
-        TEXT(ELEMENT,'p','Donate Today and Change The World','#000000','20px',()=>{
+        TEXT(ELEMENT,'p','Donate Today and Change The World','#000000','20px','',()=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'h3','Updates','blue','25px','',()=>{
+        LEFTTEXT(ELEMENT,'h3','Updates','blue','25px','','',()=>{
 
         });
 
-        VIEW(ELEMENT,'transparent','98%','50%',(ELEMENTS)=>{
+        VIEW(ELEMENT,'transparent','98%','50%','',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'margin','auto');
             STYLED(ELEMENTS,'border-radius','10px');
@@ -125,14 +107,14 @@ const HOMEPAGE=()=>{
             STYLED(ELEMENTS,'margin-bottom','10px');
             STYLED(ELEMENTS,'overflow','hidden');
 
-            IMAGE(ELEMENTS,COMMUNITYRISEMOSQUECONSTRUCTION,'100%','100%',(ELE)=>{
+            IMAGE(ELEMENTS,COMMUNITYRISEMOSQUECONSTRUCTION,'100%','100%','',(ELE)=>{
 
             });
 
         });
 
 
-        TEXT(ELEMENT,'p',' Whats Happening in Community Rise','#000000','20px',()=>{
+        TEXT(ELEMENT,'p',' Whats Happening in Community Rise','#000000','20px','',()=>{
 
         });
 
@@ -145,7 +127,7 @@ const HOMEPAGE=()=>{
 
         });
 
-        VIEW(ELEMENT,'transparent','98%','50%',(ELEMENTS)=>{
+        VIEW(ELEMENT,'transparent','98%','50%','',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'margin','auto');
             STYLED(ELEMENTS,'border-radius','10px');
@@ -153,13 +135,13 @@ const HOMEPAGE=()=>{
             STYLED(ELEMENTS,'margin-bottom','10px');
             STYLED(ELEMENTS,'overflow','hidden');
 
-            IMAGE(ELEMENTS,CommunityRiseBoreHole,'100%','100%',(ELE)=>{
+            IMAGE(ELEMENTS,CommunityRiseBoreHole,'100%','100%','',(ELE)=>{
 
             });
 
         });
 
-        TEXT(ELEMENT,'p',' Create a differences Today','#000000','20px',()=>{
+        TEXT(ELEMENT,'p',' Create a differences Today','#000000','20px','',()=>{
 
         });
 
@@ -169,23 +151,23 @@ const HOMEPAGE=()=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'h3','Who We Are!','blue','20px','#000000',()=>{
+        LEFTTEXT(ELEMENT,'h3','Who We Are!','blue','20px','#000000','',()=>{
 
         });
         
-        TEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that has taken steps to try and solve the community problems ,Our Vision is to create a stable and sustainable Community for enhanced Development`,'#000000','20px',()=>{
+        TEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that has taken steps to try and solve the community problems ,Our Vision is to create a stable and sustainable Community for enhanced Development`,'#000000','20px','',()=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'h3','Community Changes','blue','20px','#000000',()=>{
+        LEFTTEXT(ELEMENT,'h3','Community Changes','blue','20px','#000000','',()=>{
 
         });
 
-        TEXT(ELEMENT,'p',`Join Us Today in the Health and Safety of Girl Children Via the Information Below`,'#000000','20px',()=>{
+        TEXT(ELEMENT,'p',`Join Us Today in the Health and Safety of Girl Children Via the Information Below`,'#000000','20px','',()=>{
 
         });
 
-        VIEW(ELEMENT,'transparent','98%','50%',(ELEMENTS)=>{
+        VIEW(ELEMENT,'transparent','98%','50%','',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'margin','auto');
             STYLED(ELEMENTS,'border-radius','10px');
@@ -193,17 +175,17 @@ const HOMEPAGE=()=>{
             STYLED(ELEMENTS,'margin-bottom','10px');
             STYLED(ELEMENTS,'overflow','hidden');
 
-            IMAGE(ELEMENTS,COMMUNITYRISEPADS,'100%','100%',(EL)=>{
+            IMAGE(ELEMENTS,COMMUNITYRISEPADS,'100%','100%','',(EL)=>{
 
             });
 
         });
 
-        LEFTTEXT(ELEMENT,'h3','Reach Us Today','blue','20px','',()=>{
+        LEFTTEXT(ELEMENT,'h3','Reach Us Today','blue','20px','','',()=>{
 
         });
 
-        VIEW(ELEMENT,'blue','98%','50px',(ELEMENTS)=>{
+        VIEW(ELEMENT,'blue','98%','50px','',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'margin','auto');
             STYLED(ELEMENTS,'border-radius','10px');
@@ -211,51 +193,32 @@ const HOMEPAGE=()=>{
             STYLED(ELEMENTS,'margin-bottom','10px');
             STYLED(ELEMENTS,'display','inline-flex');
 
-            ICON(ELEMENTS,WHITEXICON,'25px','25px',(ELEMENT)=>{
+            ICON(ELEMENTS,WHITEXICON,'25px','25px','',(ELEMENT)=>{
 
-                CLICK(ELEMENT,()=>{
-
-                });
 
             });
 
-            ICON(ELEMENTS,WHITEFACEBOOKICON,'25px','25px',(ELEMENT)=>{
+            ICON(ELEMENTS,WHITEFACEBOOKICON,'25px','25px','',(ELEMENT)=>{
 
-                CLICK(ELEMENT,()=>{
-
-                    FACEBOOK('');
-
-                });
+                FACEBOOK('');
 
             });
 
-            ICON(ELEMENTS,WHITEINSTAGRAMICON,'25px','25px',(ELEMENT)=>{
+            ICON(ELEMENTS,WHITEINSTAGRAMICON,'25px','25px','',(ELEMENT)=>{
 
-                CLICK(ELEMENT,()=>{
-
-                    INSTAGRAM('community_rise_ventures');
-
-                });
+                INSTAGRAM('community_rise_ventures');
 
             });
 
-            ICON(ELEMENTS,WHITEWHATSAPPICON,'25px','25px',(ELEMENT)=>{
+            ICON(ELEMENTS,WHITEWHATSAPPICON,'25px','25px','',(ELEMENT)=>{
 
-                CLICK(ELEMENT,()=>{
-
-                    WHATSAPP('0779332496');
-
-                });
+                WHATSAPP('0779332496');
 
             });
 
-            ICON(ELEMENTS,WHITEGMAILICON,'25px','25px',(ELEMENT)=>{
+            ICON(ELEMENTS,WHITEGMAILICON,'25px','25px','',(ELEMENT)=>{
 
-                CLICK(ELEMENT,()=>{
-
-                    GMAIL('Communityriseventures@gmail.com');
-
-                });
+                GMAIL('Communityriseventures@gmail.com');;
 
             });
 
