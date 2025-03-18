@@ -122,6 +122,7 @@ import { GRIEDICON } from "./BlackIcons/GridIcon/GridIcon.js";
 import { MOVIZ } from "./Logos/Moviz/Moviz.js";
 import { EROINNOVATIONSLOGOONE } from "../CompanyImages/EroInnovations/LogoOne.js";
 import { NEXTICON } from "./WhiteIcons/NextIcon/NextIcon.js";
+import { TIKTOKICON } from "./WhiteIcons/TiktokIcon/TiktokIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -247,12 +248,13 @@ const BLACKGRIDICON='${GRIEDICON}';
 const MOVIZ='${MOVIZ}';
 const EROINNOVATIONSLOGOONE='${EROINNOVATIONSLOGOONE}';
 const WHITENEXTICON='${NEXTICON}';
+const WHITETIKTOKICON='${TIKTOKICON}';
 `;
 localStorage.setItem("ICONS",DATA);
 };
 export{ICONS};
 
 `
-const WHITENEXTICON='${NEXTICON}';
+const WHITETIKTOKICON='${TIKTOKICON}';
 
 `
