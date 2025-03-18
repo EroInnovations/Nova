@@ -472,36 +472,13 @@ const DONATEPAGE=()=>{
 
 const UPDATENEWSPAGE=()=>{
 
-    CLEAR("");
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+        ROUTE('',ABOUTUSPAGE,'ABOUTUSPAGE');
 
-        HEADER(ELEMENT,'transparent',(ELEMENTS)=>{
+    },'Your Story',TEXTCOLOR,()=>{
 
-            ICON(ELEMENTS,WHITEBACKICON,'25px','25px',(ELE)=>{
-
-                STYLED(ELE,'margin-left','0.5rem');
-                STYLED(ELE,'background','#000');
-                STYLED(ELE,'padding','2%');
-                STYLED(ELE,'border-radius','50px');
-
-                CLICK(ELE,()=>{
-
-                    ROUTE('',ABOUTUSPAGE,'ABOUTUSPAGE');
-
-                });
-
-            });
-
-            TEXT(ELEMENTS,'h3','Tell Your Story','#000000','20px',(ELE)=>{
-
-                STYLED(ELE,'margin-right','0.5rem');
-
-            });
-
-        });
-
-        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
+    },(ELEMENT)=>{
 
         ROUNDINPUT(ELEMENT,'text','#000','','Enter Your Name',(data)=>{
 
@@ -520,72 +497,49 @@ const UPDATENEWSPAGE=()=>{
             STOREDATA('','Email',data);
 
         });
+        
         TEXTAREA(ELEMENT,'text','#000','Tell Us Your Story',(data)=>{
 
             STOREDATA('','Story',data);
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'98%','70%',(ELEMENTS)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'98%','70%','',(ELEMENTS)=>{
 
-            STYLED(ELEMENTS,'border','1px solid green');
+            IMAGEPICKER(ELEMENTS,(data)=>{
 
-            CLICK(ELEMENTS,()=>{
+                STOREDATA('','ImageOne',data);
+            
+            });
+            
+        });
 
-                IMAGEPICKER(ELEMENTS,(data)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'98%','70%','',(ELEMENTS)=>{
 
-                    STOREDATA('','ImageOne',data);
-                
-                });
-    
+            IMAGEPICKER(ELEMENTS,(data)=>{
+
+                STOREDATA('','ImageTwo',data);
+            
             });
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'98%','70%',(ELEMENTS)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'98%','70%','',(ELEMENTS)=>{
 
-            STYLED(ELEMENTS,'border','1px solid green');
+            IMAGEPICKER(ELEMENTS,(data)=>{
 
-            CLICK(ELEMENTS,()=>{
-
-                IMAGEPICKER(ELEMENTS,(data)=>{
-
-                    STOREDATA('','ImageTwo',data);
-                
-                });
-    
+                STOREDATA('','ImageThree',data);
+            
             });
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'98%','70%',(ELEMENTS)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'98%','70%','',(ELEMENTS)=>{
 
-            STYLED(ELEMENTS,'border','1px solid green');
+            IMAGEPICKER(ELEMENTS,(data)=>{
 
-            CLICK(ELEMENTS,()=>{
-
-                IMAGEPICKER(ELEMENTS,(data)=>{
-
-                    STOREDATA('','ImageThree',data);
-                
-                });
-    
-            });
-
-        });
-
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'98%','70%',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'border','1px solid green');
-
-            CLICK(ELEMENTS,()=>{
-
-                IMAGEPICKER(ELEMENTS,(data)=>{
-
-                    STOREDATA('','ImageFour',data);
-                
-                });
-    
+                STOREDATA('','ImageFour',data);
+            
             });
 
         });
@@ -688,7 +642,7 @@ const UPDATENEWSPAGE=()=>{
 
         });
 
-        BREAK(ELEMENT);BREAK(ELEMENT);
+        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
     });
 
