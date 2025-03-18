@@ -383,6 +383,8 @@ const SERVICESPAGE=()=>{
 
 const ABOUTUSPAGE=()=>{
 
+    BACKPAGE('HOMEPAGE');
+
     LEFTTEXTBACKHEADERBODY('',()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
