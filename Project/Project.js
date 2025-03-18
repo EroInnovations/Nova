@@ -383,41 +383,17 @@ const SERVICESPAGE=()=>{
 
 const ABOUTUSPAGE=()=>{
 
-    CLEAR("");
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-        HEADER(ELEMENT,'transparent',(ELEMENTS)=>{
+    },'Donate',TEXTCOLOR,()=>{
 
-            ICON(ELEMENTS,WHITEBACKICON,'25px','25px',(ELE)=>{
+        ROUTE(' ',DONATEPAGE,'ABOUTUSPAGE');
 
-                STYLED(ELE,'margin-left','0.5rem');
-                STYLED(ELE,'background','#000');
-                STYLED(ELE,'padding','2%');
-                STYLED(ELE,'border-radius','50px');
-                CLICK(ELE,()=>{
+    },(ELEMENT)=>{
 
-                    ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-                });
-
-            });
-
-            TEXT(ELEMENTS,'h3','Donate','#000000','20px',(ELE)=>{
-
-                STYLED(ELE,'margin-right','0.5rem');
-
-                CLICK(ELE,()=>{
-
-                    ROUTE(' ',DONATEPAGE,'ABOUTUSPAGE');
-
-                });
-
-            });
-
-        });
-
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
 
         });
 
@@ -429,7 +405,7 @@ const ABOUTUSPAGE=()=>{
 
         });
 
-        LEFTBUTTONTEXT(ELEMENT,'98%','50px','blue','','location',()=>{
+        LEFTBUTTONTEXT(ELEMENT,'98%','50px','blue','','location','',()=>{
 
         });
 
@@ -437,13 +413,15 @@ const ABOUTUSPAGE=()=>{
 
         });
 
-        LEFTBUTTONTEXT(ELEMENT,'98%','50px','blue','','Mission',()=>{
+        LEFTBUTTONTEXT(ELEMENT,'98%','50px','blue','','Mission','',()=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'p',`We are Aimed At Creating Smiles and Changing Community Lives for the Better`,'#000000','20px','',()=>{
+        LEFTTEXT(ELEMENT,'p',`We are Aimed At Creating Smiles and Changing Community Lives for the Better`,'#000000','20px','','',()=>{
 
         });
+
+        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
     });
 
