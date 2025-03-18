@@ -196,8 +196,6 @@ const NEWSPAGE=()=>{
 
     },'Latest News',TEXTCOLOR,()=>{
 
-        ROUTE(' ',NEWSPAGE,'HOMEPAGE');
-
     },(ELEMENT)=>{
 
         NEWSDATA(ELEMENT);
@@ -211,7 +209,6 @@ const NEWSPAGE=()=>{
             });
 
         });
-
 
     });
 
@@ -278,104 +275,90 @@ const NEWSDATA=(ELEMENT)=>{
 
 const SERVICESPAGE=()=>{
 
-    CLEAR("");
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-        HEADER(ELEMENT,'transparent',(ELEMENTS)=>{
+    },'Our Services',TEXTCOLOR,()=>{
 
-            ICON(ELEMENTS,WHITEBACKICON,'25px','25px','',(ELE)=>{
+    },(ELEMENT)=>{
 
-                ROUTE('',HOMEPAGE,'HOMEPAGE');;
-
-            });
-
-            TEXT(ELEMENTS,'h3','Services','#000000','20px','',(ELE)=>{
-
-                ROUTE(' ',NEWSPAGE,'HOMEPAGE');
-
-            });
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','3% auto',(ELE)=>{
 
         });
 
-        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
-
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
+        TEXT(ELEMENT,'h2','Our Services','blue','20px','3% auto',(ELE)=>{
 
         });
 
-        TEXT(ELEMENT,'h2','Our Services','blue','20px','',(ELE)=>{
+        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,TEXTCOLOR,'18px','3% auto',()=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','',()=>{
-
-        });
-
-        TEXT(ELEMENT,'h2','Quality Education','blue','20px','',(ELE)=>{
+        TEXT(ELEMENT,'h2','Quality Education','blue','20px','3% auto',(ELE)=>{
 
 
         });
 
-        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','',()=>{
+        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,TEXTCOLOR,'18px','3% auto',()=>{
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','3% auto',(ELE)=>{
 
         });
 
-        TEXT(ELEMENT,'h2','Quality Health','blue','20px','',(ELE)=>{
+        TEXT(ELEMENT,'h2','Quality Health','blue','20px','3% auto',(ELE)=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','',()=>{
+        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,TEXTCOLOR,'18px','3% auto',()=>{
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','3% auto',(ELE)=>{
 
         });
 
         
-        TEXT(ELEMENT,'h2','Housing For Orphans','blue','20px','',(ELE)=>{
+        TEXT(ELEMENT,'h2','Housing For Orphans','blue','20px','3% auto',(ELE)=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','',()=>{
+        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','3% auto',()=>{
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','3% auto',(ELE)=>{
 
         });
 
         
-        TEXT(ELEMENT,'h2','Worship Center Constructions','blue','20px','',(ELE)=>{
+        TEXT(ELEMENT,'h2','Worship Center Constructions','blue','20px','3% auto',(ELE)=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','','',()=>{
+        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','','3% auto',()=>{
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','3% auto',(ELE)=>{
 
         });
 
-        TEXT(ELEMENT,'h2','Quality Water Supply','blue','20px','',(ELE)=>{
-
-            STYLED(ELE,'margin','auto');
+        TEXT(ELEMENT,'h2','Quality Water Supply','blue','20px','3% auto',(ELE)=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','','',()=>{
+        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures is a Non Government Founded Organisation that is dedicated to solving community arising challenges and leave a great smile.<br>We Solve the Following Community Based Problems With Permanet Solutions`,'#000000','18px','','3% auto',()=>{
 
         });
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','','',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','','3% auto',(ELE)=>{
 
         });
+
+        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
     });
 
@@ -437,7 +420,6 @@ const DONATEPAGE=()=>{
 
     },'Donate',TEXTCOLOR,()=>{
 
-        ROUTE(' ',ABOUTUSPAGE,'ABOUTUSPAGE');
 
     },(ELEMENT)=>{
 
