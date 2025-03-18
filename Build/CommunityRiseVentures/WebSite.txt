@@ -405,7 +405,7 @@ const ABOUTUSPAGE=()=>{
 
         });
 
-        LEFTBUTTONTEXT(ELEMENT,'98%','50px','blue','','location',()=>{
+        LEFTBUTTONTEXT(ELEMENT,'98%','50px','blue','','location','',()=>{
 
         });
 
@@ -413,13 +413,15 @@ const ABOUTUSPAGE=()=>{
 
         });
 
-        LEFTBUTTONTEXT(ELEMENT,'98%','50px','blue','','Mission',()=>{
+        LEFTBUTTONTEXT(ELEMENT,'98%','50px','blue','','Mission','',()=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'p',`We are Aimed At Creating Smiles and Changing Community Lives for the Better`,'#000000','20px','',()=>{
+        LEFTTEXT(ELEMENT,'p',`We are Aimed At Creating Smiles and Changing Community Lives for the Better`,'#000000','20px','','',()=>{
 
         });
+
+        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
     });
 
