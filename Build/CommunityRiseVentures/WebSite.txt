@@ -395,7 +395,7 @@ const ABOUTUSPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','2% auto',(ELE)=>{
 
         });
 
@@ -441,7 +441,7 @@ const DONATEPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','2% auto',(ELE)=>{
 
         });
 
