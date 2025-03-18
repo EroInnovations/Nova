@@ -202,7 +202,7 @@ const NEWSPAGE=()=>{
 
         NEWSDATA(ELEMENT);
 
-        FLOATFIXEDBUTTON('','forestgreen',(ELEMENTS)=>{
+        FLOATFIXEDBUTTON('','blue',(ELEMENTS)=>{
 
             IMAGE(ELEMENTS,WHITEADDICON,'25px','25px','',(IMAGER)=>{
 
@@ -511,7 +511,7 @@ const UPDATENEWSPAGE=()=>{
                 STOREDATA('','ImageOne',data);
             
             });
-            
+
         });
 
         IMAGE(ELEMENT,COMMUNITYRISELOGO,'98%','70%','',(ELEMENTS)=>{
