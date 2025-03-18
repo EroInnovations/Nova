@@ -190,6 +190,8 @@ const HOMEPAGE=()=>{
 
 const NEWSPAGE=()=>{
 
+    BACKPAGE('HOMEPAGE');
+
     LEFTTEXTBACKHEADERBODY('',()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
