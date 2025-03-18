@@ -151,7 +151,7 @@ const HOMEPAGE=()=>{
 
             STYLED(ELEMENTS,'position','relative');
 
-            ICON(ELEMENTS,WHITEXICON,'25px','25px','',(ELEMENT)=>{
+            ICON(ELEMENTS,WHITETIKTOKICON,'25px','25px','',(ELEMENT)=>{
 
 
             });
