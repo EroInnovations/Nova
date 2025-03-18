@@ -429,66 +429,40 @@ const ABOUTUSPAGE=()=>{
 
 const DONATEPAGE=()=>{
 
-    CLEAR("");
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+        ROUTE('',ABOUTUSPAGE,'ABOUTUSPAGE');
 
-        HEADER(ELEMENT,'transparent',(ELEMENTS)=>{
+    },'Donate',TEXTCOLOR,()=>{
 
-            ICON(ELEMENTS,WHITEBACKICON,'25px','25px',(ELE)=>{
+        ROUTE(' ',ABOUTUSPAGE,'ABOUTUSPAGE');
 
-                STYLED(ELE,'margin-left','0.5rem');
-                STYLED(ELE,'background','#000');
-                STYLED(ELE,'padding','2%');
-                STYLED(ELE,'border-radius','50px');
+    },(ELEMENT)=>{
 
-                CLICK(ELE,()=>{
-
-                    ROUTE('',ABOUTUSPAGE,'ABOUTUSPAGE');
-
-                });
-
-            });
-
-            TEXT(ELEMENTS,'h3','Donate Now','#000000','20px',(ELE)=>{
-
-                STYLED(ELE,'margin-right','0.5rem');
-
-            });
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%','',(ELE)=>{
 
         });
 
-        BREAK(ELEMENT);BREAK(ELEMENT);
+        TEXT(ELEMENT,'h2','Donate Today','blue','20px','5% auto',(ELE)=>{
 
-        IMAGE(ELEMENT,COMMUNITYRISELOGO,'','50%',(ELE)=>{
-
-        });
-
-        TEXT(ELEMENT,'h2','Donate Today','blue','20px',(ELE)=>{
-
-            STYLED(ELE,'margin','auto');
 
         });
 
-        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures being a Non Government Funded Organisation uses Fundeds Collected From Donations to Render Better Services to the Community.<br><br>To Get Started Today Please Donate Via the Sources Below`,'#000000','18px','',()=>{
+        LEFTTEXT(ELEMENT,'p',`Community Rise Ventures being a Non Government Funded Organisation uses Fundeds Collected From Donations to Render Better Services to the Community.<br><br>To Get Started Today Please Donate Via the Sources Below`,TEXTCOLOR,'18px','','3% auto',()=>{
 
         });
 
-        TEXT(ELEMENT,'h2',`Bank Account Number <br><Br>60080462400 <br><br>Bank Name: Absa Bank. `,'forestgreen','20px',(ELE)=>{
+        TEXT(ELEMENT,'h2',`Bank Account Number <br><Br>60080462400 <br><br>Bank Name: Absa Bank. `,'forestgreen','20px','3% auto',(ELE)=>{
 
-            STYLED(ELE,'margin','auto');
-
-        });
-
-        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
-
-        TEXT(ELEMENT,'p','Your Suppport is Greatly Appreciated','blue','20px',(ELE)=>{
-
-            STYLED(ELE,'margin','auto');
 
         });
 
-        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
+        TEXT(ELEMENT,'p','Your Suppport is Greatly Appreciated','blue','20px','',(ELE)=>{
+
+            
+        });
+
+        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
     });
 
