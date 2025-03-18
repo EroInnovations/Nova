@@ -10,13 +10,13 @@ const FULLMENUTEMPLATE=(ELEMENT,COLOR,WIDTH,POSITION,callback)=>{
 
                 STYLED(ELEMENTSES,'border-left','1px solid #cdcdcd');
 
-                LEFTIMAGE(ELEMENTS,WHITECLOSEICON,'25px','25px','1rem','',(ELMS)=>{
+                LEFTIMAGE(ELEMENTS,WHITECLOSEICON,'20px','20px','1rem','',(ELMS)=>{
 
                     STYLED(ELEMENTSES,'display','none');
 
                 });
 
-                RIGHTTEXT(ELEMENTS,'','Menu','','30px','1rem','',(ELE)=>{
+                RIGHTTEXT(ELEMENTS,'','Menu','','25px','0.5rem','',(ELE)=>{
 
                 });
 
@@ -24,11 +24,11 @@ const FULLMENUTEMPLATE=(ELEMENT,COLOR,WIDTH,POSITION,callback)=>{
 
                 STYLED(ELEMENTSES,'border-right','1px solid #cdcdcd');
 
-                LEFTTEXT(ELEMENTS,'','Menu','','30px','1rem','',(ELE)=>{
+                LEFTTEXT(ELEMENTS,'','Menu','','25px','0.5rem','',(ELE)=>{
 
                 });
 
-                RIGHTIMAGE(ELEMENTS,WHITECLOSEICON,'25px','25px','1rem','',(ELMS)=>{
+                RIGHTIMAGE(ELEMENTS,WHITECLOSEICON,'20px','20px','1rem','',(ELMS)=>{
 
                     STYLED(ELEMENTSES,'display','none');
 
@@ -46,7 +46,7 @@ const FULLMENUTEMPLATE=(ELEMENT,COLOR,WIDTH,POSITION,callback)=>{
         VIEW(ELEMENTSES,'transparent','100%','auto','',(ELEMENTSE)=>{
 
             STYLED(ELEMENTSE,'position','absolute');
-            STYLED(ELEMENTSE,'top','55px');
+            STYLED(ELEMENTSE,'top','50px');
             STYLED(ELEMENTSE,'bottom','0');
             STYLED(ELEMENTSE,'overflow','hidden');
             STYLED(ELEMENTSE,'overflow-Y','auto');
