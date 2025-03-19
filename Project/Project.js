@@ -218,7 +218,7 @@ const MENUPAGE=(ELEMENT)=>{
 
             ROUTE('',LOGINPAGE,'LOGINPAGE');
 
-        });s
+        });
 
     });
 
