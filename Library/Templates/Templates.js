@@ -5,6 +5,7 @@ import { HOMEROUNDFOOTERTEMPLATE } from "./Components/HomeRoundFooterTemplate/Ho
 import { LEFTTEXTBACKHEADER } from "./Components/LeftTextBackHeader/LeftTextBackHeader.js";
 import { LEFTTEXTBACKHEADERBODY } from "./Components/LeftTextBackHeaderBody/LeftTextBackHeaderBody.js";
 import { FULLMENUTEMPLATE } from "./Components/MenuTemplate/MenuTemplate.js";
+import { NAVTEMPLATE } from "./Components/NavTemplate/NavTemplate.js";
 import { OFFLINEPAGETEMPLATE } from "./Components/OffLinePageTemplate/OffLinePageTemplate.js";
 import { RIGHTTEXTBACKHEADER } from "./Components/RightTextBackHeader/RightTextBackHeader.js";
 import { RIGHTTEXTBACKHEADERBODY } from "./Components/RightTextBackHeaderBody/RightTextBackHeaderBody.js";
@@ -32,6 +33,7 @@ const OFFLINEPAGETEMPLATE=${OFFLINEPAGETEMPLATE};
 const FULLMENUTEMPLATE=${FULLMENUTEMPLATE};
 const HOMEHEADERTEMPLATE=${HOMEHEADERTEMPLATE};
 const CENTERVIEW=${CENTERVIEW};
+const NAVTEMPLATE=${NAVTEMPLATE};
 `;
 localStorage.setItem('TEMPLATES',DATA);
 };
@@ -39,6 +41,6 @@ export{TEMPLATES};
 
 `
 
-const CENTERVIEW=${CENTERVIEW};
+const NAVTEMPLATE=${NAVTEMPLATE};
 
 `

@@ -1,4 +1,4 @@
-const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,callback)=>{
+const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,MARGIN,callback)=>{
 
     const ELEMENT1=document.createElement("div");
 
@@ -6,8 +6,7 @@ const IMAGEBUTTON=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,callback)=>{
     ELEMENT1.style.width='98%';
     ELEMENT1.style.height=HEIGHT||'50px';
     ELEMENT1.style.background=COLOR||'#000000';
-    ELEMENT1.style.margin='auto';
-    ELEMENT1.style.marginTop='2%';
+    ELEMENT1.style.margin=MARGIN||'auto';
     ELEMENT1.style.borderRadius='5px';
     ELEMENT1.style.display='inline-flex';
 
