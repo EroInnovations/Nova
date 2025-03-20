@@ -1,0 +1,38 @@
+const NOVASTART=()=>{
+
+    SCREENWIDTH((data)=>{
+
+        CONDITION(data >800,
+            ()=>{
+
+                ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+
+            },
+            ()=>{
+
+                ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+                
+            }
+
+        );
+
+    });
+
+};
+
+const ANDROIDHOMEPAGE=()=>{
+
+    DISPLAY('',`
+
+        Under Development
+        
+    `);
+
+};
+
+const DESKTOPHOMEPAGE=()=>{
+
+    CLEAR('');
+
+
+};
