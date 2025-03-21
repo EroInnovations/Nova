@@ -1,110 +1,11 @@
 const NOVASTART=()=>{
 
-    APPMODE('#04143c');
-
-    SCREENWIDTH((data)=>{
-
-        CONDITION(data >800,
-            ()=>{
-
-                ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
-
-            },
-            ()=>{
-
-                ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
-                
-            }
-
-        );
-
-    });
+    ROUTE('',HOMEPAGE,'HOMEPAGE');
 
 };
 
-const ANDROIDHOMEPAGE=()=>{
+const HOMEPAGE=()=>{
 
-    const WELCOMENOTE=`
+    DISPLAY('','Under Development');
 
-    <br><br>
-    
-    Ero Innovations,We are the lead Developer in Cloud Native Software.
-
-    <br><br>
-
-    Get Your Latest Android ,Desktop and Website Built with Cutting Fully Proven and Tested Softwares and FrameWorks to Get Your Ideas to Life .
-
-    <br><br>
-
-    Ero Innovations,We let You Imagine,then We Innovate Your Dreams and Let Others get Inspired.
-
-    <br><br>
-
-    We let Handle Developments of Also Systems and Server Configurations and Frame Work Developments For Both Tech and Non Tech Related Clients With Ease.
-    
-    `;
-
-    HOMESCROLLHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        LEFTIMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'25px','25px','0.5rem','',()=>{
-
-        });
-
-        CENTERTEXT(ELEMENT,'h2','Ero Innovations','','20px','','',()=>{
-
-        });
-
-        RIGHTIMAGE(ELEMENT,WHITEMENUICON,'25px','25px','0.5rem','',()=>{
-
-            FULLMENUTEMPLATE('','#04143c','50%','right',(ELEMENTS)=>{
-
-                ANDROIDMENU(ELEMENTS);
-
-            });
-
-        });
-
-    },(ELEMENT)=>{
-
-        IMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'100%','50%','',()=>{
-
-        });
-
-        CENTERTEXT(ELEMENT,'h2','Welcome','','20px','',()=>{
-
-        });
-
-        LEFTTEXT(ELEMENT,'',WELCOMENOTE,'','16px','0.2rem','',()=>{
-
-        });
-
-    });
-
-};
-
-const ANDROIDMENU=(ELEMENT)=>{
-
-    BUTTONIMAGE(ELEMENT,' ','About Us','',WHITEINFOICON,'50px','',()=>{
-
-    });
-
-    BUTTONIMAGE(ELEMENT,' ','Developers','',WHITEMOBILEDEVELOPMENTICON,'50px','',()=>{
-
-    });
-
-    BUTTONIMAGE(ELEMENT,' ','Contact Us','',WHITEPHONEICON,'50px','',()=>{
-
-    });
-
-    BUTTONIMAGE(ELEMENT,' ','Download App','',WHITEDOWNLOADICON,'50px','',()=>{
-
-    });
-
-};
-
-const DESKTOPHOMEPAGE=()=>{
-
-    CLEAR('');
-
-
-};
+}
