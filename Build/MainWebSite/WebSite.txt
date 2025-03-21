@@ -24,11 +24,15 @@ const NOVASTART=()=>{
 
 const ANDROIDHOMEPAGE=()=>{
 
-    const WELCOMENOTE=`Ero Innovations,We are the lead Developer in Cloud Native Software.
+    const WELCOMENOTE=`
+
+    <br><br>
+    
+    Ero Innovations,We are the lead Developer in Cloud Native Software.
 
     <br><br>
 
-    Get Your Latest Android ,Desktop and Website Built with Cutting Fully Proven and Tested Softwares and Frames to Get Your Ideas to Life .
+    Get Your Latest Android ,Desktop and Website Built with Cutting Fully Proven and Tested Softwares and FrameWorks to Get Your Ideas to Life .
 
     <br><br>
 
@@ -68,7 +72,7 @@ const ANDROIDHOMEPAGE=()=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'',WELCOMENOTE,'','16px','1rem','',()=>{
+        LEFTTEXT(ELEMENT,'',WELCOMENOTE,'','16px','0.2rem','',()=>{
 
         });
 
@@ -79,5 +83,6 @@ const ANDROIDHOMEPAGE=()=>{
 const DESKTOPHOMEPAGE=()=>{
 
     CLEAR('');
+
 
 };
