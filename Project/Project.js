@@ -56,7 +56,9 @@ const ANDROIDHOMEPAGE=()=>{
 
         RIGHTIMAGE(ELEMENT,WHITEMENUICON,'25px','25px','0.5rem','',()=>{
 
-            FULLMENUTEMPLATE('','#04143c','50%','right',()=>{
+            FULLMENUTEMPLATE('','#04143c','50%','right',(ELEMENTS)=>{
+
+                ANDROIDMENU(ELEMENTS);
 
             });
 
@@ -75,6 +77,26 @@ const ANDROIDHOMEPAGE=()=>{
         LEFTTEXT(ELEMENT,'',WELCOMENOTE,'','16px','0.2rem','',()=>{
 
         });
+
+    });
+
+};
+
+const ANDROIDMENU=(ELEMENT)=>{
+
+    BUTTONIMAGE(ELEMENT,' ','About Us','',WHITEINFOICON,'50px','',()=>{
+
+    });
+
+    BUTTONIMAGE(ELEMENT,' ','Developers','',WHITEMOBILEDEVELOPMENTICON,'50px','',()=>{
+
+    });
+
+    BUTTONIMAGE(ELEMENT,' ','Contact Us','',WHITEPHONEICON,'50px','',()=>{
+
+    });
+
+    BUTTONIMAGE(ELEMENT,' ','Download App','',WHITEDOWNLOADICON,'50px','',()=>{
 
     });
 
