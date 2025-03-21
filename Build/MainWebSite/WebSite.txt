@@ -98,6 +98,8 @@ const ANDROIDMENU=(ELEMENT)=>{
 
     BUTTONIMAGE(ELEMENT,' ','Download App','',WHITEDOWNLOADICON,'50px','',()=>{
 
+        WEBSITE('https://eroinnovations.site/apps/elite.apk');
+
     });
 
 };
