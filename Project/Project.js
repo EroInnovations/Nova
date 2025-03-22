@@ -110,13 +110,19 @@ const CONTACTUSPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        CENTERTEXT(ELEMENT,'','Fill the Form Below','','25px','5% auto',()=>{
+        CENTERTEXT(ELEMENT,'','Fill the Form Below <hr>','','25px','5% auto',()=>{
 
         });
         
-        BUTTON(ELEMENT,'96%','50px','#061b4e','','Select Reason For Contact','2% auto 1% auto',()=>{
+        BUTTON(ELEMENT,'98%','50px','#061b4e','','Select Reason For Contact','1% auto',()=>{
 
             ROUTE(' ',CONTACTSUBJECTPAGE,'CONTACTUSPAGE');
+
+        });
+
+        BUTTON(ELEMENT,'98%','50px','#061b4e','','Select Your Country','1% auto',()=>{
+
+            ROUTE(' ',COUNTRIESPAGE,'CONTACTUSPAGE');
 
         });
 
@@ -140,7 +146,7 @@ const CONTACTUSPAGE=()=>{
 
 };
 
-const CONTACTSUBJECTPAGE=(ELEMENTES)=>{
+const CONTACTSUBJECTPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
@@ -174,6 +180,30 @@ const CONTACTSUBJECTPAGE=(ELEMENTES)=>{
 
         });
 
+    });
+
+};
+
+const COUNTRIESPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+    },'Country','',()=>{
+
+    },(ELEMENT)=>{
+
+        REDUX(COUNTRIES,(data)=>{
+
+            BUTTONIMAGE(ELEMENT,'#061b4e',data.name,'',WHITELOCATIONICON,'','2% auto',()=>{
+
+                ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+            });
+
+        });
+       
     });
 
 };
