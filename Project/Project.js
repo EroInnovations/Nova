@@ -100,6 +100,8 @@ const DEVELOPERPAGE=()=>{
 
 const CONTACTUSPAGE=()=>{
 
+    BACKPAGE('SETTINGSPAGE');
+
     LEFTTEXTBACKHEADERBODY('',()=>{
 
         ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
@@ -111,10 +113,10 @@ const CONTACTUSPAGE=()=>{
         CENTERTEXT(ELEMENT,'','Fill the Form Below','','25px','5% auto',()=>{
 
         });
-
+        
         BUTTON(ELEMENT,'96%','50px','#061b4e','','Select Reason For Contact','2% auto 1% auto',()=>{
 
-            CONTACTSUBJECT();
+            ROUTE(' ',CONTACTSUBJECTPAGE,'CONTACTUSPAGE');
 
         });
 
@@ -138,11 +140,17 @@ const CONTACTUSPAGE=()=>{
 
 };
 
-const CONTACTSUBJECT=()=>{
+const CONTACTSUBJECTPAGE=(ELEMENTES)=>{
 
-    CENTERVIEW('','#061b4e',(ELEMENT)=>{
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-        CENTERTEXT(ELEMENT,'','Subject Of Contact ','','20px','5% auto',()=>{
+        ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+    },'Subject','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Select Reason For Contact','','25px','5% auto',()=>{
 
         });
 
@@ -150,25 +158,19 @@ const CONTACTSUBJECT=()=>{
 
         });
 
-        BUTTON(ELEMENT,'96%','50px','#04143c','','Complaint','2% auto 1% auto',()=>{
+        BUTTONIMAGE(ELEMENT,'#061b4e','Complaint','',WHITEGROUPICON,'','2% auto',()=>{
 
         });
 
-        BUTTON(ELEMENT,'96%','50px','#04143c','','Inquries','2% auto 1% auto',()=>{
+        BUTTONIMAGE(ELEMENT,'#061b4e','Inquiries','',WHITEHELPICON,'','2% auto',()=>{
 
         });
 
-        BUTTON(ELEMENT,'96%','50px','#04143c','','Business','2% auto 1% auto',()=>{
+        BUTTONIMAGE(ELEMENT,'#061b4e','Business','',WHITESUITCASEICON,'','2% auto',()=>{
 
         });
 
-        BUTTON(ELEMENT,'96%','50px','#04143c','','Others','2% auto 1% auto',()=>{
-
-        });
-
-        BUTTONIMAGE(ELEMENT,'brown','Close','',WHITECLOSEICON,'','2% auto',()=>{
-
-            STYLED(ELEMENT,'display','none');
+        BUTTONIMAGE(ELEMENT,'#061b4e','Others','',WHITESEARCHICON,'','2% auto',()=>{
 
         });
 
