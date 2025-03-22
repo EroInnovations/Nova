@@ -8,7 +8,16 @@ const NOVASTART=()=>{
 
 const HOMEPAGE=()=>{
 
-    HOMEFOOTERTEMPLATE('',' ',()=>{
+    HOMEFOOTERTEMPLATE('',' ',(ELEMENTS)=>{
+
+        CENTERTEXT(ELEMENTS,'h1','Ero Innovations','','25px','5% auto',()=>{
+
+        });
+
+
+        LEFTTEXT(ELEMENTS,'','Under Development','','18px','2%',()=>{
+
+        });
 
     },(ELEMENT)=>{
 
@@ -17,6 +26,8 @@ const HOMEPAGE=()=>{
         });
 
         ICON(ELEMENT,WHITEMOBILEDEVELOPMENTICON,'25px','25px','',()=>{
+          
+            ROUTE(' ',DEVELOPERPAGE,'HOMEPAGE');
             
         });
 
@@ -60,8 +71,23 @@ const SETTINGSPAGE=()=>{
 
         BUTTONIMAGE(ELEMENTS,'#061b4e','Contact Us','',WHITEPHONEICON,'','2% auto',()=>{
 
-
         });
+
+    });
+
+};
+
+const DEVELOPERPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Developer','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
 
     });
 
