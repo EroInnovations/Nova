@@ -74,6 +74,13 @@ const SETTINGSPAGE=()=>{
 
         BUTTONIMAGE(ELEMENTS,'#061b4e','Contact Us','',WHITEPHONEICON,'','2% auto',()=>{
 
+            DELETEDATA('','UserSubject');
+            DELETEDATA('','UserCountry');
+            DELETEDATA('','UserName');
+            DELETEDATA('','UserEmail');
+            DELETEDATA('','UserMessage');
+            DELETEDATA('','Code');
+
             ROUTE(' ',CONTACTUSPAGE,'SETTINGSPAGE');
 
         });
@@ -114,31 +121,147 @@ const CONTACTUSPAGE=()=>{
 
         });
         
-        BUTTON(ELEMENT,'98%','50px','#061b4e','','Select Reason For Contact','1% auto',()=>{
+        BUTTON(ELEMENT,'98%','50px','#061b4e','',sessionStorage.getItem('UserSubject')||'Select Reason For Contact','1% auto',()=>{
 
             ROUTE(' ',CONTACTSUBJECTPAGE,'CONTACTUSPAGE');
 
         });
 
-        BUTTON(ELEMENT,'98%','50px','#061b4e','','Select Your Country','1% auto',()=>{
+        BUTTON(ELEMENT,'98%','50px','#061b4e','',sessionStorage.getItem('UserCountry')||'Select Your Country','1% auto',()=>{
 
             ROUTE(' ',COUNTRIESPAGE,'CONTACTUSPAGE');
 
         });
 
-        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Name',()=>{
+        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Name',(data)=>{
+
+            STOREDATA('','UserName',data);
 
         });
 
-        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',()=>{
+        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',(data)=>{
+
+            STOREDATA('','UserEmail',data);
 
         });
 
-        TEXTAREA(ELEMENT,'','','50%','Compose Your Message',()=>{
+        TEXTAREA(ELEMENT,'','','50%','Compose Your Message',(data)=>{
+
+            STOREDATA('','UserMessage',data);
 
         });
 
-        BUTTON(ELEMENT,'96%','50px','forestgreen','','Sumbit','2% auto 1% auto',()=>{
+        BUTTON(ELEMENT,'96%','50px','forestgreen','','Submit','2% auto 1% auto',(ELEMENTS)=>{
+
+            CONDITION(sessionStorage.getItem('UserSubject'),()=>{
+
+                CONDITION(sessionStorage.getItem('UserCountry'),()=>{
+
+                    CONDITION(sessionStorage.getItem('UserName'),()=>{
+
+                        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+                            
+                            CONDITION(sessionStorage.getItem('UserMessage'),()=>{
+
+                                CONDITION(navigator.onLine,()=>{
+
+                                    MESSAGEDISPLAY('','Please Wait Your Message Is Being Sent','');
+
+                                    DISPLAY(ELEMENTS,'...Please Wait...');
+
+                                    RANDOMCODE((code)=>{
+
+                                        STOREDATA('','Code',code);
+
+                                        const HEADERS=['UserSubject','UserCounty','UserName','UserEmail','UserMessage','CodeNumber'];
+
+                                        const INFO=[sessionStorage.getItem('UserSubject'),sessionStorage.getItem('UserCountry'),sessionStorage.getItem('UserName'),sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserMessage'),code];
+
+                                        INSERTDATA(API,sessionStorage.getItem('UserSubject'),HEADERS,INFO,(datata)=>{
+    
+                                            GETDATA(API,sessionStorage.getItem('UserSubject'),(datate)=>{
+
+                                                REDUX(datate,(Element)=>{
+
+                                                    CONDITION(sessionStorage.getItem('Code').toString() === Element.CodeNumber.toString() ,()=>{
+
+                                                        const MESSAGE=`Dear ${Element.UserName}\n\n Your ${Element.UserSubject} Contact has Been Recieved and Assigned Follow Up Number That We Shall Use to Get Back To You.\n\n Your ${Element.UserSubject} Number Issue Tracking  is \n\n ${Element.ID}\n\n Thank You For Patience\n\n From Elite Robust Ontology Contact Team.`;
+
+                                                        EMAILSENDER(Element.UserEmail,Element.UserSubject,MESSAGE,(data)=>{
+
+                                                            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+                                                        },(data)=>{
+
+                                                            MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                                            DISPLAY(ELEMENTS,'Submit');
+
+                                                        });
+
+                                                    },()=>{
+
+                                                        MESSAGEDISPLAY('','Something Went Wrong,Try Again','');
+
+                                                        DISPLAY(ELEMENTS,'Submit');
+
+                                                    });
+
+                                                });
+
+                                            },()=>{
+
+                                                MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                                DISPLAY(ELEMENTS,'Submit');
+
+                                            });
+    
+                                        },(datata)=>{
+    
+                                            MESSAGEDISPLAY('','Message Sending Failed','');
+
+                                            DISPLAY(ELEMENTS,'Submit');
+    
+                                        });
+
+                                    });
+
+                                },()=>{
+
+                                    MESSAGEDISPLAY('','Please Check Your Internet Connection','');
+
+                                });
+
+                            },()=>{
+                
+                                MESSAGEDISPLAY('','Please Write Your Message','');
+                
+                            });
+                
+                        },()=>{
+            
+                            MESSAGEDISPLAY('','Please Provide Your Email','');
+            
+                        });
+
+                    },()=>{
+        
+                        MESSAGEDISPLAY('','Please Provide Your Name','');
+        
+                    });
+
+                },()=>{
+    
+                    MESSAGEDISPLAY('','Please Select A Country','');
+    
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Please Select A Subject','');
+
+            });
 
         });
 
@@ -166,17 +289,41 @@ const CONTACTSUBJECTPAGE=()=>{
 
         BUTTONIMAGE(ELEMENT,'#061b4e','Complaint','',WHITEGROUPICON,'','2% auto',()=>{
 
+            STOREDATA('','UserSubject','Complaint');
+
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
         });
 
         BUTTONIMAGE(ELEMENT,'#061b4e','Inquiries','',WHITEHELPICON,'','2% auto',()=>{
+
+            STOREDATA('','UserSubject','Inquiries');
+
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
 
         });
 
         BUTTONIMAGE(ELEMENT,'#061b4e','Business','',WHITESUITCASEICON,'','2% auto',()=>{
 
+            STOREDATA('','UserSubject','Business');
+
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,'#061b4e','Developer','',WHITEMOBILEDEVELOPMENTICON,'','2% auto',()=>{
+
+            STOREDATA('','UserSubject','Developer');
+
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
         });
 
         BUTTONIMAGE(ELEMENT,'#061b4e','Others','',WHITESEARCHICON,'','2% auto',()=>{
+
+            STOREDATA('','UserSubject','Others');
+
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
 
         });
 
@@ -197,6 +344,8 @@ const COUNTRIESPAGE=()=>{
         REDUX(COUNTRIES,(data)=>{
 
             BUTTONIMAGE(ELEMENT,'#061b4e',data.name,'',WHITELOCATIONICON,'','2% auto',()=>{
+
+                STOREDATA('','UserCountry',data.name);
 
                 ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
 
