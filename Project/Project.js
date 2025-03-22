@@ -150,19 +150,19 @@ const CONTACTSUBJECT=()=>{
 
         });
 
-        BUTTON(ELEMENT,'96%','50px','blue','','Complaint','2% auto 1% auto',()=>{
+        BUTTON(ELEMENT,'96%','50px','#04143c','','Complaint','2% auto 1% auto',()=>{
 
         });
 
-        BUTTON(ELEMENT,'96%','50px','blue','','Inquries','2% auto 1% auto',()=>{
+        BUTTON(ELEMENT,'96%','50px','#04143c','','Inquries','2% auto 1% auto',()=>{
 
         });
 
-        BUTTON(ELEMENT,'96%','50px','blue','','Business','2% auto 1% auto',()=>{
+        BUTTON(ELEMENT,'96%','50px','#04143c','','Business','2% auto 1% auto',()=>{
 
         });
 
-        BUTTON(ELEMENT,'96%','50px','blue','','Others','2% auto 1% auto',()=>{
+        BUTTON(ELEMENT,'96%','50px','#04143c','','Others','2% auto 1% auto',()=>{
 
         });
 
