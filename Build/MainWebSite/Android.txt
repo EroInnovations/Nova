@@ -58,6 +58,11 @@ const SETTINGSPAGE=()=>{
 
         });
 
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Contact Us','',WHITEPHONEICON,'','2% auto',()=>{
+
+
+        });
+
     });
 
 };
