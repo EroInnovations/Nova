@@ -32,8 +32,32 @@ const HOMEPAGE=()=>{
 
 const SETTINGSPAGE=()=>{
 
-    HOMEHEADERTEMPLATE('',' ',' ',()=>{
-        
-    },HomeCallBack)
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
-}
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Settings','',()=>{
+
+    },(ELEMENTS)=>{
+
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Donate','',WHITESUBSCRIPTIONICON,'','2% auto',()=>{
+
+        });
+
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Join Beta','',WHITECREATEDONICON,'','2% auto',()=>{
+
+        });
+
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Email Updates','',WHITEGMAILICON,'','2% auto',()=>{
+
+        });
+
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Sync','',WHITERETRYICON,'','2% auto',()=>{
+
+            RELOAD();
+
+        });
+
+    });
+
+};
