@@ -1,9 +1,9 @@
-const TEXTAREA=(ELEMENT,TYPE,COLOR,PLACEHOLDER,callback)=>{
+const TEXTAREA=(ELEMENT,TYPE,COLOR,HEIGHT,PLACEHOLDER,callback)=>{
 
     const ELEMENTS=document.createElement("textarea");
  
     ELEMENTS.style.width='95%';
-    ELEMENTS.style.height='100px';
+    ELEMENTS.style.height=HEIGHT||'100px';
     ELEMENTS.style.border='1px solid #cdcdcd';
     ELEMENTS.style.background='transparent';
     ELEMENTS.style.outline='none';

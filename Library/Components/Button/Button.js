@@ -1,4 +1,4 @@
-const BUTTON=(ELEMENT,WIDTH,HEIGHT,BGCOLOR,COLOR,TEXT,callback)=>{
+const BUTTON=(ELEMENT,WIDTH,HEIGHT,BGCOLOR,COLOR,TEXT,MARGIN,callback)=>{
 
     const ELEMENT1=document.createElement('button');
 
@@ -9,7 +9,7 @@ const BUTTON=(ELEMENT,WIDTH,HEIGHT,BGCOLOR,COLOR,TEXT,callback)=>{
     ELEMENT1.style.color=COLOR||'#cdcdcd';
     ELEMENT1.style.borderRadius='10px';
     ELEMENT1.style.border='none';
-    ELEMENT1.style.marginTop='2%';
+    ELEMENT1.style.margin=MARGIN||'auto';
 
     ELEMENT1.innerHTML=TEXT||'Your Text';
 

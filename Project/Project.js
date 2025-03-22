@@ -1,3 +1,5 @@
+const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSlJk7KFiJiCOgYOQ/edit?usp=sharing';
+
 const NOVASTART=()=>{
 
     APPMODE('#04143c');
@@ -13,7 +15,6 @@ const HOMEPAGE=()=>{
         CENTERTEXT(ELEMENTS,'h1','Ero Innovations','','25px','5% auto',()=>{
 
         });
-
 
         LEFTTEXT(ELEMENTS,'','Under Development','','18px','2%',()=>{
 
@@ -43,6 +44,8 @@ const HOMEPAGE=()=>{
 
 const SETTINGSPAGE=()=>{
 
+    BACKPAGE('HOMEPAGE');
+
     LEFTTEXTBACKHEADERBODY('',()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
@@ -71,6 +74,8 @@ const SETTINGSPAGE=()=>{
 
         BUTTONIMAGE(ELEMENTS,'#061b4e','Contact Us','',WHITEPHONEICON,'','2% auto',()=>{
 
+            ROUTE(' ',CONTACTUSPAGE,'SETTINGSPAGE');
+
         });
 
     });
@@ -88,6 +93,84 @@ const DEVELOPERPAGE=()=>{
     },(ELEMENTS)=>{
 
         DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const CONTACTUSPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+    },'Contact Us','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Fill the Form Below','','25px','5% auto',()=>{
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','#061b4e','','Select Reason For Contact','2% auto 1% auto',()=>{
+
+            CONTACTSUBJECT();
+
+        });
+
+        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Name',()=>{
+
+        });
+
+        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',()=>{
+
+        });
+
+        TEXTAREA(ELEMENT,'','','50%','Compose Your Message',()=>{
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','forestgreen','','Sumbit','2% auto 1% auto',()=>{
+
+        });
+
+    });
+
+};
+
+const CONTACTSUBJECT=()=>{
+
+    CENTERVIEW('','#061b4e',(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Subject Of Contact ','','20px','5% auto',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'','<hr>','','20px','5% auto',()=>{
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','blue','','Complaint','2% auto 1% auto',()=>{
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','blue','','Inquries','2% auto 1% auto',()=>{
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','blue','','Business','2% auto 1% auto',()=>{
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','blue','','Others','2% auto 1% auto',()=>{
+
+        });
+
+        BUTTONIMAGE(ELEMENT,'brown','Close','',WHITECLOSEICON,'','2% auto',()=>{
+
+            STYLED(ELEMENT,'display','none');
+
+        });
 
     });
 
