@@ -34,7 +34,7 @@ const HOMEPAGE=()=>{
 
             GETINDEXEDDATA ('HomePosts', 'HomePosts', (data)=>{
 
-                VIEW(ELEMENT,'#061b4e','95%','200px','2%',(ELEMENTES)=>{
+                VIEW(ELEMENT,'#061b4e','95%','215px','2%',(ELEMENTES)=>{
 
                     LEFTVIEW(ELEMENTES,' ','45%','95%','1%',(ELEMENTSE)=>{
 
@@ -62,13 +62,13 @@ const HOMEPAGE=()=>{
                 
                         });
 
-                        DISPLAYVIEW(ELEMENTSE,'green','95%','40px',(ELEMENT)=>{
+                        DISPLAYVIEW(ELEMENTSE,' ','95%','45px',(ELEMENT)=>{
 
-                            LEFTTEXT(ELEMENT,'','Like','','20px','0.5rem','',()=>{
+                            LEFTTEXT(ELEMENT,'','Like','green','20px','0.5rem','',()=>{
                 
                             });
                 
-                            RIGHTTEXT(ELEMENT,'','Read More','','20px','0.5rem','',()=>{
+                            RIGHTTEXT(ELEMENT,'','Read More','green','20px','0.5rem','',()=>{
                 
                             });
                 
