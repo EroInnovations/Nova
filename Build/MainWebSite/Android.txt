@@ -12,11 +12,15 @@ const HOMEPAGE=()=>{
 
     HOMEFOOTERTEMPLATE('',' ',(ELEMENTS)=>{
 
-        CENTERTEXT(ELEMENTS,'h1','Ero Innovations','','25px','5% auto',()=>{
+        DISPLAYVIEW(ELEMENTS,' ','95%','50px',(ELEMENT)=>{
 
-        });
+            LEFTTEXT(ELEMENT,'','Elite','','20px','0.1rem','',()=>{
 
-        LEFTTEXT(ELEMENTS,'','Under Development','','18px','2%',()=>{
+            });
+
+            RIGHTIMAGE(ELEMENT,WHITEPOSTICON,'20px','20px','0.1rem','',()=>{
+
+            });
 
         });
 
