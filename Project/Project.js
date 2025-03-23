@@ -12,6 +12,8 @@ const NOVASTART=()=>{
 
 const HOMEPAGE=()=>{
 
+    DELETEDATA('','CurrentData');
+
     DATADOWNLOAD();
 
     HOMEFOOTERTEMPLATE('',' ',(ELEMENTS)=>{
@@ -34,46 +36,59 @@ const HOMEPAGE=()=>{
 
             GETINDEXEDDATA ('HomePosts', 'HomePosts', (data)=>{
 
-                VIEW(ELEMENT,'#061b4e','95%','215px','2%',(ELEMENTES)=>{
+                CHECKER(data.PostApproved,()=>{
 
-                    LEFTVIEW(ELEMENTES,' ','45%','95%','1%',(ELEMENTSE)=>{
+                    VIEW(ELEMENT,'#061b4e','95%','215px','2%',(ELEMENTES)=>{
 
-                        LEFTIMAGE(ELEMENTSE,data.PostImage||EROINNOVATIONSLOGOONE,'100%','100%','0','0',()=>{
+                        LEFTVIEW(ELEMENTES,' ','45%','95%','1%',(ELEMENTSE)=>{
+    
+                            LEFTIMAGE(ELEMENTSE,data.PostImage||EROINNOVATIONSLOGOONE,'100%','100%','0','0',()=>{
+        
+                            });
+        
+                        });
+    
+                        RIGHTVIEW(ELEMENTES,' ','52%','95%','1%',(ELEMENTSE)=>{
+    
+                            CENTERTEXT(ELEMENTSE,'',data.PostName,'','18px','5% auto',()=>{
+    
+                            });
+                    
+                            CENTERTEXT(ELEMENTSE,'','<hr>','','','5% auto',()=>{
+                    
+                            });
+    
+                            LEFTTEXT(ELEMENTSE,'',data.PostShortStory,'','16px','0.1rem','',()=>{
+    
+                            });
+    
+                            CENTERTEXT(ELEMENTSE,'','<hr>','','','',()=>{
+                    
+                            });
+    
+                            DISPLAYVIEW(ELEMENTSE,' ','95%','45px',(ELEMENT)=>{
+    
+                                LEFTTEXT(ELEMENT,'','Like','green','20px','0.5rem','',()=>{
+                    
+                                });
+                    
+                                RIGHTTEXT(ELEMENT,'','Read More','green','20px','0.5rem','',()=>{
+    
+                                    JSONIFICATION(data,(MyData)=>{
+    
+                                        STOREDATA('','CurrentData',MyData);
+    
+                                        ROUTE(' ',READMOREPAGE,'HOMEPAGE');
+    
+    
+                                    });
+                    
+                                });
+                    
+                            });
     
                         });
     
-                    });
-
-                    RIGHTVIEW(ELEMENTES,' ','52%','95%','1%',(ELEMENTSE)=>{
-
-                        CENTERTEXT(ELEMENTSE,'',data.PostName,'','18px','5% auto',()=>{
-
-                        });
-                
-                        CENTERTEXT(ELEMENTSE,'','<hr>','','','5% auto',()=>{
-                
-                        });
-
-                        LEFTTEXT(ELEMENTSE,'',data.PostShortStory,'','16px','0.1rem','',()=>{
-
-                        });
-
-                        CENTERTEXT(ELEMENTSE,'','<hr>','','','',()=>{
-                
-                        });
-
-                        DISPLAYVIEW(ELEMENTSE,' ','95%','45px',(ELEMENT)=>{
-
-                            LEFTTEXT(ELEMENT,'','Like','green','20px','0.5rem','',()=>{
-                
-                            });
-                
-                            RIGHTTEXT(ELEMENT,'','Read More','green','20px','0.5rem','',()=>{
-                
-                            });
-                
-                        });
-
                     });
 
                 });
@@ -816,6 +831,44 @@ const DATADOWNLOAD=()=>{
         
             });
     
+        });
+
+    });
+
+};
+
+const READMOREPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('CurrentData'),(Data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },Data.PostName,'',()=>{
+    
+        },(ELEMENTS)=>{
+
+            IMAGE(ELEMENTS,Data.PostImage||EROINNOVATIONSLOGOONE,'100%','50%','',()=>{
+
+            });
+
+            DISPLAYVIEW(ELEMENTS,' ','95%','45px',(ELEMENT)=>{
+    
+                LEFTTEXT(ELEMENT,'',Data.PostedBy,'green','20px','0.5rem','',()=>{
+    
+                });
+    
+                RIGHTTEXT(ELEMENT,'',Data.PostDate,'green','20px','0.5rem','',()=>{
+    
+                });
+    
+            });
+
+            LEFTTEXT(ELEMENTS,'',Data.PostStory,'','16px','0.5rem','',()=>{
+
+            });
+
         });
 
     });
