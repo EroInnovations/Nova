@@ -58,11 +58,19 @@ const SETTINGSPAGE=()=>{
 
         });
 
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Privacy Policy','',WHITEPRIVACYPOLICYICON,'','2% auto',()=>{
+
+        });
+
         BUTTONIMAGE(ELEMENTS,'#061b4e','Join Beta','',WHITECREATEDONICON,'','2% auto',()=>{
+
+            ROUTE('',JOINBETAPAGE,'SETTINGSPAGE');
 
         });
 
         BUTTONIMAGE(ELEMENTS,'#061b4e','Email Updates','',WHITEGMAILICON,'','2% auto',()=>{
+
+            ROUTE('',EMAILUPDATEPAGE,'SETTINGSPAGE');
 
         });
 
@@ -353,6 +361,242 @@ const COUNTRIESPAGE=()=>{
 
         });
        
+    });
+
+};
+
+const EMAILUPDATEPAGE=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    const MESSAGE=`When You Sign Up for Our Email Programme,You are Agreeing to the Terms and Conditions of Elite Robust Ontology Of 2025 Act. <br><br> You have Allowed to Join the Mail System where we shall send you updates of our latest products and insider news ,You also get a chance to test some products while in development mode and become a contributor before they even go live to the general Public <br><br> Get Started Today By Providing Your Email Address Below.`;
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+    },'Email','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Email Updates','','25px','5% auto',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'','<hr>','','20px','5% auto',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'',MESSAGE,'','18px','2%',()=>{
+
+        });
+
+        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',(data)=>{
+
+            STOREDATA('','UserEmail',data);
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','forestgreen','','Sign Me Up','2% auto 1% auto',(ELEMENTS)=>{
+
+            CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Please Wait While You Get Signed Up','');
+
+                    DISPLAY(ELEMENTS,'...Please Wait...');
+
+                    RANDOMCODE((code)=>{
+
+                        STOREDATA('','Code',code);
+
+                        const HEADERS=['UserSubject','UserEmail','UserMessage','CodeNumber'];
+
+                        const INFO=['Email Updates',sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserMessage'),code];
+
+                        INSERTDATA(API,'EmailUpdater',HEADERS,INFO,(datata)=>{
+
+                            GETDATA(API,'EmailUpdater',(datate)=>{
+
+                                REDUX(datate,(Element)=>{
+
+                                    CONDITION(sessionStorage.getItem('Code').toString() === Element.CodeNumber.toString() ,()=>{
+
+                                        const MESSAGE=`Dear User\n\n Your ${Element.UserSubject} Contact has Been Recieved and Assigned Follow Up Number That We Shall Use to Get Back To You.\n\n Your ${Element.UserSubject} Number Issue Tracking  is \n\n ${Element.ID}\n\n Thank You For Patience\n\n From Elite Robust Ontology Contact Team.`;
+
+                                        EMAILSENDER(Element.UserEmail,Element.UserSubject,MESSAGE,(data)=>{
+
+                                            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+                                        },(data)=>{
+
+                                            MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                            DISPLAY(ELEMENTS,'Submit');
+
+                                        });
+
+                                    },()=>{
+
+                                        MESSAGEDISPLAY('','Something Went Wrong,Try Again','');
+
+                                        DISPLAY(ELEMENTS,'Submit');
+
+                                    });
+
+                                });
+
+                            },()=>{
+
+                                MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                DISPLAY(ELEMENTS,'SubSign Me Upmit');
+
+                            });
+
+                        },(datata)=>{
+
+                            MESSAGEDISPLAY('','Message Sending Failed','');
+
+                            DISPLAY(ELEMENTS,'Sign Me Up');
+
+                        });
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Please Check Your Internet Connection','');
+
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Please Provide Your Email','');
+
+            });
+
+        });
+
+    });
+
+};
+
+const JOINBETAPAGE=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    const MESSAGE=`When You Sign Up for Our Beta Programme,You are Agreeing to the Terms and Conditions of Elite Robust Ontology Of 2025 Act. <br><br> You have Allowed to Join the Beta System where we shall send you updates of our latest products and insider news ,You also get a chance to test some products while in development mode and become a contributor before they even go live to the general Public <br><br> Get Started Today By Providing Your Email Address Below.`;
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+    },'Beta','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Join Beta','','25px','5% auto',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'','<hr>','','20px','5% auto',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'',MESSAGE,'','18px','2%',()=>{
+
+        });
+
+        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',(data)=>{
+
+            STOREDATA('','UserEmail',data);
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','forestgreen','','Sign Me Up','2% auto 1% auto',(ELEMENTS)=>{
+
+            CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Please Wait While You Get Signed Up','');
+
+                    DISPLAY(ELEMENTS,'...Please Wait...');
+
+                    RANDOMCODE((code)=>{
+
+                        STOREDATA('','Code',code);
+
+                        const HEADERS=['UserSubject','UserEmail','UserMessage','CodeNumber'];
+
+                        const INFO=['Join Beta',sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserMessage'),code];
+
+                        INSERTDATA(API,'JoinBeta',HEADERS,INFO,(datata)=>{
+
+                            GETDATA(API,'JoinBeta',(datate)=>{
+
+                                REDUX(datate,(Element)=>{
+
+                                    CONDITION(sessionStorage.getItem('Code').toString() === Element.CodeNumber.toString() ,()=>{
+
+                                        const MESSAGE=`Dear User\n\n Your ${Element.UserSubject} Contact has Been Recieved and Assigned Follow Up Number That We Shall Use to Get Back To You.\n\n Your ${Element.UserSubject} Number Issue Tracking  is \n\n ${Element.ID}\n\n Thank You For Patience\n\n From Elite Robust Ontology Contact Team.`;
+
+                                        EMAILSENDER(Element.UserEmail,Element.UserSubject,MESSAGE,(data)=>{
+
+                                            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+                                        },(data)=>{
+
+                                            MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                            DISPLAY(ELEMENTS,'Submit');
+
+                                        });
+
+                                    },()=>{
+
+                                        MESSAGEDISPLAY('','Something Went Wrong,Try Again','');
+
+                                        DISPLAY(ELEMENTS,'Submit');
+
+                                    });
+
+                                });
+
+                            },()=>{
+
+                                MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                DISPLAY(ELEMENTS,'SubSign Me Upmit');
+
+                            });
+
+                        },(datata)=>{
+
+                            MESSAGEDISPLAY('','Message Sending Failed','');
+
+                            DISPLAY(ELEMENTS,'Sign Me Up');
+
+                        });
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Please Check Your Internet Connection','');
+
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Please Provide Your Email','');
+
+            });
+
+        });
+
     });
 
 };
