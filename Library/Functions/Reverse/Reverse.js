@@ -1,6 +1,6 @@
-const REVERSE=(data,callback)=>{
+const REVERSE=(data)=>{
 
-    let DATA=[data].reverse();callback(DATA);
+    data.reverse();
 
 };
 

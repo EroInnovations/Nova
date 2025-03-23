@@ -26,6 +26,36 @@ const HOMEPAGE=()=>{
 
         });
 
+        VIEW(ELEMENTS,' ','','auto','MARGIN',(ELEMENT)=>{
+
+            DISPLAY(ELEMENT,'..Content Is Loading...');
+
+            CONDITION(navigator.onLine,()=>{
+
+                GETDATA(API,'HomePosts',(data)=>{
+
+                    CLEAR(ELEMENT);
+
+                    REVERSE(data);
+
+                    REDUX(data,(Element)=>{
+
+                        VIEW(ELEMENT,'red','95%','200px','2% ',(ELEMENTSE)=>{
+
+                        });
+    
+                    });
+
+                });
+
+            },()=>{
+
+                DISPLAY(ELEMENT,'Your Offline');
+
+            });
+
+        });
+
     },(ELEMENT)=>{
 
         ICON(ELEMENT,WHITEHOMEICON,'25px','25px','',()=>{
