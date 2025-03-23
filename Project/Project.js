@@ -103,6 +103,8 @@ const SETTINGSPAGE=()=>{
 
 const DEVELOPERPAGE=()=>{
 
+    BACKPAGE('HOMEPAGE');
+
     LEFTTEXTBACKHEADERBODY('',()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
@@ -115,13 +117,19 @@ const DEVELOPERPAGE=()=>{
 
             LEFTTEXT(ELEMENT,'','Nova','','20px','0.5rem','',()=>{
 
+                ROUTE(' ',NOVAFRAMEWORKPAGE,'DEVELOPERPAGE');
+
             });
 
             CENTERTEXT(ELEMENT,'','Elite Pay','','20px','',()=>{
 
+                ROUTE(' ',ELITEPAYPAGE,'DEVELOPERPAGE');
+
             });
 
             RIGHTTEXT(ELEMENT,'','Builders','','20px','0.5rem','',()=>{
+
+                ROUTE(' ',BUILDERSPAGE,'DEVELOPERPAGE');
 
             });
 
@@ -642,6 +650,54 @@ const DONATEPAGE=()=>{
         ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
 
     },'Donate','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const NOVAFRAMEWORKPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',DEVELOPERPAGE,'DEVELOPERPAGE');
+
+    },'Nova','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const ELITEPAYPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',DEVELOPERPAGE,'DEVELOPERPAGE');
+
+    },'Elite Pay','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const BUILDERSPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',DEVELOPERPAGE,'DEVELOPERPAGE');
+
+    },'Builders','',()=>{
 
     },(ELEMENTS)=>{
 
