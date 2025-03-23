@@ -32,7 +32,7 @@ const HOMEPAGE=()=>{
 
             GETINDEXEDDATA ('HomePosts', 'HomePosts', (data)=>{
 
-                VIEW(ELEMENT,'','95%','200px','2%',(ELEMENTES)=>{
+                VIEW(ELEMENT,'#061b4e','95%','200px','2%',(ELEMENTES)=>{
 
                     LEFTVIEW(ELEMENTES,' ','45%','95%','1%',(ELEMENTSE)=>{
 
