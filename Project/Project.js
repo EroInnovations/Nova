@@ -32,7 +32,9 @@ const HOMEPAGE=()=>{
 
             GETINDEXEDDATA ('HomePosts', 'HomePosts', (data)=>{
 
-                VIEW(ELEMENT,'red','95%','200px','2%',(ELEMENTES)=>{
+                console.log(data);
+
+                VIEW(ELEMENT,'','95%','200px','2%',(ELEMENTES)=>{
 
                     LEFTVIEW(ELEMENTES,'blue','45%','95%','1%',(ELEMENTSE)=>{
 
@@ -40,7 +42,39 @@ const HOMEPAGE=()=>{
     
                         });
     
-                    })
+                    });
+
+                    RIGHTVIEW(ELEMENTES,' ','52%','95%','1%',(ELEMENTSE)=>{
+
+                        CENTERTEXT(ELEMENTSE,'',data.PostName,'','18px','5% auto',()=>{
+
+                        });
+                
+                        CENTERTEXT(ELEMENTSE,'','<hr>','','','5% auto',()=>{
+                
+                        });
+
+                        LEFTTEXT(ELEMENTSE,'',data.PostShortStory,'','16px','0.1rem','',()=>{
+
+                        });
+
+                        CENTERTEXT(ELEMENTSE,'','<hr>','','','',()=>{
+                
+                        });
+
+                        DISPLAYVIEW(ELEMENTSE,'green','95%','40px',(ELEMENT)=>{
+
+                            LEFTTEXT(ELEMENT,'','Like','','20px','0.5rem','',()=>{
+                
+                            });
+                
+                            RIGHTTEXT(ELEMENT,'','Read More','','20px','0.5rem','',()=>{
+                
+                            });
+                
+                        });
+
+                    });
 
                 });
 
