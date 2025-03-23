@@ -12,6 +12,8 @@ const NOVASTART=()=>{
 
 const HOMEPAGE=()=>{
 
+    DATADOWNLOAD();
+
     HOMEFOOTERTEMPLATE('',' ',(ELEMENTS)=>{
 
         DISPLAYVIEW(ELEMENTS,' ','95%','50px',(ELEMENT)=>{
