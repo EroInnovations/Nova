@@ -517,7 +517,7 @@ const EMAILUPDATEPAGE=()=>{
 
                         const HEADERS=['UserSubject','UserEmail','UserMessage','CodeNumber'];
 
-                        const INFO=['Email Updates',sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserMessage'),code];
+                        const INFO=['Email Updates',sessionStorage.getItem('UserEmail'),'I have Signed Up',code];
 
                         INSERTDATA(API,'EmailUpdater',HEADERS,INFO,(datata)=>{
 
@@ -635,7 +635,7 @@ const JOINBETAPAGE=()=>{
 
                         const HEADERS=['UserSubject','UserEmail','UserMessage','CodeNumber'];
 
-                        const INFO=['Join Beta',sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserMessage'),code];
+                        const INFO=['Join Beta',sessionStorage.getItem('UserEmail'),'I have Signed Up',code];
 
                         INSERTDATA(API,'JoinBeta',HEADERS,INFO,(datata)=>{
 
