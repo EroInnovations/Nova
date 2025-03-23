@@ -20,6 +20,8 @@ const HOMEPAGE=()=>{
 
             RIGHTIMAGE(ELEMENT,WHITEPOSTICON,'20px','20px','0.1rem','',()=>{
 
+                ROUTE(' ',POSTPAGE,'HOMEPAGE');
+
             });
 
         });
@@ -702,6 +704,22 @@ const BUILDERSPAGE=()=>{
         ROUTE('',DEVELOPERPAGE,'DEVELOPERPAGE');
 
     },'Builders','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const POSTPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Post','',()=>{
 
     },(ELEMENTS)=>{
 
