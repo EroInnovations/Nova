@@ -111,7 +111,21 @@ const DEVELOPERPAGE=()=>{
 
     },(ELEMENTS)=>{
 
-        DISPLAY(ELEMENTS,'Under Development');
+        DISPLAYVIEW(ELEMENTS,' ','95%','50px',(ELEMENT)=>{
+
+            LEFTTEXT(ELEMENT,'','Nova','','20px','0.5rem','',()=>{
+
+            });
+
+            CENTERTEXT(ELEMENT,'','Elite Pay','','20px','',()=>{
+
+            });
+
+            RIGHTTEXT(ELEMENT,'','Builders','','20px','0.5rem','',()=>{
+
+            });
+
+        });
 
     });
 
