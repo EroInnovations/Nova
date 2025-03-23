@@ -2,6 +2,8 @@ const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSl
 
 const NOVASTART=()=>{
 
+    DATADOWNLOAD();
+
     APPMODE('#04143c');
 
     ROUTE('',HOMEPAGE,'HOMEPAGE');
@@ -28,29 +30,19 @@ const HOMEPAGE=()=>{
 
         VIEW(ELEMENTS,' ','','auto','MARGIN',(ELEMENT)=>{
 
-            DISPLAY(ELEMENT,'..Content Is Loading...');
+            GETINDEXEDDATA ('HomePosts', 'HomePosts', (data)=>{
 
-            CONDITION(navigator.onLine,()=>{
+                VIEW(ELEMENT,'red','95%','200px','2%',(ELEMENTES)=>{
 
-                GETDATA(API,'HomePosts',(data)=>{
+                    LEFTVIEW(ELEMENTES,'blue','45%','95%','1%',(ELEMENTSE)=>{
 
-                    CLEAR(ELEMENT);
-
-                    REVERSE(data);
-
-                    REDUX(data,(Element)=>{
-
-                        VIEW(ELEMENT,'red','95%','200px','2% ',(ELEMENTSE)=>{
-
+                        LEFTIMAGE(ELEMENTSE,EROINNOVATIONSLOGOONE,'100%','100%','0','0',()=>{
+    
                         });
     
-                    });
+                    })
 
                 });
-
-            },()=>{
-
-                DISPLAY(ELEMENT,'Your Offline');
 
             });
 
@@ -754,6 +746,43 @@ const POSTPAGE=()=>{
     },(ELEMENTS)=>{
 
         DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const DATADOWNLOAD=()=>{
+
+    CHECKER(navigator.onLine,()=>{
+
+        GETDATA(API,'HomePosts',(data)=>{
+
+            REVERSE(data);
+
+            const MYDATA={
+                'Name':'HomePosts',
+                'data':data
+            }
+    
+            STOREINDEXED ('HomePosts', 'HomePosts', MYDATA, (datate)=>{
+
+                CHECKER(datate === true,()=>{
+
+                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                } );
+
+                CHECKER(datate === false,()=>{
+
+                    UPDATEINDEX('HomePosts', 'HomePosts', MYDATA,()=>{
+
+                    });
+
+                } );
+        
+            });
+    
+        });
 
     });
 

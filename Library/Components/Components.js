@@ -21,9 +21,11 @@ import { INPUT } from "./Input/Input.js";
 import { LEFTBUTTONTEXT } from "./LeftButtonText/LeftButtonText.js";
 import { LEFTIMAGE } from "./LeftImage/LeftImage.js";
 import { LEFTTEXT } from "./LeftText/LeftText.js";
+import { LEFTVIEW } from "./LeftView/LeftView.js";
 import { MESSAGEDISPLAY } from "./MessageDisplay/MessageDisplay.js";
 import { RIGHTIMAGE } from "./RightImage/RightImage.js";
 import { RIGHTTEXT } from "./RightText/RightText.js";
+import { RIGHTVIEW } from "./RightView/RightView.js";
 import { BORDERROUNDBUTTON } from "./RoundBorderButton/RoundBorderButton.js";
 import { ROUNDBUTTON } from "./RoundButton/RoundButton.js";
 import { ROUNDFOOTER } from "./RoundFooter/RoundFooter.js";
@@ -71,12 +73,14 @@ const TOPLEFTIMAGE=${TOPLEFTIMAGE};
 const TOPRIGHTIMAGE=${TOPRIGHTIMAGE};
 const BOTTOMLEFTIMAGE=${BOTTOMLEFTIMAGE};
 const BOTTOMRIGHTIMAGE=${BOTTOMRIGHTIMAGE};
+const LEFTVIEW=${LEFTVIEW};
+const RIGHTVIEW=${RIGHTVIEW};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const BOTTOMRIGHTIMAGE=${BOTTOMRIGHTIMAGE};
+const RIGHTVIEW=${RIGHTVIEW};
 
 `;
