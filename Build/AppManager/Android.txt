@@ -1357,67 +1357,67 @@ const NEWPROJECTPAGE=()=>{
 
             });
 
-            TEXTAREA(ELEMENT,'','','App Description',(data)=>{
+            TEXTAREA(ELEMENT,'','','','App Description',(data)=>{
 
                 STOREDATA('','AppDescription',data);
 
             });
 
-            TEXTAREA(ELEMENT,'','','App Configuration',(data)=>{
+            TEXTAREA(ELEMENT,'','','','App Configuration',(data)=>{
 
                 STOREDATA('','AppConfiguration',data);
 
             });
 
-            TEXTAREA(ELEMENT,'','','App KeyWord',(data)=>{
+            TEXTAREA(ELEMENT,'','','','App KeyWord',(data)=>{
 
                 STOREDATA('','AppKeyWord',data);
 
             });
 
-            TEXTAREA(ELEMENT,'','','Android Design',(data)=>{
+            TEXTAREA(ELEMENT,'','','','Android Design',(data)=>{
 
                 STOREDATA('','AndroidDesign',data);
 
             });
 
-            TEXTAREA(ELEMENT,'','','Android Functions',(data)=>{
+            TEXTAREA(ELEMENT,'','','','Android Functions',(data)=>{
 
                 STOREDATA('','AndroidFunctions',data);
 
             });
 
-            TEXTAREA(ELEMENT,'','','Desktop Design',(data)=>{
+            TEXTAREA(ELEMENT,'','','','Desktop Design',(data)=>{
 
                 STOREDATA('','DesktopDesign',data);
 
             });
 
-            TEXTAREA(ELEMENT,'','','Desktop Functions',(data)=>{
+            TEXTAREA(ELEMENT,'','','','Desktop Functions',(data)=>{
 
                 STOREDATA('','DesktopFunctions',data);
                 
             });
 
-            TEXTAREA(ELEMENT,'','','Web Design',(data)=>{
+            TEXTAREA(ELEMENT,'','','','Web Design',(data)=>{
 
                 STOREDATA('','WebDesign',data);
 
             });
 
-            TEXTAREA(ELEMENT,'','','Web Functions',(data)=>{
+            TEXTAREA(ELEMENT,'','','','Web Functions',(data)=>{
 
                 STOREDATA('','WebFunctions',data);
 
             });
 
-            TEXTAREA(ELEMENT,'','','Shared Design',(data)=>{
+            TEXTAREA(ELEMENT,'','','','Shared Design',(data)=>{
 
                 STOREDATA('','SharedDesign',data);
 
             });
 
-            TEXTAREA(ELEMENT,'','','Shared Functions',(data)=>{
+            TEXTAREA(ELEMENT,'','','','Shared Functions',(data)=>{
 
                 STOREDATA('','SharedFunctions',data);
 
