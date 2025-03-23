@@ -32,8 +32,6 @@ const HOMEPAGE=()=>{
 
             GETINDEXEDDATA ('HomePosts', 'HomePosts', (data)=>{
 
-                console.log(data);
-
                 VIEW(ELEMENT,'','95%','200px','2%',(ELEMENTES)=>{
 
                     LEFTVIEW(ELEMENTES,'blue','45%','95%','1%',(ELEMENTSE)=>{
