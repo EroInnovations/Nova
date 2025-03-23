@@ -56,9 +56,13 @@ const SETTINGSPAGE=()=>{
 
         BUTTONIMAGE(ELEMENTS,'#061b4e','Donate','',WHITESUBSCRIPTIONICON,'','2% auto',()=>{
 
+            ROUTE(' ',DONATEPAGE,'SETTINGSPAGE');
+
         });
 
         BUTTONIMAGE(ELEMENTS,'#061b4e','Privacy Policy','',WHITEPRIVACYPOLICYICON,'','2% auto',()=>{
+
+            ROUTE(' ',PRIVACYPOLICYPAGE,'SETTINGSPAGE');
 
         });
 
@@ -596,6 +600,38 @@ const JOINBETAPAGE=()=>{
             });
 
         });
+
+    });
+
+};
+
+const PRIVACYPOLICYPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+    },'Privacy Policy','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const DONATEPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+    },'Donate','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
 
     });
 
