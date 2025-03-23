@@ -34,9 +34,9 @@ const HOMEPAGE=()=>{
 
                 VIEW(ELEMENT,'','95%','200px','2%',(ELEMENTES)=>{
 
-                    LEFTVIEW(ELEMENTES,'blue','45%','95%','1%',(ELEMENTSE)=>{
+                    LEFTVIEW(ELEMENTES,' ','45%','95%','1%',(ELEMENTSE)=>{
 
-                        LEFTIMAGE(ELEMENTSE,EROINNOVATIONSLOGOONE,'100%','100%','0','0',()=>{
+                        LEFTIMAGE(ELEMENTSE,data.PostImage||EROINNOVATIONSLOGOONE,'100%','100%','0','0',()=>{
     
                         });
     
