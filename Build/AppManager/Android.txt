@@ -123,7 +123,7 @@ const LOGINPAGE=()=>{
 
     });
 
-    BUTTON('','','','forestgreen','#fff','Sign In',(ELEMENT)=>{
+    BUTTON('','','','forestgreen','#fff','Sign In','2% auto',(ELEMENT)=>{
 
         CONDITION(sessionStorage.getItem('UserEmail'),()=>{
 
@@ -165,7 +165,7 @@ const LOGINPAGE=()=>{
 
     });
 
-    BUTTON('','','','blue','#fff','Create Account',(ELEMENT)=>{
+    BUTTON('','','','blue','#fff','Create Account','2% auto',(ELEMENT)=>{
 
         ROUTE(' ',CREATEACCOUNTPAGE,'LOGINPAGE');
 
@@ -214,7 +214,7 @@ const CREATEACCOUNTPAGE=()=>{
 
     });
 
-    BUTTON('','','','forestgreen','#fff','Sign Up',(ELEMENT)=>{
+    BUTTON('','','','forestgreen','#fff','Sign Up','2% auto',(ELEMENT)=>{
 
         CONDITION(sessionStorage.getItem('UserName'),()=>{
 
@@ -286,7 +286,7 @@ const CREATEACCOUNTPAGE=()=>{
 
     });
 
-    BUTTON('','','','blue','#fff','Log In',(ELEMENT)=>{
+    BUTTON('','','','blue','#fff','Log In','2% auto',(ELEMENT)=>{
 
         ROUTE('',LOGINPAGE,'LOGINPAGE');
 
@@ -315,13 +315,13 @@ const FORGOTPASSWORDPAGE=()=>{
 
     BREAK('');
 
-    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
+    ROUNDINPUT('','email','','transparent','Email','2% auto',(ELEMENT)=>{
 
         STOREDATA('','UserEmail',ELEMENT);
 
     });
 
-    BUTTON('','','','forestgreen','#fff','Recover',(ELEMENT)=>{
+    BUTTON('','','','forestgreen','#fff','Recover','2% auto',(ELEMENT)=>{
 
         CONDITION(sessionStorage.getItem('UserEmail'),()=>{
 
@@ -361,7 +361,7 @@ const FORGOTPASSWORDPAGE=()=>{
 
     });
 
-    BUTTON('','','','blue','#fff','Cancel',(ELEMENT)=>{
+    BUTTON('','','','blue','#fff','Cancel','2% auto',(ELEMENT)=>{
 
         ROUTE('',LOGINPAGE,'LOGINPAGE');
 
@@ -394,7 +394,7 @@ const FORGOTPASSWORDMESSAGEPASSWORD=()=>{
 
     });
 
-    BUTTON('','','','blue','#fff','Back',(ELEMENT)=>{
+    BUTTON('','','','blue','#fff','Back','2% auto',(ELEMENT)=>{
 
         ROUTE('',FORGOTPASSWORDPAGE,'FORGOTPASSWORDPAGE');
 
@@ -427,7 +427,7 @@ const EMAILVERIFICATIONPAGE=()=>{
 
     });
 
-    BUTTON('','','','forestgreen','#fff','Verify',(ELEMENT)=>{
+    BUTTON('','','','forestgreen','#fff','Verify','2% auto',(ELEMENT)=>{
 
         CONDITION(sessionStorage.getItem('VerificationCode'),()=>{
 
@@ -529,7 +529,7 @@ const EMAILVERIFICATIONPAGE=()=>{
 
     });
 
-    BUTTON('','','','blue','#fff','Cancel',(ELEMENT)=>{
+    BUTTON('','','','blue','#fff','Cancel','2% auto',(ELEMENT)=>{
 
         DELETEDATA(' ','VeriifcationCode');
 
@@ -585,19 +585,19 @@ const POSTPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        IMAGEBUTTON(ELEMENT,'forestgreen','New DataBase','',WHITELIBRARYICON,'50px',()=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','New DataBase','',WHITELIBRARYICON,'50px','2% auto',()=>{
 
             ROUTE(' ',NEWDATABASEPAGE,'POSTPAGE');
 
         });
 
-        IMAGEBUTTON(ELEMENT,'forestgreen','New Table','',WHITELISTICON,'50px',()=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','New Table','',WHITELISTICON,'50px','2% auto',()=>{
 
             ROUTE(' ',NEWTABLEPAGE,'POSTPAGE');
 
         });
 
-        IMAGEBUTTON(ELEMENT,'forestgreen','New Project ','',WHITEPOSTICON,'50px',()=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','New Project ','',WHITEPOSTICON,'50px','2% auto',()=>{
 
             ROUTE(' ',NEWPROJECTPAGE,'POSTPAGE');
 
@@ -772,25 +772,25 @@ const USERACCOUNTPAGE=()=>{
                 STYLED(ELEMENTS,'display','inline-table');
                 STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','My Profile','',WHITEPROFILEICON,'50px',()=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','My Profile','',WHITEPROFILEICON,'50px','2% auto',()=>{
 
                     ROUTE(' ',MYPROFILEPAGE,'USERACCOUNTPAGE');
     
                 });
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','Deleted Projects','',WHITEDELETEICON,'50px',()=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Deleted Projects','',WHITEDELETEICON,'50px','2% auto',()=>{
 
                     ROUTE(' ',DELETEDATAPAGE,'USERACCOUNTPAGE');
     
                 });
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','Settings ','',WHITESETTINGSICON,'50px',()=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Settings ','',WHITESETTINGSICON,'50px','2% auto',()=>{
 
                     ROUTE(' ',SETTINGSPAGE,'USERACCOUNTPAGE');
     
                 });
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','App Version ','',WHITEMOBILEDEVELOPMENTICON,'50px',()=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','App Version ','',WHITEMOBILEDEVELOPMENTICON,'50px','2% auto',()=>{
 
                     ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
     
@@ -989,7 +989,7 @@ const UPDATEPROJECTPAGE=()=>{
 
                 });
 
-                BUTTON(ELEMENT,'','50px','forestgreen','','Update',(ELEMENTSE)=>{
+                BUTTON(ELEMENT,'','50px','forestgreen','','Update','2% auto',(ELEMENTSE)=>{
 
                     CONDITION(sessionStorage.getItem('AppName')||sessionStorage.getItem('AppVersion')||sessionStorage.getItem('AppPackageName')||sessionStorage.getItem('AppCompany')||sessionStorage.getItem('AppRegion')||sessionStorage.getItem('AppCatergory')||sessionStorage.getItem('AppDescription')||sessionStorage.getItem('AppConfiguration')||sessionStorage.getItem('AppKeyWord')||sessionStorage.getItem('AndroidDesign')||sessionStorage.getItem('AndroidFunctions')||sessionStorage.getItem('DesktopDesign')||sessionStorage.getItem('DesktopFunctions')||sessionStorage.getItem('WebDesign')||sessionStorage.getItem('WebFunctions')||sessionStorage.getItem('SharedDesign')||sessionStorage.getItem('SharedFunctions')||sessionStorage.getItem('AppIcon'),()=>{
 
@@ -1068,15 +1068,15 @@ const MYPROFILEPAGE=()=>{
 
                 });
 
-                BUTTONIMAGE(ELEMENTS,'forestgreen',data.ID,'',WHITESECRETCODEICON,'50px',()=>{
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.ID,'',WHITESECRETCODEICON,'50px','2% auto',()=>{
 
                 });
 
-                BUTTONIMAGE(ELEMENTS,'forestgreen',data.UserName,'',WHITEUSERICON,'50px',()=>{
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.UserName,'',WHITEUSERICON,'50px','2% auto',()=>{
 
                 });
 
-                BUTTONIMAGE(ELEMENTS,'forestgreen',data.UserEmail,'',WHITEGMAILICON,'50px',()=>{
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.UserEmail,'',WHITEGMAILICON,'50px','2% auto',()=>{
 
                 });
 
@@ -1137,37 +1137,37 @@ const SETTINGSPAGE=()=>{
 
                 });
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','Sync','',WHITERETRYICON,'50px',()=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Sync','',WHITERETRYICON,'50px','2% auto',()=>{
 
                    RELOAD();
     
                 });
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','App Lock','',WHITELOCKICON,'50px',()=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','App Lock','',WHITELOCKICON,'50px','2% auto',()=>{
 
                     ROUTE(' ',APPLOCKPAGE,'SETTINGSPAGE');
 
                 });
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','Delete Account','',WHITEDELETEICON,'50px',()=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Delete Account','',WHITEDELETEICON,'50px','2% auto',()=>{
      
                     ROUTE(' ',DELETEACCOUNTPAGE,'SETTINGSPAGE');
 
                 });
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','Privacy Policy','',WHITEPRIVACYPOLICYICON,'50px',()=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Privacy Policy','',WHITEPRIVACYPOLICYICON,'50px','2% auto',()=>{
 
                     ROUTE(' ',PRIVACYPOLICYPAGE,'SETTINGSPAGE');
 
                 });
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','Notifications','',WHITENOTIFICATIONICON,'50px',()=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Notifications','',WHITENOTIFICATIONICON,'50px','2% auto',()=>{
 
                     ROUTE(' ',APPNOTIFICATIONSPAGE,'SETTINGSPAGE');
 
                 });
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','Log Out','',WHITELOGOUTICON,'50px',()=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Log Out','',WHITELOGOUTICON,'50px','2% auto',()=>{
 
                     DELETEDATA(' ','UserData');
      
@@ -1220,7 +1220,7 @@ const NEWDATABASEPAGE=()=>{
 
                 });
 
-                BUTTON(ELEMENT,'','50px','forestgreen','','Create DataBase',(ELEMENTSE)=>{
+                BUTTON(ELEMENT,'','50px','forestgreen','','Create DataBase','2% auto',(ELEMENTSE)=>{
 
                 });
                 
@@ -1269,7 +1269,7 @@ const NEWTABLEPAGE=()=>{
 
                 });
 
-                BUTTON(ELEMENT,'','50px','forestgreen','','Create Table',(ELEMENTSE)=>{
+                BUTTON(ELEMENT,'','50px','forestgreen','','Create Table','2% auto',(ELEMENTSE)=>{
 
                 });
  
@@ -1432,7 +1432,7 @@ const NEWPROJECTPAGE=()=>{
                 });
             });
 
-            BUTTON(ELEMENT,'','50px','forestgreen','','Update',(ELEMENTSE)=>{
+            BUTTON(ELEMENT,'','50px','forestgreen','','Update','2% auto',(ELEMENTSE)=>{
 
                 CONDITION(sessionStorage.getItem('AppName')||sessionStorage.getItem('AppVersion')||sessionStorage.getItem('AppPackageName')||sessionStorage.getItem('AppCompany')||sessionStorage.getItem('AppRegion')||sessionStorage.getItem('AppCatergory')||sessionStorage.getItem('AppDescription')||sessionStorage.getItem('AppConfiguration')||sessionStorage.getItem('AppKeyWord')||sessionStorage.getItem('AndroidDesign')||sessionStorage.getItem('AndroidFunctions')||sessionStorage.getItem('DesktopDesign')||sessionStorage.getItem('DesktopFunctions')||sessionStorage.getItem('WebDesign')||sessionStorage.getItem('WebFunctions')||sessionStorage.getItem('SharedDesign')||sessionStorage.getItem('SharedFunctions')||sessionStorage.getItem('AppIcon'),()=>{
 
@@ -1536,27 +1536,27 @@ const MYPROJECTDETAILSPAGE=()=>{
 
                 });
 
-                BUTTONIMAGE(ELEMENTS,'forestgreen',data.ID,'',WHITESECRETCODEICON,'50px',()=>{
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.ID,'',WHITESECRETCODEICON,'50px','2% auto',()=>{
 
                 });
 
-                BUTTONIMAGE(ELEMENTS,'forestgreen',data.Owner,'',WHITEUSERICON,'50px',()=>{
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.Owner,'',WHITEUSERICON,'50px','2% auto',()=>{
 
                 });
 
-                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppCompany||'Ero Innovations','',WHITEGMAILICON,'50px',()=>{
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppCompany||'Ero Innovations','',WHITEGMAILICON,'50px','2% auto',()=>{
 
                 });
 
-                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppCreatedOn||new Date(),'',WHITECREATEDONICON,'50px',()=>{
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppCreatedOn||new Date(),'',WHITECREATEDONICON,'50px','2% auto',()=>{
 
                 });
 
-                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppVersion||'1','',WHITEMOBILEDEVELOPMENTICON,'50px',()=>{
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppVersion||'1','',WHITEMOBILEDEVELOPMENTICON,'50px','2% auto',()=>{
 
                 });
 
-                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppState||'Active','',WHITESUBSCRIPTIONICON,'50px',()=>{
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppState||'Active','',WHITESUBSCRIPTIONICON,'50px','2% auto',()=>{
 
                 });
 
@@ -1724,7 +1724,7 @@ const MYPROFILEPHOTO=()=>{
 
                 });
 
-                IMAGEBUTTON(ELEMENTS,'forestgreen','Update Profile Photo','',WHITECHECKICON,'50px',(ELEMENTSE)=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Update Profile Photo','',WHITECHECKICON,'50px','2% auto',(ELEMENTSE)=>{
 
                     CONDITION(sessionStorage.getItem('MyImage'),()=>{
 
@@ -1762,7 +1762,7 @@ const MYPROFILEPHOTO=()=>{
 
                 });
 
-                IMAGEBUTTON(ELEMENTS,'brown','Remove Profile Photo','',WHITEDELETEICON,'50px',(ELEMENTSE)=>{
+                IMAGEBUTTON(ELEMENTS,'brown','Remove Profile Photo','',WHITEDELETEICON,'50px','2% auto',(ELEMENTSE)=>{
 
                     CONDITION(navigator.onLine,()=>{
 
@@ -1855,7 +1855,7 @@ const UPDATEUSERDATAPAGE=()=>{
                     
                 });
 
-                BUTTON(ELEMENT,'','50px','forestgreen','','Update User Details',(ELEMENTSE)=>{
+                BUTTON(ELEMENT,'','50px','forestgreen','','Update User Details','2% auto',(ELEMENTSE)=>{
 
                     CONDITION(navigator.onLine,()=>{
 
@@ -1932,7 +1932,7 @@ const DELETEACCOUNTPAGE=()=>{
 
                 });
 
-                BUTTON(ELEMENT,'','50px','red','','Delete My  Account',(ELEMENTSE)=>{
+                BUTTON(ELEMENT,'','50px','red','','Delete My  Account','2% auto',(ELEMENTSE)=>{
 
                     CONDITION(navigator.onLine,()=>{
 

@@ -1,441 +1,1482 @@
-const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSlJk7KFiJiCOgYOQ/edit?usp=sharing';
+const API='https://docs.google.com/spreadsheets/d/1Utfr1wkoZSRvM9TOKaTxOX6orYE8AuN2mu4dDtQmhFQ/edit?usp=sharing';
 
 const NOVASTART=()=>{
 
-    DATADOWNLOAD();
+    APPDOWNLOAD(()=>{
 
-    APPMODE('#04143c');
+    });
 
-    ROUTE('',HOMEPAGE,'HOMEPAGE');
+    ACCOUNTCHECKER(()=>{
 
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },()=>{
+
+        ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+
+    },()=>{
+
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
+        
+    });
+    
 };
 
 const HOMEPAGE=()=>{
 
-    DELETEDATA('','CurrentData');
+    USERACCOUNTDOWNLOAD(()=>{
 
-    DATADOWNLOAD();
+    });
+
+    DELETEDATA('','MyProject');
 
     HOMEFOOTERTEMPLATE('',' ',(ELEMENTS)=>{
 
-        DISPLAYVIEW(ELEMENTS,' ','95%','50px',(ELEMENT)=>{
+        DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-            LEFTTEXT(ELEMENT,'','Elite','','20px','0.1rem','',()=>{
+            BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
 
-            });
-
-            RIGHTIMAGE(ELEMENT,WHITEUSERICON,'20px','20px','0.1rem','',()=>{
+            IMAGEBUTTON(ELEMENTS,'',data.UserName,'',WHITEUSERICON,'50px',()=>{
 
                 ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
 
             });
 
+            BREAK(ELEMENTS);BREAK(ELEMENTS);
+
+            CENTERTEXT(ELEMENTS,'','My Apps','','18px','',()=>{
+
+            });
+
+            BREAK(ELEMENTS);
+
+            VIEW(ELEMENTS,'transparent','100%','80%','',(ELEMENT)=>{
+
+                STYLED(ELEMENT,'border-top','1px solid forestgreen');
+
+                DISPLAY(ELEMENT,'<br><br><br><br> ... Please Wait....');
+
+                USERDATA(ELEMENT,data.ID,'');
+    
+            });
+        
         });
 
-        VIEW(ELEMENTS,' ','','auto','MARGIN',(ELEMENT)=>{
+    },(ELEMENTS)=>{
 
-            GETINDEXEDDATA ('HomePosts', 'HomePosts', (data)=>{
+        ICON(ELEMENTS,WHITELISTICON,'25px','25px','',(ELEMENTS)=>{
 
-                CHECKER(data.PostApproved,()=>{
-
-                    VIEW(ELEMENT,'#061b4e','95%','215px','2%',(ELEMENTES)=>{
-
-                        LEFTVIEW(ELEMENTES,' ','45%','95%','1%',(ELEMENTSE)=>{
+            ROUTE(' ',MYCOLLECTIONPAGE,'HOMEPAGE');
     
-                            LEFTIMAGE(ELEMENTSE,data.PostImage||EROINNOVATIONSLOGOONE,'100%','100%','0','0',()=>{
+        });
+
+        ICON(ELEMENTS,WHITEPOSTICON,'25px','25px','',(ELEMENTS)=>{
+
+            ROUTE(' ',POSTPAGE,'HOMEPAGE');
+    
+        });
+
+        ICON(ELEMENTS,WHITEUSERICON,'25px','25px','',(ELEMENTS)=>{
+
+            ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
+    
+        });
+
+    });
+   
+};
+
+const LOGINPAGE=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    DELETEDATA('','UserPassword');
+
+    CLEAR("");
+
+    IMAGE('',WHITEFOLDERICON,'50%','30%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Manage and Collect','','',(ELEMENT)=>{
+
+    });
+
+    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
+
+        STOREDATA('','UserEmail',ELEMENT);
         
-                            });
-        
+    });
+
+    ROUNDINPUT('','password','','transparent','********',(ELEMENT)=>{
+
+        STOREDATA('','UserPassword',ELEMENT);
+
+    });
+
+    RIGHTTEXT('','p','Forgot Password?','#fff','18px','1rem','4%  auto',(ELEMENT)=>{
+
+        ROUTE(' ',FORGOTPASSWORDPAGE,'LOGINPAGE');
+
+    });
+
+    BUTTON('','','','forestgreen','#fff','Sign In','2% auto',(ELEMENT)=>{
+
+        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+            CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+
+                CLOUDLOGINTEMPLATE(ELEMENT,API,'Users','Please Wait','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
+
+                    CONDITION(!data.AccountDeleted,()=>{
+
+                        JSONIFICATION(data,(MyData)=>{
+
+                            STOREDATA(' ','UserData',MyData);
+    
+                            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
                         });
+                        
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Something Went Wrong ,Try Again','');
+
+                        DISPLAY(ELEMENT,'Sign In');
+
+                    });
+
+                });
+                
+            },()=>{
     
-                        RIGHTVIEW(ELEMENTES,' ','52%','95%','1%',(ELEMENTSE)=>{
+                MESSAGEDISPLAY('','Enter Password','');
     
-                            CENTERTEXT(ELEMENTSE,'',data.PostName,'','18px','5% auto',()=>{
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Email','');
+
+        });
+
+    });
+
+    BUTTON('','','','blue','#fff','Create Account','2% auto',(ELEMENT)=>{
+
+        ROUTE(' ',CREATEACCOUNTPAGE,'LOGINPAGE');
+
+    });
+   
+};
+
+const CREATEACCOUNTPAGE=()=>{
+
+    DELETEDATA('','UserName');
+
+    DELETEDATA('','UserEmail');
+
+    DELETEDATA('','UserPassword');
+
+    CLEAR("");
+
+    IMAGE('',WHITEFOLDERICON,'50%','30%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Manage and Collect','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    ROUNDINPUT('','text','','transparent','User Name',(ELEMENT)=>{
+
+        STOREDATA('','UserName',ELEMENT);
+
+    });
+
+    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
+
+        STOREDATA('','UserEmail',ELEMENT);
+
+    });
+
+    ROUNDINPUT('','password','','transparent','********',(ELEMENT)=>{
+
+        STOREDATA('','UserPassword',ELEMENT);
+
+    });
+
+    BUTTON('','','','forestgreen','#fff','Sign Up','2% auto',(ELEMENT)=>{
+
+        CONDITION(sessionStorage.getItem('UserName'),()=>{
+
+            CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+                CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        DISPLAY(ELEMENT,'Please Wait .....');
+
+                        RANDOMCODE((Code)=>{
+
+                            const Message=`Dear ${sessionStorage.getItem('UserName')},\n\n Your Verification Code is ${Code}.`;
     
-                            });
-                    
-                            CENTERTEXT(ELEMENTSE,'','<hr>','','','5% auto',()=>{
-                    
-                            });
+                            EMAILSENDER(sessionStorage.getItem('UserEmail'),'Account Creation',Message,(data)=>{
     
-                            LEFTTEXT(ELEMENTSE,'',data.PostShortStory,'','16px','0.1rem','',()=>{
+                                STOREDATA(' ','VeriifcationCode',Code);
     
-                            });
+                                const USERS={
+                                    'UserName':sessionStorage.getItem('UserName'),
+                                    'UserEmail':sessionStorage.getItem('UserEmail'),
+                                    'UserPassword':sessionStorage.getItem('UserPassword'),
+                                }
     
-                            CENTERTEXT(ELEMENTSE,'','<hr>','','','',()=>{
-                    
-                            });
+                                JSONIFICATION(USERS,(Mydata)=>{
     
-                            DISPLAYVIEW(ELEMENTSE,' ','95%','45px',(ELEMENT)=>{
+                                    STOREDATA(' ','MyData',Mydata);
     
-                                LEFTTEXT(ELEMENT,'','Like','green','20px','0.5rem','',()=>{
-                    
+                                    ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+    
                                 });
+    
+                            },(datata)=>{
+
+                                console.log(datata);
+    
+                                MESSAGEDISPLAY('','Failed TO Send Verification Code');
+    
+                                DISPLAY(ELEMENT,'Sign Up');
+
+                            });
+            
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Check Your Internet','');
+
+                    });
+        
+                },()=>{
+        
+                    MESSAGEDISPLAY('','Enter Password','');
+        
+                });
+    
+            },()=>{
+    
+                MESSAGEDISPLAY('','Enter Email','');
+    
+            });
+            
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter UserName','');
+
+        });
+
+    });
+
+    BUTTON('','','','blue','#fff','Log In','2% auto',(ELEMENT)=>{
+
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+    });
+   
+};
+
+const FORGOTPASSWORDPAGE=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    CLEAR("");
+
+    BREAK('');BREAK('');
+
+    IMAGE('',WHITEFOLDERICON,'50%','30%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Manage and Collect','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    ROUNDINPUT('','email','','transparent','Email','2% auto',(ELEMENT)=>{
+
+        STOREDATA('','UserEmail',ELEMENT);
+
+    });
+
+    BUTTON('','','','forestgreen','#fff','Recover','2% auto',(ELEMENT)=>{
+
+        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+            FORGOTPASSWORDTEMPLATE(ELEMENT,API,'Users','Please Wait','Recover','UserEmail',sessionStorage.getItem('UserEmail'),'Failed to Recover','No User Account',(ReturnedData)=>{
+
+                CONDITION(!ReturnedData.AccountDeleted,()=>{
+
+                    const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
+    
+                    EMAILSENDER(sessionStorage.getItem('UserEmail'),'Password Recovery',Message,(data)=>{
+    
+                        ROUTE(' ',FORGOTPASSWORDMESSAGEPASSWORD,'FORGOTPASSWORDMESSAGEPASSWORD');
+    
+                    },(datata)=>{
+    
+                        MESSAGEDISPLAY('','Failed To Recover Password');
+    
+                        DISPLAY(ELEMENT,'Recover');
+    
+                    }); 
                     
-                                RIGHTTEXT(ELEMENT,'','Read More','green','20px','0.5rem','',()=>{
-    
-                                    JSONIFICATION(data,(MyData)=>{
-    
-                                        STOREDATA('','CurrentData',MyData);
-    
-                                        ROUTE(' ',READMOREPAGE,'HOMEPAGE');
-    
+                },()=>{
+
+                    MESSAGEDISPLAY('','Something Went Wrong ,Try Again','');
+
+                    DISPLAY(ELEMENT,'Recover');
+
+                });
+
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Email','');
+
+        });
+
+    });
+
+    BUTTON('','','','blue','#fff','Cancel','2% auto',(ELEMENT)=>{
+
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+    });
+   
+};
+
+const FORGOTPASSWORDMESSAGEPASSWORD=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    CLEAR("");
+
+    BREAK('');BREAK('');
+
+    IMAGE('',WHITEFOLDERICON,'25%','15%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Manage and Collect','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    CENTERTEXT('','p','The Password has been Sent to Your Email!','','',(ELEMENT)=>{
+
+    });
+
+    BUTTON('','','','blue','#fff','Back','2% auto',(ELEMENT)=>{
+
+        ROUTE('',FORGOTPASSWORDPAGE,'FORGOTPASSWORDPAGE');
+
+    });
+   
+};
+
+const EMAILVERIFICATIONPAGE=()=>{
+
+    DELETEDATA('','VerificationCode');
+
+    CLEAR("");
+
+    IMAGE('',WHITEFOLDERICON,'50%','30%',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'margin-top','25px');
+        STYLED(ELEMENT,'margin-bottom','25px');
+
+    }),
+
+    CENTERTEXT('','p','Manage and Collect','','',(ELEMENT)=>{
+
+    });
+
+    BREAK('');
+
+    ROUNDINPUT('','tel','','transparent','Enter Verification Code',(ELEMENT)=>{
+
+        STOREDATA('','VerificationCode',ELEMENT);
+
+    });
+
+    BUTTON('','','','forestgreen','#fff','Verify','2% auto',(ELEMENT)=>{
+
+        CONDITION(sessionStorage.getItem('VerificationCode'),()=>{
+
+            CONDITION(sessionStorage.getItem('VerificationCode') === localStorage.getItem('VeriifcationCode') ,()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    DISPLAY(ELEMENT,'Please Wait ...');
+
+                    GETDATA(API,'Users',(data)=>{
+
+                        LOCALDEJSONDATA('MyData',(MyData)=>{
+
+                            FINDER(data,'UserEmail', MyData.UserEmail,(ReturnedData)=>{
+
+                                CONDITION(ReturnedData.UserEmail === MyData.UserEmail,()=>{
+
+                                    DISPLAY(ELEMENT,'Verify');
+
+                                    MESSAGEDISPLAY('','User With Account Exists','');
+
+                                },()=>{
+
+                                    const HEADER=['UserName','UserEmail','UserPassword'];
+
+                                    const INFOS=[MyData.UserName,MyData.UserEmail,MyData.UserPassword];
+
+                                    INSERTDATA(API,'Users',HEADER,INFOS,(data)=>{
+
+                                        GETDATA(API,'Users',(data)=>{
+
+                                            FINDER(data,'UserEmail', MyData.UserEmail,(ReturnedData)=>{
+
+                                                CONDITION(ReturnedData.UserEmail === MyData.UserEmail,()=>{
+
+                                                    JSONIFICATION(ReturnedData,(ThisData)=>{
+
+                                                        STOREDATA(' ','UserData',ThisData);
+
+                                                        DELETEDATA(' ','VeriifcationCode');
+
+                                                        DELETEDATA(' ','MyData');
+
+                                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                                    });
+                
+                                                },()=>{
+
+                                                    DISPLAY(ELEMENT,'Verify');
+
+                                                    MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                                })
+
+                                            });
+
+                                        })
+
+                                    },(data)=>{
+
+                                        DISPLAY(ELEMENT,'Verify');
+
+                                        MESSAGEDISPLAY('','Failed to Create Account!','');
+
                                     });
-                    
+
                                 });
-                    
+
                             });
+
+                        });
+
+                    },(data)=>{
+
+                        DISPLAY(ELEMENT,'Verify');
+
+                        MESSAGEDISPLAY('','Something Went Wrong','');
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
     
+            },()=>{
+    
+                MESSAGEDISPLAY('','Wrong Verification Code','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Verification Code','');
+
+        });
+
+    });
+
+    BUTTON('','','','blue','#fff','Cancel','2% auto',(ELEMENT)=>{
+
+        DELETEDATA(' ','VeriifcationCode');
+
+        ROUTE('',CREATEACCOUNTPAGE,'CREATEACCOUNTPAGE');
+
+    });
+   
+};
+
+const APPDOWNLOAD=(callback)=>{
+
+    CHECKER(navigator.onLine,()=>{
+        
+        GETDATA(API,'APPMANAGER',(data)=>{
+
+            const MYDATA={
+                    'Name':'AppManager',
+                    'data':data,
+                }     
+            STOREINDEXED('AppManager', 'AppManager', MYDATA, (data)=>{
+
+                CHECKER(data === false,()=>{
+
+                    UPDATEINDEX('AppManager', 'AppManager', MYDATA,(datata)=>{
+
+                        callback();
+
+                    });
+
+                });
+
+            });
+            
+        },(data)=>{
+
+            console.log(data);
+
+        });
+
+    });
+
+};
+
+const POSTPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Create','COLOR',()=>{
+
+    },(ELEMENT)=>{
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','New DataBase','',WHITELIBRARYICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',NEWDATABASEPAGE,'POSTPAGE');
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','New Table','',WHITELISTICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',NEWTABLEPAGE,'POSTPAGE');
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','New Project ','',WHITEPOSTICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',NEWPROJECTPAGE,'POSTPAGE');
+
+        });
+        
+    });
+  
+};
+
+const USERDATA=(ELEMENT,Name,Delete)=>{
+
+    CONDITION(Delete,()=>{
+
+        CLEAR(ELEMENT);
+
+        GETINDEXEDDATA ('AppManager', 'AppManager', (data)=>{
+
+            CHECKER( data.Owner === Name && data.AppDeleted ,()=>{
+
+                VIEW(ELEMENT,' ','46%','43%','',(ELEMENTS)=>{
+    
+                    STYLED(ELEMENTS,'display','inline-table');
+                    STYLED(ELEMENTS,'margin','1.5%');
+                    STYLED(ELEMENTS,'border','1px solid forestgreen');
+    
+                    TOPRIGHTIMAGE(ELEMENTS,WHITECHECKICON,'25px','25px','5%','5% auto',(ELEMENTSE)=>{
+    
+                        CONDITION(navigator.onLine,()=>{
+
+                            MESSAGEDISPLAY('',`${data.AppName} is Being Restored`,'');
+
+                            const INFO=[data.AppName,data.AppDescription,data.AppColors,data.AppConfiguration,data.AppCreatedOn,data.AppVersion,'',data.AppKeyWord,data.AppPackageName,data.AppCompany,data.AndroidDesign,data.AndroidFunctions,data.DesktopDesign,data.DesktopFunctions,data.WebDesign,data.WebFunctions,data.SharedDesign,data.SharedFunctions,data.AppLogic,data.AppRegion,data.AppState,data.AppCatergory,data.AppIcon,data.UpdatedOn,data.Owner];
+
+                            UPDATEDATA(API,'APPMANAGER',data.ID,INFO,()=>{
+    
+                                APPDOWNLOAD(()=>{
+    
+                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                                });
+    
+                            },()=>{
+    
+                                    MESSAGEDISPLAY('','Failed to Delete App','');
+    
+                                }
+
+                            );
+
+                        },()=>{
+
+                            NOINTERNETTEMPLATE();
+
                         });
     
                     });
+            
+                    IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'50%','70%','5% auto',()=>{
+    
+                    });
+    
+                    CENTERTEXT(ELEMENTS,'',data.AppName,'','16px','',()=>{
+    
+                    });
+        
+                });
 
+            });
+    
+        });
+
+    },()=>{
+
+        CLEAR(ELEMENT);
+
+        GETINDEXEDDATA ('AppManager', 'AppManager', (data)=>{
+
+            CHECKER( data.Owner === Name && !data.AppDeleted ,()=>{
+
+                VIEW(ELEMENT,' ','46%','43%','',(ELEMENTS)=>{
+    
+                    STYLED(ELEMENTS,'display','inline-table');
+                    STYLED(ELEMENTS,'margin','1.5%');
+                    STYLED(ELEMENTS,'border','1px solid forestgreen');
+
+                    TOPRIGHTIMAGE(ELEMENTS,WHITEPENCILICON,'25px','25px','',' 5% 5% auto',(ELEMENTSE)=>{
+
+                        JSONIFICATION(data,(MyData)=>{
+
+                            STOREDATA('','MyProject',MyData);
+
+                            ROUTE(' ',UPDATEPROJECTPAGE,'HOMEPAGE');
+
+                        });
+
+                    });
+
+                    TOPLEFTIMAGE(ELEMENTS,WHITEDELETEICON,'25px','25px','0',' 5% 5% auto ',(ELEMENTSE)=>{
+
+                        CONDITION(navigator.onLine,()=>{
+
+                            MESSAGEDISPLAY('',`${data.AppName} is Being Deleted`,'');
+    
+                            const INFO=[data.AppName,data.AppDescription,data.AppColors,data.AppConfiguration,data.AppCreatedOn,data.AppVersion,'Deleted',data.AppKeyWord,data.AppPackageName,data.AppCompany,data.AndroidDesign,data.AndroidFunctions,data.DesktopDesign,data.DesktopFunctions,data.WebDesign,data.WebFunctions,data.SharedDesign,data.SharedFunctions,data.AppLogic,data.AppRegion,data.AppState,data.AppCatergory,data.AppIcon,data.UpdatedOn,data.Owner];
+    
+                            UPDATEDATA(API,'APPMANAGER',data.ID,INFO,()=>{
+    
+                                APPDOWNLOAD(()=>{
+    
+                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                                });
+    
+                            },()=>{
+    
+                                    MESSAGEDISPLAY('','Failed to Delete App','');
+    
+                                }
+    
+                            );
+
+                        },()=>{
+
+                            NOINTERNETTEMPLATE();
+
+                        });
+                        
+                    });
+                    
+                    IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'50%','70%','5% auto',()=>{
+        
+                    });
+        
+                    CENTERTEXT(ELEMENTS,'',data.AppName,'','16px','',(ELEMENTSE)=>{
+
+                        JSONIFICATION(data,(MyData)=>{
+
+                            STOREDATA('','MyProject',MyData);
+
+                            ROUTE(' ',MYPROJECTDETAILSPAGE,'HOMEPAGE');
+
+                        });
+
+                    });
+        
                 });
 
             });
 
         });
 
+    });
+ 
+};
+
+const USERACCOUNTPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    LEFTTEXTBACKHEADERBODY('',(ELEMENT)=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Account','',()=>{
+
     },(ELEMENT)=>{
 
-        ICON(ELEMENT,WHITEINTERNETICON,'25px','25px','',()=>{
+        DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-            WEBSITE('https://eroinnovations.site');
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','My Profile','',WHITEPROFILEICON,'50px','2% auto',()=>{
+
+                    ROUTE(' ',MYPROFILEPAGE,'USERACCOUNTPAGE');
+    
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Deleted Projects','',WHITEDELETEICON,'50px','2% auto',()=>{
+
+                    ROUTE(' ',DELETEDATAPAGE,'USERACCOUNTPAGE');
+    
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Settings ','',WHITESETTINGSICON,'50px','2% auto',()=>{
+
+                    ROUTE(' ',SETTINGSPAGE,'USERACCOUNTPAGE');
+    
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','App Version ','',WHITEMOBILEDEVELOPMENTICON,'50px','2% auto',()=>{
+
+                    ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
+    
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);
+
+            });
 
         });
 
-        ICON(ELEMENT,WHITEMOBILEDEVELOPMENTICON,'25px','25px','',()=>{
-          
-            ROUTE(' ',DEVELOPERPAGE,'HOMEPAGE');
+    });
+
+};
+
+const DELETEDATAPAGE=()=>{
+    
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
+
+    },'Account','',()=>{
+
+    },(ELEMENT)=>{
+
+        DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                USERDATA(ELEMENT,data.ID,'Deleted');
+                
+            });
+
+        });
+
+    });
+
+};
+
+const UPDATEPROJECTPAGE=()=>{
+
+    DELETEDATA('','AppName');
+    DELETEDATA('','AppVersion');
+    DELETEDATA('','AppPackageName');
+    DELETEDATA('','AppColors');
+    DELETEDATA('','AppCompany');
+    DELETEDATA('','AppRegion');
+    DELETEDATA('','AppCatergory');
+    DELETEDATA('','SharedFunctions');
+    DELETEDATA('','SharedDesign');
+    DELETEDATA('','WebFunctions');
+    DELETEDATA('','WebDesign');
+    DELETEDATA('','AppDescription');
+    DELETEDATA('','AppConfiguration');
+    DELETEDATA('','AppKeyWord');
+    DELETEDATA('','AndroidDesign');
+    DELETEDATA('','AndroidFunctions');
+    DELETEDATA('','DesktopFunctions');
+    DELETEDATA('','AppIcon');
+
+    DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
+
+        console.log(data);
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },data.AppName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppName||'Project Name',(Appdata)=>{
+
+                    STOREDATA('','AppName',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppVersion||'App Version',(Appdata)=>{
+
+                    STOREDATA('','AppVersion',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppPackageName||'Package Name',(Appdata)=>{
+
+                    STOREDATA('','AppPackageName',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppColors||'Colours',(Appdata)=>{
+
+                    STOREDATA('','AppColors',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppCompany||'App Company',(Appdata)=>{
+
+                    STOREDATA('','AppCompany',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppRegion||'App Region',(Appdata)=>{
+
+                    STOREDATA('','AppRegion',Appdata);
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent',data.AppCatergory||'App Catergory',(Appdata)=>{
+
+                    STOREDATA('','AppCatergory',Appdata);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.AppDescription||'App Description',(data)=>{
+
+                    STOREDATA('','AppDescription',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.AppConfiguration||'App Configuration',(data)=>{
+
+                    STOREDATA('','AppConfiguration',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.AppKeyWord||'App KeyWord',(data)=>{
+
+                    STOREDATA('','AppKeyWord',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.AndroidDesign||'Android Design',(data)=>{
+
+                    STOREDATA('','AndroidDesign',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.AndroidFunctions||'Android Functions',(data)=>{
+
+                    STOREDATA('','AndroidFunctions',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.DesktopDesign||'Desktop Design',(data)=>{
+
+                    STOREDATA('','DesktopDesign',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.DesktopFunctions||'Desktop Functions',(data)=>{
+
+                    STOREDATA('','DesktopFunctions',data);
+                    
+                });
+
+                TEXTAREA(ELEMENT,'','',data.WebDesign||'Web Design',(data)=>{
+
+                    STOREDATA('','WebDesign',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.WebFunctions||'Web Functions',(data)=>{
+
+                    STOREDATA('','WebFunctions',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.SharedDesign||'Shared Design',(data)=>{
+
+                    STOREDATA('','SharedDesign',data);
+
+                });
+
+                TEXTAREA(ELEMENT,'','',data.SharedFunctions||'Shared Functions',(data)=>{
+
+                    STOREDATA('','SharedFunctions',data);
+
+                });
+
+                IMAGE(ELEMENT,data.AppIcon||WHITEFOLDERICON,'','50%','',(ELEMENTS)=>{
+
+                    IMAGEPICKER(ELEMENTS, (ImageData)=>{
+
+                        STOREDATA('','AppIcon',ImageData);
+
+                    });
+
+                });
+
+                BUTTON(ELEMENT,'','50px','forestgreen','','Update','2% auto',(ELEMENTSE)=>{
+
+                    CONDITION(sessionStorage.getItem('AppName')||sessionStorage.getItem('AppVersion')||sessionStorage.getItem('AppPackageName')||sessionStorage.getItem('AppCompany')||sessionStorage.getItem('AppRegion')||sessionStorage.getItem('AppCatergory')||sessionStorage.getItem('AppDescription')||sessionStorage.getItem('AppConfiguration')||sessionStorage.getItem('AppKeyWord')||sessionStorage.getItem('AndroidDesign')||sessionStorage.getItem('AndroidFunctions')||sessionStorage.getItem('DesktopDesign')||sessionStorage.getItem('DesktopFunctions')||sessionStorage.getItem('WebDesign')||sessionStorage.getItem('WebFunctions')||sessionStorage.getItem('SharedDesign')||sessionStorage.getItem('SharedFunctions')||sessionStorage.getItem('AppIcon'),()=>{
+
+                        CONDITION(navigator.onLine,()=>{
+
+                            DEJSON(localStorage.getItem('UserData'),(MyDatate)=>{
+
+                                MESSAGEDISPLAY('',data.AppName+'Is Being Updated...','');
+
+                                const INFO=[sessionStorage.getItem('AppName')||data.AppName,sessionStorage.getItem('AppDescription')||data.AppDescription,sessionStorage.getItem('AppColors')||data.AppColors,sessionStorage.getItem('AppConfiguration')||data.AppConfiguration,data.AppCreatedOn,sessionStorage.getItem('AppVersion')||data.AppVersion,data.AppDeleted,sessionStorage.getItem('AppKeyWord')||data.AppKeyWord,sessionStorage.getItem('AppPackageName')||data.AppPackageName,sessionStorage.getItem('AppCompany')||data.AppCompany,sessionStorage.getItem('AndroidDesign')||data.AndroidDesign,sessionStorage.getItem('AndroidFunctions')||data.AndroidFunctions,sessionStorage.getItem('DesktopDesign')||data.DesktopDesign,sessionStorage.getItem('DesktopFunctions')||data.DesktopFunctions,sessionStorage.getItem('WebDesign')||data.WebDesign,sessionStorage.getItem('WebFunctions')||data.WebFunctions,sessionStorage.getItem('SharedDesign')||data.SharedDesign,sessionStorage.getItem('SharedFunctions')||data.SharedFunctions,sessionStorage.getItem('AppLogic')||data.AppLogic,sessionStorage.getItem('AppRegion')||data.AppRegion,sessionStorage.getItem('AppState')||data.AppState,sessionStorage.getItem('AppCatergory')||data.AppCatergory,sessionStorage.getItem('AppIcon')||data.AppIcon,new Date(),MyDatate.ID];
+
+                                UPDATEDATA(API,'APPMANAGER',data.ID,INFO,()=>{
+
+                                    APPDOWNLOAD(()=>{
+                                        
+                                        ROUTE('',HOMEPAGE,HOMEPAGE);
+
+                                    });
+    
+                                },()=>{
+
+                                    MESSAGEDISPLAY('','Failed to Update' + data.AppName,'');
+    
+                                });
+
+                            });
+
+                        },()=>{
+
+                            MESSAGEDISPLAY('','Check Your Internet','');
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Fill Any Part','');
+
+                    });
+
+                });
+
+                BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
+
+            });
+    
+        });
+
+    });
+
+};
+
+const MYPROFILEPAGE=()=>{
+
+    BACKPAGE('USERACCOUNTPAGE');
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
+    
+        },data.UserName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+
+                BREAK(ELEMENTS);
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                IMAGE(ELEMENTS,data.UserProfilePhoto||WHITEFOLDERICON,'','50%','',(ELEMENT)=>{
+
+                    STYLED(ELEMENT,'border','1px solid forestgreen');
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.ID,'',WHITESECRETCODEICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.UserName,'',WHITEUSERICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.UserEmail,'',WHITEGMAILICON,'50px','2% auto',()=>{
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);
+
+                DISPLAYVIEW(ELEMENTS,'forestgreen','97%','50px',(ELEMENT)=>{
+
+                    ICON(ELEMENT,WHITEPENCILICON,'25px','25px','',(ELEMENTS)=>{
+
+                        ROUTE(' ',UPDATEUSERDATAPAGE,'MYPROFILEPAGE');
+
+                    });
             
-        });
+                    ICON(ELEMENT,WHITEEDITICON,'25px','25px','',(ELEMENTS)=>{
 
-        ICON(ELEMENT,WHITESETTINGSICON,'25px','25px','',()=>{
+                        ROUTE(' ',MYPROFILEPHOTO,'MYPROFILEPAGE');
+                
+                    });
 
-            ROUTE(' ',SETTINGSPAGE,'HOMEPAGE');
+                    ICON(ELEMENT,WHITEDOWNLOADICON,'25px','25px','',(ELEMENTS)=>{
+                
+                    });
             
-        });
+                });
 
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
+        });
+            
     });
 
 };
 
 const SETTINGSPAGE=()=>{
 
-    BACKPAGE('HOMEPAGE');
+    BACKPAGE('USERACCOUNTPAGE');
 
-    LEFTTEXTBACKHEADERBODY('',()=>{
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+        LEFTTEXTBACKHEADERBODY('',()=>{
 
-    },'Settings','',()=>{
+            ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
+    
+        },'Settings','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-    },(ELEMENTS)=>{
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Link Device','',WHITEDEVICEICON,'50px',()=>{
 
-        BUTTONIMAGE(ELEMENTS,'#061b4e','Donate','',WHITESUBSCRIPTIONICON,'','2% auto',()=>{
+                    ROUTE(' ',LINKDEVICEPAGE,'SETTINGSPAGE');
 
-            ROUTE(' ',DONATEPAGE,'SETTINGSPAGE');
+                });
 
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Sync','',WHITERETRYICON,'50px','2% auto',()=>{
+
+                   RELOAD();
+    
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','App Lock','',WHITELOCKICON,'50px','2% auto',()=>{
+
+                    ROUTE(' ',APPLOCKPAGE,'SETTINGSPAGE');
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Delete Account','',WHITEDELETEICON,'50px','2% auto',()=>{
+     
+                    ROUTE(' ',DELETEACCOUNTPAGE,'SETTINGSPAGE');
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Privacy Policy','',WHITEPRIVACYPOLICYICON,'50px','2% auto',()=>{
+
+                    ROUTE(' ',PRIVACYPOLICYPAGE,'SETTINGSPAGE');
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Notifications','',WHITENOTIFICATIONICON,'50px','2% auto',()=>{
+
+                    ROUTE(' ',APPNOTIFICATIONSPAGE,'SETTINGSPAGE');
+
+                });
+
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Log Out','',WHITELOGOUTICON,'50px','2% auto',()=>{
+
+                    DELETEDATA(' ','UserData');
+     
+                    RELOAD();
+
+                });
+                
+            });
+    
         });
-
-        BUTTONIMAGE(ELEMENTS,'#061b4e','Privacy Policy','',WHITEPRIVACYPOLICYICON,'','2% auto',()=>{
-
-            ROUTE(' ',PRIVACYPOLICYPAGE,'SETTINGSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENTS,'#061b4e','Join Beta','',WHITECREATEDONICON,'','2% auto',()=>{
-
-            ROUTE(' ',JOINBETAPAGE,'SETTINGSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENTS,'#061b4e','Email Updates','',WHITEGMAILICON,'','2% auto',()=>{
-
-            ROUTE(' ',EMAILUPDATEPAGE,'SETTINGSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENTS,'#061b4e','Sync','',WHITERETRYICON,'','2% auto',()=>{
-
-            RELOAD();
-
-        });
-
-        BUTTONIMAGE(ELEMENTS,'#061b4e','Contact Us','',WHITEPHONEICON,'','2% auto',()=>{
-
-            DELETEDATA('','UserSubject');
-            DELETEDATA('','UserCountry');
-            DELETEDATA('','UserName');
-            DELETEDATA('','UserEmail');
-            DELETEDATA('','UserMessage');
-            DELETEDATA('','Code');
-
-            ROUTE(' ',CONTACTUSPAGE,'SETTINGSPAGE');
-
-        });
-
+            
     });
 
 };
 
-const DEVELOPERPAGE=()=>{
+const NEWDATABASEPAGE=()=>{
 
-    BACKPAGE('HOMEPAGE');
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-    LEFTTEXTBACKHEADERBODY('',()=>{
+        LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+            ROUTE('',POSTPAGE,'POSTPAGE');
+    
+        },'DataBase Creation','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-    },'Developer','',()=>{
+                BREAK(ELEMENTS);
 
-    },(ELEMENTS)=>{
+                CENTERTEXT(ELEMENTS,'','Enter DataBase Name','','18px','',()=>{
 
-        DISPLAYVIEW(ELEMENTS,' ','95%','50px',(ELEMENT)=>{
+                });
 
-            LEFTTEXT(ELEMENT,'','Nova','','20px','0.5rem','',()=>{
+                ROUNDINPUT(ELEMENT,'','','transparent','DataBase Name',(Appdata)=>{
 
-                ROUTE(' ',NOVAFRAMEWORKPAGE,'DEVELOPERPAGE');
+                    CONDITION(data.AppName === Appdata,()=>{
 
+                        DELETEDATA('','AppName');
+
+                    },()=>{
+
+                        STOREDATA('','AppName',Appdata);
+
+                    });
+
+                });
+
+                BUTTON(ELEMENT,'','50px','forestgreen','','Create DataBase','2% auto',(ELEMENTSE)=>{
+
+                });
+                
             });
-
-            CENTERTEXT(ELEMENT,'','Elite Pay','','20px','',()=>{
-
-                ROUTE(' ',ELITEPAYPAGE,'DEVELOPERPAGE');
-
-            });
-
-            RIGHTTEXT(ELEMENT,'','Builders','','20px','0.5rem','',()=>{
-
-                ROUTE(' ',BUILDERSPAGE,'DEVELOPERPAGE');
-
-            });
-
+    
         });
-
+            
     });
 
 };
 
-const CONTACTUSPAGE=()=>{
+const NEWTABLEPAGE=()=>{
 
-    BACKPAGE('SETTINGSPAGE');
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',POSTPAGE,'POSTPAGE');
+    
+        },'Table Creation','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter Table Name','','18px','',()=>{
+
+                });
+
+                ROUNDINPUT(ELEMENT,'','','transparent','Table Name',(Appdata)=>{
+
+                    CONDITION(data.AppName === Appdata,()=>{
+
+                        DELETEDATA('','AppName');
+
+                    },()=>{
+
+                        STOREDATA('','AppName',Appdata);
+
+                    });
+
+                });
+
+                BUTTON(ELEMENT,'','50px','forestgreen','','Create Table','2% auto',(ELEMENTSE)=>{
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const NEWPROJECTPAGE=()=>{
+
+    DELETEDATA('','AppName');
+    DELETEDATA('','AppVersion');
+    DELETEDATA('','AppPackageName');
+    DELETEDATA('','AppColors');
+    DELETEDATA('','AppCompany');
+    DELETEDATA('','AppRegion');
+    DELETEDATA('','AppCatergory');
+    DELETEDATA('','SharedFunctions');
+    DELETEDATA('','SharedDesign');
+    DELETEDATA('','WebFunctions');
+    DELETEDATA('','WebDesign');
+    DELETEDATA('','AppDescription');
+    DELETEDATA('','AppConfiguration');
+    DELETEDATA('','AppKeyWord');
+    DELETEDATA('','AndroidDesign');
+    DELETEDATA('','AndroidFunctions');
+    DELETEDATA('','DesktopFunctions');
+    DELETEDATA('','AppIcon');
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+        ROUTE('',POSTPAGE,'POSTPAGE');
 
-    },'Contact Us','',()=>{
+    },'New Project','',()=>{
 
     },(ELEMENT)=>{
 
-        CENTERTEXT(ELEMENT,'','Fill the Form Below <hr>','','25px','5% auto',()=>{
+        VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
 
-        });
-        
-        BUTTON(ELEMENT,'98%','50px','#061b4e','',sessionStorage.getItem('UserSubject')||'Select Reason For Contact','1% auto',()=>{
+            STYLED(ELEMENTS,'display','inline-table');
+            STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-            ROUTE(' ',CONTACTSUBJECTPAGE,'CONTACTUSPAGE');
+            ROUNDINPUT(ELEMENT,'','','transparent','Project Name',(Appdata)=>{
 
-        });
+                STOREDATA('','AppName',Appdata);
 
-        BUTTON(ELEMENT,'98%','50px','#061b4e','',sessionStorage.getItem('UserCountry')||'Select Your Country','1% auto',()=>{
+            });
 
-            ROUTE(' ',COUNTRIESPAGE,'CONTACTUSPAGE');
+            ROUNDINPUT(ELEMENT,'','','transparent','App Version',(Appdata)=>{
 
-        });
+                STOREDATA('','AppVersion',Appdata);
 
-        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Name',(data)=>{
+            });
 
-            STOREDATA('','UserName',data);
+            ROUNDINPUT(ELEMENT,'','','transparent','Package Name',(Appdata)=>{
 
-        });
+                STOREDATA('','AppPackageName',Appdata);
 
-        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',(data)=>{
+            });
 
-            STOREDATA('','UserEmail',data);
+            ROUNDINPUT(ELEMENT,'','','transparent','Colours',(Appdata)=>{
 
-        });
+                STOREDATA('','AppColors',Appdata);
 
-        TEXTAREA(ELEMENT,'','','50%','Compose Your Message',(data)=>{
+            });
 
-            STOREDATA('','UserMessage',data);
+            ROUNDINPUT(ELEMENT,'','','transparent','App Company',(Appdata)=>{
 
-        });
+                STOREDATA('','AppCompany',Appdata);
 
-        BUTTON(ELEMENT,'96%','50px','forestgreen','','Submit','2% auto 1% auto',(ELEMENTS)=>{
+            });
 
-            CONDITION(sessionStorage.getItem('UserSubject'),()=>{
+            ROUNDINPUT(ELEMENT,'','','transparent','App Region',(Appdata)=>{
 
-                CONDITION(sessionStorage.getItem('UserCountry'),()=>{
+                STOREDATA('','AppRegion',Appdata);
 
-                    CONDITION(sessionStorage.getItem('UserName'),()=>{
+            });
 
-                        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
-                            
-                            CONDITION(sessionStorage.getItem('UserMessage'),()=>{
+            ROUNDINPUT(ELEMENT,'','','transparent','App Catergory',(Appdata)=>{
 
-                                CONDITION(navigator.onLine,()=>{
+                STOREDATA('','AppCatergory',Appdata);
 
-                                    MESSAGEDISPLAY('','Please Wait Your Message Is Being Sent','');
+            });
 
-                                    DISPLAY(ELEMENTS,'...Please Wait...');
+            TEXTAREA(ELEMENT,'','','App Description',(data)=>{
 
-                                    RANDOMCODE((code)=>{
+                STOREDATA('','AppDescription',data);
 
-                                        STOREDATA('','Code',code);
+            });
 
-                                        const HEADERS=['UserSubject','UserCounty','UserName','UserEmail','UserMessage','CodeNumber'];
+            TEXTAREA(ELEMENT,'','','App Configuration',(data)=>{
 
-                                        const INFO=[sessionStorage.getItem('UserSubject'),sessionStorage.getItem('UserCountry'),sessionStorage.getItem('UserName'),sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserMessage'),code];
+                STOREDATA('','AppConfiguration',data);
 
-                                        INSERTDATA(API,sessionStorage.getItem('UserSubject'),HEADERS,INFO,(datata)=>{
-    
-                                            GETDATA(API,sessionStorage.getItem('UserSubject'),(datate)=>{
+            });
 
-                                                REDUX(datate,(Element)=>{
+            TEXTAREA(ELEMENT,'','','App KeyWord',(data)=>{
 
-                                                    CONDITION(sessionStorage.getItem('Code').toString() === Element.CodeNumber.toString() ,()=>{
+                STOREDATA('','AppKeyWord',data);
 
-                                                        const MESSAGE=`Dear ${Element.UserName}\n\n Your ${Element.UserSubject} Contact has Been Recieved and Assigned Follow Up Number That We Shall Use to Get Back To You.\n\n Your ${Element.UserSubject} Number Issue Tracking  is \n\n ${Element.ID}\n\n Thank You For Patience\n\n From Elite Robust Ontology Contact Team.`;
+            });
 
-                                                        EMAILSENDER(Element.UserEmail,Element.UserSubject,MESSAGE,(data)=>{
+            TEXTAREA(ELEMENT,'','','Android Design',(data)=>{
 
-                                                            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+                STOREDATA('','AndroidDesign',data);
 
-                                                        },(data)=>{
+            });
 
-                                                            MESSAGEDISPLAY('','Something Went Wrong','');
+            TEXTAREA(ELEMENT,'','','Android Functions',(data)=>{
 
-                                                            DISPLAY(ELEMENTS,'Submit');
+                STOREDATA('','AndroidFunctions',data);
 
-                                                        });
+            });
 
-                                                    },()=>{
+            TEXTAREA(ELEMENT,'','','Desktop Design',(data)=>{
 
-                                                        MESSAGEDISPLAY('','Something Went Wrong,Try Again','');
+                STOREDATA('','DesktopDesign',data);
 
-                                                        DISPLAY(ELEMENTS,'Submit');
+            });
 
-                                                    });
+            TEXTAREA(ELEMENT,'','','Desktop Functions',(data)=>{
 
-                                                });
+                STOREDATA('','DesktopFunctions',data);
+                
+            });
 
-                                            },()=>{
+            TEXTAREA(ELEMENT,'','','Web Design',(data)=>{
 
-                                                MESSAGEDISPLAY('','Something Went Wrong','');
+                STOREDATA('','WebDesign',data);
 
-                                                DISPLAY(ELEMENTS,'Submit');
+            });
 
-                                            });
-    
-                                        },(datata)=>{
-    
-                                            MESSAGEDISPLAY('','Message Sending Failed','');
+            TEXTAREA(ELEMENT,'','','Web Functions',(data)=>{
 
-                                            DISPLAY(ELEMENTS,'Submit');
-    
-                                        });
+                STOREDATA('','WebFunctions',data);
 
-                                    });
+            });
 
-                                },()=>{
+            TEXTAREA(ELEMENT,'','','Shared Design',(data)=>{
 
-                                    MESSAGEDISPLAY('','Please Check Your Internet Connection','');
+                STOREDATA('','SharedDesign',data);
+
+            });
+
+            TEXTAREA(ELEMENT,'','','Shared Functions',(data)=>{
+
+                STOREDATA('','SharedFunctions',data);
+
+            });
+
+            IMAGE(ELEMENT,WHITEFOLDERICON,'','50%','',(ELEMENTS)=>{
+
+                IMAGEPICKER(ELEMENTS, (ImageData)=>{
+
+                    STOREDATA('','AppIcon',ImageData);
+
+                });
+            });
+
+            BUTTON(ELEMENT,'','50px','forestgreen','','Update','2% auto',(ELEMENTSE)=>{
+
+                CONDITION(sessionStorage.getItem('AppName')||sessionStorage.getItem('AppVersion')||sessionStorage.getItem('AppPackageName')||sessionStorage.getItem('AppCompany')||sessionStorage.getItem('AppRegion')||sessionStorage.getItem('AppCatergory')||sessionStorage.getItem('AppDescription')||sessionStorage.getItem('AppConfiguration')||sessionStorage.getItem('AppKeyWord')||sessionStorage.getItem('AndroidDesign')||sessionStorage.getItem('AndroidFunctions')||sessionStorage.getItem('DesktopDesign')||sessionStorage.getItem('DesktopFunctions')||sessionStorage.getItem('WebDesign')||sessionStorage.getItem('WebFunctions')||sessionStorage.getItem('SharedDesign')||sessionStorage.getItem('SharedFunctions')||sessionStorage.getItem('AppIcon'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        DEJSON(localStorage.getItem('UserData'),(MyDatate)=>{
+
+                            MESSAGEDISPLAY('',sessionStorage.getItem('AppName')+'Is Being Updated...','');
+
+                            const HEADERS=['AppName','AppDescription','AppColors','AppConfiguration','AppVersion','AppKeyWord','AppPackageName','AppCompany','AndroidDesign','AndroidFunctions','DesktopDesign','DesktopFunctions','WebDesign','WebFunctions','SharedDesign','SharedFunctions','AppLogic','AppRegion','AppState','AppCatergory','AppIcon','Owner'];
+
+                            const INFO=[sessionStorage.getItem('AppName'),sessionStorage.getItem('AppDescription'),sessionStorage.getItem('AppColors'),sessionStorage.getItem('AppConfiguration'),new Date(),sessionStorage.getItem('AppVersion'),'',sessionStorage.getItem('AppKeyWord'),sessionStorage.getItem('AppPackageName'),sessionStorage.getItem('AppCompany'),sessionStorage.getItem('AndroidDesign'),sessionStorage.getItem('AndroidFunctions'),sessionStorage.getItem('DesktopDesign'),sessionStorage.getItem('DesktopFunctions'),sessionStorage.getItem('WebDesign'),sessionStorage.getItem('WebFunctions'),sessionStorage.getItem('SharedDesign'),sessionStorage.getItem('SharedFunctions'),sessionStorage.getItem('AppLogic'),sessionStorage.getItem('AppRegion'),sessionStorage.getItem('AppState'),sessionStorage.getItem('AppCatergory'),sessionStorage.getItem('AppIcon'),new Date(),MyDatate.ID];
+
+                            INSERTDATA(API,'APPMANAGER',HEADERS,INFO,(data)=>{
+
+                                APPDOWNLOAD(()=>{
+                                    
+                                    ROUTE('',HOMEPAGE,HOMEPAGE);
 
                                 });
 
                             },()=>{
-                
-                                MESSAGEDISPLAY('','Please Write Your Message','');
-                
+
+                                MESSAGEDISPLAY('','Failed to Update' + data.AppName,'');
+
                             });
-                
-                        },()=>{
-            
-                            MESSAGEDISPLAY('','Please Provide Your Email','');
-            
+
                         });
 
                     },()=>{
-        
-                        MESSAGEDISPLAY('','Please Provide Your Name','');
-        
+
+                        MESSAGEDISPLAY('','Check Your Internet','');
+
                     });
 
                 },()=>{
-    
-                    MESSAGEDISPLAY('','Please Select A Country','');
-    
+
+                    MESSAGEDISPLAY('','Fill Any Part','');
+
                 });
 
-            },()=>{
-
-                MESSAGEDISPLAY('','Please Select A Subject','');
-
             });
 
-        });
-
-    });
-
-};
-
-const CONTACTSUBJECTPAGE=()=>{
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
-
-    },'Subject','',()=>{
-
-    },(ELEMENT)=>{
-
-        CENTERTEXT(ELEMENT,'','Select Reason For Contact','','25px','5% auto',()=>{
-
-        });
-
-        CENTERTEXT(ELEMENT,'','<hr>','','20px','5% auto',()=>{
-
-        });
-
-        BUTTONIMAGE(ELEMENT,'#061b4e','Complaint','',WHITEGROUPICON,'','2% auto',()=>{
-
-            STOREDATA('','UserSubject','Complaint');
-
-            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENT,'#061b4e','Inquiries','',WHITEHELPICON,'','2% auto',()=>{
-
-            STOREDATA('','UserSubject','Inquiries');
-
-            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENT,'#061b4e','Business','',WHITESUITCASEICON,'','2% auto',()=>{
-
-            STOREDATA('','UserSubject','Business');
-
-            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENT,'#061b4e','Developer','',WHITEMOBILEDEVELOPMENTICON,'','2% auto',()=>{
-
-            STOREDATA('','UserSubject','Developer');
-
-            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENT,'#061b4e','Others','',WHITESEARCHICON,'','2% auto',()=>{
-
-            STOREDATA('','UserSubject','Others');
-
-            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+            BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
 
         });
 
@@ -443,430 +1484,649 @@ const CONTACTSUBJECTPAGE=()=>{
 
 };
 
-const COUNTRIESPAGE=()=>{
+const MYCOLLECTIONPAGE=()=>{
 
-    LEFTTEXTBACKHEADERBODY('',()=>{
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-        ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+        LEFTTEXTBACKHEADERBODY('',()=>{
 
-    },'Country','',()=>{
-
-    },(ELEMENT)=>{
-
-        REDUX(COUNTRIES,(data)=>{
-
-            BUTTONIMAGE(ELEMENT,'#061b4e',data.name,'',WHITELOCATIONICON,'','2% auto',()=>{
-
-                STOREDATA('','UserCountry',data.name);
-
-                ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
-
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },'Account Collection','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+                
             });
-
+    
         });
-       
+            
     });
 
 };
 
-const EMAILUPDATEPAGE=()=>{
+const MYPROJECTDETAILSPAGE=()=>{
 
-    DELETEDATA('','UserEmail');
+    BACKPAGE('HOMEPAGE');
 
-    const MESSAGE=`When You Sign Up for Our Email Programme,You are Agreeing to the Terms and Conditions of Elite Robust Ontology Of 2025 Act. <br><br> You have Allowed to Join the Mail System where we shall send you updates of our latest products and insider news ,You also get a chance to test some products while in development mode and become a contributor before they even go live to the general Public <br><br> Get Started Today By Providing Your Email Address Below.`;
+    DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
 
-    LEFTTEXTBACKHEADERBODY('',()=>{
+        LEFTTEXTBACKHEADERBODY('',(ELEMENT)=>{
 
-        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },data.AppName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
 
-    },'Email','',()=>{
+                BREAK(ELEMENTS);
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-    },(ELEMENT)=>{
+                IMAGE(ELEMENTS,data.AppIcon||WHITEFOLDERICON,'','50%',(ELEMENT)=>{
 
-        CENTERTEXT(ELEMENT,'','Email Updates','','25px','5% auto',()=>{
+                    STYLED(ELEMENT,'border','1px solid forestgreen');
 
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.ID,'',WHITESECRETCODEICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.Owner,'',WHITEUSERICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppCompany||'Ero Innovations','',WHITEGMAILICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppCreatedOn||new Date(),'',WHITECREATEDONICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppVersion||'1','',WHITEMOBILEDEVELOPMENTICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENTS,'forestgreen',data.AppState||'Active','',WHITESUBSCRIPTIONICON,'50px','2% auto',()=>{
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);
+
+                DISPLAYVIEW(ELEMENTS,'forestgreen','97%','50px',(ELEMENT)=>{
+
+                    ICON(ELEMENT,WHITEAPPICON,'25px','25px','',(ELEMENTS)=>{
+
+                        ROUTE('',ANDROIDCODEPAGE,'MYPROJECTDETAILSPAGE');
+
+                    });
+            
+                    ICON(ELEMENT,WHITESCREENICON,'25px','25px','',(ELEMENTS)=>{
+
+                        ROUTE(' ',DESKTOPCODEPAGE,'MYPROJECTDETAILSPAGE');
+                
+                    });
+
+                    ICON(ELEMENT,WHITEINTERNETICON,'25px','25px','',(ELEMENTS)=>{
+
+                        ROUTE(' ',WEBSITECODEPAGE,'MYPROJECTDETAILSPAGE');
+                
+                    });
+            
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
         });
+            
+    });
 
-        CENTERTEXT(ELEMENT,'','<hr>','','20px','5% auto',()=>{
+};
 
+const ANDROIDCODEPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',MYPROJECTDETAILSPAGE,'MYPROJECTDETAILSPAGE');
+    
+        },data.AppName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                LEFTTEXT(ELEMENTS,'',data.AndroidDesign||'<br><br>... No Code Added....','','18px','2%','',(ELEMENTSE)=>{
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
         });
+            
+    });
 
-        LEFTTEXT(ELEMENT,'',MESSAGE,'','18px','2%',()=>{
+};
 
+const DESKTOPCODEPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
+
+        console.log(data);
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',MYPROJECTDETAILSPAGE,'MYPROJECTDETAILSPAGE');
+    
+        },data.AppName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                LEFTTEXT(ELEMENTS,'',data.DesktopDesign||'<br><br>... No Code Added....','','18px','2%','',(ELEMENTSE)=>{
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
         });
+            
+    });
 
-        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',(data)=>{
+};
 
-            STOREDATA('','UserEmail',data);
+const WEBSITECODEPAGE=()=>{
 
+    DEJSON(sessionStorage.getItem('MyProject'),(data)=>{
+
+        console.log(data);
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',MYPROJECTDETAILSPAGE,'MYPROJECTDETAILSPAGE');
+    
+        },data.AppName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                LEFTTEXT(ELEMENTS,'',data.WebDesign||'<br><br>... No Code Added....','','18px','2%','',(ELEMENTSE)=>{
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
+            });
+    
         });
+            
+    });
 
-        BUTTON(ELEMENT,'96%','50px','forestgreen','','Sign Me Up','2% auto 1% auto',(ELEMENTS)=>{
+};
 
-            CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+const MYPROFILEPHOTO=()=>{
 
-                CONDITION(navigator.onLine,()=>{
+    DELETEDATA('','MyImage');
 
-                    MESSAGEDISPLAY('','Please Wait While You Get Signed Up','');
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-                    DISPLAY(ELEMENTS,'...Please Wait...');
+        console.log(data);
 
-                    RANDOMCODE((code)=>{
+        LEFTTEXTBACKHEADERBODY('',()=>{
 
-                        STOREDATA('','Code',code);
+            ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+    
+        },data.UserName,'',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
 
-                        const HEADERS=['UserSubject','UserEmail','UserMessage','CodeNumber'];
+                BREAK(ELEMENTS);
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-                        const INFO=['Email Updates',sessionStorage.getItem('UserEmail'),'I have Signed Up',code];
+                IMAGE(ELEMENTS,data.UserProfilePhoto||WHITEPROFILEICON,'','50%','',(ELEMENT)=>{
 
-                        INSERTDATA(API,'EmailUpdater',HEADERS,INFO,(datata)=>{
+                    IMAGEPICKER(ELEMENT, (MyImageData)=>{
 
-                            GETDATA(API,'EmailUpdater',(datate)=>{
+                        STOREDATA('','MyImage',MyImageData);
 
-                                REDUX(datate,(Element)=>{
+                    });
 
-                                    CONDITION(sessionStorage.getItem('Code').toString() === Element.CodeNumber.toString() ,()=>{
+                });
 
-                                        const MESSAGE=`Dear User\n\n Your ${Element.UserSubject} Contact has Been Recieved and Assigned Follow Up Number That We Shall Use to Get Back To You.\n\n Your ${Element.UserSubject} Number Issue Tracking  is \n\n ${Element.ID}\n\n Thank You For Patience\n\n From Elite Robust Ontology Contact Team.`;
+                IMAGEBUTTON(ELEMENTS,'forestgreen','Update Profile Photo','',WHITECHECKICON,'50px','2% auto',(ELEMENTSE)=>{
 
-                                        EMAILSENDER(Element.UserEmail,Element.UserSubject,MESSAGE,(data)=>{
+                    CONDITION(sessionStorage.getItem('MyImage'),()=>{
 
-                                            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+                        CONDITION(navigator.onLine,()=>{
 
-                                        },(data)=>{
+                            MESSAGEDISPLAY('','Please Wait ,Updating Profile Image','');
 
-                                            MESSAGEDISPLAY('','Something Went Wrong','');
+                            const INFO=[data.UserName,data.UserEmail,data.UserPassword,sessionStorage.getItem('MyImage')];
 
-                                            DISPLAY(ELEMENTS,'Submit');
+                            UPDATEDATA(API,'Users',data.ID,INFO,()=>{
 
-                                        });
+                                USERACCOUNTDOWNLOAD(()=>{
 
-                                    },()=>{
-
-                                        MESSAGEDISPLAY('','Something Went Wrong,Try Again','');
-
-                                        DISPLAY(ELEMENTS,'Submit');
-
-                                    });
+                                    ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
 
                                 });
 
                             },()=>{
 
-                                MESSAGEDISPLAY('','Something Went Wrong','');
+                                MESSAGEDISPLAY('','Failed to Update Profile Picture',''); 
 
-                                DISPLAY(ELEMENTS,'SubSign Me Upmit');
+                            })
 
-                            });
+                        },()=>{
 
-                        },(datata)=>{
-
-                            MESSAGEDISPLAY('','Message Sending Failed','');
-
-                            DISPLAY(ELEMENTS,'Sign Me Up');
+                            MESSAGEDISPLAY('','Check Your Internet','');
 
                         });
 
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Select Profile Photo','');
+
                     });
-
-                },()=>{
-
-                    MESSAGEDISPLAY('','Please Check Your Internet Connection','');
 
                 });
 
-            },()=>{
+                IMAGEBUTTON(ELEMENTS,'brown','Remove Profile Photo','',WHITEDELETEICON,'50px','2% auto',(ELEMENTSE)=>{
 
-                MESSAGEDISPLAY('','Please Provide Your Email','');
+                    CONDITION(navigator.onLine,()=>{
 
+                        MESSAGEDISPLAY('','Please Wait ,Removing Profile Image','');
+
+                        const INFO=[data.UserName,data.UserEmail,data.UserPassword,''];
+
+                        UPDATEDATA(API,'Users',data.ID,INFO,()=>{
+
+                            USERACCOUNTDOWNLOAD(()=>{
+
+                                ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+
+                            });
+
+                        },()=>{
+
+                            MESSAGEDISPLAY('','Failed to Update Profile Picture',''); 
+
+                        })
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Check Your Internet','');
+
+                    });
+
+                });
+
+                BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);BREAK(ELEMENTS);
+                
             });
-
+    
         });
+            
+    });
 
+}
+
+const UPDATEUSERDATAPAGE=()=>{
+
+    DELETEDATA('','UserName');
+    DELETEDATA('','UserEmail');
+    DELETEDATA('','UserPassword');
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+        
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+    
+        },'Profile Update','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter New User Name','','18px','',()=>{
+
+                });
+
+                ROUNDINPUT(ELEMENTS,'','','transparent','User Name',(Appdata)=>{
+
+                    STOREDATA('','UserName',Appdata);
+                    
+                });
+
+                CENTERTEXT(ELEMENTS,'','Enter New Email ','','18px','',()=>{
+
+                });
+
+                ROUNDINPUT(ELEMENTS,'','','transparent','New Email',(Appdata)=>{
+
+                    STOREDATA('','UserEmail',Appdata);
+                    
+                });
+
+                CENTERTEXT(ELEMENTS,'','Enter New Password','','18px','',()=>{
+
+                });
+
+                ROUNDINPUT(ELEMENTS,'','','transparent','New Password',(Appdata)=>{
+
+                    STOREDATA('','UserPassword',Appdata);
+                    
+                });
+
+                BUTTON(ELEMENT,'','50px','forestgreen','','Update User Details','2% auto',(ELEMENTSE)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        CONDITION(sessionStorage.getItem('UserName')||sessionStorage.getItem('UserEmail') || sessionStorage.getItem('UserPassword'),()=>{
+
+                            MESSAGEDISPLAY('','Please Wait ,Updating User Profile Data','');
+
+                            const INFO=[sessionStorage.getItem('UserName')||data.UserName,sessionStorage.getItem('UserEmail')||data.UserEmail,sessionStorage.getItem('UserPassword')||data.UserPassword,data.UserProfilePhoto];
+    
+                            UPDATEDATA(API,'Users',data.ID,INFO,()=>{
+    
+                                USERACCOUNTDOWNLOAD(()=>{
+    
+                                    ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+    
+                                });
+    
+                            },()=>{
+    
+                                MESSAGEDISPLAY('','Failed to Update User Profile Data',''); 
+    
+                            })
+
+                        },()=>{
+
+                            MESSAGEDISPLAY('','Please Fill Any Part','');
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Check Your Internet','');
+
+                    });
+
+                });
+ 
+            });
+    
+        });
+            
     });
 
 };
 
-const JOINBETAPAGE=()=>{
+const DELETEACCOUNTPAGE=()=>{
 
-    DELETEDATA('','UserEmail');
+    DELETEDATA('','Deleted');
 
-    const MESSAGE=`When You Sign Up for Our Beta Programme,You are Agreeing to the Terms and Conditions of Elite Robust Ontology Of 2025 Act. <br><br> You have Allowed to Join the Beta System where we shall send you updates of our latest products and insider news ,You also get a chance to test some products while in development mode and become a contributor before they even go live to the general Public <br><br> Get Started Today By Providing Your Email Address Below.`;
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
 
-    LEFTTEXTBACKHEADERBODY('',()=>{
+        LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+        },'Delete Account','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-    },'Beta','',()=>{
+                BREAK(ELEMENTS);
 
-    },(ELEMENT)=>{
-
-        CENTERTEXT(ELEMENT,'','Join Beta','','25px','5% auto',()=>{
-
-        });
-
-        CENTERTEXT(ELEMENT,'','<hr>','','20px','5% auto',()=>{
-
-        });
-
-        LEFTTEXT(ELEMENT,'',MESSAGE,'','18px','2%',()=>{
-
-        });
-
-        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',(data)=>{
-
-            STOREDATA('','UserEmail',data);
-
-        });
-
-        BUTTON(ELEMENT,'96%','50px','forestgreen','','Sign Me Up','2% auto 1% auto',(ELEMENTS)=>{
-
-            CONDITION(sessionStorage.getItem('UserEmail'),()=>{
-
-                CONDITION(navigator.onLine,()=>{
-
-                    MESSAGEDISPLAY('','Please Wait While You Get Signed Up','');
-
-                    DISPLAY(ELEMENTS,'...Please Wait...');
-
-                    RANDOMCODE((code)=>{
-
-                        STOREDATA('','Code',code);
-
-                        const HEADERS=['UserSubject','UserEmail','UserMessage','CodeNumber'];
-
-                        const INFO=['Join Beta',sessionStorage.getItem('UserEmail'),'I have Signed Up',code];
-
-                        INSERTDATA(API,'JoinBeta',HEADERS,INFO,(datata)=>{
-
-                            GETDATA(API,'JoinBeta',(datate)=>{
-
-                                REDUX(datate,(Element)=>{
-
-                                    CONDITION(sessionStorage.getItem('Code').toString() === Element.CodeNumber.toString() ,()=>{
-
-                                        const MESSAGE=`Dear User\n\n Your ${Element.UserSubject} Contact has Been Recieved and Assigned Follow Up Number That We Shall Use to Get Back To You.\n\n Your ${Element.UserSubject} Number Issue Tracking  is \n\n ${Element.ID}\n\n Thank You For Patience\n\n From Elite Robust Ontology Contact Team.`;
-
-                                        EMAILSENDER(Element.UserEmail,Element.UserSubject,MESSAGE,(data)=>{
-
-                                            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-
-                                        },(data)=>{
-
-                                            MESSAGEDISPLAY('','Something Went Wrong','');
-
-                                            DISPLAY(ELEMENTS,'Submit');
-
-                                        });
-
-                                    },()=>{
-
-                                        MESSAGEDISPLAY('','Something Went Wrong,Try Again','');
-
-                                        DISPLAY(ELEMENTS,'Submit');
-
-                                    });
-
-                                });
-
-                            },()=>{
-
-                                MESSAGEDISPLAY('','Something Went Wrong','');
-
-                                DISPLAY(ELEMENTS,'SubSign Me Upmit');
-
-                            });
-
-                        },(datata)=>{
-
-                            MESSAGEDISPLAY('','Message Sending Failed','');
-
-                            DISPLAY(ELEMENTS,'Sign Me Up');
-
-                        });
-
-                    });
-
-                },()=>{
-
-                    MESSAGEDISPLAY('','Please Check Your Internet Connection','');
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px','',()=>{
 
                 });
 
-            },()=>{
+                ROUNDINPUT(ELEMENTS,'','','transparent',' ',(Appdata)=>{
+                    
+                    STOREDATA('','Deleted',Appdata);
 
-                MESSAGEDISPLAY('','Please Provide Your Email','');
+                });
 
+                BUTTON(ELEMENT,'','50px','red','','Delete My  Account','2% auto',(ELEMENTSE)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        CONDITION(sessionStorage.getItem('Deleted'),()=>{
+
+                            MESSAGEDISPLAY('','Please Wait ,Deleting Your Account','');
+
+                            const INFO=[data.UserName,data.UserEmail,data.UserPassword,data.UserProfilePhoto,sessionStorage.getItem('Deleted')];
+    
+                            UPDATEDATA(API,'Users',data.ID,INFO,()=>{
+    
+                                USERACCOUNTDOWNLOAD(()=>{
+    
+                                    ROUTE('',MYPROFILEPAGE,'MYPROFILEPAGE');
+    
+                                });
+    
+                            },()=>{
+    
+                                MESSAGEDISPLAY('','Failed to Deleted User Account',''); 
+    
+                            })
+
+                        },()=>{
+
+                            MESSAGEDISPLAY('','Please Enter Reason For Account Deletion','');
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Check Your Internet','');
+
+                    });
+
+                });
+ 
             });
-
+    
         });
-
+            
     });
 
 };
 
 const PRIVACYPOLICYPAGE=()=>{
 
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-
-    },'Privacy Policy','',()=>{
-
-    },(ELEMENTS)=>{
-
-        DISPLAY(ELEMENTS,'Under Development');
-
-    });
-
-};
-
-const DONATEPAGE=()=>{
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-
-    },'Donate','',()=>{
-
-    },(ELEMENTS)=>{
-
-        DISPLAY(ELEMENTS,'Under Development');
-
-    });
-
-};
-
-const NOVAFRAMEWORKPAGE=()=>{
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',DEVELOPERPAGE,'DEVELOPERPAGE');
-
-    },'Nova','',()=>{
-
-    },(ELEMENTS)=>{
-
-        DISPLAY(ELEMENTS,'Under Development');
-
-    });
-
-};
-
-const ELITEPAYPAGE=()=>{
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',DEVELOPERPAGE,'DEVELOPERPAGE');
-
-    },'Elite Pay','',()=>{
-
-    },(ELEMENTS)=>{
-
-        DISPLAY(ELEMENTS,'Under Development');
-
-    });
-
-};
-
-const BUILDERSPAGE=()=>{
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',DEVELOPERPAGE,'DEVELOPERPAGE');
-
-    },'Builders','',()=>{
-
-    },(ELEMENTS)=>{
-
-        DISPLAY(ELEMENTS,'Under Development');
-
-    });
-
-};
-
-const USERACCOUNTPAGE=()=>{
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-    },'My Profile','',()=>{
-
-    },(ELEMENTS)=>{
-
-        DISPLAY(ELEMENTS,'Under Development');
-
-    });
-
-};
-
-const DATADOWNLOAD=()=>{
-
-    CHECKER(navigator.onLine,()=>{
-
-        GETDATA(API,'HomePosts',(data)=>{
-
-            REVERSE(data);
-
-            const MYDATA={
-                'Name':'HomePosts',
-                'data':data
-            }
-    
-            STOREINDEXED ('HomePosts', 'HomePosts', MYDATA, (datate)=>{
-
-                CHECKER(datate === true,()=>{
-
-                    ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-                } );
-
-                CHECKER(datate === false,()=>{
-
-                    UPDATEINDEX('HomePosts', 'HomePosts', MYDATA,()=>{
-
-                    });
-
-                } );
-        
-            });
-    
-        });
-
-    });
-
-};
-
-const READMOREPAGE=()=>{
-
-    DEJSON(sessionStorage.getItem('CurrentData'),(Data)=>{
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
 
         LEFTTEXTBACKHEADERBODY('',()=>{
 
-            ROUTE('',HOMEPAGE,'HOMEPAGE');
+            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
     
-        },Data.PostName,'',()=>{
+        },'Policy','',()=>{
     
-        },(ELEMENTS)=>{
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
 
-            IMAGE(ELEMENTS,Data.PostImage||EROINNOVATIONSLOGOONE,'100%','50%','',()=>{
+                BREAK(ELEMENTS);
 
-            });
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px',()=>{
 
-            DISPLAYVIEW(ELEMENTS,' ','95%','45px',(ELEMENT)=>{
-    
-                LEFTTEXT(ELEMENT,'',Data.PostedBy,'green','20px','0.5rem','',()=>{
-    
                 });
-    
-                RIGHTTEXT(ELEMENT,'',Data.PostDate,'green','20px','0.5rem','',()=>{
-    
-                });
-    
+ 
             });
+    
+        });
+            
+    });
 
-            LEFTTEXT(ELEMENTS,'',Data.PostStory + '<br><br><br><br>','','16px','0.5rem','',()=>{
+};
+
+const LINKDEVICEPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+        },'Link Device','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px','',()=>{
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const APPLOCKPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+        },'App Lock Device','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px','',()=>{
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const APPNOTIFICATIONSPAGE=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+        },'App Notifications','',()=>{
+    
+        },(ELEMENT)=>{
+    
+            VIEW(ELEMENT,'transparent','100%','auto','',(ELEMENTS)=>{
+    
+                STYLED(ELEMENTS,'display','inline-table');
+                STYLED(ELEMENTS,'border-top','1px solid forestgreen');
+
+                BREAK(ELEMENTS);
+
+                CENTERTEXT(ELEMENTS,'','Enter Reason For Account Deletion','','18px','',()=>{
+
+                });
+ 
+            });
+    
+        });
+            
+    });
+
+};
+
+const USERACCOUNTDOWNLOAD=(callback)=>{
+
+    GETDATA(API,'Users',(data)=>{
+
+        DEJSON(localStorage.getItem('UserData'),(MyData)=>{
+
+            FINDER(data,'UserEmail',MyData.UserEmail,(Users)=>{
+
+                CONDITION(Users.UserEmail === MyData.UserEmail && !Users.AccountDeleted,()=>{
+
+                    JSONIFICATION(Users,(MeData)=>{
+
+                        STOREDATA(' ','UserData',MeData);
+
+                        callback();
+
+                    });
+
+                },()=>{
+
+                    DELETEDATA(' ','UserData');
+
+                    RELOAD();
+
+                });
 
             });
 
