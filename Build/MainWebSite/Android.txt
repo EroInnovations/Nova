@@ -64,13 +64,13 @@ const SETTINGSPAGE=()=>{
 
         BUTTONIMAGE(ELEMENTS,'#061b4e','Join Beta','',WHITECREATEDONICON,'','2% auto',()=>{
 
-            ROUTE('',JOINBETAPAGE,'SETTINGSPAGE');
+            ROUTE(' ',JOINBETAPAGE,'SETTINGSPAGE');
 
         });
 
         BUTTONIMAGE(ELEMENTS,'#061b4e','Email Updates','',WHITEGMAILICON,'','2% auto',()=>{
 
-            ROUTE('',EMAILUPDATEPAGE,'SETTINGSPAGE');
+            ROUTE(' ',EMAILUPDATEPAGE,'SETTINGSPAGE');
 
         });
 
