@@ -24,9 +24,9 @@ const HOMEPAGE=()=>{
 
             });
 
-            RIGHTIMAGE(ELEMENT,WHITEPOSTICON,'20px','20px','0.1rem','',()=>{
+            RIGHTIMAGE(ELEMENT,WHITEUSERICON,'20px','20px','0.1rem','',()=>{
 
-                ROUTE(' ',POSTPAGE,'HOMEPAGE');
+                ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
 
             });
 
@@ -784,13 +784,13 @@ const BUILDERSPAGE=()=>{
 
 };
 
-const POSTPAGE=()=>{
+const USERACCOUNTPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-    },'Post','',()=>{
+    },'My Profile','',()=>{
 
     },(ELEMENTS)=>{
 
