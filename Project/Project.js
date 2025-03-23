@@ -865,7 +865,7 @@ const READMOREPAGE=()=>{
     
             });
 
-            LEFTTEXT(ELEMENTS,'',Data.PostStory,'','16px','0.5rem','',()=>{
+            LEFTTEXT(ELEMENTS,'',Data.PostStory + '<br><br><br><br>','','16px','0.5rem','',()=>{
 
             });
 
