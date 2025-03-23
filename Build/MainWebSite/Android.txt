@@ -80,7 +80,6 @@ const HOMEPAGE=()=>{
     
                                         ROUTE(' ',READMOREPAGE,'HOMEPAGE');
     
-    
                                     });
                     
                                 });
@@ -99,7 +98,9 @@ const HOMEPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        ICON(ELEMENT,WHITEHOMEICON,'25px','25px','',()=>{
+        ICON(ELEMENT,WHITEINTERNETICON,'25px','25px','',()=>{
+
+            WEBSITE('https://eroinnovations.site');
 
         });
 
