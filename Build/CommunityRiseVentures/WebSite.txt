@@ -6,11 +6,25 @@ const NOVASTART=()=>{
 
     APPMODE('#cdcdcd');
 
-    CLEAR('');
-
-    ROUTE("",HOMEPAGE,'HOMEPAGE');
-
     DATATED();
+
+    SCREENWIDTH((data)=>{
+
+        CONDITION(data >800,
+            ()=>{
+
+                ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+
+            },
+            ()=>{
+
+                ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+                
+            }
+
+        );
+
+    });
 
 };
 
@@ -47,7 +61,7 @@ const DATATED=()=>{
 
 };
 
-const HOMEPAGE=()=>{
+const ANDROIDHOMEPAGE=()=>{
 
     HOMEHEADERTEMPLATE('','','',(ELEMENT)=>{
 
@@ -57,19 +71,19 @@ const HOMEPAGE=()=>{
 
         TEXT(ELEMENT,'h2','News',TEXTCOLOR,'20px','',(ELE)=>{
 
-            ROUTE(' ',NEWSPAGE,'HOMEPAGE');
+            ROUTE(' ',ANDROIDNEWSPAGE,'ANDROIDHOMEPAGE');
 
         });
 
         TEXT(ELEMENT,'h2','Services',TEXTCOLOR,'20px','',(ELE)=>{
 
-            ROUTE(' ',SERVICESPAGE,'HOMEPAGE');
+            ROUTE(' ',ANDROIDSERVICESPAGE,'ANDROIDHOMEPAGE');
 
         });
 
         TEXT(ELEMENT,'h2','About Us',TEXTCOLOR,'20px','',(ELE)=>{
 
-            ROUTE(' ',ABOUTUSPAGE,'HOMEPAGE');
+            ROUTE(' ',ANDROIDABOUTUSPAGE,'ANDROIDHOMEPAGE');
 
         });
 
@@ -188,25 +202,25 @@ const HOMEPAGE=()=>{
 
 };
 
-const NEWSPAGE=()=>{
+const ANDROIDNEWSPAGE=()=>{
 
-    BACKPAGE('HOMEPAGE');
+    BACKPAGE('ANDROIDHOMEPAGE');
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
 
     },'Latest News',TEXTCOLOR,()=>{
 
     },(ELEMENT)=>{
 
-        NEWSDATA(ELEMENT);
+        ANDROIDNEWSDATA(ELEMENT);
 
         FLOATFIXEDBUTTON('','blue',(ELEMENTS)=>{
 
             IMAGE(ELEMENTS,WHITEADDICON,'25px','25px','',(IMAGER)=>{
 
-                ROUTE(' ',UPDATENEWSPAGE,'NEWSPAGE');
+                ROUTE(' ',ANDROIDUPDATENEWSPAGE,'ANDROIDNEWSPAGE');
     
             });
 
@@ -216,15 +230,13 @@ const NEWSPAGE=()=>{
 
 };
 
-const NEWSDATA=(ELEMENT)=>{
+const ANDROIDNEWSDATA=(ELEMENT)=>{
 
     GETINDEXED ('CommunityRise', 'CommunityRise', (data)=>{
 
         REDUX(data,(Element)=>{
 
             REDUX(Element.Data,(Elements)=>{
-
-                console.log(Elements)
 
                 VIEW(ELEMENT,' ','98%','auto','',(ELEMENTS)=>{
 
@@ -275,11 +287,11 @@ const NEWSDATA=(ELEMENT)=>{
 
 };
 
-const SERVICESPAGE=()=>{
+const ANDROIDSERVICESPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
 
     },'Our Services',TEXTCOLOR,()=>{
 
@@ -366,17 +378,17 @@ const SERVICESPAGE=()=>{
 
 };
 
-const ABOUTUSPAGE=()=>{
+const ANDROIDABOUTUSPAGE=()=>{
 
-    BACKPAGE('HOMEPAGE');
+    BACKPAGE('ANDROIDHOMEPAGE');
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
 
     },'Donate',TEXTCOLOR,()=>{
 
-        ROUTE(' ',DONATEPAGE,'ABOUTUSPAGE');
+        ROUTE(' ',ANDROIDDONATEPAGE,'ANDROIDABOUTUSPAGE');
 
     },(ELEMENT)=>{
 
@@ -414,11 +426,11 @@ const ABOUTUSPAGE=()=>{
 
 };
 
-const DONATEPAGE=()=>{
+const ANDROIDDONATEPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',ABOUTUSPAGE,'ABOUTUSPAGE');
+        ROUTE('',ANDROIDABOUTUSPAGE,'ANDROIDABOUTUSPAGE');
 
     },'Donate',TEXTCOLOR,()=>{
 
@@ -454,11 +466,11 @@ const DONATEPAGE=()=>{
 
 };
 
-const UPDATENEWSPAGE=()=>{
+const ANDROIDUPDATENEWSPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',ABOUTUSPAGE,'ABOUTUSPAGE');
+        ROUTE('',ANDROIDABOUTUSPAGE,'ANDROIDABOUTUSPAGE');
 
     },'Your Story',TEXTCOLOR,()=>{
 
@@ -482,9 +494,13 @@ const UPDATENEWSPAGE=()=>{
 
         });
         
-        TEXTAREA(ELEMENT,'text','#000','Tell Us Your Story',(data)=>{
+        TEXTAREA(ELEMENT,'text','#000','300px','Tell Us Your Story',(data)=>{
 
             STOREDATA('','Story',data);
+
+        });
+
+        CENTERTEXT(ELEMENT,'','Click On Images Below To Customize',TEXTCOLOR,'14px','',()=>{
 
         });
 
@@ -528,7 +544,7 @@ const UPDATENEWSPAGE=()=>{
 
         });
 
-        BUTTON(ELEMENT,'','','#000','#fff','Share Your Story',(ELEMENTS)=>{
+        BUTTON(ELEMENT,'','','#000','#fff','Share Your Story','',(ELEMENTS)=>{
 
             CONDITION(sessionStorage.getItem('Name'),()=>{
 
@@ -561,13 +577,13 @@ const UPDATENEWSPAGE=()=>{
                                     
                                                 if (data === true ) {
                                     
-                                                    ROUTE(' ',NEWSPAGE,'HOMEPAGE');
+                                                    ROUTE(' ',ANDROIDNEWSPAGE,'ANDROIDHOMEPAGE');
                                                     
                                                 } else {
                                     
                                                     UPDATEINDEX('CommunityRise','CommunityRise', MYDATA,()=>{
                                     
-                                                        ROUTE(' ',NEWSPAGE,'HOMEPAGE');
+                                                        ROUTE(' ',ANDROIDNEWSPAGE,'ANDROIDHOMEPAGE');
                                     
                                                     });
                                     
@@ -631,3 +647,11 @@ const UPDATENEWSPAGE=()=>{
     });
 
 };
+
+const DESKTOPHOMEPAGE=()=>{
+
+    CLEAR('');
+
+    DISPLAY('','Under Development');
+
+}
