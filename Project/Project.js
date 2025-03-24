@@ -117,7 +117,7 @@ const ANDROIDHOMEPAGE=()=>{
 
         });
 
-        ROUNDBUTTON(ELEMENT,'50%','50px','blue','','Latest News',(ELE)=>{
+        ROUNDBUTTON(ELEMENT,'50%','50px','blue','','Latest News','',(ELE)=>{
 
             ROUTE(' ',NEWSPAGE,'HOMEPAGE');
 
@@ -131,7 +131,7 @@ const ANDROIDHOMEPAGE=()=>{
 
         });
 
-        ROUNDBUTTON(ELEMENT,'50%','50px','blue','','Donate Today',(ELE)=>{
+        ROUNDBUTTON(ELEMENT,'50%','50px','blue','','Donate Today','',(ELE)=>{
 
             ROUTE(' ',DONATEPAGE,'HOMEPAGE');
 
