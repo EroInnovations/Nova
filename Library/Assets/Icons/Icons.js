@@ -123,6 +123,7 @@ import { MOVIZ } from "./Logos/Moviz/Moviz.js";
 import { EROINNOVATIONSLOGOONE } from "../CompanyImages/EroInnovations/LogoOne.js";
 import { NEXTICON } from "./WhiteIcons/NextIcon/NextIcon.js";
 import { TIKTOKICON } from "./WhiteIcons/TiktokIcon/TiktokIcon.js";
+import { GREENMENUICON } from "./GreenIcons/MenuIcon/MenuIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -249,12 +250,13 @@ const MOVIZ='${MOVIZ}';
 const EROINNOVATIONSLOGOONE='${EROINNOVATIONSLOGOONE}';
 const WHITENEXTICON='${NEXTICON}';
 const WHITETIKTOKICON='${TIKTOKICON}';
+const GREENMENUICON='${GREENMENUICON}';
 `;
 localStorage.setItem("ICONS",DATA);
 };
 export{ICONS};
 
 `
-const WHITETIKTOKICON='${TIKTOKICON}';
+const GREENMENUICON='${GREENMENUICON}';
 
 `
