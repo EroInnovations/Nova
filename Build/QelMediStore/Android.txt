@@ -1,9 +1,7 @@
-const TEXTCOLOR='#0F990F';
+const TEXTCOLOR='#ffffff';
 
 const NOVASTART=()=>{
 
-    APPMODE('#ffffff');
-    
     ROUTE('',HOMEPAGE,'HOMEPAGE');
 
 };
@@ -16,7 +14,7 @@ const HOMEPAGE=()=>{
 
         });
 
-        RIGHTIMAGE(ELEMENT,GREENMENUICON,'25px','25px','','',()=>{
+        RIGHTIMAGE(ELEMENT,WHITEMENUICON,'25px','25px','','',()=>{
 
         });
 
