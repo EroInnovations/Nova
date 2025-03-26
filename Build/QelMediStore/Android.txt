@@ -143,6 +143,38 @@ const USERACCOUNTPAGE=()=>{
 
     },(ELEMENT)=>{
 
+        VIEW(ELEMENT,'#0F990F','98%','300px','1% auto',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'border-radius','5px');
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'#0F990F','Become A Seller','#ffffff',WHITECREATEDONICON,'50px','1% auto',()=>{
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'#0F990F','Contact Us','#ffffff',WHITEPHONEICON,'50px','1% auto',()=>{
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'#0F990F','Terms And Conditions','#ffffff',WHITEPRIVACYPOLICYICON,'50px','1% auto',()=>{
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'#0F990F','Settings','#ffffff',WHITESETTINGSICON,'50px','1% auto',()=>{
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'#0F990F','Sync','#ffffff',WHITERETRYICON,'50px','1% auto',()=>{
+
+            RELOAD();
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'#0F990F','Updates','#ffffff',WHITEMOBILEDEVELOPMENTICON,'50px','1% auto',()=>{
+
+        });
+
         FOOTER(ELEMENT,'#0F990F','','25px',(ELEMENTS)=>{
 
             TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
