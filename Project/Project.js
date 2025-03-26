@@ -30,6 +30,14 @@ const HOMEPAGE=()=>{
 
     },(ELEMENT)=>{
 
+        FOOTER(ELEMENT,'#0F990F','','25px',(ELEMENTS)=>{
+
+            TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
+
+            });
+
+        })
+
         PRODUCTS(ELEMENT);
 
     });
@@ -126,6 +134,14 @@ const USERACCOUNTPAGE=()=>{
 
     },(ELEMENT)=>{
 
+        FOOTER(ELEMENT,'#0F990F','','25px',(ELEMENTS)=>{
+
+            TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
+
+            });
+
+        })
+
     });
 
 };
@@ -167,6 +183,14 @@ const PRODUCTPAGE=()=>{
             ROUNDBUTTON(ELEMENT,'50%','50px','#0F990F','','Buy',()=>{
 
             });
+
+            FOOTER(ELEMENT,'#0F990F','','25px',(ELEMENTS)=>{
+
+                TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
+    
+                });
+    
+            })
     
         });
 
