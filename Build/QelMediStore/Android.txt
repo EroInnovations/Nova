@@ -30,15 +30,15 @@ const HOMEPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        FOOTER(ELEMENT,'#0F990F','','25px',(ELEMENTS)=>{
-
-            TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
-
-            });
-
-        })
-
         PRODUCTS(ELEMENT);
+
+    });
+
+    FOOTER('','#0F990F','','25px',(ELEMENTS)=>{
+
+        TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
+
+        });
 
     });
 
@@ -86,7 +86,7 @@ const PRODUCTS=(ELEMENT)=>{
 
         CHECKER(data.Approved,()=>{
 
-            VIEW(ELEMENT,' ','45%','45%','2.5%',(ELEMENTS)=>{
+            VIEW(ELEMENT,' ','45%','45%','2.5% 2.5% 10% 2.5%',(ELEMENTS)=>{
 
                 STYLED(ELEMENTS,'display','inline-table');
                 
@@ -101,7 +101,7 @@ const PRODUCTS=(ELEMENT)=>{
     
                     });
     
-                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice,TEXTCOLOR,'16px','0.3rem','',()=>{
+                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice ,TEXTCOLOR,'16px','0.3rem','',()=>{
     
                     });
     
@@ -175,13 +175,13 @@ const USERACCOUNTPAGE=()=>{
 
         });
 
-        FOOTER(ELEMENT,'#0F990F','','25px',(ELEMENTS)=>{
+    });
 
-            TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
+    FOOTER('','#0F990F','','25px',(ELEMENTS)=>{
 
-            });
+        TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
 
-        })
+        });
 
     });
 
@@ -224,14 +224,14 @@ const PRODUCTPAGE=()=>{
             ROUNDBUTTON(ELEMENT,'50%','50px','#0F990F','','Buy',()=>{
 
             });
-
-            FOOTER(ELEMENT,'#0F990F','','25px',(ELEMENTS)=>{
-
-                TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
     
-                });
+        });
+
+        FOOTER('','#0F990F','','25px',(ELEMENTS)=>{
+
+            TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
     
-            })
+            });
     
         });
 
