@@ -84,32 +84,36 @@ const PRODUCTS=(ELEMENT)=>{
 
     GETINDEXEDDATA('QelProducts', 'QelProducts', (data)=>{
 
-        VIEW(ELEMENT,'#09cc09','45%','45%','2% ',(ELEMENTS)=>{
+        CHECKER(data.Approved,()=>{
 
-            STYLED(ELEMENTS,'display','inline-table');
+            VIEW(ELEMENT,'#09cc09','45%','45%','2% ',(ELEMENTS)=>{
 
-            IMAGE(ELEMENTS,data.ImageOne,'100%','250px','',()=>{
-
-                JSONIFICATION(data,(MyData)=>{
-
-                    STOREDATA('','Product',MyData);
-
-                    ROUTE(' ',PRODUCTPAGE,'HOMEPAGE');
-
+                STYLED(ELEMENTS,'display','inline-table');
+    
+                IMAGE(ELEMENTS,data.ImageOne,'100%','250px','',()=>{
+    
+                    JSONIFICATION(data,(MyData)=>{
+    
+                        STOREDATA('','Product',MyData);
+    
+                        ROUTE(' ',PRODUCTPAGE,'HOMEPAGE');
+    
+                    });
+    
                 });
-
-            });
-
-            FOOTER(ELEMENTS,' ','','',(ELEMENTSE)=>{
-
-                TEXT(ELEMENTSE,'',data.ProductName,'','14.1px','0.5rem','',()=>{
-
+    
+                FOOTER(ELEMENTS,' ','','',(ELEMENTSE)=>{
+    
+                    TEXT(ELEMENTSE,'',data.ProductName,'','14.1px','0.5rem','',()=>{
+    
+                    });
+    
+                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice,'white','16px','0.5rem','',()=>{
+    
+                    });
+    
                 });
-
-                RIGHTTEXT(ELEMENTSE,'',data.ProductPrice,'white','16px','0.5rem','',()=>{
-
-                });
-
+    
             });
 
         });
