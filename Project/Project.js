@@ -22,6 +22,12 @@ const HOMEPAGE=()=>{
 
         });
 
+        RIGHTIMAGE(ELEMENT,WHITESEARCHICON,'25px','25px','','',()=>{
+
+            ROUTE(' ',SEARCHPAGE,'HOMEPAGE');
+
+        });
+
         RIGHTIMAGE(ELEMENT,WHITEUSERICON,'25px','25px','','',()=>{
 
             ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
@@ -233,6 +239,97 @@ const PRODUCTPAGE=()=>{
     
             });
     
+        });
+
+    });
+
+};
+
+const SEARCHPAGE=()=>{
+
+    DELETEDATA('','SearchItem');
+
+    HOMEHEADERTEMPLATE('','#0F990F','',(ELEMENT)=>{
+
+        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px','0.1rem','',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+        });
+
+        RIGHTTEXT(ELEMENT,'h2','Search',TEXTCOLOR,'20px','','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        NAVTEMPLATE(ELEMENT,'#0F990F','95%','50px','1% auto',(ELEMENTS)=>{
+
+            INPUT(ELEMENTS, '', 'orange', 'Search For An Item', (data)=>{
+
+                PRODUCTSEARCH(ELEMENT,data);
+
+            });
+
+        });
+
+    });
+
+    FOOTER('','#0F990F','','25px',(ELEMENTS)=>{
+
+        TEXT(ELEMENTS,'h2','© Qel MediStore 2025','','15px','','',()=>{
+
+        });
+
+    });
+
+};
+
+const PRODUCTSEARCH=(ELEMENT,SearchedData)=>{
+
+    GETINDEXEDDATA('QelProducts', 'QelProducts', (data)=>{
+
+        CHECKER(data.Approved,()=>{
+
+            CHECKER(SearchedData === data.ProductName,()=>{
+
+                VIEW(ELEMENT,' ','45%','45%','2.5% 2.5% 10% 2.5%',(ELEMENTS)=>{
+
+                    STYLED(ELEMENTS,'display','inline-table');
+                    
+        
+                    IMAGE(ELEMENTS,data.ImageOne,'100%','250px','',()=>{
+        
+                    });
+        
+                    FOOTER(ELEMENTS,'#09cc09','','50px',(ELEMENTSE)=>{
+        
+                        LEFTTEXT(ELEMENTSE,'',data.ProductName,TEXTCOLOR,'14.1px','0.3rem','',()=>{
+        
+                        });
+        
+                        RIGHTTEXT(ELEMENTSE,'',data.ProductPrice ,TEXTCOLOR,'16px','0.3rem','',()=>{
+        
+                        });
+        
+                    });
+    
+                    CLICK(ELEMENTS,()=>{
+    
+                        JSONIFICATION(data,(MyData)=>{
+        
+                            STOREDATA('','Product',MyData);
+        
+                            ROUTE(' ',PRODUCTPAGE,'HOMEPAGE');
+        
+                        });
+    
+                    });
+        
+                });
+
+            } );
+
         });
 
     });
