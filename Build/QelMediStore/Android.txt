@@ -227,8 +227,8 @@ const PRODUCTPAGE=()=>{
         
                 });
 
-                ICON(ELEMENTS,WHITESTARICON,'25px','25px','','',()=>{
-        
+                ICON(ELEMENTS,WHITEUNHEARTICON,'25px','25px','','',()=>{
+
         
                 });
 
