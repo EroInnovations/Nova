@@ -1,85 +1,35 @@
-Nova is a powerful and flexible JavaScript framework created by Elite Robust Ontology.
+**Elite Robust Ontology Expands Horizons with New Medical App Project for QEL Medical Store in Mbale**  
 
 <br><br>
 
-It is built to help developers easily create websites, desktop applications, and Android apps — all from one framework. Nova is cloud-native, meaning it is designed to run smoothly in modern cloud environments, scaling with your project’s needs.  
+*March 25, 2025*  
 
 <br><br>
 
-Nova is already trusted and used to build applications like Elite and websites like eroinnovations.site.  
+Hot on the heels of their partnership with Community Rise Ventures, **Elite Robust Ontology (ERO)** has secured another major project — the development of a cutting-edge medical app for **QEL Medical Store** in **Mbale**. The contract officially commenced on **March 24th, 2025**, marking yet another bold step in ERO’s mission to deliver impactful digital solutions across diverse sectors.  
 
 <br><br>
 
-What makes Nova special?  
+The medical app is set to transform how QEL Medical Store interacts with its customers and manages its operations. With features planned to include **real-time stock updates, online prescription uploads, home delivery scheduling, in-app consultations, and health reminders**, this app promises to elevate healthcare accessibility in the Mbale region.  
 
 <br><br>
 
-1. **Easy to Start**  
+QEL Medical Store’s Director,  expressed confidence in the collaboration:  
+> "We are proud to work with Elite Robust Ontology. Their reputation for delivering solid, reliable, and intuitive systems makes them the perfect partner to help us serve our community more efficiently."  
 
 <br><br>
 
-Nova does not require heavy setup or complex configurations. If you have basic web development knowledge, you can start building right away. The framework is designed to help developers focus on creating instead of wasting time on setup issues.  
+This new contract positions ERO at the forefront of both community and healthcare innovation within Uganda, following its already celebrated involvement with Community Rise Ventures.  
 
 <br><br>
 
-2. **Cross-Platform Power**  
+**ERO’s CEO, commented on the company’s expanding portfolio:  
+> "Being entrusted with building tools that directly improve lives — from community engagement platforms to healthcare applications — is exactly why we do what we do. We’re honored to serve both Community Rise Ventures and QEL Medical Store."  
 
 <br><br>
 
-Whether you are building a website, a desktop app, or an Android app, Nova has the tools and structure to support it. You don’t need separate frameworks — Nova handles them all in one environment.  
+Development of the medical app is expected to move rapidly, with the first functional prototype scheduled for release by **mid-2025**.  
 
 <br><br>
 
-3. **Database Connectivity** 
-
-<br><br>
-
-Nova makes it simple to connect to any database. Whether you need to retrieve data, post data, or manage large datasets, Nova handles it with ease, reducing the time and effort needed to build dynamic applications.  
-
-<br><br>
-
-4. **Cloud-Native Framework**  
-
-<br><br>
-
-Nova is designed to run in the cloud with full efficiency. It scales as your application grows, allowing you to deploy large projects without performance loss.  
-
-<br><br>
-
-5. **Fast and Lightweight**  
-
-<br><br>
-
-The framework is optimized for speed and low resource usage. Even large projects load and run smoothly, making both development and user experience faster and more reliable.  
-
-<br><br>
-
-6. **Built by Developers, for Developers** 
-
-<br><br>
-
-Every part of Nova is designed by real builders who understand what developers need: simplicity, speed, flexibility, and power.  
-
-<br><br>
-
-Examples of projects built with Nova:  
-<br><br>
-- **Elite** – 
-<br><br>
-A high-performance productivity app. 
-<br><br> 
-- **eroinnovations.site** – 
-<br><br>
-A modern, innovative website showcasing creativity and cutting-edge technology.  
-
-<br><br>
-
-Nova is the perfect choice for developers who want to build fast, scale big, and deploy with confidence. No matter the platform or the complexity, Nova helps you turn ideas into reality quickly and efficiently.  
-
-<br><br>
-
-Start building with Nova today — 
-
-<br><br>
-
-the framework that works with you, not against you.
+As ERO continues to build momentum, all eyes are on this dynamic tech company to see what transformative solution they’ll deliver next.
