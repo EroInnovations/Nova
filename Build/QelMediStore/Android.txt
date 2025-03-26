@@ -219,6 +219,26 @@ const PRODUCTPAGE=()=>{
 
             });
 
+            NAVTEMPLATE(ELEMENT,'#0F990F','95%','50px','1% auto',(ELEMENTS)=>{
+
+                
+                ICON(ELEMENTS,WHITESAVEICON,'25px','25px','','',()=>{
+        
+        
+                });
+
+                ICON(ELEMENTS,WHITESTARICON,'25px','25px','','',()=>{
+        
+        
+                });
+
+                ICON(ELEMENTS,WHITECOMMENTICON,'25px','25px','','',()=>{
+        
+        
+                });
+
+            });
+
             LEFTTEXT(ELEMENT,'h2','About','#0F990F','20px','1rem','3%',()=>{
 
             });
