@@ -93,14 +93,6 @@ const PRODUCTS=(ELEMENT)=>{
     
                 IMAGE(ELEMENTS,data.ImageOne,'100%','250px','',()=>{
     
-                    JSONIFICATION(data,(MyData)=>{
-    
-                        STOREDATA('','Product',MyData);
-    
-                        ROUTE(' ',PRODUCTPAGE,'HOMEPAGE');
-    
-                    });
-    
                 });
     
                 FOOTER(ELEMENTS,'#09cc09','','50px',(ELEMENTSE)=>{
@@ -113,6 +105,18 @@ const PRODUCTS=(ELEMENT)=>{
     
                     });
     
+                });
+
+                CLICK(ELEMENTS,()=>{
+
+                    JSONIFICATION(data,(MyData)=>{
+    
+                        STOREDATA('','Product',MyData);
+    
+                        ROUTE(' ',PRODUCTPAGE,'HOMEPAGE');
+    
+                    });
+
                 });
     
             });
