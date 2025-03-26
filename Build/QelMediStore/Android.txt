@@ -4,6 +4,8 @@ const TEXTCOLOR='#ffffff';
 
 const NOVASTART=()=>{
 
+    APPMODE('#ffffff')
+
     ROUTE('',HOMEPAGE,'HOMEPAGE');
 
     APPUPDATER();
@@ -14,7 +16,7 @@ const HOMEPAGE=()=>{
 
     APPUPDATER();
 
-    HOMEHEADERTEMPLATE('',' ','',(ELEMENT)=>{
+    HOMEHEADERTEMPLATE('','#0F990F','',(ELEMENT)=>{
 
         LEFTTEXT(ELEMENT,'h2','Qel Medicals',TEXTCOLOR,'20px','','',()=>{
 
@@ -110,11 +112,19 @@ const PRODUCTS=(ELEMENT)=>{
 
 const USERACCOUNTPAGE=()=>{
 
-    LEFTTEXTBACKHEADERBODY('',()=>{
+    HOMEHEADERTEMPLATE('','#0F990F','',(ELEMENT)=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+        LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px','0.1rem','',()=>{
 
-    },'Profile','','',()=>{
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+        });
+
+        RIGHTTEXT(ELEMENT,'h2','Profile',TEXTCOLOR,'20px','','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
 
     });
 
@@ -124,29 +134,37 @@ const PRODUCTPAGE=()=>{
 
     DEJSON(sessionStorage.getItem('Product'),(data)=>{
 
-        LEFTTEXTBACKHEADERBODY('',()=>{
+        HOMEHEADERTEMPLATE('','#0F990F','',(ELEMENT)=>{
 
-            ROUTE('',HOMEPAGE,'HOMEPAGE');
+            LEFTIMAGE(ELEMENT,WHITESINGLEBACKICON,'20px','20px','0.1rem','',()=>{
     
-        },data.ProductName,'','',(ELEMENT)=>{
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
 
+            RIGHTTEXT(ELEMENT,'h2',data.ProductName,TEXTCOLOR,'20px','','',()=>{
+    
+            });
+
+        },(ELEMENT)=>{
+    
             IMAGE(ELEMENT,data.ImageOne,'50%','250px','2% auto',()=>{
 
             });
 
-            CENTERTEXT(ELEMENT,'h2','Price:'+data.ProductPrice,TEXTCOLOR,'20px','','2% auto',()=>{
+            CENTERTEXT(ELEMENT,'h2','Price:'+data.ProductPrice,'#0F990F','20px','','2% auto',()=>{
 
             });
 
-            LEFTTEXT(ELEMENT,'h2','About',TEXTCOLOR,'20px','1rem','3%',()=>{
+            LEFTTEXT(ELEMENT,'h2','About','#0F990F','20px','1rem','3%',()=>{
 
             });
 
-            TEXT(ELEMENT,'',data.ProductDetails,TEXTCOLOR,'20px','1rem','3%',()=>{
+            TEXT(ELEMENT,'',data.ProductDetails,'#0F990F','20px','1rem','3%',()=>{
 
             });
 
-            ROUNDBUTTON(ELEMENT,'50%','50px','Orange','','Buy',()=>{
+            ROUNDBUTTON(ELEMENT,'50%','50px','#0F990F','','Buy',()=>{
 
             });
     
