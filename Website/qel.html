@@ -356,9 +356,9 @@ if (ProductPrice.value) {
 
                 SubButton.innerHTML='Please Wait';
 
-                const HEADERS=['ProductName','ProductPrice','ProductCatergory','ProductDetails','ImageOne','ImageTwo','ImageThree','ImageFour','ImageFive'];
+                const HEADERS=['ProductName','ProductPrice','ProductCatergory','ProductDetails','ImageOne','ImageTwo','ImageThree','ImageFour','ImageFive','Approved'];
 
-                const DATA=[ProductName.value,ProductPrice.value,ProductCatergory.value,ProductDetails.value,sessionStorage.getItem('MainImage'),sessionStorage.getItem('MainImage1'),,sessionStorage.getItem('MainImage2'),sessionStorage.getItem('MainImage3'),sessionStorage.getItem('MainImage4')]
+                const DATA=[ProductName.value,ProductPrice.value,ProductCatergory.value,ProductDetails.value,sessionStorage.getItem('MainImage'),sessionStorage.getItem('MainImage1'),sessionStorage.getItem('MainImage2'),sessionStorage.getItem('MainImage3'),sessionStorage.getItem('MainImage4'),'Approved']
 
                 INSERTDATA('https://docs.google.com/spreadsheets/d/18BUoCg4yVUrxWv8RG885ZIn2fjkURGgjIrCi6otCxFk/edit?usp=sharing',DName.value||'Products',HEADERS,DATA,()=>{
 
