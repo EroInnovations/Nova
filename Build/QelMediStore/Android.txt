@@ -22,6 +22,8 @@ const HOMEPAGE=()=>{
 
         RIGHTIMAGE(ELEMENT,WHITEUSERICON,'25px','25px','','',()=>{
 
+            ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
+
         });
 
     },(ELEMENT)=>{
@@ -78,6 +80,14 @@ const PRODUCTS=(ELEMENT)=>{
 
             IMAGE(ELEMENTS,data.ImageOne,'100%','250px','',()=>{
 
+                JSONIFICATION(data,(MyData)=>{
+
+                    STOREDATA('','Product',MyData);
+
+                    ROUTE(' ',PRODUCTPAGE,'HOMEPAGE');
+
+                });
+
             });
 
             FOOTER(ELEMENTS,' ','','',(ELEMENTSE)=>{
@@ -92,6 +102,54 @@ const PRODUCTS=(ELEMENT)=>{
 
             });
 
+        });
+
+    });
+
+};
+
+const USERACCOUNTPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Profile','','',()=>{
+
+    });
+
+};
+
+const PRODUCTPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('Product'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },data.ProductName,'','',(ELEMENT)=>{
+
+            IMAGE(ELEMENT,data.ImageOne,'50%','250px','2% auto',()=>{
+
+            });
+
+            CENTERTEXT(ELEMENT,'h2','Price:'+data.ProductPrice,TEXTCOLOR,'20px','','2% auto',()=>{
+
+            });
+
+            LEFTTEXT(ELEMENT,'h2','About',TEXTCOLOR,'20px','1rem','3%',()=>{
+
+            });
+
+            TEXT(ELEMENT,'',data.ProductDetails,TEXTCOLOR,'20px','1rem','3%',()=>{
+
+            });
+
+            ROUNDBUTTON(ELEMENT,'50%','50px','Orange','','Buy',()=>{
+
+            });
+    
         });
 
     });
