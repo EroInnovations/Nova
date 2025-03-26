@@ -86,9 +86,10 @@ const PRODUCTS=(ELEMENT)=>{
 
         CHECKER(data.Approved,()=>{
 
-            VIEW(ELEMENT,'#09cc09','45%','45%','2% ',(ELEMENTS)=>{
+            VIEW(ELEMENT,' ','45%','45%','2.5%',(ELEMENTS)=>{
 
                 STYLED(ELEMENTS,'display','inline-table');
+                
     
                 IMAGE(ELEMENTS,data.ImageOne,'100%','250px','',()=>{
     
@@ -102,13 +103,13 @@ const PRODUCTS=(ELEMENT)=>{
     
                 });
     
-                FOOTER(ELEMENTS,' ','','',(ELEMENTSE)=>{
+                FOOTER(ELEMENTS,'#09cc09','','50px',(ELEMENTSE)=>{
     
-                    TEXT(ELEMENTSE,'',data.ProductName,'','14.1px','0.5rem','',()=>{
+                    LEFTTEXT(ELEMENTSE,'',data.ProductName,TEXTCOLOR,'14.1px','0.3rem','',()=>{
     
                     });
     
-                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice,'white','16px','0.5rem','',()=>{
+                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice,TEXTCOLOR,'16px','0.3rem','',()=>{
     
                     });
     
