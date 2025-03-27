@@ -36,12 +36,20 @@ const HOMEPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        NAVTEMPLATE(ELEMENT,'#0F990F','97%','150px','1% auto',(ELEMENTS)=>{
+        LEFTTEXT(ELEMENT,'h2','Catergories','#0F990F','18px','','2%',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,' ','97%','200px','1% auto',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'overflowX','auto');
 
             HOMECATERGORY(ELEMENTS);
                  
+        });
+
+        LEFTTEXT(ELEMENT,'h2','Trending Products','#0F990F','18px','','2%',()=>{
+
         });
 
         PRODUCTS(ELEMENT);
@@ -139,8 +147,7 @@ const PRODUCTS=(ELEMENT)=>{
             VIEW(ELEMENT,' ','45%','45%','2.5% 2.5% 10% 2.5%',(ELEMENTS)=>{
 
                 STYLED(ELEMENTS,'display','inline-table');
-                
-    
+                   
                 IMAGE(ELEMENTS,data.ImageOne,'100%','250px','',()=>{
     
                 });
@@ -406,9 +413,24 @@ const HOMECATERGORY=(ELEMENT)=>{
 
         CHECKER(data.Approved,()=>{
 
-            VIEW(ELEMENT,'#333','30%','95%','auto 1%',(ELEMENTS)=>{
+            VIEW(ELEMENT,' ','30%','95%','auto 1%',(ELEMENTS)=>{
 
                 STYLED(ELEMENTS,'flex-shrink','0');
+                STYLED(ELEMENTS,'overflow','hidden');
+
+                STYLED(ELEMENTS,'border','1px solid #0F990F50');
+
+                IMAGE(ELEMENTS,data.ImageOne,'100%','100%','',()=>{
+    
+                });
+    
+                FOOTER(ELEMENTS,'#0F990F50','','50px',(ELEMENTSE)=>{
+    
+                    CENTERTEXT(ELEMENTSE,'',data.ProductName,TEXTCOLOR,'14px','','',()=>{
+    
+                    });
+    
+                });
 
             });
 
