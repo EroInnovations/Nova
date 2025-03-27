@@ -409,7 +409,7 @@ const PRODUCTSEARCH=(ELEMENT,SearchedData)=>{
 
 const HOMECATERGORY=(ELEMENT)=>{
 
-    GETINDEXEDDATA('QelProducts', 'QelProducts', (data)=>{
+    GETINDEXEDDATA('QelCatergory', 'QelCatergory', (data)=>{
 
         CHECKER(data.Approved,()=>{
 
