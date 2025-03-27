@@ -4,7 +4,7 @@ const TEXTCOLOR='#ffffff';
 
 const NOVASTART=()=>{
 
-    APPMODE('#ffffff')
+    APPMODE(localStorage.getItem('Color')||TEXTCOLOR);
 
     ROUTE('',HOMEPAGE,'HOMEPAGE');
 
@@ -22,9 +22,11 @@ const HOMEPAGE=()=>{
 
         });
 
-        RIGHTIMAGE(ELEMENT,WHITESEARCHICON,'25px','25px','','',()=>{
+        RIGHTIMAGE(ELEMENT,WHITEMOONICON,'25px','25px','','',()=>{
 
-            ROUTE(' ',SEARCHPAGE,'HOMEPAGE');
+            STOREDATA(' ','Color','#333333');
+
+            RELOAD();
 
         });
 
