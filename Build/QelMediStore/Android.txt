@@ -22,11 +22,25 @@ const HOMEPAGE=()=>{
 
         });
 
-        RIGHTIMAGE(ELEMENT,WHITEMOONICON,'25px','25px','','',()=>{
+        CONDITION(localStorage.getItem('Color'),()=>{
 
-            STOREDATA(' ','Color','#333333');
+            RIGHTIMAGE(ELEMENT,WHITESUNICON,'25px','25px','','',()=>{
 
-            RELOAD();
+                DELETEDATA(' ','Color');
+    
+                RELOAD();
+    
+            });
+
+        },()=>{
+
+            RIGHTIMAGE(ELEMENT,WHITEMOONICON,'25px','25px','','',()=>{
+
+                STOREDATA(' ','Color','#333333');
+    
+                RELOAD();
+    
+            });
 
         });
 
