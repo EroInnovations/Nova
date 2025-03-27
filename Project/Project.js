@@ -36,6 +36,14 @@ const HOMEPAGE=()=>{
 
     },(ELEMENT)=>{
 
+        NAVTEMPLATE(ELEMENT,'#0F990F','97%','150px','1% auto',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'overflowX','auto');
+
+            HOMECATERGORY(ELEMENTS);
+                 
+        });
+
         PRODUCTS(ELEMENT);
 
     });
@@ -52,35 +60,71 @@ const HOMEPAGE=()=>{
 
 const APPUPDATER=()=>{
 
-    GETDATA(API,'Products',(data)=>{
+    CHECKER(navigator.onLine,()=>{
 
-        const MYDATA=
-            {
-                "Name":'QelProducts',
-                'data':data
-            }
-        
-        STOREINDEXED ('QelProducts', 'QelProducts',MYDATA,(data)=>{
+        GETDATA(API,'Products',(data)=>{
 
-            CHECKER(data === false,()=>{
-
-                UPDATEINDEX('QelProducts', 'QelProducts', MYDATA,()=>{
-
-                });
-
-            } );
-
-            CHECKER(data === true,()=>{
-
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-            } );
+            const MYDATA=
+                {
+                    "Name":'QelProducts',
+                    'data':data
+                }
             
+            STOREINDEXED ('QelProducts', 'QelProducts',MYDATA,(data)=>{
+    
+                CHECKER(data === false,()=>{
+    
+                    UPDATEINDEX('QelProducts', 'QelProducts', MYDATA,()=>{
+    
+                    });
+    
+                } );
+    
+                CHECKER(data === true,()=>{
+    
+                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                } );
+                
+            });
+    
+        },(data)=>{
+    
+            console.log(data);
+    
         });
-
-    },(data)=>{
-
-        console.log(data);
+    
+        GETDATA(API,'Catergory',(data)=>{
+    
+            const MYDATA=
+                {
+                    "Name":'QelCatergory',
+                    'data':data
+                }
+            
+            STOREINDEXED ('QelCatergory', 'QelCatergory',MYDATA,(data)=>{
+    
+                CHECKER(data === false,()=>{
+    
+                    UPDATEINDEX('QelCatergory', 'QelCatergory', MYDATA,()=>{
+    
+                    });
+    
+                } );
+    
+                CHECKER(data === true,()=>{
+    
+                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                } );
+                
+            });
+    
+        },(data)=>{
+    
+            console.log(data);
+    
+        });
 
     });
 
@@ -349,6 +393,24 @@ const PRODUCTSEARCH=(ELEMENT,SearchedData)=>{
                 });
 
             } );
+
+        });
+
+    });
+
+};
+
+const HOMECATERGORY=(ELEMENT)=>{
+
+    GETINDEXEDDATA('QelProducts', 'QelProducts', (data)=>{
+
+        CHECKER(data.Approved,()=>{
+
+            VIEW(ELEMENT,'#333','30%','95%','auto 1%',(ELEMENTS)=>{
+
+                STYLED(ELEMENTS,'flex-shrink','0');
+
+            });
 
         });
 
