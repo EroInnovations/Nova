@@ -54,6 +54,8 @@ const HOMEPAGE=()=>{
 
     },(ELEMENT)=>{
 
+        STYLED(ELEMENT,'bottom','10px');
+
         LEFTTEXT(ELEMENT,'h2','Catergories','#0F990F','18px','','2%',()=>{
 
         });
@@ -218,6 +220,8 @@ const USERACCOUNTPAGE=()=>{
 
     },(ELEMENT)=>{
 
+        STYLED(ELEMENT,'bottom','10px');
+
         VIEW(ELEMENT,'#0F990F','98%','300px','1% auto',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'border-radius','5px');
@@ -287,6 +291,8 @@ const PRODUCTPAGE=()=>{
             });
 
         },(ELEMENT)=>{
+
+            STYLED(ELEMENT,'bottom','10px');
     
             IMAGE(ELEMENT,data.ImageOne,'50%','250px','2% auto',()=>{
 
@@ -359,6 +365,8 @@ const SEARCHPAGE=()=>{
         });
 
     },(ELEMENT)=>{
+
+        STYLED(ELEMENT,'bottom','10px');
 
         NAVTEMPLATE(ELEMENT,'#0F990F','95%','50px','1% auto',(ELEMENTS)=>{
 
@@ -493,6 +501,8 @@ const PRODUCTSECTIONPAGE=()=>{
         });
 
     },(ELEMENT)=>{
+
+        STYLED(ELEMENT,'bottom','10px');
 
         GETINDEXEDDATA('QelProducts', 'QelProducts', (data)=>{
 
