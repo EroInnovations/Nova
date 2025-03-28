@@ -303,7 +303,7 @@ const CREATEACCOUNTPAGE=()=>{
     
                                         const HEADER=['UserName','UserEmail','UserPassword','Date','RandomCode','UserPhoto','Approved'];
     
-                                        const INFO=[sessionStorage.getItem('UserName'),sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserPassword'),new Date(),'','Approved'];
+                                        const INFO=[sessionStorage.getItem('UserName'),sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserPassword'),new Date(),'','','Approved'];
     
                                         INSERTDATA(API,'AdminUsers',HEADER,INFO,()=>{
     
