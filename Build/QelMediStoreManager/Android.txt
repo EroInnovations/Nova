@@ -93,25 +93,95 @@ const HOMEPAGE=()=>{
 
 const LOGINPAGE=()=>{
 
+    DELETEDATA('','UserEmail');
+
+    DELETEDATA('','UserPassword');
+
     CLEAR('');
 
     CENTERTEXT('','','Qel Manager',APPCOLORS,'30px','20% auto',()=>{
 
     });
 
-    INPUT('', 'email', APPCOLORS, 'Enter Admin Email', ()=>{
+    INPUT('', 'email', APPCOLORS, 'Enter Admin Email', (data)=>{
+
+        STOREDATA('','UserEmail',data);
 
     });
 
-    INPUT('', 'password', APPCOLORS, '********', ()=>{
+    INPUT('', 'password', APPCOLORS, '********', (data)=>{
+
+        STOREDATA('','UserPassword',data);
 
     });
 
     IMAGEBUTTON('',APPCOLORS,'Sign In','',WHITEENTERICON,'50px','10% auto',()=>{
 
-        STOREDATA(' ','UserData','True');
+        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+            CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Please Wait,While We Comfirm Admin','');
+
+                    GETDATA(API,'AdminUsers',(data)=>{
+
+                        FINDER(data,'UserEmail',sessionStorage.getItem('UserEmail'),(Users)=>{
+
+                            CONDITION(Users.UserEmail === sessionStorage.getItem('UserEmail'),()=>{
+
+                                CONDITION(Users.UserPassword === sessionStorage.getItem('UserPassword'),()=>{
+
+                                    CONDITION(Users.Approved,()=>{
+
+                                        JSONIFICATION(Users,(MyData)=>{
+
+                                            STOREDATA(' ','UserData',MyData);
+    
+                                            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                                        });
+
+                                    },()=>{
+
+                                        MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                    });
+
+                                } ,()=>{
+
+                                    MESSAGEDISPLAY('','Wrong Admin Password','');
+
+                                });
+
+                            } ,()=>{
+
+                                MESSAGEDISPLAY('','No Admin Found','');
+
+                            });
+
+                        });
+
+                    });
+
+                },()=>{
+        
+                    MESSAGEDISPLAY('','Your Offline,Check Your Internet','');
+        
+                });
+
+            },()=>{
+    
+                MESSAGEDISPLAY('','Enter Admin Password','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Admin Email','');
+
+        });
 
     });
 
@@ -179,27 +249,135 @@ const FORGOTPASSWORDPAGE=()=>{
 
 const CREATEACCOUNTPAGE=()=>{
 
+    DELETEDATA('','UserEmail');
+
+    DELETEDATA('','UserPassword');
+
     CLEAR('');
 
     CENTERTEXT('','','Qel Manager',APPCOLORS,'30px','20% auto',()=>{
 
     });
 
-    INPUT('', 'text', APPCOLORS, 'Enter User Name', ()=>{
+    INPUT('', 'text', APPCOLORS, 'Enter User Name', (data)=>{
+
+        STOREDATA('','UserName',data);
 
     });
 
-    INPUT('', 'email', APPCOLORS, 'Enter Admin Email', ()=>{
+    INPUT('', 'email', APPCOLORS, 'Enter Admin Email', (data)=>{
+
+        STOREDATA('','UserEmail',data);
 
     });
 
-    INPUT('', 'password', APPCOLORS, '********', ()=>{
+    INPUT('', 'password', APPCOLORS, '********', (data)=>{
+
+        STOREDATA('','UserPassword',data);
 
     });
 
     IMAGEBUTTON('',APPCOLORS,'Sign Up','',WHITEENTERICON,'50px','10% auto',()=>{
 
-        ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+        CONDITION(navigator.onLine,()=>{
+
+            CONDITION(sessionStorage.getItem('UserName'),()=>{
+
+                CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+    
+                    CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+        
+                        CONDITION(navigator.onLine,()=>{
+        
+                            MESSAGEDISPLAY('','Please Wait,While We Comfirm Admin','');
+        
+                            GETDATA(API,'AdminUsers',(data)=>{
+        
+                                FINDER(data,'UserEmail',sessionStorage.getItem('UserEmail'),(Users)=>{
+        
+                                    CONDITION(Users.UserEmail === sessionStorage.getItem('UserEmail'),()=>{
+        
+                                        MESSAGEDISPLAY('','Admin Found With Email',''); 
+        
+                                    } ,()=>{
+    
+                                        const HEADER=['UserName','UserEmail','UserPassword','Date','RandomCode','UserPhoto','Approved'];
+    
+                                        const INFO=[sessionStorage.getItem('UserName'),sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserPassword'),new Date(),'','Approved'];
+    
+                                        INSERTDATA(API,'AdminUsers',HEADER,INFO,()=>{
+    
+                                            GETDATA(API,'AdminUsers',(data)=>{
+    
+                                                FINDER(data,'UserEmail',sessionStorage.getItem('UserEmail'),(Users)=>{
+                        
+                                                    CONDITION(Users.UserEmail === sessionStorage.getItem('UserEmail'),()=>{
+                        
+                                                        CONDITION(Users.UserPassword === sessionStorage.getItem('UserPassword'),()=>{
+                        
+                                                            JSONIFICATION(Users,(MyData)=>{
+                        
+                                                                STOREDATA(' ','UserData',MyData);
+                        
+                                                                ROUTE('',HOMEPAGE,'HOMEPAGE');
+                        
+                                                            });
+                        
+                                                        } ,()=>{
+                        
+                                                            MESSAGEDISPLAY('','Wrong Admin Password','');
+                        
+                                                        });
+                        
+                                                    } ,()=>{
+                        
+                                                        MESSAGEDISPLAY('','No Admin Found','');
+                        
+                                                    });
+                        
+                                                });
+                        
+                                            });
+    
+                                        },()=>{
+    
+                                        });
+        
+                                    });
+        
+                                });
+        
+                            });
+        
+                        },()=>{
+                
+                            MESSAGEDISPLAY('','Your Offline,Check Your Internet','');
+                
+                        });
+        
+                    },()=>{
+            
+                        MESSAGEDISPLAY('','Enter Admin Password','');
+            
+                    });
+        
+                },()=>{
+        
+                    MESSAGEDISPLAY('','Enter Admin Email','');
+        
+                });
+    
+            },()=>{
+    
+                MESSAGEDISPLAY('','Enter Admin UserName','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Your Offline','');
+
+        });
 
     });
 
@@ -291,6 +469,24 @@ const CREATIONPAGE=()=>{
             DELETEDATA('','ImageThree');
 
             ROUTE(' ',NEWPRODUCTPAGE,'CREATIONPAGE');
+    
+        });
+
+        IMAGEBUTTON(ELEMENT,APPCOLORS,'All Catergories','',WHITEGROUPICON,'50px','1% auto',()=>{
+
+            ROUTE(' ',ALLCATERGORYPAGE,'CREATIONPAGE');
+    
+        });
+
+        IMAGEBUTTON(ELEMENT,APPCOLORS,'HireEmployee','',WHITESUITCASEICON,'50px','1% auto',()=>{
+
+            alert('Still Under Development');
+    
+        });
+
+        IMAGEBUTTON(ELEMENT,APPCOLORS,'Sync App','',WHITEGROUPICON,'50px','1% auto',()=>{
+
+            RELOAD();
     
         });
 
@@ -1419,6 +1615,30 @@ const PRODUTVIEWPAGE=()=>{
 
         });
 
+    });
+
+};
+
+const ALLCATERGORYPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'All Catergories',APPCOLORS,'',(ELEMENT)=>{
+
+        GETINDEXEDDATA('Catergory', 'Catergory', (data)=>{
+
+            CHECKER(data.Approved,()=>{
+    
+                IMAGEBUTTON(ELEMENT,APPCOLORS,data.ProductName,'',data.ProductImage,'50px','1% auto',(ELEMENT)=>{
+        
+                });
+    
+            });
+    
+        });
+    
     });
 
 };
