@@ -69,6 +69,8 @@ const MYACCOUNT=()=>{
 
 const HOMEPAGE=()=>{
 
+    APPDATA();
+
     CLEAR('');
 
     FULLSCROLLVIEW('',' ',(ELEMENTS)=>{
@@ -278,6 +280,16 @@ const CREATIONPAGE=()=>{
         
         IMAGEBUTTON(ELEMENT,APPCOLORS,'New Product','',WHITEGROUPICON,'50px','1% auto',()=>{
 
+            DELETEDATA('','Category');
+            DELETEDATA('','CategoryName');
+            DELETEDATA('','Name');
+            DELETEDATA('','Price');
+            DELETEDATA('','Details');
+            DELETEDATA('','Image');
+            DELETEDATA('','ImageOne');
+            DELETEDATA('','ImageTwo');
+            DELETEDATA('','ImageThree');
+
             ROUTE(' ',NEWPRODUCTPAGE,'CREATIONPAGE');
     
         });
@@ -440,7 +452,221 @@ const NEWPRODUCTPAGE=()=>{
 
     },'Product',APPCOLORS,'',(ELEMENT)=>{
 
-        
+        CENTERTEXT(ELEMENT,'','Create a New Product',APPCOLORS,'30px','10% auto',()=>{
+
+        });
+
+        IMAGEBUTTON(ELEMENT,APPCOLORS,sessionStorage.getItem('CategoryName')||'Select Catergory','',WHITEGROUPICON,'50px','',()=>{
+
+            CENTERVIEW('',APPCOLORS,(ELEMENTS)=>{
+
+                STYLED(ELEMENTS,'overflow','hidden');
+
+                HEADER(ELEMENTS,'#ffffff',(ELEMS)=>{
+
+                    LEFTTEXT(ELEMS,'','Catergories',APPCOLORS,'20px','','',()=>{
+
+                    });
+
+                    RIGHTTEXT(ELEMS,'','Close',APPCOLORS,'20px','','',()=>{
+
+                        STYLED(ELEMENTS,'display','none');
+
+                    });
+
+                });
+
+                VIEW(ELEMENTS,' ','','','',(ELEMENTSERS)=>{
+
+                    CLEAR(ELEMENTSERS);
+
+                    STYLED(ELEMENTSERS,'top','50px');
+
+                    GETINDEXEDDATA('Catergory', 'Catergory', (data)=>{
+
+                        CHECKER(data.Approved,()=>{
+
+                            IMAGEBUTTON(ELEMENTSERS,'#333',data.ProductName,'',WHITEGROUPICON,'50px','1% auto',(ELEMENT)=>{
+
+                                STOREDATA('','Category',data.ID);
+
+                                STOREDATA('','CategoryName',data.ProductName);
+
+                                STYLED(ELEMENTS,'display','none');
+
+                                NEWPRODUCTPAGE();
+
+                            });
+                
+                        });
+                
+                    });
+
+                })
+
+            });
+    
+        });
+    
+        INPUT(ELEMENT, '', APPCOLORS,sessionStorage.getItem('Name')|| 'Enter Product Name', (data)=>{
+
+            STOREDATA('','Name',data);
+    
+        });
+
+        INPUT(ELEMENT, 'tel', APPCOLORS,sessionStorage.getItem('Price')|| 'Enter Product Price', (data)=>{
+
+            STOREDATA('','Price',data);
+    
+        });
+
+        TEXTAREA(ELEMENT,'',APPCOLORS,'300px',sessionStorage.getItem('Details')||'Describe The Product',(data)=>{
+
+            STOREDATA('','Details',data);
+
+        });
+
+        CENTERTEXT(ELEMENT,'','Add Product Image',APPCOLORS,'20px','10% auto',()=>{
+
+        });
+
+        IMAGE(ELEMENT,sessionStorage.getItem('Image')||WHITEHOMEICON,'','300px','',(ELEMENTS)=>{
+
+            IMAGEPICKER(ELEMENTS, (data)=>{
+
+                STOREDATA('','Image',data);
+
+            });
+
+        });
+
+        CENTERTEXT(ELEMENT,'','Add Other Image Of Same Product',APPCOLORS,'20px','10% auto',()=>{
+
+        });
+
+        IMAGE(ELEMENT,sessionStorage.getItem('ImageOne')||WHITEHOMEICON,'','300px','',(ELEMENTS)=>{
+
+            IMAGEPICKER(ELEMENTS, (data)=>{
+
+                STOREDATA('','ImageOne',data);
+
+            });
+
+        });
+
+        IMAGE(ELEMENT,sessionStorage.getItem('ImageTwo')||WHITEHOMEICON,'','300px','',(ELEMENTS)=>{
+
+            IMAGEPICKER(ELEMENTS, (data)=>{
+
+                STOREDATA('','ImageTwo',data);
+
+            });
+
+        });
+
+        IMAGE(ELEMENT,sessionStorage.getItem('ImageThree')||WHITEHOMEICON,'','300px','',(ELEMENTS)=>{
+
+            IMAGEPICKER(ELEMENTS, (data)=>{
+
+                STOREDATA('','ImageThree',data);
+
+            });
+
+        });
+
+        IMAGEBUTTON(ELEMENT,APPCOLORS,'Add Product','',WHITECHECKICON,'50px','10% auto',()=>{
+    
+            CONDITION(sessionStorage.getItem('Category'),()=>{
+
+                CONDITION(sessionStorage.getItem('Name'),()=>{
+
+                    CONDITION(sessionStorage.getItem('Price'),()=>{
+
+                        CONDITION(sessionStorage.getItem('Details'),()=>{
+
+                            CONDITION(sessionStorage.getItem('Image'),()=>{
+    
+                                CONDITION(navigator.onLine,()=>{
+    
+                                    MESSAGEDISPLAY('','Please Wait','');
+    
+                                    const HEADERS=['ProductName','ProductPrice','ProductDetails','ProductCatergory','ProductImage','ProductImageOne','ProductImageTwo','ProductImageThree','CreatedOn','CreatedBy','Approved'];
+                    
+                                    const INFO=[sessionStorage.getItem('Name'),sessionStorage.getItem('Price'),sessionStorage.getItem('Details'),sessionStorage.getItem('Category'),sessionStorage.getItem('Image'),sessionStorage.getItem('ImageOne'),sessionStorage.getItem('ImageTwo'),sessionStorage.getItem('ImageThree'),new Date(),'Admin','Approved'];
+    
+                                    INSERTDATA(API,'Products',HEADERS,INFO,()=>{
+
+                                        GETDATA(API,'Products',(data)=>{
+
+                                            const MYDATA={
+                                                'Name':'Products',
+                                                'data':data
+                                            }
+
+                                            STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+
+                                                CONDITION(datata === false,()=>{
+
+                                                    UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                                      
+                                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+                                                        
+                                                    })
+
+                                                } ,()=>{
+
+                                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                                });
+
+                                            });
+
+                                        });
+
+                                    },()=>{
+
+                                        MESSAGEDISPLAY('','Failed to Add Product','');
+
+                                    });
+    
+                                },()=>{
+                    
+                                    MESSAGEDISPLAY('','Check Your Internet','');
+                    
+                                });
+    
+                            },()=>{
+                
+                                MESSAGEDISPLAY('','Add Product Details','');
+                
+                            });
+    
+                        },()=>{
+            
+                            MESSAGEDISPLAY('','Product Details','');
+            
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Enter Product Price','');
+
+                    });
+
+                },()=>{
+    
+                    MESSAGEDISPLAY('','Enter Product Name','');
+    
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Select Product Catergory','');
+
+            });
+
+        });
+
     });
 
 };
@@ -505,18 +731,18 @@ const PRODUCTS=(ELEMENT)=>{
 
     GETINDEXEDDATA('Products', 'Products', (data)=>{
 
-        CHECKER(data.Approved,()=>{
+        VIEW(ELEMENT,'transparent','45%','25%','1% 1% 5% 1%',(ELEMENTS)=>{
 
-            VIEW(ELEMENT,'transparent','45%','25%','1% 1% 5% 1%',(ELEMENTS)=>{
+            STYLED(ELEMENTS,'display','inline-table');
+               
+            IMAGE(ELEMENTS,data.ProductImage,'100%','250px',' 0',()=>{
 
-                STYLED(ELEMENTS,'display','inline-table');
-                   
-                IMAGE(ELEMENTS,data.ImageOne,'100%','250px',' 0',()=>{
-    
-                });
-    
+            });
+
+            CONDITION(data.Approved,()=>{
+
                 FOOTER(ELEMENTS,'#0F990F80','','50px',(ELEMENTSE)=>{
-    
+
                     LEFTTEXT(ELEMENTSE,'',data.ProductName,TEXTCOLOR,'14.1px','0.3rem','',()=>{
     
                     });
@@ -527,18 +753,668 @@ const PRODUCTS=(ELEMENT)=>{
     
                 });
 
-                CLICK(ELEMENTS,()=>{
+            },()=>{
 
-                    JSONIFICATION(data,(MyData)=>{
+                FOOTER(ELEMENTS,'red','','50px',(ELEMENTSE)=>{
+
+                    LEFTTEXT(ELEMENTSE,'',data.ProductName,TEXTCOLOR,'14.1px','0.3rem','',()=>{
     
-                        STOREDATA('','Product',MyData);
+                    });
     
-                        ROUTE(' ',PRODUCTPAGE,'HOMEPAGE');
+                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice ,TEXTCOLOR,'16px','0.3rem','',()=>{
+    
+                    });
+    
+                });
+
+            })
+
+            CLICK(ELEMENTS,()=>{
+
+                JSONIFICATION(data,(MyData)=>{
+
+                    STOREDATA('','Product',MyData);
+
+                    ROUTE(' ',PRODUTVIEWPAGE,'HOMEPAGE');
+
+                });
+
+            });
+
+        });
+
+    });
+
+};
+
+const PRODUTVIEWPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('Product'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },data.ProductName,APPCOLORS,'',(ELEMENT)=>{
+
+            CENTERTEXT(ELEMENT,'',data.ProductName,APPCOLORS,'20px','',()=>{
+
+            });
+
+            INPUT(ELEMENT, '', APPCOLORS, data.ProductName||'Enter Product New Name', (data)=>{
+
+                STOREDATA('','NewName',data);
+
+            });
+        
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Update Product Name','',WHITECHECKICON,'50px','auto auto 5% auto',()=>{
+
+                CONDITION(sessionStorage.getItem('NewName'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[sessionStorage.getItem('NewName'),data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
     
                     });
 
+                },()=>{
+
+                    MESSAGEDISPLAY('','Enter New Product Name','');
+
+                });
+        
+            });
+
+            INPUT(ELEMENT, 'tel', APPCOLORS, data.ProductPrice||'Enter Product New Price', (data)=>{
+
+                STOREDATA('','NewPrice',data);
+
+            });
+        
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Update Product Price','',WHITECHECKICON,'50px','',()=>{
+
+                CONDITION(sessionStorage.getItem('NewPrice'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,sessionStorage.getItem('NewPrice'),data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Enter New Product Price','');
+
+                });
+        
+            });
+
+            TEXTAREA(ELEMENT,'',APPCOLORS,'300px',data.ProductDetails,(data)=>{
+
+                STOREDATA('','NewDetails',data);
+    
+            });
+
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Update Product Details','',WHITECHECKICON,'50px','',()=>{
+
+                CONDITION(sessionStorage.getItem('NewDetails'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,sessionStorage.getItem('NewDetails'),data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Enter New Product Details','');
+
+                });
+        
+            });
+
+            CENTERTEXT(ELEMENT,'','Click Image to Update',APPCOLORS,'20px','5% auto',()=>{
+
+            });
+    
+            IMAGE(ELEMENT,data.ProductImage||WHITEHOMEICON,'','300px','1% auto',(ELEMENTS)=>{
+
+                IMAGEPICKER(ELEMENTS, (datata)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,datata,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+    
                 });
     
+            });
+
+            IMAGE(ELEMENT,data.ProductImageOne||WHITEHOMEICON,'','300px','1% auto',(ELEMENTS)=>{
+
+                IMAGEPICKER(ELEMENTS, (datata)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,datata,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+    
+                });
+    
+            });
+
+            IMAGE(ELEMENT,data.ProductImageTwo||WHITEHOMEICON,'','300px','1% auto',(ELEMENTS)=>{
+
+                IMAGEPICKER(ELEMENTS, (datata)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,datata,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+    
+                });
+    
+            });
+
+            IMAGE(ELEMENT,data.ProductImageThree||WHITEHOMEICON,'','300px','1% auto',(ELEMENTS)=>{
+
+                IMAGEPICKER(ELEMENTS, (datata)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,datata,data.CreatedOn,'Admin','Approved'];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+    
+                });
+    
+            });
+
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Catergory','',WHITEGROUPICON,'50px','',()=>{
+
+                CENTERVIEW('',APPCOLORS,(ELEMENTS)=>{
+    
+                    STYLED(ELEMENTS,'overflow','hidden');
+    
+                    HEADER(ELEMENTS,'#ffffff',(ELEMS)=>{
+    
+                        LEFTTEXT(ELEMS,'','Catergories',APPCOLORS,'20px','','',()=>{
+    
+                        });
+    
+                        RIGHTTEXT(ELEMS,'','Close',APPCOLORS,'20px','','',()=>{
+    
+                            STYLED(ELEMENTS,'display','none');
+    
+                        });
+    
+                    });
+    
+                    VIEW(ELEMENTS,' ','','','',(ELEMENTSERS)=>{
+    
+                        CLEAR(ELEMENTSERS);
+    
+                        STYLED(ELEMENTSERS,'top','50px');
+    
+                        GETINDEXEDDATA('Catergory', 'Catergory', (datate)=>{
+    
+                            CHECKER(datate.Approved,()=>{
+    
+                                IMAGEBUTTON(ELEMENTSERS,'#333',datate.ProductName,'',WHITEGROUPICON,'50px','1% auto',()=>{
+
+                                    CONDITION(navigator.onLine,()=>{
+
+                                        MESSAGEDISPLAY('','Product Is Being Updated','');
+                    
+                                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,datate.ID,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+                        
+                                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+                    
+                                            GETDATA(API,'Products',(data)=>{
+                    
+                                                const MYDATA={
+                                                    'Name':'Products',
+                                                    'data':data
+                                                }
+                    
+                                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+                    
+                                                    CONDITION(datata === false,()=>{
+                    
+                                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                                          
+                                                            MESSAGEDISPLAY('','Product Updated','');
+
+                                                            STYLED(ELEMENTS,'display','none');
+                                                            
+                                                        })
+                    
+                                                    } ,()=>{
+                    
+                                                        MESSAGEDISPLAY('','Product Updated','');
+
+                                                        STYLED(ELEMENTS,'display','none');
+                    
+                                                    });
+                    
+                                                });
+                    
+                                            });
+                    
+                                        },()=>{
+                    
+                                            MESSAGEDISPLAY('','Failed to Update Product','');
+                    
+                                        });
+                    
+                                    },()=>{
+                    
+                                        MESSAGEDISPLAY('','Check Your Internet','');
+                    
+                                    });
+    
+                                });
+                    
+                            });
+                    
+                        });
+    
+                    })
+    
+                });
+        
+            });
+
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Now In Stock','',WHITECHECKICON,'50px','1% auto',()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Product Is Being Updated','');
+
+                    const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+
+                    UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+
+                        GETDATA(API,'Products',(data)=>{
+
+                            const MYDATA={
+                                'Name':'Products',
+                                'data':data
+                            }
+
+                            STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+
+                                CONDITION(datata === false,()=>{
+
+                                    UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                      
+                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+                                        
+                                    })
+
+                                } ,()=>{
+
+                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                });
+
+                            });
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Failed to Update Product','');
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
+  
+            });
+    
+            IMAGEBUTTON(ELEMENT,'brown','Out Of Stock','',WHITECLOSEICON,'50px','1% auto',()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Product Is Being Updated','');
+
+                    const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin',''];
+    
+                    UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+
+                        GETDATA(API,'Products',(data)=>{
+
+                            const MYDATA={
+                                'Name':'Products',
+                                'data':data
+                            }
+
+                            STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+
+                                CONDITION(datata === false,()=>{
+
+                                    UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                      
+                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+                                        
+                                    })
+
+                                } ,()=>{
+
+                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                });
+
+                            });
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Failed to Update Product','');
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
+
             });
 
         });
