@@ -168,7 +168,7 @@ const PRODUCTS=(ELEMENT)=>{
 
                 STYLED(ELEMENTS,'display','inline-table');
                    
-                IMAGE(ELEMENTS,data.ImageOne,'100%','250px',' 0',()=>{
+                IMAGE(ELEMENTS,data.ProductImageOne,'100%','250px',' 0',()=>{
     
                 });
     
@@ -294,7 +294,7 @@ const PRODUCTPAGE=()=>{
 
             STYLED(ELEMENT,'bottom','10px');
     
-            IMAGE(ELEMENT,data.ImageOne,'50%','250px','2% auto',()=>{
+            IMAGE(ELEMENT,data.ProductImageOne,'50%','250px','2% auto',()=>{
 
             });
 
@@ -454,7 +454,7 @@ const HOMECATERGORY=(ELEMENT)=>{
 
                 STYLED(ELEMENTS,'border','1px solid #0F990F50');
 
-                IMAGE(ELEMENTS,data.ImageOne,'100%','100%','',()=>{
+                IMAGE(ELEMENTS,data.ProductImage,'100%','100%','',()=>{
     
                 });
     
@@ -468,7 +468,9 @@ const HOMECATERGORY=(ELEMENT)=>{
 
                 CLICK(ELEMENTS,()=>{
 
-                    STOREDATA('','Section',data.ProductName);
+                    STOREDATA('','Section',data.ID);
+
+                    STOREDATA('','SectionName',data.ProductName);
 
                     ROUTE(' ',PRODUCTSECTIONPAGE,'HOMEPAGE');
 
@@ -496,7 +498,7 @@ const PRODUCTSECTIONPAGE=()=>{
 
         });
 
-        RIGHTTEXT(ELEMENT,'h2',sessionStorage.getItem('Section'),TEXTCOLOR,'20px','','',()=>{
+        RIGHTTEXT(ELEMENT,'h2',sessionStorage.getItem('SectionName'),TEXTCOLOR,'20px','','',()=>{
 
         });
 
@@ -514,7 +516,7 @@ const PRODUCTSECTIONPAGE=()=>{
 
                         STYLED(ELEMENTS,'display','inline-table');
                            
-                        IMAGE(ELEMENTS,data.ImageOne,'100%','250px',' 0',()=>{
+                        IMAGE(ELEMENTS,data.ProductImageOne,'100%','250px',' 0',()=>{
             
                         });
             
