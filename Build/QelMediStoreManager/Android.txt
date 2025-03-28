@@ -3,7 +3,49 @@ const APPCOLORS='#0F990F';
 
 const NOVASTART=()=>{
 
-    APPMODE(TEXTCOLOR);
+    APPMODE(localStorage.getItem('DarkMode')||APPCOLORS);
+
+    CONDITION(localStorage.getItem('DarkMode'),()=>{
+
+        MYACCOUNT();
+
+    },()=>{
+
+        CLEAR('');
+
+        CENTERVIEW('','#333333',(ELEMENT)=>{
+    
+            CENTERTEXT(ELEMENT,'','Qel Manager',APPCOLORS,'30px','10% auto',()=>{
+    
+            });
+    
+            CENTERTEXT(ELEMENT,'','Choose App Mode',APPCOLORS,'15px','',()=>{
+    
+            });
+    
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Dark Mode','',WHITEMOONICON,'50px','10% auto auto auto',()=>{
+    
+                STOREDATA(' ','DarkMode','#333333');
+    
+               RELOAD();
+
+            });
+    
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Light Mode','',WHITESUNICON,'50px','5% auto',()=>{
+    
+                STOREDATA(' ','DarkMode',TEXTCOLOR);
+    
+                RELOAD();
+    
+            });
+    
+        });
+
+    });
+
+};
+
+const MYACCOUNT=()=>{
 
     ACCOUNTCHECKER(()=>{
 
