@@ -4,7 +4,7 @@ const TEXTAREA=(ELEMENT,TYPE,COLOR,HEIGHT,PLACEHOLDER,callback)=>{
  
     ELEMENTS.style.width='95%';
     ELEMENTS.style.height=HEIGHT||'100px';
-    ELEMENTS.style.border='1px solid #cdcdcd';
+    ELEMENTS.style.border='1px solid'+COLOR||'cdcdcd';
     ELEMENTS.style.background='transparent';
     ELEMENTS.style.outline='none';
     ELEMENTS.style.borderRadius='5px';
@@ -16,6 +16,14 @@ const TEXTAREA=(ELEMENT,TYPE,COLOR,HEIGHT,PLACEHOLDER,callback)=>{
     ELEMENTS.type=TYPE||'text';
     ELEMENTS.placeholder=PLACEHOLDER||'Your Text';
     ELEMENTS.autocomplete='off';
+
+    const style = document.createElement("style");
+    style.innerHTML = `
+        textarea::placeholder {
+            color: ${COLOR || '#cdcdcd'};
+        }
+    `;
+    document.head.appendChild(style);
  
     if (ELEMENT) {
  

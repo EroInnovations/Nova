@@ -1,4 +1,4 @@
-const TEXTCOLOR='#ffffff';
+const TEXTCOLOR='#cdcdcd';
 const APPCOLORS='#0F990F';
 
 const NOVASTART=()=>{
@@ -67,7 +67,21 @@ const HOMEPAGE=()=>{
 
     CLEAR('');
 
-}
+    FULLSCROLLVIEW('',' ',()=>{
+
+    });
+
+    FLOATFIXEDBUTTON('',APPCOLORS,(ELEMENT)=>{
+
+        IMAGE(ELEMENT,WHITEPOSTICON,'20px','20px','',()=>{
+
+            ROUTE(' ',CREATIONPAGE,'HOMEPAGE');
+
+        });
+
+    });
+
+};
 
 const LOGINPAGE=()=>{
 
@@ -86,6 +100,10 @@ const LOGINPAGE=()=>{
     });
 
     IMAGEBUTTON('',APPCOLORS,'Sign In','',WHITEENTERICON,'50px','10% auto',()=>{
+
+        STOREDATA(' ','UserData','True');
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
     });
 
@@ -151,7 +169,6 @@ const FORGOTPASSWORDPAGE=()=>{
     
 };
 
-
 const CREATEACCOUNTPAGE=()=>{
 
     CLEAR('');
@@ -173,6 +190,8 @@ const CREATEACCOUNTPAGE=()=>{
     });
 
     IMAGEBUTTON('',APPCOLORS,'Sign Up','',WHITEENTERICON,'50px','10% auto',()=>{
+
+        ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
 
     });
 
@@ -199,5 +218,117 @@ const CREATEACCOUNTPAGE=()=>{
 const EMAILVERIFICATIONPAGE=()=>{
 
     CLEAR('');
+
+    CENTERTEXT('','','Qel Manager',APPCOLORS,'30px','20% auto',()=>{
+
+    });
+
+    INPUT('', 'email', APPCOLORS, 'Enter Verification Code', ()=>{
+
+    });
+
+    IMAGEBUTTON('',APPCOLORS,'Recover','',WHITEENTERICON,'50px','10% auto',()=>{
+
+    });
+
+    NAVTEMPLATE('',APPCOLORS,'80%','50px','30% auto',(ELEMENT)=>{
+
+        LEFTTEXT(ELEMENT,'','Login In','','16px','1rem','',()=>{
+
+            ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+
+        });
+
+        CENTERTEXT(ELEMENT,'','||','Orange','38px','',()=>{
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Create Account?','','16px','1rem','',()=>{
+
+            ROUTE('',CREATEACCOUNTPAGE,'LOGINPAGE');
+
+        });
+
+    });
     
-}
+};
+
+const CREATIONPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Management',APPCOLORS,'',(ELEMENT)=>{
+
+        IMAGEBUTTON(ELEMENT,APPCOLORS,'New Catergory','',WHITEGROUPICON,'50px','1% auto',()=>{
+
+            ROUTE(' ',NEWCATERGORYPAGE,'CREATIONPAGE');
+    
+        });
+        
+        IMAGEBUTTON(ELEMENT,APPCOLORS,'New Product','',WHITEGROUPICON,'50px','1% auto',()=>{
+
+            ROUTE(' ',NEWPRODUCTPAGE,'CREATIONPAGE');
+    
+        });
+
+    });
+
+};
+
+const NEWCATERGORYPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',CREATIONPAGE,'CREATIONPAGE');
+
+    },'Catergory',APPCOLORS,'',(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Create a New Catergory',APPCOLORS,'30px','10% auto',()=>{
+
+        });
+    
+        INPUT(ELEMENT, '', APPCOLORS, 'Enter Catergory Name', ()=>{
+    
+        });
+
+        TEXTAREA(ELEMENT,'',APPCOLORS,'300px','Describe The Catergory',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'','Add Catergory Image',APPCOLORS,'20px','10% auto',()=>{
+
+        });
+
+        IMAGE(ELEMENT,WHITEHOMEICON,'','300px','',()=>{
+
+        });
+    
+        IMAGEBUTTON(ELEMENT,APPCOLORS,'Create','',WHITEENTERICON,'50px','10% auto',()=>{
+    
+        });
+
+    });
+
+};
+
+const NEWPRODUCTPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',CREATIONPAGE,'CREATIONPAGE');
+
+    },'Product',APPCOLORS,'',(ELEMENT)=>{
+
+        
+    });
+
+};
