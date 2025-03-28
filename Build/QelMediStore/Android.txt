@@ -168,7 +168,7 @@ const PRODUCTS=(ELEMENT)=>{
 
                 STYLED(ELEMENTS,'display','inline-table');
                    
-                IMAGE(ELEMENTS,data.ProductImageOne,'100%','250px',' 0',()=>{
+                IMAGE(ELEMENTS,data.ProductImage,'100%','250px',' 0',()=>{
     
                 });
     
@@ -294,7 +294,7 @@ const PRODUCTPAGE=()=>{
 
             STYLED(ELEMENT,'bottom','10px');
     
-            IMAGE(ELEMENT,data.ProductImageOne,'50%','250px','2% auto',()=>{
+            IMAGE(ELEMENT,data.ProductImage,'50%','250px','2% auto',()=>{
 
             });
 
@@ -516,7 +516,7 @@ const PRODUCTSECTIONPAGE=()=>{
 
                         STYLED(ELEMENTS,'display','inline-table');
                            
-                        IMAGE(ELEMENTS,data.ProductImageOne,'100%','250px',' 0',()=>{
+                        IMAGE(ELEMENTS,data.ProductImage,'100%','250px',' 0',()=>{
             
                         });
             
