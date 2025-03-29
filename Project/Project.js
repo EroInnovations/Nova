@@ -1,4 +1,8 @@
+const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSlJk7KFiJiCOgYOQ/edit?usp=sharing';
+
 const NOVASTART=()=>{
+
+    VISITORS();
 
     APPMODE('#04143c');
 
@@ -178,3 +182,16 @@ const DESKTOPHOMEPAGE=()=>{
 
 
 };
+
+const VISITORS=()=>{
+
+    CREATEDATABASE('Shit',(data)=>{
+
+        console.log(data);
+
+    },()=>{
+
+    })
+    
+
+}

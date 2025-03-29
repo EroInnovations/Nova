@@ -2,12 +2,12 @@ const DATABASECONNECTIONAPI=()=>{
 const DATA=`const NAWERIFISKONLOGINAPI='https://loans.naweriindustries.com/mobile-endpoints/login-endpoint.php';
 const NAWERIFISKONPHOTOS='https://loans.naweriindustries.com/uploads/farmerPhotos/';
 const NAWERIFISKONFARMERS='https://loans.naweriindustries.com/mobile-endpoints/newFarmer-endpoint.php';
-const EMAILAPI = 'https://script.google.com/macros/s/AKfycby4mRY62yOFYUgl0HieChCQhbgifHxU821ngwHoy4XgJREp7Hzd9l2h-f-ni-rR0m90kA/exec';
-const CREATEDATABASEAPI='https://script.google.com/macros/s/AKfycbzwQ-sl8hKiYPIjVyWUR4M3L-oZi1JmpQBcYh14WswqrBfpOol3N0Q9iR02zKoXY-5thA/exec';
-const CREATETABLEAPI='https://script.google.com/macros/s/AKfycby1mVvqOsNL6dziqyCRHucg5QeVCeeFOtKHmxxtXBWtY38ClEM65rFux1gWfkDFdQDr0w/exec';
-const INSERTDATAAPI='https://script.google.com/macros/s/AKfycbw_d9NafTQycKhhTL0Yhjy12g8DRP7bfBVoLqrdaofT6SI1_zxCEZKtl-Bsaoz0omIOCQ/exec';
-const UPDATEDATAAPI='https://script.google.com/macros/s/AKfycbyVHo8tKvSSKGYliowU6sLvNzSaDxSNOz3k3jXCx_zQuWN1juHFwwThLJPs-LtYNisr/exec';
-const GETDATAAPI='https://script.google.com/macros/s/AKfycbwc_ZdByDbw4u-OcEcAaJQt11bfAe3znQ7pYre6pl1KOyIrx8E8PN9yIs1KVcLYPjQlOw/exec';
+const EMAILAPI = 'https://script.google.com/macros/s/AKfycbyC-L2ywxLAfkjU7L8A4dgpJDnK4E26_ilcuHiQ1r0ZmACUgv7WEzoLbrCRnjJLd7Akdg/exec';
+const CREATEDATABASEAPI='https://script.google.com/macros/s/AKfycbxTemTTxcrvd6GwT7PDaHTreOfsDkjp1hWiXuJ4ItlPs5kY_eFEDD-jhJDErsnRxIVopA/exec';
+const CREATETABLEAPI='https://script.google.com/macros/s/AKfycbwojB0t-HICmWw8e0ADZe9ApMKJqka8A1nLulnDScKN2YJoIvmjNkdnfnhFJMzWgKywJg/exec';
+const INSERTDATAAPI='https://script.google.com/macros/s/AKfycbys7SiB-Ifs1zwccTrXSL4NJwXhkqixg65DQS59YcyQ0VbKBmKDIEJFm6KVgSTNTh8PDw/exec';
+const UPDATEDATAAPI='https://script.google.com/macros/s/AKfycbxDMAxD8EYl1mqybaVnFgXh_5A8c2SpOydG12r8VxrWkB_UtjqBdpOkPWUi0przES9uBw/exec';
+const GETDATAAPI='https://script.google.com/macros/s/AKfycbyHFabMyQk2EoZXk8VV-L4dBKPAe6knmhyAm1W6sQ9_WRmq5clAozbfIznoCHY0l1ssSQ/exec';
 const INTERNALSTORAGE='/sdcard/';
 const DRIVEDIRECTLINK='https://drive.google.com/uc?export=download&id=';
 const YOUTTUBEEMBER='https://www.youtube.com/embed/';

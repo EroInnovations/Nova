@@ -6,7 +6,7 @@ const EMAILSENDER=(EMAIL,SUBJECT,MESSAGE,callback,callback1)=>{
         "body":MESSAGE
     };
 
-    fetch('https://script.google.com/macros/s/AKfycby4mRY62yOFYUgl0HieChCQhbgifHxU821ngwHoy4XgJREp7Hzd9l2h-f-ni-rR0m90kA/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbyC-L2ywxLAfkjU7L8A4dgpJDnK4E26_ilcuHiQ1r0ZmACUgv7WEzoLbrCRnjJLd7Akdg/exec',{
 
         method:'Post',
 

@@ -3,7 +3,7 @@ const CREATETABLE=(LINK,NAME,callback,callback1)=>{
         "sheetName":NAME,
         "spreadsheetUrl":LINK
     };
-    fetch('https://script.google.com/macros/s/AKfycby1mVvqOsNL6dziqyCRHucg5QeVCeeFOtKHmxxtXBWtY38ClEM65rFux1gWfkDFdQDr0w/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbwojB0t-HICmWw8e0ADZe9ApMKJqka8A1nLulnDScKN2YJoIvmjNkdnfnhFJMzWgKywJg/exec',{
        
         method:'Post',
 

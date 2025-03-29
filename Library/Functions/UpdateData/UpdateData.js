@@ -7,7 +7,7 @@ const UPDATEDATA=(LINK,NAME,ID,INFO,callback,callback1)=>{
         "action":"update"
     };
     
-    fetch('https://script.google.com/macros/s/AKfycbyVHo8tKvSSKGYliowU6sLvNzSaDxSNOz3k3jXCx_zQuWN1juHFwwThLJPs-LtYNisr/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbxDMAxD8EYl1mqybaVnFgXh_5A8c2SpOydG12r8VxrWkB_UtjqBdpOkPWUi0przES9uBw/exec',{
         method:'Post',
         mode:'cors',
         body:JSON.stringify(DATA)

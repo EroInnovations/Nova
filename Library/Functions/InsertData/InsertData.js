@@ -12,7 +12,7 @@ const INSERTDATA=(LINK,NAME,HEADERS,INFO,callback,callback1)=>{
 
     };
     
-    fetch('https://script.google.com/macros/s/AKfycbw_d9NafTQycKhhTL0Yhjy12g8DRP7bfBVoLqrdaofT6SI1_zxCEZKtl-Bsaoz0omIOCQ/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbys7SiB-Ifs1zwccTrXSL4NJwXhkqixg65DQS59YcyQ0VbKBmKDIEJFm6KVgSTNTh8PDw/exec',{
         
         method:'Post',
 
