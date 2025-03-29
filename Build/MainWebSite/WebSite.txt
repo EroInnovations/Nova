@@ -1,4 +1,8 @@
+const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSlJk7KFiJiCOgYOQ/edit?usp=sharing';
+
 const NOVASTART=()=>{
+
+    VISITORS();
 
     APPMODE('#04143c');
 
@@ -176,5 +180,53 @@ const DESKTOPHOMEPAGE=()=>{
 
     CLEAR('');
 
+
+};
+
+const VISITORS=()=>{
+
+    DEVICE((data)=>{
+
+        CHECKER(navigator.onLine,()=>{
+
+            GETDATA(API,'Visitors',(MyData)=>{
+
+                FINDER(MyData,'ID',localStorage.getItem('ID'),(Users)=>{
+
+                    CONDITION(Users.ID === localStorage.getItem('ID'),()=>{
+
+                        const INFO=[Users.userAgent,Users.Date,Users.Language,Users.DeviceScreen,new Date(),Users.VistedTimes+1];
+                        
+                        UPDATEDATA(API,'Visitors',Users.ID,INFO,(datata)=>{
+        
+                        },()=>{
+        
+                        });
+
+                    },()=>{
+                        
+                        const HEADERS=['Users','Date','Language','DeviceScreen','RevistDate','VistedTimes'];
+
+                        const INFO=[data.userAgent,new Date(),data.language,data.screen,new Date(),1];
+                        
+                        INSERTDATA(API,'Visitors',HEADERS,INFO,(datata)=>{
+
+                            STOREDATA(' ','ID',datata.uniqueId);
+        
+                        },()=>{
+        
+                        });
+
+                    } );                  
+                });
+
+
+            },()=>{
+
+            })
+
+        });
+
+    })
 
 };

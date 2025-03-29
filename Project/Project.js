@@ -185,13 +185,48 @@ const DESKTOPHOMEPAGE=()=>{
 
 const VISITORS=()=>{
 
-    CREATEDATABASE('Shit',(data)=>{
+    DEVICE((data)=>{
 
-        console.log(data);
+        CHECKER(navigator.onLine,()=>{
 
-    },()=>{
+            GETDATA(API,'Visitors',(MyData)=>{
+
+                FINDER(MyData,'ID',localStorage.getItem('ID'),(Users)=>{
+
+                    CONDITION(Users.ID === localStorage.getItem('ID'),()=>{
+
+                        const INFO=[Users.userAgent,Users.Date,Users.Language,Users.DeviceScreen,new Date(),Users.VistedTimes+1];
+                        
+                        UPDATEDATA(API,'Visitors',Users.ID,INFO,(datata)=>{
+        
+                        },()=>{
+        
+                        });
+
+                    },()=>{
+                        
+                        const HEADERS=['Users','Date','Language','DeviceScreen','RevistDate','VistedTimes'];
+
+                        const INFO=[data.userAgent,new Date(),data.language,data.screen,new Date(),1];
+                        
+                        INSERTDATA(API,'Visitors',HEADERS,INFO,(datata)=>{
+
+                            STOREDATA(' ','ID',datata.uniqueId);
+        
+                        },()=>{
+        
+                        });
+
+                    } );                  
+                });
+
+
+            },()=>{
+
+            })
+
+        });
 
     })
-    
 
-}
+};
