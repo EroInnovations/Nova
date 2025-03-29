@@ -50,6 +50,7 @@ import { MOVIELANDEREMAIL } from "./MovieLanderEmail/MovieLanderEmail.js";
 import { POSTDRIVEFILE } from "./PostDriveFile/PostDriveFile.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
 import { POSTTEXTPACKAGE } from "./PostTextPackage/PostTextPackage.js";
+import { QELMAIL } from "./QelEmail/QelEmail.js";
 import { RANDOMCODE } from "./RandomCode/RandomCode.js";
 import { REDUX } from "./Redux/Redux.js";
 import { RELOAD } from "./Reload/Reload.js";
@@ -155,7 +156,7 @@ const FILEPICKER=${FILEPICKER};
 const POSTDRIVEFILE=${POSTDRIVEFILE};
 const DRIVEID=${DRIVEID};
 const TOAST=${TOAST};
-
+const QELMAIL=${QELMAIL};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -164,6 +165,6 @@ export{FUNCTIONS};
 
 `
 
-const TOAST=${TOAST};
+const QELMAIL=${QELMAIL};
 
 `

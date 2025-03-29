@@ -69,6 +69,8 @@ const MYACCOUNT=()=>{
 
 const HOMEPAGE=()=>{
 
+    USERMONITORING();
+
     APPDATA();
 
     CLEAR('');
@@ -300,49 +302,41 @@ const CREATEACCOUNTPAGE=()=>{
                                         MESSAGEDISPLAY('','Admin Found With Email',''); 
         
                                     } ,()=>{
-    
-                                        const HEADER=['UserName','UserEmail','UserPassword','Date','RandomCode','UserPhoto','Approved'];
-    
-                                        const INFO=[sessionStorage.getItem('UserName'),sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserPassword'),new Date(),'','','Approved'];
-    
-                                        INSERTDATA(API,'AdminUsers',HEADER,INFO,()=>{
-    
-                                            GETDATA(API,'AdminUsers',(data)=>{
-    
-                                                FINDER(data,'UserEmail',sessionStorage.getItem('UserEmail'),(Users)=>{
+
+                                        RANDOMCODE((code)=>{
+
+                                            const MESSAGE=`Dear ${sessionStorage.getItem('UserName')},\n\n Thank Your For Creating An Account as A new Employee of Qel Medistore\n\n Your Verification Code is ${code},\n\n Thank You ,From Qel Medistore Team;`
+
+                                            QELMAIL(sessionStorage.getItem('UserEmail'),'Medi Store Account Creation',MESSAGE,()=>{
+
+                                                STOREDATA(' ','VeriifcationCode',code);
+
+                                                ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+
+                                                const MaData={
+                                                        'UserName':sessionStorage.getItem('UserName'),
+                                                        'UserEmail':sessionStorage.getItem('UserEmail'),
+                                                        'UserPassword':sessionStorage.getItem('UserPassword'),
+                                                        'UserCode':code,
+                                                        'UserPhoto':'',
+                                                    }
+                                                
+
+                                                JSONIFICATION(MaData,(MyData)=>{
                         
-                                                    CONDITION(Users.UserEmail === sessionStorage.getItem('UserEmail'),()=>{
-                        
-                                                        CONDITION(Users.UserPassword === sessionStorage.getItem('UserPassword'),()=>{
-                        
-                                                            JSONIFICATION(Users,(MyData)=>{
-                        
-                                                                STOREDATA(' ','UserData',MyData);
-                        
-                                                                ROUTE('',HOMEPAGE,'HOMEPAGE');
-                        
-                                                            });
-                        
-                                                        } ,()=>{
-                        
-                                                            MESSAGEDISPLAY('','Wrong Admin Password','');
-                        
-                                                        });
-                        
-                                                    } ,()=>{
-                        
-                                                        MESSAGEDISPLAY('','No Admin Found','');
-                        
-                                                    });
-                        
+                                                    STOREDATA(' ','UserDatata',MyData);
+            
                                                 });
-                        
+
+
+                                            },()=>{
+    
+                                                MESSAGEDISPLAY('','Failed to Send Verification Code','');
+    
                                             });
-    
-                                        },()=>{
-    
+
                                         });
-        
+             
                                     });
         
                                 });
@@ -409,17 +403,89 @@ const EMAILVERIFICATIONPAGE=()=>{
 
     });
 
-    INPUT('', 'email', APPCOLORS, 'Enter Verification Code', ()=>{
+    INPUT('', 'tel', APPCOLORS, 'Enter Verification Code', (data)=>{
+
+        STOREDATA('','Code',data);
 
     });
 
-    IMAGEBUTTON('',APPCOLORS,'Recover','',WHITEENTERICON,'50px','10% auto',()=>{
+    IMAGEBUTTON('',APPCOLORS,'Verify','',WHITECHECKICON,'50px','10% auto',()=>{
 
+        CONDITION(sessionStorage.getItem('Code'),()=>{
+
+            CONDITION(sessionStorage.getItem('Code') === localStorage.getItem('VeriifcationCode') ,()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Please Wait Admin Is Being Created','');
+
+                    DEJSON(localStorage.getItem('UserDatata'),(DAta)=>{
+
+                        console.log(DAta);
+
+                        STOREDATA('','Users',DAta.UserEmail);
+        
+                        const HEADER=['UserName','UserEmail','UserPassword','Date','RandomCode','UserPhoto','Approved'];
+            
+                        const INFO=[DAta.UserName,DAta.UserEmail,DAta.UserPassword,new Date(),DAta.UserCode,'','Approved'];
+
+                        INSERTDATA(API,'AdminUsers',HEADER,INFO,()=>{
+            
+                            GETDATA(API,'AdminUsers',(data)=>{
+
+                                FINDER(data,'UserEmail',sessionStorage.getItem('Users'),(Users)=>{
+
+                                    CONDITION(Users.UserEmail === sessionStorage.getItem('Users'),()=>{
+
+                                        JSONIFICATION(Users,(MyData)=>{
+
+                                            STOREDATA(' ','UserData',MyData);
+
+                                            ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                        });
+
+                                    } ,()=>{
+
+                                        MESSAGEDISPLAY('','No Admin Found','');
+
+                                    });
+
+                                });
+
+                            });
+
+                        },()=>{
+
+                        });
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
+            
+            },()=>{
+    
+                MESSAGEDISPLAY('','Wrong Verification Code','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Verification Code','');
+
+        });
+        
     });
 
     NAVTEMPLATE('',APPCOLORS,'80%','50px','30% auto',(ELEMENT)=>{
 
         LEFTTEXT(ELEMENT,'','Login In','','16px','1rem','',()=>{
+
+            DELETEDATA(' ','VeriifcationCode');
 
             ROUTE('',LOGINPAGE,'LOGINPAGE');
 
@@ -431,6 +497,8 @@ const EMAILVERIFICATIONPAGE=()=>{
         });
 
         RIGHTTEXT(ELEMENT,'','Create Account?','','16px','1rem','',()=>{
+
+            DELETEDATA(' ','VeriifcationCode');
 
             ROUTE('',CREATEACCOUNTPAGE,'LOGINPAGE');
 
@@ -467,6 +535,7 @@ const CREATIONPAGE=()=>{
             DELETEDATA('','ImageOne');
             DELETEDATA('','ImageTwo');
             DELETEDATA('','ImageThree');
+            DELETEDATA('','Number');
 
             ROUTE(' ',NEWPRODUCTPAGE,'CREATIONPAGE');
     
@@ -490,13 +559,19 @@ const CREATIONPAGE=()=>{
     
         });
 
+        IMAGEBUTTON(ELEMENT,APPCOLORS,'Log Out','',WHITELOGOUTICON,'50px','1% auto',()=>{
+
+            DELETEDATA(' ','UserData');
+
+            RELOAD();
+    
+        });
+
     });
 
 };
 
 const NEWCATERGORYPAGE=()=>{
-
-    BACKPAGE('HOMEPAGE');
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
@@ -558,9 +633,9 @@ const NEWCATERGORYPAGE=()=>{
 
                                         MESSAGEDISPLAY('','Creating New Catergory','');
 
-                                        const HEADERS=['ProductName','ProductDetails','ProductImage','ProductDate','Approved'];
+                                        const HEADERS=['ProductName','ProductDetails','ProductImage','ProductDate','Approved','CreatedBy'];
 
-                                        const INFO=[sessionStorage.getItem('Name'),sessionStorage.getItem('Details'),sessionStorage.getItem('Image'),new Date(),'Approved'];
+                                        const INFO=[sessionStorage.getItem('Name'),sessionStorage.getItem('Details'),sessionStorage.getItem('Image'),new Date(),'Approved',sessionStorage.getItem('UserID')];
 
                                         INSERTDATA(API,'Catergory',HEADERS,INFO,()=>{
 
@@ -640,8 +715,6 @@ const NEWCATERGORYPAGE=()=>{
 
 const NEWPRODUCTPAGE=()=>{
 
-    BACKPAGE('HOMEPAGE');
-
     LEFTTEXTBACKHEADERBODY('',()=>{
 
         ROUTE('',CREATIONPAGE,'CREATIONPAGE');
@@ -652,7 +725,7 @@ const NEWPRODUCTPAGE=()=>{
 
         });
 
-        IMAGEBUTTON(ELEMENT,APPCOLORS,sessionStorage.getItem('CategoryName')||'Select Catergory','',WHITEGROUPICON,'50px','',()=>{
+        IMAGEBUTTON(ELEMENT,APPCOLORS,sessionStorage.getItem('CategoryName')||'Select Catergory','',sessionStorage.getItem('CategoryImage')||WHITEGROUPICON,'50px','',()=>{
 
             CENTERVIEW('',APPCOLORS,(ELEMENTS)=>{
 
@@ -682,11 +755,13 @@ const NEWPRODUCTPAGE=()=>{
 
                         CHECKER(data.Approved,()=>{
 
-                            IMAGEBUTTON(ELEMENTSERS,'#333',data.ProductName,'',WHITEGROUPICON,'50px','1% auto',(ELEMENT)=>{
+                            IMAGEBUTTON(ELEMENTSERS,'#333',data.ProductName,'',data.ProductImage,'50px','1% auto',(ELEMENT)=>{
 
                                 STOREDATA('','Category',data.ID);
 
                                 STOREDATA('','CategoryName',data.ProductName);
+
+                                STOREDATA('','CategoryImage',data.ProductImage);
 
                                 STYLED(ELEMENTS,'display','none');
 
@@ -713,6 +788,12 @@ const NEWPRODUCTPAGE=()=>{
         INPUT(ELEMENT, 'tel', APPCOLORS,sessionStorage.getItem('Price')|| 'Enter Product Price', (data)=>{
 
             STOREDATA('','Price',data);
+    
+        });
+
+        INPUT(ELEMENT, 'tel', APPCOLORS,sessionStorage.getItem('Number')|| 'Enter Product Qantity', (data)=>{
+
+            STOREDATA('','Number',data);
     
         });
 
@@ -778,69 +859,77 @@ const NEWPRODUCTPAGE=()=>{
 
                     CONDITION(sessionStorage.getItem('Price'),()=>{
 
-                        CONDITION(sessionStorage.getItem('Details'),()=>{
+                        CONDITION(sessionStorage.getItem('Number'),()=>{
 
-                            CONDITION(sessionStorage.getItem('Image'),()=>{
+                            CONDITION(sessionStorage.getItem('Details'),()=>{
+
+                                CONDITION(sessionStorage.getItem('Image'),()=>{
+        
+                                    CONDITION(navigator.onLine,()=>{
+        
+                                        MESSAGEDISPLAY('','Please Wait','');
+        
+                                        const HEADERS=['ProductName','ProductPrice','ProductDetails','ProductCatergory','ProductImage','ProductImageOne','ProductImageTwo','ProductImageThree','CreatedOn','CreatedBy','Approved','ProductNumber'];
+                        
+                                        const INFO=[sessionStorage.getItem('Name'),sessionStorage.getItem('Price'),sessionStorage.getItem('Details'),sessionStorage.getItem('Category'),sessionStorage.getItem('Image'),sessionStorage.getItem('ImageOne'),sessionStorage.getItem('ImageTwo'),sessionStorage.getItem('ImageThree'),new Date(),sessionStorage.getItem('UserID'),'Approved',sessionStorage.getItem('Number')];
+        
+                                        INSERTDATA(API,'Products',HEADERS,INFO,()=>{
     
-                                CONDITION(navigator.onLine,()=>{
+                                            GETDATA(API,'Products',(data)=>{
     
-                                    MESSAGEDISPLAY('','Please Wait','');
+                                                const MYDATA={
+                                                    'Name':'Products',
+                                                    'data':data
+                                                }
     
-                                    const HEADERS=['ProductName','ProductPrice','ProductDetails','ProductCatergory','ProductImage','ProductImageOne','ProductImageTwo','ProductImageThree','CreatedOn','CreatedBy','Approved'];
-                    
-                                    const INFO=[sessionStorage.getItem('Name'),sessionStorage.getItem('Price'),sessionStorage.getItem('Details'),sessionStorage.getItem('Category'),sessionStorage.getItem('Image'),sessionStorage.getItem('ImageOne'),sessionStorage.getItem('ImageTwo'),sessionStorage.getItem('ImageThree'),new Date(),'Admin','Approved'];
+                                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
     
-                                    INSERTDATA(API,'Products',HEADERS,INFO,()=>{
-
-                                        GETDATA(API,'Products',(data)=>{
-
-                                            const MYDATA={
-                                                'Name':'Products',
-                                                'data':data
-                                            }
-
-                                            STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
-
-                                                CONDITION(datata === false,()=>{
-
-                                                    UPDATEINDEX('Products', 'Products', MYDATA,()=>{
-                                                      
+                                                    CONDITION(datata === false,()=>{
+    
+                                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                                          
+                                                            ROUTE('',HOMEPAGE,'HOMEPAGE');
+                                                            
+                                                        })
+    
+                                                    } ,()=>{
+    
                                                         ROUTE('',HOMEPAGE,'HOMEPAGE');
-                                                        
-                                                    })
-
-                                                } ,()=>{
-
-                                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-                                                });
-
-                                            });
-
-                                        });
-
-                                    },()=>{
-
-                                        MESSAGEDISPLAY('','Failed to Add Product','');
-
-                                    });
     
+                                                    });
+    
+                                                });
+    
+                                            });
+    
+                                        },()=>{
+    
+                                            MESSAGEDISPLAY('','Failed to Add Product','');
+    
+                                        });
+        
+                                    },()=>{
+                        
+                                        MESSAGEDISPLAY('','Check Your Internet','');
+                        
+                                    });
+        
                                 },()=>{
                     
-                                    MESSAGEDISPLAY('','Check Your Internet','');
+                                    MESSAGEDISPLAY('','Add Product Details','');
                     
                                 });
-    
+        
                             },()=>{
                 
-                                MESSAGEDISPLAY('','Add Product Details','');
+                                MESSAGEDISPLAY('','Product Details','');
                 
                             });
-    
+
                         },()=>{
-            
-                            MESSAGEDISPLAY('','Product Details','');
-            
+
+                            MESSAGEDISPLAY('','Enter Product Qantity','');
+
                         });
 
                     },()=>{
@@ -1011,7 +1100,7 @@ const PRODUTVIEWPAGE=()=>{
 
                         MESSAGEDISPLAY('','Product Is Being Updated','');
     
-                        const INFO=[sessionStorage.getItem('NewName'),data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+                        const INFO=[sessionStorage.getItem('NewName'),data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved',data.ProductNumber];
         
                         UPDATEDATA(API,'Products',data.ID,INFO,()=>{
     
@@ -1076,7 +1165,7 @@ const PRODUTVIEWPAGE=()=>{
 
                         MESSAGEDISPLAY('','Product Is Being Updated','');
     
-                        const INFO=[data.ProductName,sessionStorage.getItem('NewPrice'),data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+                        const INFO=[data.ProductName,sessionStorage.getItem('NewPrice'),data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
         
                         UPDATEDATA(API,'Products',data.ID,INFO,()=>{
     
@@ -1127,6 +1216,71 @@ const PRODUTVIEWPAGE=()=>{
         
             });
 
+            INPUT(ELEMENT, 'tel', APPCOLORS, data.ProductNumber||'Enter Product New Quantity', (data)=>{
+
+                STOREDATA('','NewNumber',data);
+
+            });
+        
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Update Product Quantity','',WHITECHECKICON,'50px','',()=>{
+
+                CONDITION(sessionStorage.getItem('NewNumber'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',sessionStorage.getItem('NewNumber')];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Enter New Product Quantity','');
+
+                });
+        
+            });
+
             TEXTAREA(ELEMENT,'',APPCOLORS,'300px',data.ProductDetails,(data)=>{
 
                 STOREDATA('','NewDetails',data);
@@ -1141,7 +1295,7 @@ const PRODUTVIEWPAGE=()=>{
 
                         MESSAGEDISPLAY('','Product Is Being Updated','');
     
-                        const INFO=[data.ProductName,data.ProductPrice,sessionStorage.getItem('NewDetails'),data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+                        const INFO=[data.ProductName,data.ProductPrice,sessionStorage.getItem('NewDetails'),data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
         
                         UPDATEDATA(API,'Products',data.ID,INFO,()=>{
     
@@ -1204,7 +1358,7 @@ const PRODUTVIEWPAGE=()=>{
 
                         MESSAGEDISPLAY('','Product Is Being Updated','');
     
-                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,datata,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,datata,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
         
                         UPDATEDATA(API,'Products',data.ID,INFO,()=>{
     
@@ -1259,7 +1413,7 @@ const PRODUTVIEWPAGE=()=>{
 
                         MESSAGEDISPLAY('','Product Is Being Updated','');
     
-                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,datata,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,datata,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
         
                         UPDATEDATA(API,'Products',data.ID,INFO,()=>{
     
@@ -1314,7 +1468,7 @@ const PRODUTVIEWPAGE=()=>{
 
                         MESSAGEDISPLAY('','Product Is Being Updated','');
     
-                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,datata,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,datata,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
         
                         UPDATEDATA(API,'Products',data.ID,INFO,()=>{
     
@@ -1369,7 +1523,7 @@ const PRODUTVIEWPAGE=()=>{
 
                         MESSAGEDISPLAY('','Product Is Being Updated','');
     
-                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,datata,data.CreatedOn,'Admin','Approved'];
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,datata,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
         
                         UPDATEDATA(API,'Products',data.ID,INFO,()=>{
     
@@ -1416,6 +1570,57 @@ const PRODUTVIEWPAGE=()=>{
     
             });
 
+            IMAGEBUTTON(ELEMENT,'blue','Now In Stock','',WHITECHECKICON,'50px','1% auto',()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Product Is Being Updated','');
+
+                    const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
+
+                    UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+
+                        GETDATA(API,'Products',(data)=>{
+
+                            const MYDATA={
+                                'Name':'Products',
+                                'data':data
+                            }
+
+                            STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+
+                                CONDITION(datata === false,()=>{
+
+                                    UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                      
+                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+                                        
+                                    })
+
+                                } ,()=>{
+
+                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                });
+
+                            });
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Failed to Update Product','');
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
+  
+            });
+
             IMAGEBUTTON(ELEMENT,APPCOLORS,'Catergory','',WHITEGROUPICON,'50px','',()=>{
 
                 CENTERVIEW('',APPCOLORS,(ELEMENTS)=>{
@@ -1452,7 +1657,7 @@ const PRODUTVIEWPAGE=()=>{
 
                                         MESSAGEDISPLAY('','Product Is Being Updated','');
                     
-                                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,datate.ID,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
+                                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,datate.ID,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
                         
                                         UPDATEDATA(API,'Products',data.ID,INFO,()=>{
                     
@@ -1510,57 +1715,6 @@ const PRODUTVIEWPAGE=()=>{
                 });
         
             });
-
-            IMAGEBUTTON(ELEMENT,APPCOLORS,'Now In Stock','',WHITECHECKICON,'50px','1% auto',()=>{
-
-                CONDITION(navigator.onLine,()=>{
-
-                    MESSAGEDISPLAY('','Product Is Being Updated','');
-
-                    const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved'];
-
-                    UPDATEDATA(API,'Products',data.ID,INFO,()=>{
-
-                        GETDATA(API,'Products',(data)=>{
-
-                            const MYDATA={
-                                'Name':'Products',
-                                'data':data
-                            }
-
-                            STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
-
-                                CONDITION(datata === false,()=>{
-
-                                    UPDATEINDEX('Products', 'Products', MYDATA,()=>{
-                                      
-                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
-                                        
-                                    })
-
-                                } ,()=>{
-
-                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-                                });
-
-                            });
-
-                        });
-
-                    },()=>{
-
-                        MESSAGEDISPLAY('','Failed to Update Product','');
-
-                    });
-
-                },()=>{
-
-                    MESSAGEDISPLAY('','Check Your Internet','');
-
-                });
-  
-            });
     
             IMAGEBUTTON(ELEMENT,'brown','Out Of Stock','',WHITECLOSEICON,'50px','1% auto',()=>{
 
@@ -1568,7 +1722,7 @@ const PRODUTVIEWPAGE=()=>{
 
                     MESSAGEDISPLAY('','Product Is Being Updated','');
 
-                    const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin',''];
+                    const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'',data.ProductNumber];
     
                     UPDATEDATA(API,'Products',data.ID,INFO,()=>{
 
@@ -1642,3 +1796,51 @@ const ALLCATERGORYPAGE=()=>{
     });
 
 };
+
+const USERMONITORING=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(MaData)=>{
+
+        GETDATA(API,'AdminUsers',(data)=>{
+
+            FINDER(data,'UserEmail',MaData.UserEmail,(Users)=>{
+    
+                CONDITION(Users.UserEmail === MaData.UserEmail,()=>{
+    
+                    CONDITION(Users.Approved,()=>{
+    
+                        JSONIFICATION(Users,(MyData)=>{
+
+                            STOREDATA(' ','UserData',MyData);
+
+                            STOREDATA('','UserData',Users.UserEmail);
+
+                            STOREDATA('','UserID',Users.ID);
+
+                        });
+
+                    },()=>{
+
+                        DELETEDATA(' ','UserData');
+
+                        RELOAD();
+
+                    });
+    
+                } ,()=>{
+    
+                    MESSAGEDISPLAY('','No Admin Found','');
+
+                    DELETEDATA(' ','UserData');
+
+                    RELOAD();
+    
+                });
+    
+            });
+    
+        });
+
+    });
+
+}
