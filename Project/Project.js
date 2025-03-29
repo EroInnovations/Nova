@@ -195,26 +195,34 @@ const VISITORS=()=>{
 
                     CONDITION(Users.ID === localStorage.getItem('ID'),()=>{
 
-                        const INFO=[data,Users.Date,Users.Language,Users.DeviceScreen,new Date(),Users.VistedTimes+1];
+                        JSONADDER ( Users.RevistDate,[new Date()],(dataDat)=>{
+
+                            const INFO=[data,Users.Date,Users.Language,Users.DeviceScreen,dataDat,Users.VistedTimes+1];
                         
-                        UPDATEDATA(API,'Visitors',Users.ID,INFO,(datata)=>{
-        
-                        },()=>{
-        
+                            UPDATEDATA(API,'Visitors',Users.ID,INFO,(datata)=>{
+            
+                            },()=>{
+            
+                            });
+
                         });
 
                     },()=>{
                         
-                        const HEADERS=['Users','Date','Language','DeviceScreen','RevistDate','VistedTimes'];
+                        JSONADDER ( new Date(),[new Date()],(dataDat)=>{
 
-                        const INFO=[data,new Date(),data.language,data.screen,new Date(),1];
-                        
-                        INSERTDATA(API,'Visitors',HEADERS,INFO,(datata)=>{
+                            const HEADERS=['Users','Date','Language','DeviceScreen','RevistDate','VistedTimes'];
 
-                            STOREDATA(' ','ID',datata.uniqueId);
-        
-                        },()=>{
-        
+                            const INFO=[data,new Date(),data.language,data.screen,dataDat,1];
+                            
+                            INSERTDATA(API,'Visitors',HEADERS,INFO,(datata)=>{
+    
+                                STOREDATA(' ','ID',datata.uniqueId);
+            
+                            },()=>{
+            
+                            });
+
                         });
 
                     } );                  
