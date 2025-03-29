@@ -78,6 +78,26 @@ const ANDROIDHOMEPAGE=()=>{
 
         });
 
+        LEFTTEXT(ELEMENT,'h1','Reach Us','','20px','0.2rem','5% auto',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'','90%','50px','',(ELEMENTS)=>{
+
+            ICON(ELEMENTS,WHITEGMAILICON,'25px','25px','',()=>{
+
+            });
+
+            ICON(ELEMENTS,WHITEINSTAGRAMICON,'25px','25px','',()=>{
+
+            });
+
+            ICON(ELEMENTS,WHITEWHATSAPPICON,'25px','25px','',()=>{
+
+            });
+
+        });
+
     });
 
 };
