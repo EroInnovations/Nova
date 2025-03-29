@@ -106,19 +106,67 @@ const ANDROIDMENU=(ELEMENT)=>{
 
     BUTTONIMAGE(ELEMENT,' ','About Us','',WHITEINFOICON,'50px','',()=>{
 
+        ROUTE(' ',ANDROIDABOUTUSPAGE,'ANDROIDHOMEPAGE');
+
     });
 
     BUTTONIMAGE(ELEMENT,' ','Developers','',WHITEMOBILEDEVELOPMENTICON,'50px','',()=>{
 
+        ROUTE(' ',ANDROIDDEVELOPERPAGE,'ANDROIDHOMEPAGE');
+
     });
 
     BUTTONIMAGE(ELEMENT,' ','Contact Us','',WHITEPHONEICON,'50px','',()=>{
+
+        ROUTE(' ',ANDROIDDCONTACTUSPAGE,'ANDROIDHOMEPAGE');
 
     });
 
     BUTTONIMAGE(ELEMENT,' ','Download App','',WHITEDOWNLOADICON,'50px','',()=>{
 
         WEBSITE('https://eroinnovations.site/apps/elite.apk');
+
+    });
+
+};
+
+const ANDROIDABOUTUSPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+
+    },'About Us','','',(ELEMENT)=>{
+
+        DISPLAY(ELEMENT,'Under Development');
+
+    });
+
+};
+
+const ANDROIDDEVELOPERPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+
+    },'Developers','','',(ELEMENT)=>{
+
+        DISPLAY(ELEMENT,'Under Development');
+
+    });
+
+};
+
+const ANDROIDDCONTACTUSPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+
+    },'Contact Us','','',(ELEMENT)=>{
+
+        DISPLAY(ELEMENT,'Under Development');
 
     });
 
