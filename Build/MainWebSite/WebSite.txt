@@ -195,7 +195,7 @@ const VISITORS=()=>{
 
                     CONDITION(Users.ID === localStorage.getItem('ID'),()=>{
 
-                        const INFO=[Users.userAgent,Users.Date,Users.Language,Users.DeviceScreen,new Date(),Users.VistedTimes+1];
+                        const INFO=[data,Users.Date,Users.Language,Users.DeviceScreen,new Date(),Users.VistedTimes+1];
                         
                         UPDATEDATA(API,'Visitors',Users.ID,INFO,(datata)=>{
         
@@ -207,7 +207,7 @@ const VISITORS=()=>{
                         
                         const HEADERS=['Users','Date','Language','DeviceScreen','RevistDate','VistedTimes'];
 
-                        const INFO=[data.userAgent,new Date(),data.language,data.screen,new Date(),1];
+                        const INFO=[data,new Date(),data.language,data.screen,new Date(),1];
                         
                         INSERTDATA(API,'Visitors',HEADERS,INFO,(datata)=>{
 
