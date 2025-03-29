@@ -217,12 +217,63 @@ const FORGOTPASSWORDPAGE=()=>{
 
     });
 
-    INPUT('', 'email', APPCOLORS, 'Enter Admin Email', ()=>{
+    INPUT('', 'email', APPCOLORS, 'Enter Admin Email', (data)=>{
+
+        STOREDATA('','UserEmail',data);
 
     });
 
 
     IMAGEBUTTON('',APPCOLORS,'Recover','',WHITEENTERICON,'50px','10% auto',()=>{
+
+        CONDITION( sessionStorage.getItem('UserEmail'),()=>{
+
+            CONDITION(navigator.onLine,()=>{
+
+                MESSAGEDISPLAY('','Please Wait While We Verify User','');
+
+                GETDATA(API,'AdminUsers',(data)=>{
+        
+                    FINDER(data,'UserEmail',sessionStorage.getItem('UserEmail'),(Users)=>{
+
+                        CONDITION(Users.UserEmail === sessionStorage.getItem('UserEmail'),()=>{
+
+                            const MESSAGE=`Dear ${Users.UserName},\n\n Thank Your For Creating An Account With Qel Medistore\n\n Your Password To Your Account Is ====> ${Users.UserPassword}<====,\n\n Thank You ,From Qel Medistore Team;`
+
+                            QELMAIL(sessionStorage.getItem('UserEmail'),'Medi Store Account Password',MESSAGE,()=>{
+
+                                MESSAGEDISPLAY('','Password Link Sent to Your Email','');
+
+                                ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+                            },()=>{
+
+                                MESSAGEDISPLAY('','Failed to Send Verification Code','');
+
+                            });
+
+                        } ,()=>{
+
+                            
+                            MESSAGEDISPLAY('','No Admin Found With Email',''); 
+
+                        });
+
+                    });
+
+                });
+
+            },()=>{
+    
+                MESSAGEDISPLAY('','Check Your Internet','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Admin Email','');
+
+        });
 
     });
 
@@ -231,7 +282,6 @@ const FORGOTPASSWORDPAGE=()=>{
         LEFTTEXT(ELEMENT,'','Login In','','16px','1rem','',()=>{
 
             ROUTE('',LOGINPAGE,'LOGINPAGE');
-
 
         });
 
