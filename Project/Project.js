@@ -4,69 +4,99 @@ const NOVASTART=()=>{
 
     VISITORS();
 
+    DATADOWNLOAD();
+
+    APPMODE('#04143c');
+
     HOSTINGCHECKER(()=>{
-        
-        APPMODE('#04143c');
 
-        SCREENWIDTH((data)=>{
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-            CONDITION(data >800,
-                ()=>{
-
-                    ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
-
-                },
-                ()=>{
-
-                    ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
-                    
-                }
-
-            );
-
-        });
-
-    })
+    });
 
 };
 
-const ANDROIDHOMEPAGE=()=>{
+const HOMEPAGE=()=>{
 
-    const WELCOMENOTE=`
+    DELETEDATA('','CurrentData');
 
-    <br><br>
-    
-    Ero Innovations,We are the lead Developer in Cloud Native Software.
+    DATADOWNLOAD();
 
-    <br><br>
+    HOMEFOOTERTEMPLATE('',' ',(ELEMENTS)=>{
 
-    Get Your Latest Android ,Desktop and Website Built with Cutting Fully Proven and Tested Softwares and FrameWorks to Get Your Ideas to Life .
+        DISPLAYVIEW(ELEMENTS,' ','95%','50px',(ELEMENT)=>{
 
-    <br><br>
+            LEFTTEXT(ELEMENT,'','Elite','','20px','0.1rem','',()=>{
 
-    Ero Innovations,We let You Imagine,then We Innovate Your Dreams and Let Others get Inspired.
+            });
 
-    <br><br>
+            RIGHTIMAGE(ELEMENT,WHITEUSERICON,'20px','20px','0.1rem','',()=>{
 
-    We let Handle Developments of Also Systems and Server Configurations and Frame Work Developments For Both Tech and Non Tech Related Clients With Ease.
-    
-    `;
+                ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
 
-    HOMESCROLLHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        LEFTIMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'25px','25px','0.5rem','',()=>{
+            });
 
         });
 
-        CENTERTEXT(ELEMENT,'h2','Ero Innovations','','20px','','',()=>{
+        VIEW(ELEMENTS,' ','','auto','MARGIN',(ELEMENT)=>{
 
-        });
+            GETINDEXEDDATA ('HomePosts', 'HomePosts', (data)=>{
 
-        RIGHTIMAGE(ELEMENT,WHITEMENUICON,'25px','25px','0.5rem','',()=>{
+                CHECKER(data.PostApproved,()=>{
 
-            FULLMENUTEMPLATE('','#04143c','50%','right',(ELEMENTS)=>{
+                    VIEW(ELEMENT,'#061b4e','95%','215px','2%',(ELEMENTES)=>{
 
-                ANDROIDMENU(ELEMENTS);
+                        LEFTVIEW(ELEMENTES,' ','45%','95%','1%',(ELEMENTSE)=>{
+    
+                            LEFTIMAGE(ELEMENTSE,data.PostImage||EROINNOVATIONSLOGOONE,'100%','100%','0','0',()=>{
+        
+                            });
+        
+                        });
+    
+                        RIGHTVIEW(ELEMENTES,' ','52%','95%','1%',(ELEMENTSE)=>{
+    
+                            CENTERTEXT(ELEMENTSE,'',data.PostName,'','18px','5% auto',()=>{
+    
+                            });
+                    
+                            CENTERTEXT(ELEMENTSE,'','<hr>','','','5% auto',()=>{
+                    
+                            });
+    
+                            LEFTTEXT(ELEMENTSE,'',data.PostShortStory,'','16px','0.1rem','',()=>{
+    
+                            });
+    
+                            CENTERTEXT(ELEMENTSE,'','<hr>','','','',()=>{
+                    
+                            });
+    
+                            DISPLAYVIEW(ELEMENTSE,' ','95%','45px',(ELEMENT)=>{
+    
+                                LEFTTEXT(ELEMENT,'','Like','green','20px','0.5rem','',()=>{
+                    
+                                });
+                    
+                                RIGHTTEXT(ELEMENT,'','Read More','green','20px','0.5rem','',()=>{
+    
+                                    JSONIFICATION(data,(MyData)=>{
+    
+                                        STOREDATA('','CurrentData',MyData);
+    
+                                        ROUTE(' ',READMOREPAGE,'HOMEPAGE');
+    
+                                    });
+                    
+                                });
+                    
+                            });
+    
+                        });
+    
+                    });
+
+                });
 
             });
 
@@ -74,116 +104,818 @@ const ANDROIDHOMEPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        IMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'100%','50%','',()=>{
+        ICON(ELEMENT,WHITEINTERNETICON,'25px','25px','',()=>{
+
+            WEBSITE('https://eroinnovations.site');
 
         });
 
-        CENTERTEXT(ELEMENT,'h2','Welcome','','20px','',()=>{
-
+        ICON(ELEMENT,WHITEMOBILEDEVELOPMENTICON,'25px','25px','',()=>{
+          
+            ROUTE(' ',DEVELOPERPAGE,'HOMEPAGE');
+            
         });
 
-        LEFTTEXT(ELEMENT,'',WELCOMENOTE,'','16px','0.2rem','',()=>{
+        ICON(ELEMENT,WHITESETTINGSICON,'25px','25px','',()=>{
 
-        });
-
-        LEFTTEXT(ELEMENT,'h1','Reach Us','','20px','0.2rem','5% auto',()=>{
-
-        });
-
-        NAVTEMPLATE(ELEMENT,'','90%','50px','',(ELEMENTS)=>{
-
-            ICON(ELEMENTS,WHITEGMAILICON,'25px','25px','',()=>{
-
-            });
-
-            ICON(ELEMENTS,WHITEINSTAGRAMICON,'25px','25px','',()=>{
-
-            });
-
-            ICON(ELEMENTS,WHITEWHATSAPPICON,'25px','25px','',()=>{
-
-            });
-
+            ROUTE(' ',SETTINGSPAGE,'HOMEPAGE');
+            
         });
 
     });
 
 };
 
-const ANDROIDMENU=(ELEMENT)=>{
+const SETTINGSPAGE=()=>{
 
-    BUTTONIMAGE(ELEMENT,' ','About Us','',WHITEINFOICON,'50px','',()=>{
-
-        ROUTE(' ',ANDROIDABOUTUSPAGE,'ANDROIDHOMEPAGE');
-
-    });
-
-    BUTTONIMAGE(ELEMENT,' ','Developers','',WHITEMOBILEDEVELOPMENTICON,'50px','',()=>{
-
-        ROUTE(' ',ANDROIDDEVELOPERPAGE,'ANDROIDHOMEPAGE');
-
-    });
-
-    BUTTONIMAGE(ELEMENT,' ','Contact Us','',WHITEPHONEICON,'50px','',()=>{
-
-        ROUTE(' ',ANDROIDDCONTACTUSPAGE,'ANDROIDHOMEPAGE');
-
-    });
-
-    BUTTONIMAGE(ELEMENT,' ','Download App','',WHITEDOWNLOADICON,'50px','',()=>{
-
-        WEBSITE('https://eroinnovations.site/apps/elite.apk');
-
-    });
-
-};
-
-const ANDROIDABOUTUSPAGE=()=>{
+    BACKPAGE('HOMEPAGE');
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-    },'About Us','','',(ELEMENT)=>{
+    },'Settings','',()=>{
 
-        DISPLAY(ELEMENT,'Under Development');
+    },(ELEMENTS)=>{
+
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Donate','',WHITESUBSCRIPTIONICON,'','2% auto',()=>{
+
+            ROUTE(' ',DONATEPAGE,'SETTINGSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Privacy Policy','',WHITEPRIVACYPOLICYICON,'','2% auto',()=>{
+
+            ROUTE(' ',PRIVACYPOLICYPAGE,'SETTINGSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Join Beta','',WHITECREATEDONICON,'','2% auto',()=>{
+
+            ROUTE(' ',JOINBETAPAGE,'SETTINGSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Email Updates','',WHITEGMAILICON,'','2% auto',()=>{
+
+            ROUTE(' ',EMAILUPDATEPAGE,'SETTINGSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Sync','',WHITERETRYICON,'','2% auto',()=>{
+
+            RELOAD();
+
+        });
+
+        BUTTONIMAGE(ELEMENTS,'#061b4e','Contact Us','',WHITEPHONEICON,'','2% auto',()=>{
+
+            DELETEDATA('','UserSubject');
+            DELETEDATA('','UserCountry');
+            DELETEDATA('','UserName');
+            DELETEDATA('','UserEmail');
+            DELETEDATA('','UserMessage');
+            DELETEDATA('','Code');
+
+            ROUTE(' ',CONTACTUSPAGE,'SETTINGSPAGE');
+
+        });
 
     });
 
 };
 
-const ANDROIDDEVELOPERPAGE=()=>{
+const DEVELOPERPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-    },'Developers','','',(ELEMENT)=>{
+    },'Developer','',()=>{
 
-        DISPLAY(ELEMENT,'Under Development');
+    },(ELEMENTS)=>{
+
+        DISPLAYVIEW(ELEMENTS,' ','95%','50px',(ELEMENT)=>{
+
+            LEFTTEXT(ELEMENT,'','Nova','','20px','0.5rem','',()=>{
+
+                ROUTE(' ',NOVAFRAMEWORKPAGE,'DEVELOPERPAGE');
+
+            });
+
+            CENTERTEXT(ELEMENT,'','Elite Pay','','20px','',()=>{
+
+                ROUTE(' ',ELITEPAYPAGE,'DEVELOPERPAGE');
+
+            });
+
+            RIGHTTEXT(ELEMENT,'','Builders','','20px','0.5rem','',()=>{
+
+                ROUTE(' ',BUILDERSPAGE,'DEVELOPERPAGE');
+
+            });
+
+        });
 
     });
 
 };
 
-const ANDROIDDCONTACTUSPAGE=()=>{
+const CONTACTUSPAGE=()=>{
+
+    BACKPAGE('SETTINGSPAGE');
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
 
-    },'Contact Us','','',(ELEMENT)=>{
+    },'Contact Us','',()=>{
 
-        DISPLAY(ELEMENT,'Under Development');
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Fill the Form Below <hr>','','25px','5% auto',()=>{
+
+        });
+        
+        BUTTON(ELEMENT,'98%','50px','#061b4e','',sessionStorage.getItem('UserSubject')||'Select Reason For Contact','1% auto',()=>{
+
+            ROUTE(' ',CONTACTSUBJECTPAGE,'CONTACTUSPAGE');
+
+        });
+
+        BUTTON(ELEMENT,'98%','50px','#061b4e','',sessionStorage.getItem('UserCountry')||'Select Your Country','1% auto',()=>{
+
+            ROUTE(' ',COUNTRIESPAGE,'CONTACTUSPAGE');
+
+        });
+
+        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Name',(data)=>{
+
+            STOREDATA('','UserName',data);
+
+        });
+
+        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',(data)=>{
+
+            STOREDATA('','UserEmail',data);
+
+        });
+
+        TEXTAREA(ELEMENT,'','','50%','Compose Your Message',(data)=>{
+
+            STOREDATA('','UserMessage',data);
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','forestgreen','','Submit','2% auto 1% auto',(ELEMENTS)=>{
+
+            CONDITION(sessionStorage.getItem('UserSubject'),()=>{
+
+                CONDITION(sessionStorage.getItem('UserCountry'),()=>{
+
+                    CONDITION(sessionStorage.getItem('UserName'),()=>{
+
+                        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+                            
+                            CONDITION(sessionStorage.getItem('UserMessage'),()=>{
+
+                                CONDITION(navigator.onLine,()=>{
+
+                                    MESSAGEDISPLAY('','Please Wait Your Message Is Being Sent','');
+
+                                    DISPLAY(ELEMENTS,'...Please Wait...');
+
+                                    RANDOMCODE((code)=>{
+
+                                        STOREDATA('','Code',code);
+
+                                        const HEADERS=['UserSubject','UserCounty','UserName','UserEmail','UserMessage','CodeNumber'];
+
+                                        const INFO=[sessionStorage.getItem('UserSubject'),sessionStorage.getItem('UserCountry'),sessionStorage.getItem('UserName'),sessionStorage.getItem('UserEmail'),sessionStorage.getItem('UserMessage'),code];
+
+                                        INSERTDATA(API,sessionStorage.getItem('UserSubject'),HEADERS,INFO,(datata)=>{
+    
+                                            GETDATA(API,sessionStorage.getItem('UserSubject'),(datate)=>{
+
+                                                REDUX(datate,(Element)=>{
+
+                                                    CONDITION(sessionStorage.getItem('Code').toString() === Element.CodeNumber.toString() ,()=>{
+
+                                                        const MESSAGE=`Dear ${Element.UserName}\n\n Your ${Element.UserSubject} Contact has Been Recieved and Assigned Follow Up Number That We Shall Use to Get Back To You.\n\n Your ${Element.UserSubject} Number Issue Tracking  is \n\n ${Element.ID}\n\n Thank You For Patience\n\n From Elite Robust Ontology Contact Team.`;
+
+                                                        EMAILSENDER(Element.UserEmail,Element.UserSubject,MESSAGE,(data)=>{
+
+                                                            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+                                                        },(data)=>{
+
+                                                            MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                                            DISPLAY(ELEMENTS,'Submit');
+
+                                                        });
+
+                                                    },()=>{
+
+                                                        MESSAGEDISPLAY('','Something Went Wrong,Try Again','');
+
+                                                        DISPLAY(ELEMENTS,'Submit');
+
+                                                    });
+
+                                                });
+
+                                            },()=>{
+
+                                                MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                                DISPLAY(ELEMENTS,'Submit');
+
+                                            });
+    
+                                        },(datata)=>{
+    
+                                            MESSAGEDISPLAY('','Message Sending Failed','');
+
+                                            DISPLAY(ELEMENTS,'Submit');
+    
+                                        });
+
+                                    });
+
+                                },()=>{
+
+                                    MESSAGEDISPLAY('','Please Check Your Internet Connection','');
+
+                                });
+
+                            },()=>{
+                
+                                MESSAGEDISPLAY('','Please Write Your Message','');
+                
+                            });
+                
+                        },()=>{
+            
+                            MESSAGEDISPLAY('','Please Provide Your Email','');
+            
+                        });
+
+                    },()=>{
+        
+                        MESSAGEDISPLAY('','Please Provide Your Name','');
+        
+                    });
+
+                },()=>{
+    
+                    MESSAGEDISPLAY('','Please Select A Country','');
+    
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Please Select A Subject','');
+
+            });
+
+        });
 
     });
 
 };
 
-const DESKTOPHOMEPAGE=()=>{
+const CONTACTSUBJECTPAGE=()=>{
 
-    CLEAR('');
+    LEFTTEXTBACKHEADERBODY('',()=>{
 
+        ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+    },'Subject','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Select Reason For Contact','','25px','5% auto',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'','<hr>','','20px','5% auto',()=>{
+
+        });
+
+        BUTTONIMAGE(ELEMENT,'#061b4e','Complaint','',WHITEGROUPICON,'','2% auto',()=>{
+
+            STOREDATA('','UserSubject','Complaint');
+
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,'#061b4e','Inquiries','',WHITEHELPICON,'','2% auto',()=>{
+
+            STOREDATA('','UserSubject','Inquiries');
+
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,'#061b4e','Business','',WHITESUITCASEICON,'','2% auto',()=>{
+
+            STOREDATA('','UserSubject','Business');
+
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,'#061b4e','Developer','',WHITEMOBILEDEVELOPMENTICON,'','2% auto',()=>{
+
+            STOREDATA('','UserSubject','Developer');
+
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,'#061b4e','Others','',WHITESEARCHICON,'','2% auto',()=>{
+
+            STOREDATA('','UserSubject','Others');
+
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+        });
+
+    });
+
+};
+
+const COUNTRIESPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+    },'Country','',()=>{
+
+    },(ELEMENT)=>{
+
+        REDUX(COUNTRIES,(data)=>{
+
+            BUTTONIMAGE(ELEMENT,'#061b4e',data.name,'',WHITELOCATIONICON,'','2% auto',()=>{
+
+                STOREDATA('','UserCountry',data.name);
+
+                ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+
+            });
+
+        });
+       
+    });
+
+};
+
+const EMAILUPDATEPAGE=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    const MESSAGE=`When You Sign Up for Our Email Programme,You are Agreeing to the Terms and Conditions of Elite Robust Ontology Of 2025 Act. <br><br> You have Allowed to Join the Mail System where we shall send you updates of our latest products and insider news ,You also get a chance to test some products while in development mode and become a contributor before they even go live to the general Public <br><br> Get Started Today By Providing Your Email Address Below.`;
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+    },'Email','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Email Updates','','25px','5% auto',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'','<hr>','','20px','5% auto',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'',MESSAGE,'','18px','2%',()=>{
+
+        });
+
+        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',(data)=>{
+
+            STOREDATA('','UserEmail',data);
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','forestgreen','','Sign Me Up','2% auto 1% auto',(ELEMENTS)=>{
+
+            CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Please Wait While You Get Signed Up','');
+
+                    DISPLAY(ELEMENTS,'...Please Wait...');
+
+                    RANDOMCODE((code)=>{
+
+                        STOREDATA('','Code',code);
+
+                        const HEADERS=['UserSubject','UserEmail','UserMessage','CodeNumber'];
+
+                        const INFO=['Email Updates',sessionStorage.getItem('UserEmail'),'I have Signed Up',code];
+
+                        INSERTDATA(API,'EmailUpdater',HEADERS,INFO,(datata)=>{
+
+                            GETDATA(API,'EmailUpdater',(datate)=>{
+
+                                REDUX(datate,(Element)=>{
+
+                                    CONDITION(sessionStorage.getItem('Code').toString() === Element.CodeNumber.toString() ,()=>{
+
+                                        const MESSAGE=`Dear User\n\n Your ${Element.UserSubject} Contact has Been Recieved and Assigned Follow Up Number That We Shall Use to Get Back To You.\n\n Your ${Element.UserSubject} Number Issue Tracking  is \n\n ${Element.ID}\n\n Thank You For Patience\n\n From Elite Robust Ontology Contact Team.`;
+
+                                        EMAILSENDER(Element.UserEmail,Element.UserSubject,MESSAGE,(data)=>{
+
+                                            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+                                        },(data)=>{
+
+                                            MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                            DISPLAY(ELEMENTS,'Submit');
+
+                                        });
+
+                                    },()=>{
+
+                                        MESSAGEDISPLAY('','Something Went Wrong,Try Again','');
+
+                                        DISPLAY(ELEMENTS,'Submit');
+
+                                    });
+
+                                });
+
+                            },()=>{
+
+                                MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                DISPLAY(ELEMENTS,'SubSign Me Upmit');
+
+                            });
+
+                        },(datata)=>{
+
+                            MESSAGEDISPLAY('','Message Sending Failed','');
+
+                            DISPLAY(ELEMENTS,'Sign Me Up');
+
+                        });
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Please Check Your Internet Connection','');
+
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Please Provide Your Email','');
+
+            });
+
+        });
+
+    });
+
+};
+
+const JOINBETAPAGE=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    const MESSAGE=`When You Sign Up for Our Beta Programme,You are Agreeing to the Terms and Conditions of Elite Robust Ontology Of 2025 Act. <br><br> You have Allowed to Join the Beta System where we shall send you updates of our latest products and insider news ,You also get a chance to test some products while in development mode and become a contributor before they even go live to the general Public <br><br> Get Started Today By Providing Your Email Address Below.`;
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+    },'Beta','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Join Beta','','25px','5% auto',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'','<hr>','','20px','5% auto',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'',MESSAGE,'','18px','2%',()=>{
+
+        });
+
+        ROUNDINPUT(ELEMENT,'','','transparent','Enter Your Email',(data)=>{
+
+            STOREDATA('','UserEmail',data);
+
+        });
+
+        BUTTON(ELEMENT,'96%','50px','forestgreen','','Sign Me Up','2% auto 1% auto',(ELEMENTS)=>{
+
+            CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Please Wait While You Get Signed Up','');
+
+                    DISPLAY(ELEMENTS,'...Please Wait...');
+
+                    RANDOMCODE((code)=>{
+
+                        STOREDATA('','Code',code);
+
+                        const HEADERS=['UserSubject','UserEmail','UserMessage','CodeNumber'];
+
+                        const INFO=['Join Beta',sessionStorage.getItem('UserEmail'),'I have Signed Up',code];
+
+                        INSERTDATA(API,'JoinBeta',HEADERS,INFO,(datata)=>{
+
+                            GETDATA(API,'JoinBeta',(datate)=>{
+
+                                REDUX(datate,(Element)=>{
+
+                                    CONDITION(sessionStorage.getItem('Code').toString() === Element.CodeNumber.toString() ,()=>{
+
+                                        const MESSAGE=`Dear User\n\n Your ${Element.UserSubject} Contact has Been Recieved and Assigned Follow Up Number That We Shall Use to Get Back To You.\n\n Your ${Element.UserSubject} Number Issue Tracking  is \n\n ${Element.ID}\n\n Thank You For Patience\n\n From Elite Robust Ontology Contact Team.`;
+
+                                        EMAILSENDER(Element.UserEmail,Element.UserSubject,MESSAGE,(data)=>{
+
+                                            ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+                                        },(data)=>{
+
+                                            MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                            DISPLAY(ELEMENTS,'Submit');
+
+                                        });
+
+                                    },()=>{
+
+                                        MESSAGEDISPLAY('','Something Went Wrong,Try Again','');
+
+                                        DISPLAY(ELEMENTS,'Submit');
+
+                                    });
+
+                                });
+
+                            },()=>{
+
+                                MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                DISPLAY(ELEMENTS,'SubSign Me Upmit');
+
+                            });
+
+                        },(datata)=>{
+
+                            MESSAGEDISPLAY('','Message Sending Failed','');
+
+                            DISPLAY(ELEMENTS,'Sign Me Up');
+
+                        });
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Please Check Your Internet Connection','');
+
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Please Provide Your Email','');
+
+            });
+
+        });
+
+    });
+
+};
+
+const PRIVACYPOLICYPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+    },'Privacy Policy','',()=>{
+
+    },(ELEMENTS)=>{
+
+        GETINDEXEDDATA ('GeneralUse', 'GeneralUse', (data)=>{
+
+            CHECKER(data.ID === 'd2846c94-c810-459f-9ada-26fd944a30c2',()=>{
+
+                DISPLAY(ELEMENTS,data.Data+'<br><br>');
+
+            });
+
+        });
+
+    });
+
+};
+
+const DONATEPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+    },'Donate','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const NOVAFRAMEWORKPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',DEVELOPERPAGE,'DEVELOPERPAGE');
+
+    },'Nova','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const ELITEPAYPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',DEVELOPERPAGE,'DEVELOPERPAGE');
+
+    },'Elite Pay','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const BUILDERSPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',DEVELOPERPAGE,'DEVELOPERPAGE');
+
+    },'Builders','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const USERACCOUNTPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'My Profile','',()=>{
+
+    },(ELEMENTS)=>{
+
+        DISPLAY(ELEMENTS,'Under Development');
+
+    });
+
+};
+
+const DATADOWNLOAD=()=>{
+
+    CHECKER(navigator.onLine,()=>{
+
+        GETDATA(API,'HomePosts',(data)=>{
+
+            REVERSE(data);
+
+            const MYDATA={
+                'Name':'HomePosts',
+                'data':data
+            }
+    
+            STOREINDEXED ('HomePosts', 'HomePosts', MYDATA, (datate)=>{
+
+                CHECKER(datate === true,()=>{
+
+                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                } );
+
+                CHECKER(datate === false,()=>{
+
+                    UPDATEINDEX('HomePosts', 'HomePosts', MYDATA,()=>{
+
+                    });
+
+                } );
+        
+            });
+    
+        });
+
+        GETDATA(API,'GeneralUse',(data)=>{
+
+            REVERSE(data);
+
+            const MYDATA={
+                'Name':'GeneralUse',
+                'data':data
+            }
+    
+            STOREINDEXED ('GeneralUse', 'GeneralUse', MYDATA, (datate)=>{
+
+                CHECKER(datate === true,()=>{
+
+                    
+
+                } );
+
+                CHECKER(datate === false,()=>{
+
+                    UPDATEINDEX('GeneralUse', 'GeneralUse', MYDATA,()=>{
+
+                    });
+
+                } );
+        
+            });
+    
+        });
+
+    });
+
+};
+
+const READMOREPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('CurrentData'),(Data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },Data.PostName,'',()=>{
+    
+        },(ELEMENTS)=>{
+
+            IMAGE(ELEMENTS,Data.PostImage||EROINNOVATIONSLOGOONE,'100%','50%','',()=>{
+
+            });
+
+            DISPLAYVIEW(ELEMENTS,' ','95%','45px',(ELEMENT)=>{
+    
+                LEFTTEXT(ELEMENT,'',Data.PostedBy,'green','20px','0.5rem','',()=>{
+    
+                });
+    
+                RIGHTTEXT(ELEMENT,'',Data.PostDate,'green','20px','0.5rem','',()=>{
+    
+                });
+    
+            });
+
+            LEFTTEXT(ELEMENTS,'',Data.PostStory + '<br><br><br><br>','','16px','0.5rem','',()=>{
+
+            });
+
+        });
+
+    });
 
 };
 
@@ -193,7 +925,7 @@ const VISITORS=()=>{
 
         CHECKER(navigator.onLine,()=>{
 
-            GETDATA(API,'Visitors',(MyData)=>{
+            GETDATA(API,'AppVisitors',(MyData)=>{
 
                 FINDER(MyData,'ID',localStorage.getItem('ID'),(Users)=>{
 
@@ -219,7 +951,7 @@ const VISITORS=()=>{
 
                             const INFO=[data,new Date(),data.language,data.screen,dataDat,1];
                             
-                            INSERTDATA(API,'Visitors',HEADERS,INFO,(datata)=>{
+                            INSERTDATA(API,'AppVisitors',HEADERS,INFO,(datata)=>{
     
                                 STOREDATA(' ','ID',datata.uniqueId);
             

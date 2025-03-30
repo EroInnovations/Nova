@@ -2,11 +2,17 @@ const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSl
 
 const NOVASTART=()=>{
 
+    VISITORS();
+
     DATADOWNLOAD();
 
     APPMODE('#04143c');
 
-    ROUTE('',HOMEPAGE,'HOMEPAGE');
+    HOSTINGCHECKER(()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    });
 
 };
 
@@ -715,7 +721,15 @@ const PRIVACYPOLICYPAGE=()=>{
 
     },(ELEMENTS)=>{
 
-        DISPLAY(ELEMENTS,'Under Development');
+        GETINDEXEDDATA ('GeneralUse', 'GeneralUse', (data)=>{
+
+            CHECKER(data.ID === 'd2846c94-c810-459f-9ada-26fd944a30c2',()=>{
+
+                DISPLAY(ELEMENTS,data.Data+'<br><br>');
+
+            });
+
+        });
 
     });
 
@@ -834,6 +848,35 @@ const DATADOWNLOAD=()=>{
     
         });
 
+        GETDATA(API,'GeneralUse',(data)=>{
+
+            REVERSE(data);
+
+            const MYDATA={
+                'Name':'GeneralUse',
+                'data':data
+            }
+    
+            STOREINDEXED ('GeneralUse', 'GeneralUse', MYDATA, (datate)=>{
+
+                CHECKER(datate === true,()=>{
+
+                    
+
+                } );
+
+                CHECKER(datate === false,()=>{
+
+                    UPDATEINDEX('GeneralUse', 'GeneralUse', MYDATA,()=>{
+
+                    });
+
+                } );
+        
+            });
+    
+        });
+
     });
 
 };
@@ -873,5 +916,60 @@ const READMOREPAGE=()=>{
         });
 
     });
+
+};
+
+const VISITORS=()=>{
+
+    DEVICE((data)=>{
+
+        CHECKER(navigator.onLine,()=>{
+
+            GETDATA(API,'AppVisitors',(MyData)=>{
+
+                FINDER(MyData,'ID',localStorage.getItem('ID'),(Users)=>{
+
+                    CONDITION(Users.ID === localStorage.getItem('ID'),()=>{
+
+                        JSONADDER ( Users.RevistDate,[new Date()],(dataDat)=>{
+
+                            const INFO=[data,Users.Date,Users.Language,Users.DeviceScreen,dataDat,Users.VistedTimes+1];
+                        
+                            UPDATEDATA(API,'Visitors',Users.ID,INFO,(datata)=>{
+            
+                            },()=>{
+            
+                            });
+
+                        });
+
+                    },()=>{
+                        
+                        JSONADDER ( new Date(),[new Date()],(dataDat)=>{
+
+                            const HEADERS=['Users','Date','Language','DeviceScreen','RevistDate','VistedTimes'];
+
+                            const INFO=[data,new Date(),data.language,data.screen,dataDat,1];
+                            
+                            INSERTDATA(API,'AppVisitors',HEADERS,INFO,(datata)=>{
+    
+                                STOREDATA(' ','ID',datata.uniqueId);
+            
+                            },()=>{
+            
+                            });
+
+                        });
+
+                    } );                  
+                });
+
+            },()=>{
+
+            })
+
+        });
+
+    })
 
 };

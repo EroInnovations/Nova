@@ -1,35 +1,56 @@
-**Elite Robust Ontology Expands Horizons with New Medical App Project for QEL Medical Store in Mbale**  
-
+**1. Introduction**
 <br><br>
-
-*March 25, 2025*  
-
+Welcome to Elite Robust Ontology. Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our software products, websites, and services.
 <br><br>
-
-Hot on the heels of their partnership with Community Rise Ventures, **Elite Robust Ontology (ERO)** has secured another major project — the development of a cutting-edge medical app for **QEL Medical Store** in **Mbale**. The contract officially commenced on **March 24th, 2025**, marking yet another bold step in ERO’s mission to deliver impactful digital solutions across diverse sectors.  
-
+**2. About Us**
 <br><br>
-
-The medical app is set to transform how QEL Medical Store interacts with its customers and manages its operations. With features planned to include **real-time stock updates, online prescription uploads, home delivery scheduling, in-app consultations, and health reminders**, this app promises to elevate healthcare accessibility in the Mbale region.  
-
+Elite Robust Ontology is a software company based in Mbale, Uganda. We specialize in using cloud-native technology to develop desktop applications, Android apps, and websites. By using our services, you consent to the practices described in this Privacy Policy.
 <br><br>
-
-QEL Medical Store’s Director,  expressed confidence in the collaboration:  
-> "We are proud to work with Elite Robust Ontology. Their reputation for delivering solid, reliable, and intuitive systems makes them the perfect partner to help us serve our community more efficiently."  
-
+**3. Information We Collect**
 <br><br>
-
-This new contract positions ERO at the forefront of both community and healthcare innovation within Uganda, following its already celebrated involvement with Community Rise Ventures.  
-
+We may collect the following types of information:
 <br><br>
-
-**ERO’s CEO, commented on the company’s expanding portfolio:  
-> "Being entrusted with building tools that directly improve lives — from community engagement platforms to healthcare applications — is exactly why we do what we do. We’re honored to serve both Community Rise Ventures and QEL Medical Store."  
-
+- **Personal Information:** Name, email address, phone number, and other contact details.
+- **Technical Information:** Device details, IP address, browser type, and usage statistics.
+- **Usage Data:** Information about how you interact with our software and websites.
+- **Cookies and Tracking Technologies:** We use cookies and similar technologies to enhance user experience.
 <br><br>
-
-Development of the medical app is expected to move rapidly, with the first functional prototype scheduled for release by **mid-2025**.  
-
+**4. How We Use Your Information**
+We use the information collected for the following purposes:
+- To provide and improve our services.
+- To communicate with you about updates and new features.
+- To ensure security and prevent fraud.
+- To comply with legal obligations.
 <br><br>
-
-As ERO continues to build momentum, all eyes are on this dynamic tech company to see what transformative solution they’ll deliver next.
+**5. Data Sharing and Disclosure**
+We do not sell your personal data. However, we may share information with:
+- **Service Providers:** Third-party vendors who assist us in delivering our services.
+- **Legal Authorities:** When required by law, regulation, or legal processes.
+- **Business Transfers:** If we are involved in a merger or acquisition.
+<br><br>
+**6. Data Security**
+We implement industry-standard security measures to protect your data from unauthorized access, loss, or misuse.
+<br><br>
+**7. Your Rights and Choices**
+You have the right to:
+- Access, update, or delete your personal information.
+- Opt-out of marketing communications.
+- Restrict certain data processing activities.
+<br><br>
+**8. Retention of Data**
+We retain your personal data as long as necessary for business and legal purposes. If you wish to have your data deleted, you may request so by contacting us.
+<br><br>
+**9. Third-Party Links**
+Our services may contain links to third-party websites. We are not responsible for their privacy practices.
+<br><br>
+**10. Children's Privacy**
+Our services are not directed at children under the age of 13. We do not knowingly collect information from minors.
+<br><br>
+**11. Changes to This Policy**
+We may update this Privacy Policy from time to time. Changes will be posted on this page with the updated date.
+<br><br>
+**12. Contact Us**
+If you have any questions or concerns about this Privacy Policy, please contact us at:
+**Elite Robust Ontology**  
+Mbale, Uganda  
+Use the Contact Us Section On the App
