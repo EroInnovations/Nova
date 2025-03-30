@@ -1,6 +1,6 @@
 const AUTOSTART=()=>{
 const DATA=`AUTORUN();
-BODY();ZOOM();
+BODY();ZOOM();HOSTINGUPDATER();
 `;
 localStorage.setItem('AUTOSTART',DATA);
 };
