@@ -18,6 +18,15 @@ const HOSTINGUPDATER=()=>{
         data.forEach(element => {
 
             if (element.AppLogic === 'Development' ) {
+
+                const INFO=[element.AppName,element.AppDescription,element.AppColors,element.AppConfiguration,element.AppCreatedOn,element.AppVersion,'',element.AppKeyWord,element.AppPackageName,element.AppCompany,element.AndroidDesign,element.AndroidFunctions,element.DesktopDesign,element.DesktopFunctions,element.WebDesign,element.WebFunctions,element.SharedDesign,element.SharedFunctions,element.AppLogic,element.AppRegion,'',element.AppCatergory,element.AppIcon,element.UpdatedOn,element.Owner];
+    
+
+                UPDATEDATA('https://docs.google.com/spreadsheets/d/1Utfr1wkoZSRvM9TOKaTxOX6orYE8AuN2mu4dDtQmhFQ/edit?gid=0#gid=0','APPMANAGER',element.ID,INFO,(datata)=>{
+
+                },(error)=>{
+
+                });
                 
             } else {
 
