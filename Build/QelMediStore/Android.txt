@@ -4,11 +4,11 @@ const TEXTCOLOR='#ffffff';
 
 const NOVASTART=()=>{
 
-    APPMODE(localStorage.getItem('Color')||TEXTCOLOR);
+    HOSTINGCHECKER(()=>{
 
-    APPUPDATER();
+        APPMODE(localStorage.getItem('Color')||TEXTCOLOR);
 
-    HOSTINGCHECKER=(()=>{
+        APPUPDATER();
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
@@ -34,7 +34,7 @@ const HOMEPAGE=()=>{
 
                 DELETEDATA(' ','Color');
     
-                RELOAD();
+                NOVASTART();
     
             });
 
@@ -44,7 +44,7 @@ const HOMEPAGE=()=>{
 
                 STOREDATA(' ','Color','#333333');
     
-                RELOAD();
+                NOVASTART();
     
             });
 
