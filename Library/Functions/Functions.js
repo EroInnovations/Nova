@@ -39,6 +39,7 @@ import { GETPACKAGE } from "./GetPackage/GetPackage.js";
 import { GETTEXTPACKAGE } from "./GetTextPackage/GetTextPackage.js";
 import { GMAIL } from "./Gmail/Gmail.js";
 import { HIDER } from "./Hider/Hider.js";
+import { HOSTINGCHECKER } from "./HostingChecker/HostingChecker.js";
 import { IMAGEPICKER } from "./ImagePicker/ImagePicker.js";
 import { INSERTDATA } from "./InsertData/InsertData.js";
 import { INSPECTION } from "./Inspection/Inspection.js";
@@ -159,6 +160,7 @@ const DRIVEID=${DRIVEID};
 const TOAST=${TOAST};
 const QELMAIL=${QELMAIL};
 const DEVICE=${DEVICE};
+const HOSTINGCHECKER=${HOSTINGCHECKER};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -167,6 +169,6 @@ export{FUNCTIONS};
 
 `
 
-const DEVICE=${DEVICE};
+const HOSTINGCHECKER=${HOSTINGCHECKER};
 
 `
