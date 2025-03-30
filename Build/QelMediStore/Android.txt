@@ -6,9 +6,13 @@ const NOVASTART=()=>{
 
     APPMODE(localStorage.getItem('Color')||TEXTCOLOR);
 
-    ROUTE('',HOMEPAGE,'HOMEPAGE');
-
     APPUPDATER();
+
+    HOSTINGCHECKER=(()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    });
 
 };
 
