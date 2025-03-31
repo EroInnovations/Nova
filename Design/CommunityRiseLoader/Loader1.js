@@ -4,7 +4,7 @@ const COMMUNITYLOADER1=(body)=>{
 
     body.innerHTML=`
 
-    <img src="${COMMUNITYRISEPADS}" style="position: absolute; width: 100%; height: 100%; background: red; outline: none; border: none;left:0;" >
+    <img src="${COMMUNITYRISEPADS}" style="position: absolute; width: 100%; height: 100%; background: transparent; outline: none; border: none; left: 0; object-fit: contain;" >
 
 `;
 
