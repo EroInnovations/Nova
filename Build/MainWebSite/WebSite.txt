@@ -180,13 +180,6 @@ const ANDROIDDCONTACTUSPAGE=()=>{
 
 };
 
-const DESKTOPHOMEPAGE=()=>{
-
-    CLEAR('');
-
-
-};
-
 const VISITORS=()=>{
 
     DEVICE((data)=>{
@@ -239,5 +232,43 @@ const VISITORS=()=>{
         });
 
     })
+
+};
+
+const DESKTOPHOMEPAGE=()=>{
+
+    CLEAR('');
+
+    FULLSCROLLVIEW('',' ',(ELEMENT)=>{
+
+        IMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'70%','70%','',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'','90%','50px','',(ELEMENTS)=>{
+
+            TEXT(ELEMENTS,'','Updates','','20px','',()=>{
+
+            });
+
+            TEXT(ELEMENTS,'','Developers','','20px','',()=>{
+
+            });
+
+            TEXT(ELEMENTS,'','Contact Us','','20px','',()=>{
+
+            });
+
+            TEXT(ELEMENTS,'','About Us','','20px','',()=>{
+
+            });
+
+            TEXT(ELEMENTS,'','Download App','','20px','',()=>{
+
+            });
+
+        });
+
+    });
 
 };
