@@ -13,7 +13,7 @@ const START=()=>{
             
         }else{
 
-            LOADERS();
+            LOADERS(body);
 
         };
 
@@ -23,7 +23,7 @@ const START=()=>{
  
 };
 
-const LOADERS=()=>{
+const LOADERS=(body)=>{
 
     if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
 
