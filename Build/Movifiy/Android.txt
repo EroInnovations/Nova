@@ -1,22 +1,142 @@
-const MOVIELANDERAPI='https://docs.google.com/spreadsheets/d/1t0yjEoSVX7qnI3L3tv1N7gBCI-A5e0Y67wu74qzXnUs/edit?usp=sharing';
-
 const NOVASTART=()=>{
 
-    APPMODE('#000000');
+    HOSTINGCHECKER(()=>{
 
-    MOVIESCATERGORY();
+       ACCOUNTCHECKER(()=>{
 
-    MOVIESUPDATERS();
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-    ACCOUNTCHECKER(()=>{
+       },()=>{
+
+            ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+
+       },()=>{
+
+            ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+       });
+
+    });
+
+};
+
+const LOGINPAGE=()=>{
+
+    CLEAR('');
+
+    IMAGE('',MOVIZ,'50%','40%','5% auto',()=>{
+
+    });
+
+    INPUT('', 'email', '', 'Enter User Email', ()=>{
+
+    });
+
+    INPUT('', 'password', '', '********', ()=>{
+
+    });
+
+    RIGHTTEXT('','','Forgot Password?','','20px','1rem','3% auto',()=>{
+
+        ROUTE(' ',FORGOTPASSWORDPAGE,'LOGINPAGE');
+
+    });
+
+    BUTTON('','95%','50px','forestgreen','','Sign In','5% auto',()=>{
+
+        STOREDATA(' ','UserData','On');
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
-    },()=>{
+    });
+
+    BUTTON('','95%','50px','blue','','Create Account','',()=>{
+
+        ROUTE(' ',CREATEACCOUNTPAGE,'CREATEACCOUNTPAGE');
+
+    });
+
+};
+
+const CREATEACCOUNTPAGE=()=>{
+
+    CLEAR('');
+
+    IMAGE('',MOVIZ,'50%','40%','5% auto',()=>{
+
+    });
+
+    INPUT('', '', '', 'Enter User Name', ()=>{
+
+    });
+
+    INPUT('', 'email', '', 'Enter User Email', ()=>{
+
+    });
+
+    INPUT('', 'password', '', '********', ()=>{
+
+    });
+
+    BUTTON('','95%','50px','forestgreen','','Sign Up','5% auto',()=>{
 
         ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
 
-    },()=>{
+    });
+
+    BUTTON('','95%','50px','blue','','Log In','',()=>{
+
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+    });
+
+};
+
+const EMAILVERIFICATIONPAGE=()=>{
+
+    CLEAR('');
+
+    IMAGE('',MOVIZ,'50%','40%','5% auto',()=>{
+
+    });
+
+    INPUT('', 'tel', '', 'Enter Verification Code', ()=>{
+
+    });
+
+    BUTTON('','95%','50px','forestgreen','','Sign Up','5% auto',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    });
+
+    BUTTON('','95%','50px','Blue','','Cancel','5% auto',()=>{
+
+        ROUTE('',CREATEACCOUNTPAGE,'CREATEACCOUNTPAGE');
+
+    });
+
+};
+
+const FORGOTPASSWORDPAGE=()=>{
+
+    CLEAR('');
+
+    IMAGE('',MOVIZ,'50%','40%','5% auto',()=>{
+
+    });
+
+    INPUT('', 'email', '', 'Enter User Email ', ()=>{
+
+    });
+
+    BUTTON('','95%','50px','forestgreen','','Recover','5% auto',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    });
+
+    BUTTON('','95%','50px','Blue','','Cancel','5% auto',()=>{
 
         ROUTE('',LOGINPAGE,'LOGINPAGE');
 
@@ -26,693 +146,36 @@ const NOVASTART=()=>{
 
 const HOMEPAGE=()=>{
 
-    HOMEROUNDFOOTERTEMPLATE('','forestgreen',(ELEMENT)=>{
+    CLEAR('');
 
-        DISPLAY(ELEMENT,'HomePage');
+    FULLSCROLLVIEW('',' ',(ELEMENT)=>{
 
-    },(ELEMENT)=>{
+        NAVTEMPLATE(ELEMENT,' ','95%','50px','',(ELEMENTS)=>{
 
-        ICON(ELEMENT,WHITELISTICON,'25px','25px',(ELEMENTS)=>{
+            LEFTTEXT(ELEMENTS,'h3','Moviz','red','20px','','',()=>{
 
-            CLICK(ELEMENTS,()=>{
-    
-                ROUTE(' ',CATERGORYPAGE,'HOMEPAGE');
-                
             });
-    
-        });
-    
-        ICON(ELEMENT,WHITEMOVIEICON,'25px','25px',(ELEMENTS)=>{
-    
-            CLICK(ELEMENTS,()=>{
-    
-                ROUTE(' ',FREEMOVIESPAGE,'HOMEPAGE');
-                
-            });
-        
-        });
-    
-        ICON(ELEMENT,WHITEUSERICON,'25px','25px',(ELEMENTS)=>{
-    
-            CLICK(ELEMENTS,()=>{
-    
-                ROUTE(' ',USERACCOUNTPAGE,'HOMEPAGE');
-                
-            });
-    
-        });
 
-    });
-
-};
-
-const USERACCOUNTPAGE=()=>{
-
-    BACKPAGE('HOMEPAGE');
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-    },'My Profile','',()=>{},(ELEMENT)=>{
-
-        VIEW(ELEMENT,'transparent',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'height','40%');
-            STYLED(ELEMENTS,'width','98%');
-            STYLED(ELEMENTS,'margin-top','1rem');
-            STYLED(ELEMENTS,'border','1px solid #cdcdcd50');
-            STYLED(ELEMENTS,'overflow-Y','hidden');
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Community','',WHITEGROUPICON,'50px',(ELEMENT)=>{
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Business Tools','',WHITECREATEDONICON,'50px',(ELEMENT)=>{
- 
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Settings','',WHITESETTINGSICON,'50px',(ELEMENT)=>{
-  
-            CLICK(ELEMENT,()=>{
-
-                ROUTE(' ',SETTINGSPAGE,'USERACCOUNTPAGE')
+            RIGHTIMAGE(ELEMENTS,WHITEUSERICON,'25px','25px','0.5rem','',()=>{
 
             });
 
         });
 
-        IMAGEBUTTON(ELEMENT,'forestgreen','Help','',WHITEINFOICON,'50px',(ELEMENT)=>{
-   
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Contact Us','',WHITEPHONEICON,'50px',(ELEMENT)=>{
-   
-        });
-
     });
 
-};
+    ROUNDFOOTER('','forestgreen','95%','50px','50px',(ELEMENT)=>{
 
-const CATERGORYPAGE=()=>{
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-    },'Catergories','',()=>{},(ELEMENT)=>{
-
-        DISPLAY(ELEMENT,'Catergories');
-
-    });
-
-};
-
-const FREEMOVIESPAGE=()=>{
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-    },'Movies','',()=>{},(ELEMENT)=>{
-
-        DISPLAY(ELEMENT,'Catergories');
-
-    });
-
-};
-
-const LOGINPAGE=()=>{
-
-    DELETEDATA('','UserEmail');
-
-    DELETEDATA('','UserPassword');
-
-    CLEAR("");
-
-    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'margin-top','25px');
-        STYLED(ELEMENT,'margin-bottom','25px');
-
-    }),
-
-    CENTERTEXT('','p','Watch and Save','','',(ELEMENT)=>{
-
-    });
-
-    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
-
-        STOREDATA('','UserEmail',ELEMENT);
-        
-    });
-
-    ROUNDINPUT('','password','','transparent','********',(ELEMENT)=>{
-
-        STOREDATA('','UserPassword',ELEMENT);
-
-    });
-
-    RIGHTTEXT('','p','Forgot Password?','#fff','18px','',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'margin','1rem');
-
-        CLICK(ELEMENT,()=>{
-
-            ROUTE(' ',FORGOTPASSWORDPAGE,'LOGINPAGE');
+        ICON(ELEMENT,WHITELIBRARYICON,'25px','25px','',()=>{
 
         });
 
-    });
-
-    BUTTON('','','','forestgreen','#fff','Sign In',(ELEMENT)=>{
-
-        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
-
-            CONDITION(sessionStorage.getItem('UserPassword'),()=>{
-
-                CLOUDLOGINTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Please Wait','UserEmail',sessionStorage.getItem('UserEmail'),'UserPassword',sessionStorage.getItem('UserPassword'),'Sign In','No Account Founder','Wrong User Password',(data)=>{
-
-                    JSONIFICATION(data,(MyData)=>{
-
-                        STOREDATA(' ','UserData',MyData);
-
-                        ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-                    });
-                   
-                });
-                
-            },()=>{
-    
-                MESSAGEDISPLAY('','Enter Password','');
-    
-            });
-
-        },()=>{
-
-            MESSAGEDISPLAY('','Enter Email','');
+        ICON(ELEMENT,WHITESCREENICON,'25px','25px','',()=>{
 
         });
 
-    });
+        ICON(ELEMENT,WHITESETTINGSICON,'25px','25px','',()=>{
 
-    BUTTON('','','','blue','#fff','Create Account',(ELEMENT)=>{
-
-        ROUTE(' ',CREATEACCOUNTPAGE,'LOGINPAGE');
-
-    });
-   
-};
-
-const CREATEACCOUNTPAGE=()=>{
-
-    DELETEDATA('','UserName');
-
-    DELETEDATA('','UserEmail');
-
-    DELETEDATA('','UserPassword');
-
-    CLEAR("");
-
-    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'margin-top','25px');
-        STYLED(ELEMENT,'margin-bottom','25px');
-
-    }),
-
-    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
-
-    });
-
-    BREAK('');
-
-    ROUNDINPUT('','text','','transparent','User Name',(ELEMENT)=>{
-
-        STOREDATA('','UserName',ELEMENT);
-
-    });
-
-    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
-
-        STOREDATA('','UserEmail',ELEMENT);
-
-    });
-
-    ROUNDINPUT('','password','','transparent','********',(ELEMENT)=>{
-
-        STOREDATA('','UserPassword',ELEMENT);
-
-    });
-
-    BUTTON('','','','forestgreen','#fff','Sign Up',(ELEMENT)=>{
-
-        CONDITION(sessionStorage.getItem('UserName'),()=>{
-
-            CONDITION(sessionStorage.getItem('UserEmail'),()=>{
-
-                CONDITION(sessionStorage.getItem('UserPassword'),()=>{
-
-                    CONDITION(navigator.onLine,()=>{
-
-                        DISPLAY(ELEMENT,'Please Wait .....');
-
-                        RANDOMCODE((Code)=>{
-
-                            const Message=`Dear ${sessionStorage.getItem('UserName')},\n\n Your Verification Code is ${Code}.`;
-    
-                            MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Account Creation',Message,(data)=>{
-    
-                                STOREDATA(' ','VeriifcationCode',Code);
-    
-                                const USERS={
-                                    'UserName':sessionStorage.getItem('UserName'),
-                                    'UserEmail':sessionStorage.getItem('UserEmail'),
-                                    'UserPassword':sessionStorage.getItem('UserPassword'),
-                                }
-    
-                                JSONIFICATION(USERS,(Mydata)=>{
-    
-                                    STOREDATA(' ','MyData',Mydata);
-    
-                                    ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
-    
-                                });
-    
-                            },(datata)=>{
-
-                                console.log(datata);
-    
-                                MESSAGEDISPLAY('','Failed TO Send Verification Code');
-    
-                                DISPLAY(ELEMENT,'Sign Up');
-
-                            });
-            
-                        });
-
-                    },()=>{
-
-                        MESSAGEDISPLAY('','Check Your Internet','');
-
-                    });
-        
-                },()=>{
-        
-                    MESSAGEDISPLAY('','Enter Password','');
-        
-                });
-    
-            },()=>{
-    
-                MESSAGEDISPLAY('','Enter Email','');
-    
-            });
-            
-        },()=>{
-
-            MESSAGEDISPLAY('','Enter UserName','');
-
-        });
-
-    });
-
-    BUTTON('','','','blue','#fff','Log In',(ELEMENT)=>{
-
-        ROUTE('',LOGINPAGE,'LOGINPAGE');
-
-    });
-   
-};
-
-const FORGOTPASSWORDPAGE=()=>{
-
-    DELETEDATA('','UserEmail');
-
-    CLEAR("");
-
-    BREAK('');BREAK('');
-
-    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'margin-top','25px');
-        STYLED(ELEMENT,'margin-bottom','25px');
-
-    }),
-
-    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
-
-    });
-
-    BREAK('');
-
-    ROUNDINPUT('','email','','transparent','Email',(ELEMENT)=>{
-
-        STOREDATA('','UserEmail',ELEMENT);
-
-    });
-
-    BUTTON('','','','forestgreen','#fff','Recover',(ELEMENT)=>{
-
-        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
-
-            FORGOTPASSWORDTEMPLATE(ELEMENT,MOVIELANDERAPI,'Users','Please Wait','Recover','UserEmail',sessionStorage.getItem('UserEmail'),'Failed to Recover','No User Account',(ReturnedData)=>{
-
-                const Message=`Dear ${ReturnedData.UserName},\n\n Your Account Password Is ==== ${ReturnedData.UserPassword}===.\n\n Don't Share Your Account Password!.`;
-    
-                MOVIELANDEREMAIL(sessionStorage.getItem('UserEmail'),'Password Recovery',Message,(data)=>{
-
-                    ROUTE(' ',FORGOTPASSWORDMESSAGEPASSWORD,'FORGOTPASSWORDMESSAGEPASSWORD');
-
-                },(datata)=>{
-
-                    MESSAGEDISPLAY('','Failed To Recover Password');
-
-                    DISPLAY(ELEMENT,'Recover');
-
-                }); 
-
-            });
-
-        },()=>{
-
-            MESSAGEDISPLAY('','Enter Email','');
-
-        });
-
-    });
-
-    BUTTON('','','','blue','#fff','Cancel',(ELEMENT)=>{
-
-        ROUTE('',LOGINPAGE,'LOGINPAGE');
-
-    });
-   
-};
-
-const EMAILVERIFICATIONPAGE=()=>{
-
-    DELETEDATA('','VerificationCode');
-
-    CLEAR("");
-
-    IMAGE('',MOVIZ,'50%','30%',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'margin-top','25px');
-        STYLED(ELEMENT,'margin-bottom','25px');
-
-    }),
-
-    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
-
-    });
-
-    BREAK('');
-
-    ROUNDINPUT('','tel','','transparent','Enter Verification Code',(ELEMENT)=>{
-
-        STOREDATA('','VerificationCode',ELEMENT);
-
-    });
-
-    BUTTON('','','','forestgreen','#fff','Verify',(ELEMENT)=>{
-
-        CONDITION(sessionStorage.getItem('VerificationCode'),()=>{
-
-            CONDITION(sessionStorage.getItem('VerificationCode') === localStorage.getItem('VeriifcationCode') ,()=>{
-
-                CONDITION(navigator.onLine,()=>{
-
-                    DISPLAY(ELEMENT,'Please Wait ...');
-
-                    GETDATA(MOVIELANDERAPI,'Users',(data)=>{
-
-                        LOCALDEJSONDATA('MyData',(MyData)=>{
-
-                            FINDER(data,'UserEmail', MyData.UserEmail,(ReturnedData)=>{
-
-                                CONDITION(ReturnedData.UserEmail === MyData.UserEmail,()=>{
-
-                                    DISPLAY(ELEMENT,'Verify');
-
-                                    MESSAGEDISPLAY('','User With Account Exists','');
-
-                                },()=>{
-
-                                    const HEADER=['UserName','UserEmail','UserPassword'];
-
-                                    const INFOS=[MyData.UserName,MyData.UserEmail,MyData.UserPassword];
-
-                                    INSERTDATA(MOVIELANDERAPI,'Users',HEADER,INFOS,(data)=>{
-
-                                        GETDATA(MOVIELANDERAPI,'Users',(data)=>{
-
-                                            FINDER(data,'UserEmail', MyData.UserEmail,(ReturnedData)=>{
-
-                                                CONDITION(ReturnedData.UserEmail === MyData.UserEmail,()=>{
-
-                                                    JSONIFICATION(ReturnedData,(ThisData)=>{
-
-                                                        STOREDATA(' ','UserData',ThisData);
-
-                                                        DELETEDATA(' ','VeriifcationCode');
-
-                                                        DELETEDATA(' ','MyData');
-
-                                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-                                                    });
-                
-                                                },()=>{
-
-                                                    DISPLAY(ELEMENT,'Verify');
-
-                                                    MESSAGEDISPLAY('','Something Went Wrong','');
-
-                                                })
-
-                                            });
-
-                                        })
-
-                                    },(data)=>{
-
-                                        DISPLAY(ELEMENT,'Verify');
-
-                                        MESSAGEDISPLAY('','Failed to Create Account!','');
-
-                                    });
-
-                                });
-
-                            });
-
-                        });
-
-                    },(data)=>{
-
-                        DISPLAY(ELEMENT,'Verify');
-
-                        MESSAGEDISPLAY('','Something Went Wrong','');
-
-                    });
-
-                },()=>{
-
-                    MESSAGEDISPLAY('','Check Your Internet','');
-
-                });
-    
-            },()=>{
-    
-                MESSAGEDISPLAY('','Wrong Verification Code','');
-    
-            });
-
-        },()=>{
-
-            MESSAGEDISPLAY('','Enter Verification Code','');
-
-        });
-
-    });
-
-    BUTTON('','','','blue','#fff','Cancel',(ELEMENT)=>{
-
-        DELETEDATA(' ','VeriifcationCode');
-
-        ROUTE('',CREATEACCOUNTPAGE,'CREATEACCOUNTPAGE');
-
-    });
-   
-};
-
-const SETTINGSPAGE=()=>{  
-
-    LEFTTEXTBACKHEADERBODY('',()=>{
-
-        ROUTE('',USERACCOUNTPAGE,'USERACCOUNTPAGE');
-
-    },'Settings','',()=>{},(ELEMENT)=>{
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','App Lock','',WHITELOCKICON,'50px',(ELEMENT)=>{
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Sync','',WHITERETRYICON,'50px',(ELEMENT)=>{
-
-            RELOAD();
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Privacy Policy','',WHITEPRIVACYPOLICYICON,'50px',(ELEMENT)=>{
-  
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Device','',WHITEDEVICEICON,'50px',(ELEMENT)=>{
-   
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Player Mode','',WHITEPLAYICON,'50px',(ELEMENT)=>{
- 
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Delete Account','',WHITEDELETEICON,'50px',(ELEMENT)=>{
- 
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','LogOut','',WHITELOGOUTICON,'50px',(ELEMENT)=>{
- 
-            DELETEDATA(' ','UserData');
- 
-            RELOAD();
-
-        });
-
-        IMAGEBUTTON(ELEMENT,'forestgreen','Updates','',WHITEMOBILEDEVELOPMENTICON,'50px',(ELEMENT)=>{
-
-        });
-
-    });
-
-}; 
-
-const FORGOTPASSWORDMESSAGEPASSWORD=()=>{
-
-    DELETEDATA('','UserEmail');
-
-    CLEAR("");
-
-    BREAK('');BREAK('');
-
-    IMAGE('',WHITEHOMEICON,'25%','15%',(ELEMENT)=>{
-
-        STYLED(ELEMENT,'margin-top','25px');
-        STYLED(ELEMENT,'margin-bottom','25px');
-
-    }),
-
-    CENTERTEXT('','p','Your Home Cinema','','',(ELEMENT)=>{
-
-    });
-
-    BREAK('');
-
-    CENTERTEXT('','p','The Password has been Sent to Your Email!','','',(ELEMENT)=>{
-
-    });
-
-    BUTTON('','','','blue','#fff','Back',(ELEMENT)=>{
-
-        ROUTE('',FORGOTPASSWORDPAGE,'FORGOTPASSWORDPAGE');
-
-    });
-   
-};
-
-const MOVIESCATERGORY=()=>{
-
-    CHECKER(navigator.onLine,()=>{
-
-        GETDATA(MOVIELANDERAPI,'Catergory',(data)=>{
-
-            const MYDATA={
-                'Name':'Catergoy',
-                'data':data
-            }
-
-            CONDITION(localStorage.getItem('MoviesUpdated'),()=>{
-
-                UPDATEINDEX('Catergoy', 'Catergoy', MYDATA, ()=>{
-
-                    STOREDATA(' ','MoviesUpdated',new Date());
-
-                });
-
-            },()=>{
-
-                STOREINDEXED('Catergoy', 'Catergoy', MYDATA, (data)=>{
-
-                    CHECKER(data === true,()=>{
-
-                        STOREDATA(' ','MoviesUpdated',new Date());
-                    
-                    });
-
-                });
-
-            });
-
-        },(data)=>{
-    
-            console.log(data);
-            
-        });
-
-    });
-
-};
-
-const MOVIESUPDATERS=()=>{
-
-    CHECKER(navigator.onLine,()=>{
-
-        GETDATA(MOVIELANDERAPI,'Movies',(data)=>{
-
-            const MYDATA={
-                'Name':'Movies',
-                'data':data
-            }
-
-            CONDITION(localStorage.getItem('MoviesUpdate'),()=>{
-
-                UPDATEINDEX('Movies', 'Movies', MYDATA, ()=>{
-
-                    STOREDATA(' ','MoviesUpdate',new Date());
-
-                });
-
-            },()=>{
-
-                STOREINDEXED('Movies', 'Movies', MYDATA, (data)=>{
-
-                    CHECKER(data === true,()=>{
-
-                        STOREDATA(' ','MoviesUpdate',new Date());
-                    
-                    });
-
-                });
-
-            });
-
-        },(data)=>{
-    
-            console.log(data);
-            
         });
 
     });
