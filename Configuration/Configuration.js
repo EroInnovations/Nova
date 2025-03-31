@@ -1,4 +1,5 @@
 import { COMMUNITYLOADER3 } from "../Design/CommunityRiseLoader/Loader3.js";
+import { DEVELOPMENTLOADER3 } from "../Design/DevelopmentLoader/DeveloperLoader3.js";
 import { DESKTOPCONFIGURATION } from "./Desktop/DesktopConfiguration.js";
 import { DEVELOPMENTCONFIGURATION } from "./Development/Development.js";
 import { MOBILECONFIGURATION } from "./Mobile/MobileConfiguration.js";
@@ -10,9 +11,13 @@ const CONFIGURATION=()=>{
 
         const body=document.querySelector(".body");
 
-        if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
-        
-            COMMUNITYLOADER3(body);
+        if (localStorage.getItem('Environment') === 'Development') {
+
+            DEVELOPMENTLOADER3(body);
+            
+        }else{
+
+            LOADERS(body);
 
         };
     
@@ -50,6 +55,26 @@ const CONFIGURATION=()=>{
         
     };
 
+};
+
+const LOADERS=(body)=>{
+
+    if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
+
+        COMMUNITYLOADER3(body);
+        
+    } else {
+
+        if (localStorage.getItem('NAME') !== 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
+       
+            DEVELOPMENTLOADER3(body);
+    
+            
+        };
+        
+    };
+
+    DEVELOPMENTCONFIGURATION();
 
 };
 export{CONFIGURATION};
