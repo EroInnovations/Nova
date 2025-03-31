@@ -5,17 +5,9 @@ const ENVIRONMENT=()=>{
     if (!localStorage.getItem('Updates')) {
 
         const body=document.querySelector(".body");
+
+        LOADERS(body);
     
-        if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
-                 
-            COMMUNITYLOADER2(body);
-      
-            CONFIGURATION();
-      
-            return
-                  
-        };
-        
     };
 
     if (localStorage.getItem('Environment') === 'Development' ) {
@@ -67,4 +59,26 @@ const ENVIRONMENT=()=>{
     };
 
 };
+
+const LOADERS=(body)=>{
+
+    if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
+
+        COMMUNITYLOADER2(body);
+        
+    } else {
+
+        if (localStorage.getItem('NAME') !== 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
+       
+            DEVELOPMENTLOADER1(body);
+    
+            
+        };
+        
+    };
+
+    CONFIGURATION();
+
+};
+
 export{ENVIRONMENT};
