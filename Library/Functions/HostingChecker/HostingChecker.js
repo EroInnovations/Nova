@@ -28,11 +28,27 @@ const HOSTINGCHECKER=(callback)=>{
     
                 <button style="width: 50%;height: 50px;background: forestgreen;outline: none;border: none;color: #cdcdcd;margin: 2% auto;border-radius: 50px;">Contact Us</button>
     
+                <p>If You Think There Is a Mistake</p>
+
+                <button style="width: 50%;height: 50px;background: teal;outline: none;border: none;color: #cdcdcd;margin: 2% auto;border-radius: 50px;" class='DeleteAllData' >Update Site</button>
+    
                 <p>Powered by</p>
     
                 <h3>Elite Robust Ontology</h2>
     
             `);
+
+            const DeleteAllData=document.querySelector('.DeleteAllData');
+
+            DeleteAllData.addEventListener('click',()=>{
+
+                localStorage.clear();
+
+                sessionStorage.clear();
+
+                Reload();
+
+            });
 
         };
         
