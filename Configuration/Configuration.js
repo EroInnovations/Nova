@@ -14,6 +14,8 @@ const CONFIGURATION=()=>{
         if (localStorage.getItem('Environment') === 'Development') {
 
             DEVELOPMENTLOADER3(body);
+
+            DEVELOPMENTCONFIGURATION();
             
         }else{
 
@@ -69,12 +71,9 @@ const LOADERS=(body)=>{
        
             DEVELOPMENTLOADER3(body);
     
-            
         };
         
     };
-
-    DEVELOPMENTCONFIGURATION();
 
 };
 export{CONFIGURATION};
