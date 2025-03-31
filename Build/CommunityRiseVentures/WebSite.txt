@@ -650,14 +650,6 @@ const ANDROIDUPDATENEWSPAGE=()=>{
 
 };
 
-const DESKTOPHOMEPAGE=()=>{
-
-    CLEAR('');
-
-    DISPLAY('','Under Development');
-
-}
-
 const VISITORS=()=>{
 
     DEVICE((data)=>{
@@ -711,5 +703,39 @@ const VISITORS=()=>{
         });
 
     })
+
+};
+
+const DESKTOPHOMEPAGE=()=>{
+
+    CLEAR('');
+
+    FULLSCROLLVIEW('',' ',(ELEMENT)=>{
+
+        IMAGE(ELEMENT,COMMUNITYRISELOGO,'70%','70%','1% auto',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'','90%','50px','',(ELEMENTS)=>{
+
+            TEXT(ELEMENTS,'','Updates',TEXTCOLOR,'20px','',()=>{
+
+            });
+
+            TEXT(ELEMENTS,'','About Us',TEXTCOLOR,'20px','',()=>{
+
+            });
+
+            TEXT(ELEMENTS,'','Contact Us',TEXTCOLOR,'20px','',()=>{
+
+            });
+
+            TEXT(ELEMENTS,'','Donate',TEXTCOLOR,'20px','',()=>{
+
+            });
+
+        });
+
+    });
 
 };
