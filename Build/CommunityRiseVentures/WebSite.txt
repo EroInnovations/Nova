@@ -6,25 +6,29 @@ const NOVASTART=()=>{
 
     VISITORS();
 
-    APPMODE('#cdcdcd');
+    HOSTINGCHECKER(()=>{
 
-    DATATED();
+        APPMODE('#cdcdcd');
 
-    SCREENWIDTH((data)=>{
-
-        CONDITION(data >800,
-            ()=>{
-
-                ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
-
-            },
-            ()=>{
-
-                ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
-                
-            }
-
-        );
+        DATATED();
+    
+        SCREENWIDTH((data)=>{
+    
+            CONDITION(data >800,
+                ()=>{
+    
+                    ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+    
+                },
+                ()=>{
+    
+                    ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+                    
+                }
+    
+            );
+    
+        });
 
     });
 
