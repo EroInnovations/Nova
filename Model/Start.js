@@ -230,12 +230,9 @@ const LOADERS=(body)=>{
        
             DEVELOPMENTLOADER4(body);
     
-            
         };
         
     };
-
-    DEVELOPMENTCONFIGURATION();
 
 };
 
