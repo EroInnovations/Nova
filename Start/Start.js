@@ -17,9 +17,9 @@ const START=()=>{
 
         };
 
-        ENVIRONMENT();
-
     };
+
+    ENVIRONMENT();
  
 };
 
