@@ -7,37 +7,39 @@ const START=()=>{
 
         const body=document.querySelector(".body");
 
-        if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
-           
-            COMMUNITYLOADER1(body);
-
-            ENVIRONMENT();
-
-            return
-            
-        };
-
-        if (localStorage.getItem('Environment') === 'Development' ) {
+        if (localStorage.getItem('Environment') === 'Development') {
            
             DEVELOPMENTLOADER1(body);
-
-            ENVIRONMENT();
-
-            return
             
+        }else{
+
+            LOADERS();
+
         };
 
-        if (localStorage.getItem('NAME') !== 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
-           
-            DEVELOPMENTLOADER1(body);
-
-            ENVIRONMENT();
-
-            return
-            
-        };
+        ENVIRONMENT();
 
     };
-     
+ 
 };
+
+const LOADERS=()=>{
+
+    if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
+
+        COMMUNITYLOADER1(body);
+        
+    } else {
+
+        if (localStorage.getItem('NAME') !== 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
+       
+            DEVELOPMENTLOADER1(body);
+    
+            
+        };
+        
+    };
+
+};
+
 export{START};
