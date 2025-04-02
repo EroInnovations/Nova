@@ -2,6 +2,8 @@ const API='https://docs.google.com/spreadsheets/d/18BUoCg4yVUrxWv8RG885ZIn2fjkUR
 
 const TEXTCOLOR='#ffffff';
 
+const MAINCOLOR='#0F990F';
+
 const NOVASTART=()=>{
 
     STOREINDEXEDDATA(API,'Products');
@@ -10,7 +12,7 @@ const NOVASTART=()=>{
 
         VISITOR(API,'Visitors');
 
-        APPMODE(localStorage.getItem('Color')||TEXTCOLOR);
+        APPMODE(localStorage.getItem('Color')||MAINCOLOR);
         
     });
 
