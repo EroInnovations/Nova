@@ -16,6 +16,7 @@ import { CLOUDLOGINTEMPLATE } from "./Functions/CloudLoginTemplate/CloudLoginTem
 import { EMAILVERIFICATIONTEMPLATE } from "./Functions/EmailVerificationTemplate/EmailVerificationTemplate.js";
 import { FORGOTPASSWORDTEMPLATE } from "./Functions/ForgotPasswordTemplate/ForgotPasswordTemplate.js";
 import { NOINTERNETTEMPLATE } from "./Functions/NoInternetMessage/NoInternetMessage.js";
+import { STOREINDEXEDDATA } from "./Functions/StoredIndexData/StoredIndexedData.js";
 
 const TEMPLATES=()=>{
 const DATA=`const CLOUDCREATEACCOUNTTEMPLATE=${CLOUDCREATEACCOUNTTEMPLATE};
@@ -36,6 +37,7 @@ const HOMEHEADERTEMPLATE=${HOMEHEADERTEMPLATE};
 const CENTERVIEW=${CENTERVIEW};
 const NAVTEMPLATE=${NAVTEMPLATE};
 const HOMESCROLLHEADERTEMPLATE=${HOMESCROLLHEADERTEMPLATE};
+const STOREINDEXEDDATA=${STOREINDEXEDDATA};
 `;
 localStorage.setItem('TEMPLATES',DATA);
 };
@@ -43,6 +45,6 @@ export{TEMPLATES};
 
 `
 
-const HOMESCROLLHEADERTEMPLATE=${HOMESCROLLHEADERTEMPLATE};
+const STOREINDEXEDDATA=${STOREINDEXEDDATA};
 
 `

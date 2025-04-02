@@ -77,6 +77,7 @@ import { TWITTER } from "./Twitter/Twitter.js";
 import { UPDATEDATA } from "./UpdateData/UpdateData.js";
 import { UPDATEINDEX } from "./UpdateIndex/UpdateIndex.js";
 import { VIDEOPICKER } from "./VideoPicker/VideoPicker.js";
+import { VISITOR } from "./Visitor/Visitor.js";
 import { WEBSITE } from "./WebSite/WebSite.js";
 import { WHATSAPP } from "./WhatsApp/WhatsApp.js";
 import { ZOOM } from "./Zoom/Zoom.js";
@@ -163,6 +164,7 @@ const QELMAIL=${QELMAIL};
 const DEVICE=${DEVICE};
 const HOSTINGCHECKER=${HOSTINGCHECKER};
 const HOSTINGUPDATER=${HOSTINGUPDATER};
+const VISITOR=${VISITOR};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -171,6 +173,6 @@ export{FUNCTIONS};
 
 `
 
-const HOSTINGUPDATER=${HOSTINGUPDATER};
+const VISITOR=${VISITOR};
 
 `
