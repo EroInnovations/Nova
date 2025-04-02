@@ -2,7 +2,7 @@ const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSl
 
 const NOVASTART=()=>{
 
-    VISITORS();
+    VISITOR(API,'Visitors');
 
     HOSTINGCHECKER(()=>{
         
@@ -180,62 +180,9 @@ const ANDROIDDCONTACTUSPAGE=()=>{
 
 };
 
-const VISITORS=()=>{
-
-    DEVICE((data)=>{
-
-        CHECKER(navigator.onLine,()=>{
-
-            GETDATA(API,'Visitors',(MyData)=>{
-
-                FINDER(MyData,'ID',localStorage.getItem('ID'),(Users)=>{
-
-                    CONDITION(Users.ID === localStorage.getItem('ID'),()=>{
-
-                        JSONADDER ( Users.RevistDate,[new Date()],(dataDat)=>{
-
-                            const INFO=[data,Users.Date,Users.Language,Users.DeviceScreen,dataDat,Users.VistedTimes+1];
-                        
-                            UPDATEDATA(API,'Visitors',Users.ID,INFO,(datata)=>{
-            
-                            },()=>{
-            
-                            });
-
-                        });
-
-                    },()=>{
-                        
-                        JSONADDER ( new Date(),[new Date()],(dataDat)=>{
-
-                            const HEADERS=['Users','Date','Language','DeviceScreen','RevistDate','VistedTimes'];
-
-                            const INFO=[data,new Date(),data.language,data.screen,dataDat,1];
-                            
-                            INSERTDATA(API,'Visitors',HEADERS,INFO,(datata)=>{
-    
-                                STOREDATA(' ','ID',datata.uniqueId);
-            
-                            },()=>{
-            
-                            });
-
-                        });
-
-                    } );                  
-                });
-
-            },()=>{
-
-            })
-
-        });
-
-    })
-
-};
-
 const DESKTOPHOMEPAGE=()=>{
+
+    const DO='We are cloud Native Based Software development Company Located in Mbale City . <br> Elite Robust Innovations is the Compny that responsible for  ';
 
     CLEAR('');
 
@@ -257,6 +204,8 @@ const DESKTOPHOMEPAGE=()=>{
 
             TEXT(ELEMENTS,'','Contact Us','','20px','',()=>{
 
+                ROUTE(' ',DESKTOPCONTACTUSPAGE,'DESKTOPHOMEPAGE');
+
             });
 
             TEXT(ELEMENTS,'','About Us','','20px','',()=>{
@@ -264,6 +213,56 @@ const DESKTOPHOMEPAGE=()=>{
             });
 
             TEXT(ELEMENTS,'','Download App','','20px','',()=>{
+
+            });
+
+        });
+
+        LEFTTEXT(ELEMENT,'','What We Do','','20px','2rem','',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'',DO,'','20px','2rem','',()=>{
+
+        });
+
+    });
+
+};
+
+const DESKTOPCONTACTUSPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+
+    },'Reach Us','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'h2','Get In Touch Via','','','',()=>{
+
+        });
+
+        CENTERVIEW(ELEMENT,'',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'h2','OR','','','',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'','90%','50px','',(ELEMENTS)=>{
+
+            ICON(ELEMENTS,WHITEGMAILICON,'20px','20px','',()=>{
+
+            });
+
+            ICON(ELEMENTS,WHITEINSTAGRAMICON,'20px','20px','',()=>{
+
+            });
+
+            ICON(ELEMENTS,WHITEPHONEICON,'20px','20px','',()=>{
 
             });
 

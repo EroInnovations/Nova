@@ -1,34 +1,272 @@
-const API='https://docs.google.com/spreadsheets/d/18BUoCg4yVUrxWv8RG885ZIn2fjkURGgjIrCi6otCxFk/edit?usp=sharing';
-
-const TEXTCOLOR='#ffffff';
-
-const MAINCOLOR='#0F990F';
+const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSlJk7KFiJiCOgYOQ/edit?usp=sharing';
 
 const NOVASTART=()=>{
 
-    ICONCOLOR('');
-
-    STOREINDEXEDDATA(API,'Products');
+    VISITOR(API,'Visitors');
 
     HOSTINGCHECKER(()=>{
-
-        VISITOR(API,'Visitors');
-
-        APPMODE(localStorage.getItem('Color')||TEXTCOLOR);
-
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
         
+        APPMODE('#04143c');
+
+        SCREENWIDTH((data)=>{
+
+            CONDITION(data >800,
+                ()=>{
+
+                    ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+
+                },
+                ()=>{
+
+                    ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+                    
+                }
+
+            );
+
+        });
+
+    })
+
+};
+
+const ANDROIDHOMEPAGE=()=>{
+
+    const WELCOMENOTE=`
+
+    <br><br>
+    
+    Ero Innovations,We are the lead Developer in Cloud Native Software.
+
+    <br><br>
+
+    Get Your Latest Android ,Desktop and Website Built with Cutting Fully Proven and Tested Softwares and FrameWorks to Get Your Ideas to Life .
+
+    <br><br>
+
+    Ero Innovations,We let You Imagine,then We Innovate Your Dreams and Let Others get Inspired.
+
+    <br><br>
+
+    We let Handle Developments of Also Systems and Server Configurations and Frame Work Developments For Both Tech and Non Tech Related Clients With Ease.
+    
+    `;
+
+    HOMESCROLLHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        LEFTIMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'25px','25px','0.5rem','',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'h2','Ero Innovations','','20px','','',()=>{
+
+        });
+
+        RIGHTIMAGE(ELEMENT,WHITEMENUICON,'25px','25px','0.5rem','',()=>{
+
+            FULLMENUTEMPLATE('','#04143c','50%','right',(ELEMENTS)=>{
+
+                ANDROIDMENU(ELEMENTS);
+
+            });
+
+        });
+
+    },(ELEMENT)=>{
+
+        IMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'100%','50%','',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'h2','Welcome','','20px','',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'',WELCOMENOTE,'','16px','0.2rem','',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'h1','Reach Us','','20px','0.2rem','5% auto',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'','90%','50px','',(ELEMENTS)=>{
+
+            ICON(ELEMENTS,WHITEGMAILICON,'25px','25px','',()=>{
+
+            });
+
+            ICON(ELEMENTS,WHITEINSTAGRAMICON,'25px','25px','',()=>{
+
+            });
+
+            ICON(ELEMENTS,WHITEWHATSAPPICON,'25px','25px','',()=>{
+
+            });
+
+        });
+
     });
 
 };
 
-const HOMEPAGE=()=>{
+const ANDROIDMENU=(ELEMENT)=>{
+
+    BUTTONIMAGE(ELEMENT,' ','About Us','',WHITEINFOICON,'50px','',()=>{
+
+        ROUTE(' ',ANDROIDABOUTUSPAGE,'ANDROIDHOMEPAGE');
+
+    });
+
+    BUTTONIMAGE(ELEMENT,' ','Developers','',WHITEMOBILEDEVELOPMENTICON,'50px','',()=>{
+
+        ROUTE(' ',ANDROIDDEVELOPERPAGE,'ANDROIDHOMEPAGE');
+
+    });
+
+    BUTTONIMAGE(ELEMENT,' ','Contact Us','',WHITEPHONEICON,'50px','',()=>{
+
+        ROUTE(' ',ANDROIDDCONTACTUSPAGE,'ANDROIDHOMEPAGE');
+
+    });
+
+    BUTTONIMAGE(ELEMENT,' ','Download App','',WHITEDOWNLOADICON,'50px','',()=>{
+
+        WEBSITE('https://eroinnovations.site/apps/elite.apk');
+
+    });
+
+};
+
+const ANDROIDABOUTUSPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+
+    },'About Us','','',(ELEMENT)=>{
+
+        DISPLAY(ELEMENT,'Under Development');
+
+    });
+
+};
+
+const ANDROIDDEVELOPERPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+
+    },'Developers','','',(ELEMENT)=>{
+
+        DISPLAY(ELEMENT,'Under Development');
+
+    });
+
+};
+
+const ANDROIDDCONTACTUSPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+
+    },'Contact Us','','',(ELEMENT)=>{
+
+        DISPLAY(ELEMENT,'Under Development');
+
+    });
+
+};
+
+const DESKTOPHOMEPAGE=()=>{
+
+    const DO='We are cloud Native Based Software development Company Located in Mbale City . <br> Elite Robust Innovations is the Compny that responsible for  ';
 
     CLEAR('');
 
-    LEFTTEXTBACKHEADER('',()=>{
+    FULLSCROLLVIEW('',' ',(ELEMENT)=>{
 
-    },'Test',' Green',()=>{
+        IMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'70%','70%','',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'','90%','50px','',(ELEMENTS)=>{
+
+            TEXT(ELEMENTS,'','Updates','','20px','',()=>{
+
+            });
+
+            TEXT(ELEMENTS,'','Developers','','20px','',()=>{
+
+            });
+
+            TEXT(ELEMENTS,'','Contact Us','','20px','',()=>{
+
+                ROUTE(' ',DESKTOPCONTACTUSPAGE,'DESKTOPHOMEPAGE');
+
+            });
+
+            TEXT(ELEMENTS,'','About Us','','20px','',()=>{
+
+            });
+
+            TEXT(ELEMENTS,'','Download App','','20px','',()=>{
+
+            });
+
+        });
+
+        LEFTTEXT(ELEMENT,'','What We Do','','20px','2rem','',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'',DO,'','20px','2rem','',()=>{
+
+        });
+
+    });
+
+};
+
+const DESKTOPCONTACTUSPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+
+    },'Reach Us','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'h2','Get In Touch Via','','','',()=>{
+
+        });
+
+        CENTERVIEW(ELEMENT,'',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'h2','OR','','','',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'','90%','50px','',(ELEMENTS)=>{
+
+            ICON(ELEMENTS,WHITEGMAILICON,'20px','20px','',()=>{
+
+            });
+
+            ICON(ELEMENTS,WHITEINSTAGRAMICON,'20px','20px','',()=>{
+
+            });
+
+            ICON(ELEMENTS,WHITEPHONEICON,'20px','20px','',()=>{
+
+            });
+
+        });
 
     });
 
