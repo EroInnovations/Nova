@@ -6,14 +6,30 @@ const MAINCOLOR='#0F990F';
 
 const NOVASTART=()=>{
 
+    ICONCOLOR('');
+
     STOREINDEXEDDATA(API,'Products');
 
     HOSTINGCHECKER(()=>{
 
         VISITOR(API,'Visitors');
 
-        APPMODE(localStorage.getItem('Color')||MAINCOLOR);
+        APPMODE(localStorage.getItem('Color')||TEXTCOLOR);
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
         
+    });
+
+};
+
+const HOMEPAGE=()=>{
+
+    CLEAR('');
+
+    LEFTTEXTBACKHEADER('',()=>{
+
+    },'Test',' Green',()=>{
+
     });
 
 };

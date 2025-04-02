@@ -41,6 +41,7 @@ import { GMAIL } from "./Gmail/Gmail.js";
 import { HIDER } from "./Hider/Hider.js";
 import { HOSTINGCHECKER } from "./HostingChecker/HostingChecker.js";
 import { HOSTINGUPDATER } from "./HostingUpdater/HostingUpdater.js";
+import { ICONCOLOR } from "./IconColor/IconColor.js";
 import { IMAGEPICKER } from "./ImagePicker/ImagePicker.js";
 import { INSERTDATA } from "./InsertData/InsertData.js";
 import { INSPECTION } from "./Inspection/Inspection.js";
@@ -165,6 +166,7 @@ const DEVICE=${DEVICE};
 const HOSTINGCHECKER=${HOSTINGCHECKER};
 const HOSTINGUPDATER=${HOSTINGUPDATER};
 const VISITOR=${VISITOR};
+const ICONCOLOR=${ICONCOLOR};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -173,6 +175,6 @@ export{FUNCTIONS};
 
 `
 
-const VISITOR=${VISITOR};
+const ICONCOLOR=${ICONCOLOR};
 
 `
