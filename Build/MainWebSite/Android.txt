@@ -807,9 +807,15 @@ const USERACCOUNTPAGE=()=>{
 
     },'My Profile','',()=>{
 
-    },(ELEMENTS)=>{
+    },(ELEMENT)=>{
 
-        DISPLAY(ELEMENTS,'Under Development');
+        IMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'50%','50%','',(ELEMENTS)=>{
+
+            IMAGEPICKER(ELEMENTS,(data)=>{
+
+            });
+
+        });
 
     });
 
