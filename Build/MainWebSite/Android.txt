@@ -811,7 +811,7 @@ const USERACCOUNTPAGE=()=>{
 
         IMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'50%','50%','',(ELEMENTS)=>{
 
-            IMAGEPICKER(ELEMENTS,(data)=>{
+            CAMERA(ELEMENTS,(data)=>{
 
             });
 
