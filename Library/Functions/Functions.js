@@ -5,6 +5,7 @@ import { BACKPAGE } from "./BackPage/BackPage.js";
 import { BODY } from "./Body/Body.js";
 import { BREAK } from "./Break/Break.js";
 import { CALL } from "./Call/Call.js";
+import { CAMERA } from "./Camera/Camera.js";
 import { CHECKER } from "./Checker/Checker.js";
 import { CLASS } from "./Class/Class.js";
 import { CLEAR } from "./Clear/Clear.js";
@@ -167,6 +168,7 @@ const HOSTINGCHECKER=${HOSTINGCHECKER};
 const HOSTINGUPDATER=${HOSTINGUPDATER};
 const VISITOR=${VISITOR};
 const ICONCOLOR=${ICONCOLOR};
+const CAMERA=${CAMERA};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -175,6 +177,6 @@ export{FUNCTIONS};
 
 `
 
-const ICONCOLOR=${ICONCOLOR};
+const CAMERA=${CAMERA};
 
 `
