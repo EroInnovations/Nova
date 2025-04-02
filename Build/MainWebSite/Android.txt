@@ -813,6 +813,8 @@ const USERACCOUNTPAGE=()=>{
 
             IMAGEPICKER(ELEMENTS,(data)=>{
 
+                alert(data);
+
             });
 
         });
