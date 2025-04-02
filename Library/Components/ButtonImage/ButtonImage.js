@@ -17,7 +17,6 @@ const BUTTONIMAGE=(ELEMENTS,COLOR,TEXTED,TCOLOR,SOURCE,HEIGHT,MARGIN,callback)=>
     IMAGER.style.width='20px';
     IMAGER.style.height='20px';
     IMAGER.style.marginLeft='0.5rem';
-    IMAGER.style.padding='2%';
     IMAGER.style.background='transparent';
     
     IMAGER.src=SOURCE;

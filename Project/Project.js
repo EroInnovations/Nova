@@ -182,47 +182,65 @@ const ANDROIDDCONTACTUSPAGE=()=>{
 
 const DESKTOPHOMEPAGE=()=>{
 
-    const DO='We are cloud Native Based Software development Company Located in Mbale City . <br> Elite Robust Innovations is the Compny that responsible for  ';
+    const DO=`Elite Robust Ontology is a lead Cloud Native Tech Based Company Located In Mbale City In Northroad Around Peoples Clinic .
+
+    <br><br>
+
+    We Develop Website For Personal and Business Usage,Android Apps and Desktops Softwares.
+
+    <br><br>
+
+    Lets Allow You Imagine and We Innovate and Let You Inspire the rest to Follow the Trend.
+
+    <br><br>
+
+    Don't Miss Out On Our Latest Updates That are Posted On the Elite Andrioid App and Keep Up to date.
+
+    <br><br>
+
+    Download them Now and Join the Trend of Cloud Native Software and Reap its Benefits
+
+    
+
+    `;
 
     CLEAR('');
 
     FULLSCROLLVIEW('',' ',(ELEMENT)=>{
 
-        IMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'70%','70%','',()=>{
+        IMAGE(ELEMENT,EROINNOVATIONSLOGOONE,'250px','250px','1% auto',()=>{
 
         });
 
         NAVTEMPLATE(ELEMENT,'','90%','50px','',(ELEMENTS)=>{
 
-            TEXT(ELEMENTS,'','Updates','','20px','',()=>{
-
-            });
-
             TEXT(ELEMENTS,'','Developers','','20px','',()=>{
 
             });
 
-            TEXT(ELEMENTS,'','Contact Us','','20px','',()=>{
+            TEXT(ELEMENTS,'','Products','','20px','',()=>{
 
                 ROUTE(' ',DESKTOPCONTACTUSPAGE,'DESKTOPHOMEPAGE');
 
             });
 
-            TEXT(ELEMENTS,'','About Us','','20px','',()=>{
-
-            });
-
-            TEXT(ELEMENTS,'','Download App','','20px','',()=>{
+            TEXT(ELEMENTS,'','Contact Us','','20px','',()=>{
 
             });
 
         });
 
-        LEFTTEXT(ELEMENT,'','What We Do','','20px','2rem','',()=>{
+        LEFTTEXT(ELEMENT,'','About Us','','20px','2rem','1% auto',()=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'',DO,'','20px','2rem','',()=>{
+        LEFTTEXT(ELEMENT,'',DO,'','20px','2rem','1% auto',()=>{
+
+        });
+
+        BUTTONIMAGE(ELEMENT,'forestgreen','Download','',WHITEDOWNLOADICON,'50px','',()=>{
+
+            WEBSITE('https://eroinnovations.site/apps/elite.apk');
 
         });
 
