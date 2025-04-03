@@ -200,8 +200,6 @@ const DESKTOPHOMEPAGE=()=>{
 
     Download them Now and Join the Trend of Cloud Native Software and Reap its Benefits
 
-    
-
     `;
 
     CLEAR('');
@@ -235,6 +233,68 @@ const DESKTOPHOMEPAGE=()=>{
         });
 
         LEFTTEXT(ELEMENT,'',DO,'','20px','2rem','1% auto',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'h3','Our Services','','20px','2rem','1% auto',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'#000','90%','300px','',(ELEMENTS)=>{
+
+            VIEW(ELEMENTS,'red','30%','90%','',(ELEMENTSE)=>{
+
+                STYLED(ELEMENTSE,'overflow','hidden');
+
+                IMAGE(ELEMENTSE,'https://th.bing.com/th/id/OIP.WjGRdMeiefZGAuQMXBLsTAHaFE?rs=1&pid=ImgDetMain','100%','100%','',()=>{
+
+                });
+
+                FOOTER(ELEMENTSE,'#00000050','100%','50px',(ELEMENT)=>{
+
+                    CENTERTEXT(ELEMENT,'h2','App Development','','20px','','',()=>{
+
+                    });
+
+                });
+
+            });
+
+            VIEW(ELEMENTS,'red','30%','90%','',(ELEMENTSE)=>{
+
+                STYLED(ELEMENTSE,'overflow','hidden');
+
+                IMAGE(ELEMENTSE,'https://sys-media.moonlyte.com/BlogImages/Blog63-image1.webp','100%','100%','',()=>{
+
+                });
+
+                FOOTER(ELEMENTSE,'#00000050','100%','50px',(ELEMENT)=>{
+
+                    CENTERTEXT(ELEMENT,'h2','WebSite Development','','20px','','',()=>{
+
+                    });
+
+                });
+
+            });
+
+            VIEW(ELEMENTS,'red','30%','90%','',(ELEMENTSE)=>{
+
+                STYLED(ELEMENTSE,'overflow','hidden');
+
+                IMAGE(ELEMENTSE,'https://th.bing.com/th/id/OIP.ojtJH67R0wXy7dqjlZ_wFQAAAA?rs=1&pid=ImgDetMain','100%','100%','',()=>{
+
+                });
+
+                FOOTER(ELEMENTSE,'#00000050','100%','50px',(ELEMENT)=>{
+
+                    CENTERTEXT(ELEMENT,'h2','System Development','','20px','','',()=>{
+
+                    });
+
+                });
+
+            });
 
         });
 
