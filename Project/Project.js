@@ -2,7 +2,7 @@ const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSl
 
 const NOVASTART=()=>{
 
-    VISITOR(API,'Visitors');
+    //VISITOR(API,'Visitors');
 
     HOSTINGCHECKER(()=>{
         
@@ -26,7 +26,7 @@ const NOVASTART=()=>{
 
         });
 
-    })
+    });
 
 };
 
@@ -248,7 +248,7 @@ const DESKTOPHOMEPAGE=()=>{
 
         });
 
-        NAVTEMPLATE(ELEMENT,'#000','90%','300px','',(ELEMENTS)=>{
+        NAVTEMPLATE(ELEMENT,'transparent','90%','300px','',(ELEMENTS)=>{
 
             VIEW(ELEMENTS,'red','30%','90%','',(ELEMENTSE)=>{
 

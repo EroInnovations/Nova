@@ -26,7 +26,7 @@ const NOVASTART=()=>{
 
         });
 
-    })
+    });
 
 };
 
@@ -248,7 +248,7 @@ const DESKTOPHOMEPAGE=()=>{
 
         });
 
-        NAVTEMPLATE(ELEMENT,'#000','90%','300px','',(ELEMENTS)=>{
+        NAVTEMPLATE(ELEMENT,'transparent','90%','300px','',(ELEMENTS)=>{
 
             VIEW(ELEMENTS,'red','30%','90%','',(ELEMENTSE)=>{
 
