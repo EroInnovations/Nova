@@ -18,7 +18,7 @@ const VISITOR=(API,NAME)=>{
     
                             JSONADDER ( Users.RevistDate,[new Date()],(dataDat)=>{
     
-                                const INFO=[data,Users.Date,Users.Language,Users.DeviceScreen,dataDat,Users.VistedTimes+1];
+                                const INFO=[data,Users.Date,Users.Language,Users.DeviceScreen,dataDat,Users.VistedTimes+1,localStorage.getItem('OperatingSystem')];
                             
                                 UPDATEDATA(API,NAME,Users.ID,INFO,(datata)=>{
                 
@@ -32,9 +32,9 @@ const VISITOR=(API,NAME)=>{
                             
                             JSONADDER ( new Date(),[new Date()],(dataDat)=>{
     
-                                const HEADERS=['Users','Date','Language','DeviceScreen','RevistDate','VistedTimes'];
+                                const HEADERS=['Users','Date','Language','DeviceScreen','RevistDate','VistedTimes','OperatingSystem'];
     
-                                const INFO=[data,new Date(),data.language,data.screen,dataDat,1];
+                                const INFO=[data,new Date(),data.language,data.screen,dataDat,1,localStorage.getItem('OperatingSystem')];
                                 
                                 INSERTDATA(API,NAME,HEADERS,INFO,(datata)=>{
         

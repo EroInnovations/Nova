@@ -52,6 +52,7 @@ import { JSONIFICATION } from "./Jsonification/Jsonification.js";
 import { JSONREMOVER } from "./JsonRemover/JsonRemover.js";
 import { LOCALDEJSONDATA } from "./localDejsonData/localDejsonData.js";
 import { MOVIELANDEREMAIL } from "./MovieLanderEmail/MovieLanderEmail.js";
+import { OPERATINGSYSTEM } from "./OperatingSystem/OperatingSystem.js";
 import { POSTDRIVEFILE } from "./PostDriveFile/PostDriveFile.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
 import { POSTTEXTPACKAGE } from "./PostTextPackage/PostTextPackage.js";
@@ -169,6 +170,7 @@ const HOSTINGUPDATER=${HOSTINGUPDATER};
 const VISITOR=${VISITOR};
 const ICONCOLOR=${ICONCOLOR};
 const CAMERA=${CAMERA};
+const OPERATINGSYSTEM=${OPERATINGSYSTEM};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -177,6 +179,6 @@ export{FUNCTIONS};
 
 `
 
-const CAMERA=${CAMERA};
+const OPERATINGSYSTEM=${OPERATINGSYSTEM};
 
 `
