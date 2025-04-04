@@ -13,13 +13,33 @@ const NOVASTART=()=>{
             CONDITION(data >800,
                 ()=>{
 
-                    ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+                    CHECKER(localStorage.getItem('OperatingSystem') === 'Windows',()=>{
+
+                        ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+
+                    });
+
+                    CHECKER(localStorage.getItem('OperatingSystem') === 'Android',()=>{
+
+                        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+
+                    });
 
                 },
                 ()=>{
 
-                    ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
-                    
+                    CHECKER(localStorage.getItem('OperatingSystem') === 'Windows',()=>{
+
+                        ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+
+                    });
+
+                    CHECKER(localStorage.getItem('OperatingSystem') === 'Android',()=>{
+
+                        ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
+
+                    });
+
                 }
 
             );
