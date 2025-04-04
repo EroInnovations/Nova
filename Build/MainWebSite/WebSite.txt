@@ -94,13 +94,19 @@ const ANDROIDHOMEPAGE=()=>{
 
             ICON(ELEMENTS,WHITEGMAILICON,'25px','25px','',()=>{
 
+                GMAIL('eroinnovations9@gmail.com');
+
             });
 
             ICON(ELEMENTS,WHITEINSTAGRAMICON,'25px','25px','',()=>{
 
+                INSTAGRAM('elite_robust_ontology');
+
             });
 
-            ICON(ELEMENTS,WHITEWHATSAPPICON,'25px','25px','',()=>{
+            ICON(ELEMENTS,WHITEPHONEICON,'25px','25px','',()=>{
+
+                CALL('+256768058124');
 
             });
 
