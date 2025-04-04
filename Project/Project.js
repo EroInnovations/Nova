@@ -198,8 +198,6 @@ const DESKTOPHOMEPAGE=()=>{
 
     <br><br>
 
-    Download them Now and Join the Trend of Cloud Native Software and Reap its Benefits
-
     `;
 
     CLEAR('');
@@ -214,15 +212,19 @@ const DESKTOPHOMEPAGE=()=>{
 
             TEXT(ELEMENTS,'','Developers','','20px','',()=>{
 
+                ROUTE(' ',DESKTOPDEVELOPERSPAGE,'DESKTOPHOMEPAGE');
+
             });
 
             TEXT(ELEMENTS,'','Products','','20px','',()=>{
 
-                ROUTE(' ',DESKTOPCONTACTUSPAGE,'DESKTOPHOMEPAGE');
+                ROUTE(' ',DESKTOPPRODUCTPAGE,'DESKTOPHOMEPAGE');
 
             });
 
             TEXT(ELEMENTS,'','Contact Us','','20px','',()=>{
+
+                ROUTE(' ',DESKTOPCONTACTUSPAGE,'DESKTOPHOMEPAGE');
 
             });
 
@@ -236,7 +238,7 @@ const DESKTOPHOMEPAGE=()=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'h3','Our Services','','20px','2rem','1% auto',()=>{
+        LEFTTEXT(ELEMENT,'h3','Our Services','','20px','2rem','3% auto',()=>{
 
         });
 
@@ -298,12 +300,6 @@ const DESKTOPHOMEPAGE=()=>{
 
         });
 
-        BUTTONIMAGE(ELEMENT,'forestgreen','Download','',WHITEDOWNLOADICON,'50px','',()=>{
-
-            WEBSITE('https://eroinnovations.site/apps/elite.apk');
-
-        });
-
     });
 
 };
@@ -322,7 +318,27 @@ const DESKTOPCONTACTUSPAGE=()=>{
 
         });
 
-        CENTERVIEW(ELEMENT,'',()=>{
+        CENTERVIEW(ELEMENT,'',(ELEMES)=>{
+
+            CENTERTEXT(ELEMES,'h2','Fill This Contact Form','','','2% auto',()=>{
+
+            });
+
+            ROUNDINPUT(ELEMES,'','','transparent','Name Of Person',()=>{
+
+            });
+
+            ROUNDINPUT(ELEMES,'','','transparent','Email Of Person',()=>{
+
+            });
+
+            TEXTAREA(ELEMES,'','','300px','Provide Message',()=>{
+
+            });
+
+            BUTTON(ELEMES,'80%','50px','forestgreen','','Submit','',()=>{
+
+            });
 
         });
 
@@ -334,15 +350,85 @@ const DESKTOPCONTACTUSPAGE=()=>{
 
             ICON(ELEMENTS,WHITEGMAILICON,'20px','20px','',()=>{
 
+                GMAIL('eroinnovations9@gmail.com');
+
             });
 
             ICON(ELEMENTS,WHITEINSTAGRAMICON,'20px','20px','',()=>{
+
+                INSTAGRAM('elite_robust_ontology');
 
             });
 
             ICON(ELEMENTS,WHITEPHONEICON,'20px','20px','',()=>{
 
+                CALL('+256768058124');
+
             });
+
+        });
+
+    });
+
+};
+
+const DESKTOPPRODUCTPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+
+    },'Our Products','',()=>{
+
+    },(ELEMENT)=>{
+
+        VIEW(ELEMENT,'#333333','80%','300px','2% auto',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'overflow','hidden');
+
+            LEFTVIEW(ELEMENTS,'transparent','40%','100%','',(ELE)=>{
+
+                IMAGE(ELE,EROINNOVATIONSLOGOONE,'100%','100%','',()=>{
+
+                });
+
+            });
+
+            RIGHTVIEW(ELEMENTS,' ','55%','95%','5%',(ELE)=>{
+
+                CENTERTEXT(ELE,'h2','Elite App','','20px','','',()=>{
+
+                });
+
+                LEFTTEXT(ELE,'','Get All The Latest and Company Updates Via the Elite App <br> Click Below to Download','','16px','2rem','2% auto',()=>{
+
+                });
+
+                BUTTON(ELE,'70%','40px','forestgreen','','Download','5% auto',()=>{
+
+                    WEBSITE('https://eroinnovations.site/apps/elite.apk');
+
+                });
+
+            });
+
+        });
+
+    });
+
+};
+
+const DESKTOPDEVELOPERSPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',DESKTOPHOMEPAGE,'DESKTOPHOMEPAGE');
+
+    },'Developers','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'h2','This Page Is Under Development,Will be Available on "20th April,2025"','','','2% auto',()=>{
 
         });
 
