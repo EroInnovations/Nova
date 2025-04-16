@@ -14,8 +14,6 @@ const ELITEPAY=(EMAIL,AMOUNT,Callback)=>{
         .then(res => res.json())
         .then(datata =>{
 
-            console.log(datata)
-
             fetch('https://script.google.com/macros/s/AKfycbwUqiPhyLcPrv_Ck49ZnBLjlrQqnA1XGWXDUoU_I8jZLzJXPr_uv_b6XaYBxxVjK92zrA/exec',{
                 method:'Post',
                 body:JSON.stringify(
