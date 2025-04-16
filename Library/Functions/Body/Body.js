@@ -11,7 +11,7 @@ const BODY=()=>{
     ELEMENT.style.padding='0';
     ELEMENT.style.listStyle='none';
     ELEMENT.style.textDecoration='none';
-    ELEMENT.style.fontFamily='sans-serif';
+    ELEMENT.style.fontFamily='sans-serif,Camberia';
  
 };
 

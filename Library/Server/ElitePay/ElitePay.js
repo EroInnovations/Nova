@@ -1,10 +1,10 @@
 const ELITEPAY=(EMAIL,AMOUNT,Callback)=>{
 
-    fetch('https://script.google.com/macros/s/AKfycbyocwtVomJAIynregiiAeNUc-wtQABP78BWGnV-GOELmX_lgGGrRZE357H_NrMYO8NRbQ/exec')
+    fetch('https://script.google.com/macros/s/AKfycbw6BSTEaPrr8sPokyKMtuNVJdvTo-9tZy7w42g-Du43C--ebEIgkplQDtkdM91GKJThHQ/exec')
     .then(res =>res.json())
     .then(data =>{
 
-        fetch('https://script.google.com/macros/s/AKfycbyr8GUc6TTiMabOQooZHHF4kWyxnVG82tHY5Sn_VrqUBMRpeCfjPrrzx6ZHyi4kOyToCw/exec',{
+        fetch('https://script.google.com/macros/s/AKfycbyNOslxcSIi2w_f9lKNt2gvefysR-_piITlIUl0EEwepUBUYpbqrddQdvavXStCurVgpw/exec',{
             method:'Post',
             body:JSON.stringify({
                 "site": "https://eroinnovations.site",
@@ -14,7 +14,7 @@ const ELITEPAY=(EMAIL,AMOUNT,Callback)=>{
         .then(res => res.json())
         .then(datata =>{
 
-            fetch('https://script.google.com/macros/s/AKfycbwUqiPhyLcPrv_Ck49ZnBLjlrQqnA1XGWXDUoU_I8jZLzJXPr_uv_b6XaYBxxVjK92zrA/exec',{
+            fetch('https://script.google.com/macros/s/AKfycbxcjfDVJ11W5N2_QOV_djJBu3iLFwTubtwELxSX_ib7Jb3vTAqCSGFjyEfmDYEaSmfb7A/exec',{
                 method:'Post',
                 body:JSON.stringify(
                     {
