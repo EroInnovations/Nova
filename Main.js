@@ -5,6 +5,7 @@ import { TEXT } from "./Library/Components/Text/Text.js";
 import { APPMODE } from "./Library/Functions/AppMode/AppMode.js";
 import { BODY } from "./Library/Functions/Body/Body.js";
 import { CLEAR } from "./Library/Functions/Clear/Clear.js";
+import { INSPECTION } from "./Library/Functions/Inspection/Inspection.js";
 import { OPERATINGSYSTEM } from "./Library/Functions/OperatingSystem/OperatingSystem.js";
 import { VISITOR } from "./Library/Functions/Visitor/Visitor.js";
 import { NAVTEMPLATE } from "./Library/Templates/Components/NavTemplate/NavTemplate.js";
@@ -18,6 +19,8 @@ BODY();
 APPMODE('#04143c');
 
 VISITOR(API,'Visitors');
+
+INSPECTION();
 
 const NOVASTART=()=>{
 
