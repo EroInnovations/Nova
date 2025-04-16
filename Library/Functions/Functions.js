@@ -1,3 +1,4 @@
+import { ELITEPAY } from "../Server/ElitePay/ElitePay.js";
 import { ADD } from "./Add/Add.js";
 import { APPMODE } from "./AppMode/AppMode.js";
 import { AUDIOPICKER } from "./AudioPicker/AudioPicker.js";
@@ -171,6 +172,7 @@ const VISITOR=${VISITOR};
 const ICONCOLOR=${ICONCOLOR};
 const CAMERA=${CAMERA};
 const OPERATINGSYSTEM=${OPERATINGSYSTEM};
+const ELITEPAY=${ELITEPAY};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -179,6 +181,6 @@ export{FUNCTIONS};
 
 `
 
-const OPERATINGSYSTEM=${OPERATINGSYSTEM};
+const ELITEPAY=${ELITEPAY};
 
 `
