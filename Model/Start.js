@@ -26,7 +26,7 @@ const NOVASTARTER=()=>{
         
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbw4_ZJE_4zHfuxSJxOOxIt-Hw10W4xrV7Ng1qDd3ZXjDUKv_YBbeXXtPfYVKZ5XeukxjA/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbyHFabMyQk2EoZXk8VV-L4dBKPAe6knmhyAm1W6sQ9_WRmq5clAozbfIznoCHY0l1ssSQ/exec',{
         method:"Post",
         mode:"cors",
         body:JSON.stringify(DATA)
