@@ -4,7 +4,7 @@ const HOSTINGUPDATER = () => {
         "sheetName": "APPMANAGER"
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbwc_ZdByDbw4u-OcEcAaJQt11bfAe3znQ7pYre6pl1KOyIrx8E8PN9yIs1KVcLYPjQlOw/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyHFabMyQk2EoZXk8VV-L4dBKPAe6knmhyAm1W6sQ9_WRmq5clAozbfIznoCHY0l1ssSQ/exec', {
         method: "POST",
         mode: "cors",
         body: JSON.stringify(DATA)

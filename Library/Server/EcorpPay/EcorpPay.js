@@ -18,5 +18,5 @@ const TOKENIZATION = (EMAIL, NAME, DETAILS, AMOUNT, LINK, callback) => {
                 })
                 .catch((error) => console.log(error));
         })
-        .catch((error) => console.log(error));
+    .catch((error) => console.log(error));
 };
