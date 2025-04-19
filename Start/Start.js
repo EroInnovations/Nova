@@ -24,7 +24,7 @@ const START=()=>{
 
         ENVIRONMENT();
         
-    }, 1000);
+    }, 2000);
 
 };
 

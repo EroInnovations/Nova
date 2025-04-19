@@ -28,7 +28,11 @@ const CONFIGURATION=()=>{
 
     if (localStorage.getItem('BuildNumber') === '1010' ) {
 
-        MOBILECONFIGURATION();
+        setTimeout(() => {
+            
+            MOBILECONFIGURATION();
+
+        }, 2000);
 
         return;
         

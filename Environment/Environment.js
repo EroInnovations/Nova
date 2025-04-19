@@ -42,7 +42,7 @@ const ENVIRONMENT=()=>{
 
             CONFIGURATION();
             
-        }, 1000);
+        }, 2000);
 
         return;
         
