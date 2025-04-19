@@ -10,7 +10,15 @@ const HOMEHEADERTEMPLATE=(ELEMENT,HeaderColor,BodyColor,callback,HomeCallBack)=>
 
     FULLSCROLLVIEW(ELEMENT,BodyColor||'transparent',(ELEMS)=>{
 
-        STYLED(ELEMS,'top','50px');
+        if (localStorage.getItem('Environment') === 'Production' ) {
+
+            STYLED(ELEMS,'top','100px');
+
+        }else{
+
+            STYLED(ELEMS,'top','50px');
+
+        }
 
         HomeCallBack(ELEMS);
 
