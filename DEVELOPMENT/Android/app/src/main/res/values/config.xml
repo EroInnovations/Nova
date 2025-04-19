@@ -1,6 +1,0 @@
-<resources>
-
-    <!-- Define your app's package name -->
-    <string name="package_name">com.advance_native</string>
-
-</resources>

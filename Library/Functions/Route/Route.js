@@ -1,31 +1,15 @@
 const ROUTE=(NEWPAGE, FUNCTION, FUNCTIONBACK)=>{
     
     sessionStorage.setItem("PreviousPage", FUNCTIONBACK);
+
+    if (NEWPAGE) {
     
-    if (localStorage.getItem("Environment") === "Production") {
-    
-        if (NEWPAGE) {
-    
-            history.pushState({ data: FUNCTION() }, "", "file:///android_res/");
-    
-        } else {
-    
-            history.replaceState({ data: FUNCTION() }, "", "file:///android_res/");
-    
-        };
-    
+        history.pushState({ data: FUNCTION() }, "", "");
+
     } else {
-    
-        if (NEWPAGE) {
-    
-            history.pushState({ data: FUNCTION() }, "", "");
-    
-        } else {
-    
-            history.replaceState({ data: FUNCTION() }, "", "");
-    
-        };
-    
+
+        history.replaceState({ data: FUNCTION() }, "", "");
+
     };
     
     window.addEventListener("popstate", function (event) {
