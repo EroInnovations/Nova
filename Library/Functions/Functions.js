@@ -64,6 +64,7 @@ import { RELOAD } from "./Reload/Reload.js";
 import { REPEATER } from "./Repeater/Repeater.js";
 import { REVERSE } from "./Reverse/Reverse.js";
 import { ROUTE } from "./Route/Route.js";
+import { SAFEAREA } from "./SafeArea/SafeArea.js";
 import { SCREENHEIGHT } from "./ScreenHeight/ScreenHeight.js";
 import { SCREENWIDTH } from "./ScreenWidth/ScreenWidth.js";
 import { SCROLL } from "./Scroll/Scroll.js";
@@ -173,6 +174,7 @@ const ICONCOLOR=${ICONCOLOR};
 const CAMERA=${CAMERA};
 const OPERATINGSYSTEM=${OPERATINGSYSTEM};
 const ELITEPAY=${ELITEPAY};
+const SAFEAREA=${SAFEAREA};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -181,6 +183,6 @@ export{FUNCTIONS};
 
 `
 
-const ELITEPAY=${ELITEPAY};
+const SAFEAREA=${SAFEAREA};
 
 `

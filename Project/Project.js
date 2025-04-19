@@ -1,9 +1,45 @@
 const NOVASTART=()=>{
 
-    ELITEPAY('er',0.3,(data)=>{
+    ACCOUNTCHECKER(()=>{
 
-        WEBSITE(data);
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },()=>{
+
+        ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+
+    },()=>{
+
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
 
     });
 
 };
+
+const HOMEPAGE=()=>{
+
+
+
+};
+
+const LOGINPAGE=()=>{
+
+    CLEAR('');
+
+    DISPLAY('',`
+
+        Test
+        
+    `);
+
+}
+
+const CREATEACCOUNTPAGE=()=>{
+
+
+}
+
+const EMAILVERIFICATIONPAGE=()=>{
+
+
+}
