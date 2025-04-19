@@ -1,6 +1,6 @@
 const QELMEDISTORELOADER1=(body)=>{
 
-    body.style.background='green';
+    body.style.background='#6d9e21';
 
     body.innerHTML=`
 

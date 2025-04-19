@@ -38,7 +38,11 @@ const ENVIRONMENT=()=>{
         
         localStorage.setItem('Status','Android');
 
-        CONFIGURATION();
+        setTimeout(() => {
+
+            CONFIGURATION();
+            
+        }, 1000);
 
         return;
         

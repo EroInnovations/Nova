@@ -20,8 +20,12 @@ const START=()=>{
 
     };
 
-    ENVIRONMENT();
- 
+    setTimeout(() => {
+
+        ENVIRONMENT();
+        
+    }, 1000);
+
 };
 
 const LOADERS=(body)=>{
