@@ -4,9 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -40,29 +38,15 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getWindow().getDecorView().setSystemUiVisibility(
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
-            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-            View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        );
-
-        getWindow().setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        );
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-            getWindow().setNavigationBarColor(Color.TRANSPARENT);
-        }
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        webView = findViewById(R.id.webview);
-        WebSettings webSettings = webView.getSettings();
+        enableFullScreenMode();
 
+        webView = findViewById(R.id.webview);
+        webView.setVisibility(View.INVISIBLE); // hide WebView initially
+
+        WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
         webSettings.setAllowFileAccess(true);
@@ -96,8 +80,9 @@ public class MainActivity extends Activity {
 
             @Override
             public void onPageFinished(WebView view, String url) {
+                // Show WebView after it's fully loaded
+                webView.setVisibility(View.VISIBLE);
                 super.onPageFinished(view, url);
-                webView.setVisibility(View.VISIBLE); // Show WebView after fully loaded
             }
         });
 
@@ -152,9 +137,21 @@ public class MainActivity extends Activity {
             }
         });
 
-        webView.addJavascriptInterface(new WebAppInterface(this), "AndroidColors");
-
         webView.loadUrl("file:///android_asset/index.html");
+    }
+
+    private void enableFullScreenMode() {
+        getWindow().getDecorView().setSystemUiVisibility(
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+            View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
+        getWindow().setStatusBarColor(android.graphics.Color.TRANSPARENT);
     }
 
     private void requestPermission(String permission) {
@@ -229,21 +226,4 @@ public class MainActivity extends Activity {
             Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
         }
     }
-
-    public class WebAppInterface {
-
-        private Context mContext;
-
-        public WebAppInterface(Context context) {
-            this.mContext = context;
-        }
-
-        @JavascriptInterface
-        public String getColorHex(String colorName) {
-            int colorResId = mContext.getResources().getIdentifier(colorName, "color", mContext.getPackageName());
-            int color = ContextCompat.getColor(mContext, colorResId);
-            return String.format("#%06X", (0xFFFFFF & color));
-        }
-    }
-
 }

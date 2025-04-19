@@ -56,7 +56,6 @@ task moveAssets {
 
             if (sourceFile.exists()) {
                 Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
-                println "Moved ${fileName} to ${drawablePath}"
             } else {
                 println "${fileName} not found in project root, skipping..."
             }
@@ -110,7 +109,6 @@ task updateManifest {
             )
 
             manifestFile.text = manifestContent
-            println "✅ Updated AndroidManifest.xml with provider authority: ${packageName}.provider"
         } else {
             throw new GradleException("AndroidManifest.xml not found at: ${manifestFile.absolutePath}")
         }
