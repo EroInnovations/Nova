@@ -1,5 +1,6 @@
 import { COMMUNITYLOADER1 } from "../Design/CommunityRiseLoader/Loader1.js";
 import { DEVELOPMENTLOADER1 } from "../Design/DevelopmentLoader/DevelopmentLoader.js";
+import { QELMEDISTORELOADER1 } from "../Design/QelMedistoreLoaders/DevelopmentLoader.js";
 import { ENVIRONMENT } from "../Environment/Environment.js";
 const START=()=>{
 
@@ -25,18 +26,20 @@ const START=()=>{
 
 const LOADERS=(body)=>{
 
-    if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
+    if(localStorage.getItem('NAME') === '17ea81ea-b4fa-4b7a-8f3e-10ef438b880f'){
 
+        QELMEDISTORELOADER1(body);
+
+        return
+    }
+
+    
+    if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28') {
+   
         COMMUNITYLOADER1(body);
-        
-    } else {
 
-        if (localStorage.getItem('NAME') !== 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
-       
-            DEVELOPMENTLOADER1(body);
+        return;
 
-        };
-        
     };
 
 };
