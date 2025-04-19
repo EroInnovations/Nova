@@ -1,5 +1,6 @@
 import { COMMUNITYLOADER4 } from "../Design/CommunityRiseLoader/Loader4.js";
 import { DEVELOPMENTLOADER4 } from "../Design/DevelopmentLoader/DeveloperLoader4.js";
+import { QELMEDISTORELOADER4 } from "../Design/QelMedistoreLoaders/DeveloperLoader4.js";
 
 const NOVASTARTER=()=>{
 
@@ -239,16 +240,17 @@ const LOADERS=(body)=>{
     if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
 
         COMMUNITYLOADER4(body);
-        
-    } else {
 
-        if (localStorage.getItem('NAME') !== 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
-       
-            DEVELOPMENTLOADER4(body);
-    
-        };
+        return;
         
-    };
+    } 
+    
+    if(localStorage.getItem('NAME') === '17ea81ea-b4fa-4b7a-8f3e-10ef438b880f'){
+
+        QELMEDISTORELOADER4(body);
+
+        return
+    }
 
 };
 

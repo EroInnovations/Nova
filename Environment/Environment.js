@@ -1,6 +1,7 @@
 import { CONFIGURATION } from "../Configuration/Configuration.js";
 import { COMMUNITYLOADER2 } from "../Design/CommunityRiseLoader/Loader2.js";
 import { DEVELOPMENTLOADER2 } from "../Design/DevelopmentLoader/DeveloperLoader2.js";
+import { QELMEDISTORELOADER2 } from "../Design/QelMedistoreLoaders/DeveloperLoader2.js";
 const ENVIRONMENT=()=>{
 
     if (!localStorage.getItem('Updates')) {
@@ -74,17 +75,17 @@ const LOADERS=(body)=>{
     if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
 
         COMMUNITYLOADER2(body);
-        
-    } else {
 
-        if (localStorage.getItem('NAME') !== 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
-       
-            DEVELOPMENTLOADER2(body);
-    
-            
-        };
+        return;
         
-    };
+    } 
+
+    if(localStorage.getItem('NAME') === '17ea81ea-b4fa-4b7a-8f3e-10ef438b880f'){
+    
+        QELMEDISTORELOADER2(body);
+    
+        return
+    }
 
     CONFIGURATION();
 
