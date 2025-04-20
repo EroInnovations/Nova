@@ -55,17 +55,17 @@ const THEMEPAGE=()=>{
 
         STOREDATA(' ','TextColor','#ffffff');
 
-        NOVASTART();
+        RELOAD();
 
     });
 
-    BUTTONIMAGE('','#ffffff','Light Theme','#333333',BLACKSUNICON,'50px','2% auto',()=>{
+    BUTTONIMAGE('','#cdcdcd','Light Theme','#333333',BLACKSUNICON,'50px','2% auto',()=>{
 
-        STOREDATA(' ','AppTheme','#ffffff');
+        STOREDATA(' ','AppTheme','#cdcdcd');
 
         STOREDATA(' ','TextColor','#000');
 
-        NOVASTART();
+        RELOAD();
 
     });
 
@@ -75,7 +75,7 @@ const THEMEPAGE=()=>{
 
         STOREDATA(' ','TextColor','#ffffff');
 
-        NOVASTART();
+        RELOAD();
 
     });
 
@@ -89,7 +89,7 @@ const BACKICONCOLOR=(callback)=>{
 
     });
 
-    CHECKER(localStorage.getItem('AppTheme') === '#ffffff' ,()=>{
+    CHECKER(localStorage.getItem('AppTheme') === '#cdcdcd' ,()=>{
 
         callback(BLACKBACKICON);
 
