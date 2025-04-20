@@ -1,6 +1,6 @@
 const API='https://docs.google.com/spreadsheets/d/18BUoCg4yVUrxWv8RG885ZIn2fjkURGgjIrCi6otCxFk/edit?usp=sharing';
 
-const TEXTCOLOR=localStorage.getItem('TextColor');
+let TEXTCOLOR=localStorage.getItem('TextColor');
 
 const NOVASTART=()=>{
 
@@ -63,7 +63,7 @@ const THEMEPAGE=()=>{
 
         STOREDATA(' ','AppTheme','#ffffff');
 
-        STOREDATA(' ','TextColor','#333333');
+        STOREDATA(' ','TextColor','#000');
 
         NOVASTART();
 
