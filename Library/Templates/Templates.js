@@ -13,6 +13,7 @@ import { RIGHTTEXTBACKHEADERBODY } from "./Components/RightTextBackHeaderBody/Ri
 import { ACCOUNTCHECKER } from "./Functions/AccountChecker/AccountChecker.js";
 import { CLOUDCREATEACCOUNTTEMPLATE } from "./Functions/CloudCreateAccountTemplate/CloudCreateAccountTemplate.js";
 import { CLOUDLOGINTEMPLATE } from "./Functions/CloudLoginTemplate/CloudLoginTemplate.js";
+import { DOWNLOADSAVEINDEX } from "./Functions/DownloadSaveIndex/DownloadSaveIndex.js";
 import { EMAILVERIFICATIONTEMPLATE } from "./Functions/EmailVerificationTemplate/EmailVerificationTemplate.js";
 import { FORGOTPASSWORDTEMPLATE } from "./Functions/ForgotPasswordTemplate/ForgotPasswordTemplate.js";
 import { NOINTERNETTEMPLATE } from "./Functions/NoInternetMessage/NoInternetMessage.js";
@@ -38,6 +39,7 @@ const CENTERVIEW=${CENTERVIEW};
 const NAVTEMPLATE=${NAVTEMPLATE};
 const HOMESCROLLHEADERTEMPLATE=${HOMESCROLLHEADERTEMPLATE};
 const STOREINDEXEDDATA=${STOREINDEXEDDATA};
+const DOWNLOADSAVEINDEX=${DOWNLOADSAVEINDEX};
 `;
 localStorage.setItem('TEMPLATES',DATA);
 };
@@ -45,6 +47,6 @@ export{TEMPLATES};
 
 `
 
-const STOREINDEXEDDATA=${STOREINDEXEDDATA};
+const DOWNLOADSAVEINDEX=${DOWNLOADSAVEINDEX};
 
 `

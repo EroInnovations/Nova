@@ -11,6 +11,7 @@ import { CORNERROUNDBUTTON } from "./CornerSquareButton/CornernSquareButton.js";
 import { DISPLAYVIEW } from "./DisplayView/DisplayView.js";
 import { FLOATFIXEDBUTTON } from "./FloatFixedButton/FixedButton.js";
 import { FOOTER } from "./Footer/Footer.js";
+import { FREEIMAGE } from "./FreeImage/FreeImage.js";
 import { FULLSCROLLVIEW } from "./FullScrollView/FullScrollView.js";
 import { HEADER } from "./Header/Header.js";
 import { ICON } from "./Icon/Icon.js";
@@ -30,6 +31,7 @@ import { BORDERROUNDBUTTON } from "./RoundBorderButton/RoundBorderButton.js";
 import { ROUNDBUTTON } from "./RoundButton/RoundButton.js";
 import { ROUNDFOOTER } from "./RoundFooter/RoundFooter.js";
 import { ROUNDINPUT } from "./RoundInput/RoundInput.js";
+import { TABLEVIEW } from "./TableView/TabeView.js";
 import { TEXT } from "./Text/Text.js";
 import { TEXTAREA } from "./TextArea/TextArea.js";
 import { TOPLEFTIMAGE } from "./TopLeftImage/TopLeftIcon.js";
@@ -75,12 +77,14 @@ const BOTTOMLEFTIMAGE=${BOTTOMLEFTIMAGE};
 const BOTTOMRIGHTIMAGE=${BOTTOMRIGHTIMAGE};
 const LEFTVIEW=${LEFTVIEW};
 const RIGHTVIEW=${RIGHTVIEW};
+const TABLEVIEW=${TABLEVIEW};
+const FREEIMAGE=${FREEIMAGE};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const RIGHTVIEW=${RIGHTVIEW};
+const FREEIMAGE=${FREEIMAGE};
 
 `;

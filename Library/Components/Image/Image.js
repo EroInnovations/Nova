@@ -2,8 +2,9 @@ const IMAGE=(ELEMENT,SOURCE,WIDTH,HEIGHT,MARGIN,callback)=>{
 
     const ELEMENT1=document.createElement('img');
 
-    ELEMENT1.style.width=WIDTH||'95%';
-    ELEMENT1.style.height=HEIGHT||'95%';
+    ELEMENT1.style.position='relative'; 
+    ELEMENT1.style.width=WIDTH||'100%';
+    ELEMENT1.style.height=HEIGHT||'100%';
     ELEMENT1.style.margin=MARGIN||'auto';
 
     ELEMENT1.src=SOURCE;
