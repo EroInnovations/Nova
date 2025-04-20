@@ -1,4 +1,4 @@
-const ROUNDFOOTER=(ELEMENT,COLOR,WIDTH,HEIGHT,RADIUS,callback)=>{
+const ROUNDFOOTER=(ELEMENT,COLOR,WIDTH,HEIGHT,RADIUS,MARGIN,callback)=>{
 
     const ELEMENT1=document.createElement("footer");
 
@@ -10,7 +10,7 @@ const ROUNDFOOTER=(ELEMENT,COLOR,WIDTH,HEIGHT,RADIUS,callback)=>{
     ELEMENT1.style.left='0';
     ELEMENT1.style.bottom='1%';
     ELEMENT1.style.borderRadius=RADIUS||'50px';
-    ELEMENT1.style.marginLeft='2%';
+    ELEMENT1.style.margin=MARGIN||'auto';
 
     if (ELEMENT) {
 
