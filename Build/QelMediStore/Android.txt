@@ -1,18 +1,105 @@
 const API='https://docs.google.com/spreadsheets/d/18BUoCg4yVUrxWv8RG885ZIn2fjkURGgjIrCi6otCxFk/edit?usp=sharing';
 
+const TEXTCOLOR=localStorage.getItem('TextColor');
+
 const NOVASTART=()=>{
+
+    APPMODE(localStorage.getItem('AppTheme')||'#6b9c30');
 
     DOWNLOADSAVEINDEX(API,'Catergory','Catergory',()=>{
 
         DOWNLOADSAVEINDEX(API,'Products','Products',()=>{
 
-            ROUTE('',HOMEPAGE,'HOMEPAGE');
-        
+            CONDITION(localStorage.getItem('AppTheme'),()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+            },()=>{
+
+                ROUTE('',THEMEPAGE,'THEMEPAGE');
+
+            });
+
         });
 
     });
 
-    ROUTE('',HOMEPAGE,'HOMEPAGE');
+    CONDITION(localStorage.getItem('AppTheme'),()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },()=>{
+
+        ROUTE('',THEMEPAGE,'THEMEPAGE');
+
+    });
+
+
+};
+
+const THEMEPAGE=()=>{
+
+    CLEAR('');
+
+    CENTERTEXT('','h1','App Theme','#ffffff','30px','40% auto auto',()=>{
+
+    });
+
+    CENTERTEXT('','h1','Choose Your App Color','#ffffff','15px','5% auto ',()=>{
+
+    });
+
+    BUTTONIMAGE('','#333333','Dark Theme','#ffffff',WHITEMOONICON,'50px','1% auto',()=>{
+
+        STOREDATA(' ','AppTheme','#333333');
+
+        STOREDATA(' ','TextColor','#ffffff');
+
+        NOVASTART();
+
+    });
+
+    BUTTONIMAGE('','#ffffff','Light Theme','#333333',BLACKSUNICON,'50px','2% auto',()=>{
+
+        STOREDATA(' ','AppTheme','#ffffff');
+
+        STOREDATA(' ','TextColor','#333333');
+
+        NOVASTART();
+
+    });
+
+    BUTTONIMAGE('','#33333350','Normal Theme','#ffffff',QELMODENORMAL,'50px','2% auto',()=>{
+
+        STOREDATA(' ','AppTheme','#6b9c30'); 
+
+        STOREDATA(' ','TextColor','#ffffff');
+
+        NOVASTART();
+
+    });
+
+};
+
+const BACKICONCOLOR=(callback)=>{
+
+    CHECKER(localStorage.getItem('AppTheme') === '#333333' ,()=>{
+
+        callback(WHITEBACKICON);
+
+    });
+
+    CHECKER(localStorage.getItem('AppTheme') === '#ffffff' ,()=>{
+
+        callback(BLACKBACKICON);
+
+    });
+
+    CHECKER(localStorage.getItem('AppTheme') === '#6b9c30' ,()=>{
+
+        callback(WHITEBACKICON);
+
+    });
 
 };
 
@@ -22,18 +109,10 @@ const HOMEPAGE=()=>{
 
     FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
 
-        CENTERTEXT(ELEMENT,'','Installing Items to Device','','20px','70% auto',()=>{
+        NAVTEMPLATE(ELEMENT,'red','95%','50px','5%  auto',()=>{
 
-        });
-
-        GETINDEXED('Catergory','Catergory',(data)=>{
-
-            CLEAR(ELEMENT);
-
-            console.log(data)
-
-        });
-
+        })
+        
     });
 
     ROUNDFOOTER('','#333','95%','50px','10px','auto 2% 2%  ',(ELEMENT)=>{
@@ -65,13 +144,17 @@ const CATERGORIESPAGE=()=>{
 
     HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
 
-        LEFTIMAGE(ELEMENT,WHITEBACKICON,'20px','20px','1%','',()=>{
+        BACKICONCOLOR((Data)=>{
 
-            ROUTE('',HOMEPAGE,'HOMEPAGE');
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
 
         });
-
-        RIGHTTEXT(ELEMENT,'','Catergories','#ffffff','','2%','',()=>{
+        
+        RIGHTTEXT(ELEMENT,'','Catergories',TEXTCOLOR,'','2%','',()=>{
 
         });
 
@@ -116,13 +199,17 @@ const SAVEDITEMSPAGE=()=>{
 
     HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
 
-        LEFTIMAGE(ELEMENT,WHITEBACKICON,'20px','20px','1%','',()=>{
+        BACKICONCOLOR((Data)=>{
 
-            ROUTE('',HOMEPAGE,'HOMEPAGE');
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
 
         });
 
-        RIGHTTEXT(ELEMENT,'','Favorites','#ffffff','','2%','',()=>{
+        RIGHTTEXT(ELEMENT,'','Favorites',TEXTCOLOR,'','2%','',()=>{
 
         });
 
@@ -136,13 +223,17 @@ const SETTINGSPAGE=()=>{
 
     HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
 
-        LEFTIMAGE(ELEMENT,WHITEBACKICON,'20px','20px','1%','',()=>{
+        BACKICONCOLOR((Data)=>{
 
-            ROUTE('',HOMEPAGE,'HOMEPAGE');
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
 
         });
 
-        RIGHTTEXT(ELEMENT,'','Preferences','#ffffff','','2%','',()=>{
+        RIGHTTEXT(ELEMENT,'','Preferences',TEXTCOLOR,'','2%','',()=>{
 
         });
 

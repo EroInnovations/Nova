@@ -124,6 +124,9 @@ import { EROINNOVATIONSLOGOONE } from "../CompanyImages/EroInnovations/LogoOne.j
 import { NEXTICON } from "./WhiteIcons/NextIcon/NextIcon.js";
 import { TIKTOKICON } from "./WhiteIcons/TiktokIcon/TiktokIcon.js";
 import { GREENMENUICON } from "./GreenIcons/MenuIcon/MenuIcon.js";
+import { QELMODENORMAL } from "./SpecialColors/Qel/ModeColor.js";
+import { DARKSUN } from "./BlackIcons/Sun/Sun.js";
+import { DARKBACKICON } from "./BlackIcons/BacKIcon/BackIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -251,12 +254,15 @@ const EROINNOVATIONSLOGOONE='${EROINNOVATIONSLOGOONE}';
 const WHITENEXTICON='${NEXTICON}';
 const WHITETIKTOKICON='${TIKTOKICON}';
 const GREENMENUICON='${GREENMENUICON}';
+const QELMODENORMAL='${QELMODENORMAL}';
+const BLACKSUNICON='${DARKSUN}';
+const BLACKBACKICON='${DARKBACKICON}';
 `;
 localStorage.setItem("ICONS",DATA);
 };
 export{ICONS};
 
 `
-const GREENMENUICON='${GREENMENUICON}';
+const BLACKBACKICON='${DARKBACKICON}';
 
 `
