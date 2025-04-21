@@ -94,6 +94,16 @@ const BACKICONCOLOR=(callback)=>{
 
 const HOMEPAGE=()=>{
 
+    DOWNLOADSAVEINDEX(API,'Catergory','Catergory',()=>{
+
+        DOWNLOADSAVEINDEX(API,'Products','Products',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+        });
+
+    });
+
     CLEAR('');
 
     FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
