@@ -126,10 +126,14 @@ const HOMEPAGE=()=>{
 
         NAVTEMPLATE(ELEMENT,'transparent','95%','50px','10% auto auto',(ELEMENTS)=>{
 
-            LEFTIMAGE(ELEMENTS,WHITEMENUICON,'20px','20px','1%','',()=>{
+            LEFTIMAGE(ELEMENTS,WHITELOCATIONICON,'20px','20px','1%','auto',()=>{
     
             });
     
+            LEFTTEXT(ELEMENTS,'','Kampala',TEXTCOLOR,'','-20%','',()=>{
+    
+            });
+
             RIGHTTEXT(ELEMENTS,'','All Products',TEXTCOLOR,'','2%','',()=>{
 
                 ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
