@@ -494,6 +494,8 @@ const SETTINGSPAGE=()=>{
 
         BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Contact Us',TEXTCOLOR,WHITEPHONEICON,'50px','2% auto',()=>{
 
+            ROUTE(' ',CONTACTUSPAGE,'SETTINGSPAGE');
+
         });
 
         BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Sync',TEXTCOLOR,WHITERETRYICON,'50px','2% auto',()=>{
@@ -759,6 +761,42 @@ const SPECIALPRODUCTSPAGE=()=>{
 
         });
 
+    });
+
+};
+
+const CONTACTUSPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Reach Us',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'G-mail',TEXTCOLOR,WHITEGMAILICON,'50px','1% auto',()=>{
+
+            GMAIL('qelmedistore@gmail.com');
+    
+        });
+    
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Call',TEXTCOLOR,WHITEPHONEICON,'50px','2% auto',()=>{
+    
+            CALL('0781500455');
+           
+        });
+    
     });
 
 };
