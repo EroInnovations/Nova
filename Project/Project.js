@@ -8,6 +8,10 @@ const NOVASTART=()=>{
 
     APPMODE(localStorage.getItem('AppTheme')||'#6b9c30');
 
+    DOWNLOADSAVEINDEX(API,'Policies','Policies',()=>{
+
+    });
+
     DOWNLOADSAVEINDEX(API,'Catergory','Catergory',()=>{
 
         DOWNLOADSAVEINDEX(API,'Products','Products',()=>{
@@ -35,7 +39,6 @@ const NOVASTART=()=>{
         ROUTE('',THEMEPAGE,'THEMEPAGE');
 
     });
-
 
 };
 
@@ -269,6 +272,8 @@ const SETTINGSPAGE=()=>{
 
         BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Terms and Conditions',TEXTCOLOR,WHITEPRIVACYPOLICYICON,'50px','2% auto',()=>{
 
+            ROUTE(' ',POLICYPAGE,'SETTINGSPAGE');
+
         });
 
         BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Help',TEXTCOLOR,WHITEHELPICON,'50px','2% auto',()=>{
@@ -341,6 +346,46 @@ const BACKTHEMEPAGE=()=>{
     
             RELOAD();
     
+        });
+
+    });
+
+};
+
+const POLICYPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Policies',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+        GETINDEXEDDATA('Policies','Policies',(data)=>{
+
+            CHECKER(data.ID === 1 ,()=>{
+
+                LEFTTEXT(ELEMENT,'p',data.Data,'','','0.1rem','',()=>{
+
+                });
+
+            });
+
         });
 
     });
