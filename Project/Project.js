@@ -831,7 +831,7 @@ const LOCATIONPAGE=()=>{
 
             CONDITION(localStorage.getItem('AppTheme') === '#cdcdcd',()=>{
 
-                BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,element.District,TEXTCOLOR,BLACKBACKICON,'50px','2% auto',()=>{
+                BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,element.District,TEXTCOLOR,BLACKLOCATIONICON,'50px','2% auto',()=>{
 
                     STOREDATA(' ','Location',element.District);
 
