@@ -114,7 +114,7 @@ const HOMEPAGE=()=>{
 
     FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
 
-        VIEW(ELEMENT,'#00000050','99%','50%','1% auto auto ',(ELEMENTS)=>{
+        VIEW(ELEMENT,'#00000050','100%','30%','',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'overflow','hidden');
 
@@ -147,6 +147,28 @@ const HOMEPAGE=()=>{
         NAVTEMPLATE(ELEMENT,'#00000050','95%','10%','1% auto',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'border-radius','10px');
+            STYLED(ELEMENTS,'overflowX','auto');
+
+            GETINDEXEDDATA('Catergory','Catergory',(data)=>{
+
+                CHECKER(data.Approved,()=>{
+    
+                    VIEW(ELEMENTS,'#6b9c30','200px','50px','auto 2% auto',(ELEMENTES)=>{
+
+                        STYLED(ELEMENTES,'overflow','hidden');
+                        STYLED(ELEMENTES,'flex-shrink','0');
+                        STYLED(ELEMENTES,'display','inline-flex'); 
+                        STYLED(ELEMENTES,'border-radius','10px'); 
+
+                        TEXT(ELEMENTES,'',data.ProductName,'','20px','',()=>{
+
+                        });
+                    
+                    });
+    
+                });
+    
+            });
 
         });
 
@@ -174,7 +196,7 @@ const HOMEPAGE=()=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'','Most Related',TEXTCOLOR,'','3%','1% auto',()=>{
+        LEFTTEXT(ELEMENT,'','Most Rated ',TEXTCOLOR,'','3%','1% auto',()=>{
 
             ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
 
