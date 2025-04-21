@@ -74,16 +74,6 @@ const THEMEPAGE=()=>{
 
     });
 
-    BUTTONIMAGE('','#33333350','Normal Theme','#ffffff',QELMODENORMAL,'50px','2% auto',()=>{
-
-        STOREDATA(' ','AppTheme','#6b9c30'); 
-
-        STOREDATA(' ','TextColor','#ffffff');
-
-        RELOAD();
-
-    });
-
 };
 
 const BACKICONCOLOR=(callback)=>{
@@ -97,12 +87,6 @@ const BACKICONCOLOR=(callback)=>{
     CHECKER(localStorage.getItem('AppTheme') === '#cdcdcd' ,()=>{
 
         callback(BLACKBACKICON);
-
-    });
-
-    CHECKER(localStorage.getItem('AppTheme') === '#6b9c30' ,()=>{
-
-        callback(WHITEBACKICON);
 
     });
 
@@ -556,16 +540,6 @@ const BACKTHEMEPAGE=()=>{
     
         });
     
-        BUTTONIMAGE(ELEMENT,'#33333350','Normal Theme','#ffffff',QELMODENORMAL,'50px','2% auto',()=>{
-    
-            STOREDATA(' ','AppTheme','#6b9c30'); 
-    
-            STOREDATA(' ','TextColor','#ffffff');
-    
-            RELOAD();
-    
-        });
-
     });
 
 };
