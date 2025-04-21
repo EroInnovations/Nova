@@ -34,6 +34,7 @@ import { ROUNDINPUT } from "./RoundInput/RoundInput.js";
 import { TABLEVIEW } from "./TableView/TabeView.js";
 import { TEXT } from "./Text/Text.js";
 import { TEXTAREA } from "./TextArea/TextArea.js";
+import { TEXTICON } from "./TextIcon/TextIcon.js";
 import { TOPLEFTIMAGE } from "./TopLeftImage/TopLeftIcon.js";
 import { TOPRIGHTIMAGE } from "./TopRightImage/TopRightIcon.js";
 import { VIDEO } from "./Video/Video.js";
@@ -79,12 +80,13 @@ const LEFTVIEW=${LEFTVIEW};
 const RIGHTVIEW=${RIGHTVIEW};
 const TABLEVIEW=${TABLEVIEW};
 const FREEIMAGE=${FREEIMAGE};
+const TEXTICON=${TEXTICON};
 `;
 localStorage.setItem('COMPONENTS',DATA);
 };
 export{COMPONENTS};
 
 `
-const FREEIMAGE=${FREEIMAGE};
+const TEXTICON=${TEXTICON};
 
 `;

@@ -114,9 +114,54 @@ const HOMEPAGE=()=>{
 
     FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
 
-        NAVTEMPLATE(ELEMENT,'red','95%','50px','5%  auto',()=>{
+        NAVTEMPLATE(ELEMENT,'transparent','95%','50px','10% auto',(ELEMENTS)=>{
 
-        })
+            LEFTIMAGE(ELEMENTS,WHITEMENUICON,'20px','20px','1%','',()=>{
+    
+            });
+    
+            RIGHTTEXT(ELEMENTS,'','All Products',TEXTCOLOR,'','2%','',()=>{
+
+                ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
+    
+            });
+
+        });
+
+        GETINDEXEDDATA('Products','Products',(data)=>{
+
+            CHECKER(data.Approved,()=>{
+
+                TABLEVIEW(ELEMENT,'transparent','30%','25%','','1%',(ELEMENTS)=>{
+
+                    FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                        STYLED(ELEMS,'border-radius','10px');
+                        STYLED(ELEMS,'position','absolute');
+                        STYLED(ELEMS,'left','0');
+                        STYLED(ELEMS,'right','0');
+                        STYLED(ELEMS,'top','0');
+                        STYLED(ELEMS,'bottom','0');
+    
+                    });
+    
+                    FOOTER(ELEMENTS,'#333333','100%','70px',(ELEMS)=>{
+    
+                        STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+    
+                        TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+    
+                        });
+    
+                    });
+    
+                }); 
+
+            });
+
+            console.log(data)
+
+        });
         
     });
 
@@ -169,7 +214,7 @@ const CATERGORIESPAGE=()=>{
 
             CHECKER(data.Approved,()=>{
 
-                TABLEVIEW(ELEMENT,'transparent','30%','30%','','1%',(ELEMENTS)=>{
+                TABLEVIEW(ELEMENT,'transparent','30%','25%','','1%',(ELEMENTS)=>{
 
                     FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
     
@@ -383,6 +428,67 @@ const POLICYPAGE=()=>{
                 LEFTTEXT(ELEMENT,'p',data.Data,'','','0.1rem','',()=>{
 
                 });
+
+            });
+
+        });
+
+    });
+
+};
+
+const ALLPRODUCTPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','All Products',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+        GETINDEXEDDATA('Products','Products',(data)=>{
+
+            CHECKER(data.Approved,()=>{
+
+                TABLEVIEW(ELEMENT,'transparent','30%','25%','','1%',(ELEMENTS)=>{
+
+                    FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                        STYLED(ELEMS,'border-radius','10px');
+                        STYLED(ELEMS,'position','absolute');
+                        STYLED(ELEMS,'left','0');
+                        STYLED(ELEMS,'right','0');
+                        STYLED(ELEMS,'top','0');
+                        STYLED(ELEMS,'bottom','0');
+    
+                    });
+    
+                    FOOTER(ELEMENTS,'#333333','100%','70px',(ELEMS)=>{
+    
+                        STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+    
+                        TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+    
+                        });
+    
+                    });
+    
+                }); 
 
             });
 
