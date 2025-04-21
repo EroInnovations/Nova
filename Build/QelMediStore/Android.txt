@@ -247,16 +247,46 @@ const SETTINGSPAGE=()=>{
 
     },(ELEMENT)=>{
 
+        VIEW(ELEMENT,'red','95%','300px','',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'border-radius','10px');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Community',TEXTCOLOR,WHITEGROUPICON,'50px','2% auto',()=>{
+
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Sellers',TEXTCOLOR,WHITECREATEDONICON,'50px','2% auto',()=>{
+
+        });
+
         BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Theme',TEXTCOLOR,WHITECONTRASTICON,'50px','2% auto',()=>{
 
            ROUTE(' ',BACKTHEMEPAGE,'SETTINGSPAGE');
     
         });
 
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Terms and Conditions',TEXTCOLOR,WHITEPRIVACYPOLICYICON,'50px','2% auto',()=>{
+
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Help',TEXTCOLOR,WHITEHELPICON,'50px','2% auto',()=>{
+
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Contact Us',TEXTCOLOR,WHITEPHONEICON,'50px','2% auto',()=>{
+
+        });
+
         BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Sync',TEXTCOLOR,WHITERETRYICON,'50px','2% auto',()=>{
 
             RELOAD()
      
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Updates',TEXTCOLOR,WHITEMOBILEDEVELOPMENTICON,'50px','2% auto',()=>{
+
         });
 
     });
