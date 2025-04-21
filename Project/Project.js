@@ -114,17 +114,23 @@ const HOMEPAGE=()=>{
 
                 LEFTIMAGE(ELEMENTS,BLACKLOCATIONICON,'20px','20px','1%','auto',()=>{
     
+                    ROUTE(' ',LOCATIONPAGE,'HOMEPAGE');
+
                 });
 
             },()=>{
 
                 LEFTIMAGE(ELEMENTS,WHITELOCATIONICON,'20px','20px','1%','auto',()=>{
     
+                    ROUTE(' ',LOCATIONPAGE,'HOMEPAGE');
+
                 });
 
             });
     
-            LEFTTEXT(ELEMENTS,'','Kampala',TEXTCOLOR,'','-20%','',()=>{
+            LEFTTEXT(ELEMENTS,'',localStorage.getItem('Location')||'Kampala',TEXTCOLOR,'','-20%','',()=>{
+
+                ROUTE(' ',LOCATIONPAGE,'HOMEPAGE');
     
             });
 
@@ -795,6 +801,56 @@ const CONTACTUSPAGE=()=>{
     
             CALL('0781500455');
            
+        });
+    
+    });
+
+};
+
+const LOCATIONPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Locations',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        REDUX(UGANDANDISTRICITS,(element)=>{
+
+            CONDITION(localStorage.getItem('AppTheme') === '#cdcdcd',()=>{
+
+                BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,element.District,TEXTCOLOR,BLACKBACKICON,'50px','2% auto',()=>{
+
+                    STOREDATA(' ','Location',element.District);
+
+                    ROUTE(' ',HOMEPAGE,'HOMEPAGE');
+
+                });
+
+            },()=>{
+
+                BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,element.District,TEXTCOLOR,WHITELOCATIONICON,'50px','2% auto',()=>{
+
+                    STOREDATA(' ','Location',element.District);
+
+                    ROUTE(' ',HOMEPAGE,'HOMEPAGE');
+        
+                });
+
+            });
+
         });
     
     });
