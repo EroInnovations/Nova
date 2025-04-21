@@ -167,6 +167,16 @@ const HOMEPAGE=()=>{
                         TEXT(ELEMENTES,'',data.ProductName,'','20px','',()=>{
 
                         });
+
+                        CLICK(ELEMENTES,()=>{
+
+                            STOREDATA('','SectionName',data.ProductName);
+
+                            STOREDATA('','SectionID',data.ID);
+
+                            ROUTE(' ',SPECIALPRODUCTSPAGE,'HOMEPAGE');
+
+                        });
                     
                     });
     
@@ -185,6 +195,40 @@ const HOMEPAGE=()=>{
         NAVTEMPLATE(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'border-radius','10px');
+            STYLED(ELEMENTS,'overflowX','auto');
+
+            GETINDEXEDDATA('Products','Products',(data)=>{
+
+                CHECKER(data.Approved,()=>{
+
+                    INLINEVIEW(ELEMENTS,'','150px','95%','','auto 2%',(ELEMENSE)=>{
+
+                        FREEIMAGE(ELEMENSE,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                            STYLED(ELEMS,'border-radius','10px');
+                            STYLED(ELEMS,'position','absolute');
+                            STYLED(ELEMS,'left','0');
+                            STYLED(ELEMS,'right','0');
+                            STYLED(ELEMS,'top','0');
+                            STYLED(ELEMS,'bottom','0');
+        
+                        });
+        
+                        FOOTER(ELEMENSE,'#333333','100%','70px',(ELEMS)=>{
+        
+                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+        
+                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+        
+                            });
+        
+                        });
+
+                    });
+    
+                });
+    
+            });
 
         });
 
@@ -197,6 +241,40 @@ const HOMEPAGE=()=>{
         NAVTEMPLATE(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'border-radius','10px');
+            STYLED(ELEMENTS,'overflowX','auto');
+
+            GETINDEXEDDATA('Products','Products',(data)=>{
+
+                CHECKER(data.Approved,()=>{
+
+                    INLINEVIEW(ELEMENTS,'','150px','95%','','auto 2%',(ELEMENSE)=>{
+
+                        FREEIMAGE(ELEMENSE,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                            STYLED(ELEMS,'border-radius','10px');
+                            STYLED(ELEMS,'position','absolute');
+                            STYLED(ELEMS,'left','0');
+                            STYLED(ELEMS,'right','0');
+                            STYLED(ELEMS,'top','0');
+                            STYLED(ELEMS,'bottom','0');
+        
+                        });
+        
+                        FOOTER(ELEMENSE,'#333333','100%','70px',(ELEMS)=>{
+        
+                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+        
+                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+        
+                            });
+        
+                        });
+
+                    });
+    
+                });
+    
+            });
 
         });
 
@@ -209,6 +287,40 @@ const HOMEPAGE=()=>{
         NAVTEMPLATE(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'border-radius','10px');
+            STYLED(ELEMENTS,'overflowX','auto');
+
+            GETINDEXEDDATA('Products','Products',(data)=>{
+
+                CHECKER(data.Approved,()=>{
+
+                    INLINEVIEW(ELEMENTS,'','150px','95%','','auto 2%',(ELEMENSE)=>{
+
+                        FREEIMAGE(ELEMENSE,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                            STYLED(ELEMS,'border-radius','10px');
+                            STYLED(ELEMS,'position','absolute');
+                            STYLED(ELEMS,'left','0');
+                            STYLED(ELEMS,'right','0');
+                            STYLED(ELEMS,'top','0');
+                            STYLED(ELEMS,'bottom','0');
+        
+                        });
+        
+                        FOOTER(ELEMENSE,'#333333','100%','70px',(ELEMS)=>{
+        
+                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+        
+                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+        
+                            });
+        
+                        });
+
+                    });
+    
+                });
+    
+            });
 
         });
 
@@ -242,6 +354,8 @@ const HOMEPAGE=()=>{
 };
 
 const CATERGORIESPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
 
     HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
 
@@ -287,12 +401,20 @@ const CATERGORIESPAGE=()=>{
                         });
     
                     });
+
+                    CLICK(ELEMENTS,()=>{
+
+                        STOREDATA('','SectionName',data.ProductName);
+
+                        STOREDATA('','SectionID',data.ID);
+
+                        ROUTE(' ',SPECIALPRODUCTSPAGE,'CATERGORIESPAGE');
+
+                    });
     
                 }); 
 
             });
-
-            console.log(data)
 
         });
 
@@ -577,6 +699,80 @@ const PRODUCTPAGE=()=>{
 
             });
      
+        });
+
+    });
+
+};
+
+const SPECIALPRODUCTSPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+
+                CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
+
+                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                },()=>{
+
+                    ROUTE('',CATERGORIESPAGE,'CATERGORIESPAGE');
+
+                });
+
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'',sessionStorage.getItem('SectionName'),TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+        GETINDEXEDDATA('Products','Products',(data)=>{
+
+            CHECKER(data.Approved,()=>{
+
+                console.log(data);
+
+                CHECKER(data.ProductCatergory === sessionStorage.getItem('SectionID'),()=>{
+
+                    TABLEVIEW(ELEMENT,'transparent','30%','25%','','1%',(ELEMENTS)=>{
+
+                        FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+        
+                            STYLED(ELEMS,'border-radius','10px');
+                            STYLED(ELEMS,'position','absolute');
+                            STYLED(ELEMS,'left','0');
+                            STYLED(ELEMS,'right','0');
+                            STYLED(ELEMS,'top','0');
+                            STYLED(ELEMS,'bottom','0');
+        
+                        });
+        
+                        FOOTER(ELEMENTS,'#333333','100%','70px',(ELEMS)=>{
+        
+                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+        
+                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+        
+                            });
+        
+                        });
+        
+                    }); 
+
+                });
+
+            });
+
         });
 
     });
