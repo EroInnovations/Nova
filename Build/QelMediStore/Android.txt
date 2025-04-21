@@ -2,6 +2,8 @@ const API='https://docs.google.com/spreadsheets/d/18BUoCg4yVUrxWv8RG885ZIn2fjkUR
 
 const TEXTCOLOR=localStorage.getItem('TextColor');
 
+const ELEMENTCOLOR=localStorage.getItem('AppTheme');
+
 const NOVASTART=()=>{
 
     APPMODE(localStorage.getItem('AppTheme')||'#6b9c30');
@@ -162,28 +164,32 @@ const CATERGORIESPAGE=()=>{
 
         GETINDEXEDDATA('Catergory','Catergory',(data)=>{
 
-            TABLEVIEW(ELEMENT,' ','45%','40%','','2.5%',(ELEMENTS)=>{
+            CHECKER(data.Approved,()=>{
 
-                FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+                TABLEVIEW(ELEMENT,'transparent','30%','30%','','1%',(ELEMENTS)=>{
 
-                    STYLED(ELEMS,'border-radius','10px');
-                    STYLED(ELEMS,'position','absolute');
-                    STYLED(ELEMS,'left','0');
-                    STYLED(ELEMS,'right','0');
-                    STYLED(ELEMS,'top','0');
-                    STYLED(ELEMS,'bottom','0');
-
-                });
-
-                FOOTER(ELEMENTS,'#333333','100%','80px',(ELEMS)=>{
-
-                    STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
-
-                    TEXT(ELEMS,'',data.ProductName,'#ffffff','20px','',()=>{
-
+                    FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                        STYLED(ELEMS,'border-radius','10px');
+                        STYLED(ELEMS,'position','absolute');
+                        STYLED(ELEMS,'left','0');
+                        STYLED(ELEMS,'right','0');
+                        STYLED(ELEMS,'top','0');
+                        STYLED(ELEMS,'bottom','0');
+    
                     });
-
-                });
+    
+                    FOOTER(ELEMENTS,'#333333','100%','70px',(ELEMS)=>{
+    
+                        STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+    
+                        TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+    
+                        });
+    
+                    });
+    
+                }); 
 
             });
 
@@ -221,6 +227,8 @@ const SAVEDITEMSPAGE=()=>{
 
 const SETTINGSPAGE=()=>{
 
+    BACKPAGE('HOMEPAGE');
+
     HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
 
         BACKICONCOLOR((Data)=>{
@@ -238,6 +246,72 @@ const SETTINGSPAGE=()=>{
         });
 
     },(ELEMENT)=>{
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Theme',TEXTCOLOR,WHITECONTRASTICON,'50px','2% auto',()=>{
+
+           ROUTE(' ',BACKTHEMEPAGE,'SETTINGSPAGE');
+    
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Sync',TEXTCOLOR,WHITERETRYICON,'50px','2% auto',()=>{
+
+            RELOAD()
+     
+        });
+
+    });
+
+};
+
+const BACKTHEMEPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Themes',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        BUTTONIMAGE(ELEMENT,'#333333','Dark Theme','#ffffff',WHITEMOONICON,'50px','1% auto',()=>{
+
+            STOREDATA(' ','AppTheme','#333333');
+    
+            STOREDATA(' ','TextColor','#ffffff');
+    
+            RELOAD();
+    
+        });
+    
+        BUTTONIMAGE(ELEMENT,'#cdcdcd','Light Theme','#333333',BLACKSUNICON,'50px','2% auto',()=>{
+    
+            STOREDATA(' ','AppTheme','#cdcdcd');
+    
+            STOREDATA(' ','TextColor','#000');
+    
+            RELOAD();
+    
+        });
+    
+        BUTTONIMAGE(ELEMENT,'#33333350','Normal Theme','#ffffff',QELMODENORMAL,'50px','2% auto',()=>{
+    
+            STOREDATA(' ','AppTheme','#6b9c30'); 
+    
+            STOREDATA(' ','TextColor','#ffffff');
+    
+            RELOAD();
+    
+        });
 
     });
 
