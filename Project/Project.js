@@ -110,8 +110,18 @@ const HOMEPAGE=()=>{
 
         NAVTEMPLATE(ELEMENT,'transparent','95%','50px','10% auto auto',(ELEMENTS)=>{
 
-            LEFTIMAGE(ELEMENTS,WHITELOCATIONICON,'20px','20px','1%','auto',()=>{
+            CONDITION(localStorage.getItem('AppTheme') === '#cdcdcd',()=>{
+
+                LEFTIMAGE(ELEMENTS,BLACKLOCATIONICON,'20px','20px','1%','auto',()=>{
     
+                });
+
+            },()=>{
+
+                LEFTIMAGE(ELEMENTS,WHITELOCATIONICON,'20px','20px','1%','auto',()=>{
+    
+                });
+
             });
     
             LEFTTEXT(ELEMENTS,'','Kampala',TEXTCOLOR,'','-20%','',()=>{

@@ -125,8 +125,9 @@ import { NEXTICON } from "./WhiteIcons/NextIcon/NextIcon.js";
 import { TIKTOKICON } from "./WhiteIcons/TiktokIcon/TiktokIcon.js";
 import { GREENMENUICON } from "./GreenIcons/MenuIcon/MenuIcon.js";
 import { QELMODENORMAL } from "./SpecialColors/Qel/ModeColor.js";
-import { DARKSUN } from "./BlackIcons/Sun/Sun.js";
+import { DARKSUN } from "./BlackIcons/SunIcon/Sun.js";
 import { DARKBACKICON } from "./BlackIcons/BacKIcon/BackIcon.js";
+import { DARKLOCATIONICON } from "./BlackIcons/LocationIcon/LocationIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -257,12 +258,13 @@ const GREENMENUICON='${GREENMENUICON}';
 const QELMODENORMAL='${QELMODENORMAL}';
 const BLACKSUNICON='${DARKSUN}';
 const BLACKBACKICON='${DARKBACKICON}';
+const BLACKLOCATIONICON='${DARKLOCATIONICON}';
 `;
 localStorage.setItem("ICONS",DATA);
 };
 export{ICONS};
 
 `
-const BLACKBACKICON='${DARKBACKICON}';
+const BLACKLOCATIONICON='${DARKLOCATIONICON}';
 
 `
