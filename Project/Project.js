@@ -96,11 +96,15 @@ const HOMEPAGE=()=>{
 
     DOWNLOADSAVEINDEX(API,'Catergory','Catergory',()=>{
 
-        DOWNLOADSAVEINDEX(API,'Products','Products',()=>{
+    });
 
-            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    DOWNLOADSAVEINDEX(API,'Policies','Policies',()=>{
 
-        });
+    });
+
+    DOWNLOADSAVEINDEX(API,'Products','Products',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
     });
 
@@ -486,9 +490,13 @@ const SETTINGSPAGE=()=>{
 
         BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Community',TEXTCOLOR,WHITEGROUPICON,'50px','2% auto',()=>{
 
+            ROUTE(' ',COMMUNITYPAGE,'SETTINGSPAGE');
+
         });
 
         BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Sellers',TEXTCOLOR,WHITECREATEDONICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',SELLERSPAGE,'SETTINGSPAGE');
 
         });
 
@@ -505,6 +513,8 @@ const SETTINGSPAGE=()=>{
         });
 
         BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Help',TEXTCOLOR,WHITEHELPICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',HELPPAGE,'SETTINGSPAGE');
 
         });
 
@@ -573,8 +583,6 @@ const BACKTHEMEPAGE=()=>{
 };
 
 const POLICYPAGE=()=>{
-
-    BACKPAGE('HOMEPAGE');
 
     HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
 
@@ -863,6 +871,97 @@ const LOCATIONPAGE=()=>{
 
         });
     
+    });
+
+};
+
+const HELPPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Help',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+        GETINDEXEDDATA('Policies','Policies',(data)=>{
+
+            CHECKER(data.ID === 1 ,()=>{
+
+                LEFTTEXT(ELEMENT,'p',data.Data,'','','0.1rem','',()=>{
+
+                });
+
+            });
+
+        });
+
+    });
+
+};
+
+const COMMUNITYPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Community',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+    });
+
+};
+
+
+const SELLERSPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Sellers',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
     });
 
 };

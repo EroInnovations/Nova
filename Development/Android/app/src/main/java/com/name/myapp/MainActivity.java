@@ -44,8 +44,7 @@ public class MainActivity extends Activity {
         enableFullScreenMode();
 
         webView = findViewById(R.id.webview);
-        webView.setVisibility(View.INVISIBLE); // hide WebView initially
-
+        webView.setVisibility(View.INVISIBLE);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
@@ -64,8 +63,20 @@ public class MainActivity extends Activity {
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 String url = request.getUrl().toString();
 
-                if (url.startsWith("mailto:") || url.startsWith("sms:") || url.startsWith("tel:")) {
-                    startExternalIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)), "No suitable app found!");
+                if (url.startsWith("mailto:")) {
+                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                    emailIntent.setData(Uri.parse(url));
+                    if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(emailIntent);
+                    } else {
+                        Toast.makeText(MainActivity.this, "No email app found!", Toast.LENGTH_SHORT).show();
+                    }
+                    return true;
+                }
+
+                if (url.startsWith("sms:") || url.startsWith("tel:")) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startExternalIntent(intent, "No suitable app found!");
                     return true;
                 }
 
@@ -80,7 +91,6 @@ public class MainActivity extends Activity {
 
             @Override
             public void onPageFinished(WebView view, String url) {
-                // Show WebView after it's fully loaded
                 webView.setVisibility(View.VISIBLE);
                 super.onPageFinished(view, url);
             }
