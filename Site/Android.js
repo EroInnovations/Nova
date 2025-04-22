@@ -1,72 +1,165 @@
-import { EROINNOVATIONSLOGOONE } from "../Library/Assets/CompanyImages/EroInnovations/LogoOne.js";
-import { CENTERTEXT } from "../Library/Components/CenterText/CenterText.js";
-import { IMAGE } from "../Library/Components/Image/Image.js";
-import { LEFTTEXT } from "../Library/Components/LeftText/LeftText.js"
-import { LEFTVIEW } from "../Library/Components/LeftView/LeftView.js";
+import { BACKICON } from "../Library/Assets/Icons/WhiteIcons/BackIcon/BackIcon.js";
+import { DOWNLOADICON } from "../Library/Assets/Icons/WhiteIcons/DownloadIcon/DownloadIcon.js";
+import { FULLSCROLLVIEW } from "../Library/Components/FullScrollView/FullScrollView.js";
+import { IMAGEBUTTON } from "../Library/Components/ImageButton/ImageButton.js";
+import { LEFTIMAGE } from "../Library/Components/LeftImage/LeftImage.js";
 import { RIGHTTEXT } from "../Library/Components/RightText/RightText.js";
-import { RIGHTVIEW } from "../Library/Components/RightView/RightView.js";
 import { TEXT } from "../Library/Components/Text/Text.js";
 import { VIEW } from "../Library/Components/View/Views.js";
-import { STYLED } from "../Library/Functions/Style/Style.js";
-import { HOMEHEADERTEMPLATE } from "../Library/Templates/Components/HomeHeaderTemplate/HomeHeaderTemplate.js"
+import { CLEAR } from "../Library/Functions/Clear/Clear.js";
+import { ROUTE } from "../Library/Functions/Route/Route.js";
 import { NAVTEMPLATE } from "../Library/Templates/Components/NavTemplate/NavTemplate.js";
 
 const ANDROIDSITE=()=>{
 
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+    CLEAR('');
 
-        LEFTTEXT(ELEMENT,'h3','Elite Robust Ontology','','18px','1%','',()=>{
+    FULLSCROLLVIEW('','transparemt',(ELEMENT)=>{
 
-        });
-
-        RIGHTTEXT(ELEMENT,'h3','Download App','','18px','0.5rem','',()=>{
+        VIEW(ELEMENT,'orange','98%','40%','1% auto',()=>{
 
         });
 
-    },(ELEMENTS)=>{
+        NAVTEMPLATE(ELEMENT,'orange','98%','50px','',(ELEMENTS)=>{
 
-        CENTERTEXT(ELEMENTS,'h1','About Us','','23px','2%',()=>{
+            TEXT(ELEMENTS,'','Developer','','','',()=>{
+
+                ROUTE(' ',ANDROIDDEVELOPERPAGE,'ANDROIDSITE');
+
+            });
+
+            TEXT(ELEMENTS,'','About Us','','','',()=>{
+
+                ROUTE(' ',ANDROIDABOUTPAGE,'ANDROIDSITE');
+
+            });
+
+            TEXT(ELEMENTS,'','Contact Us','','','',()=>{
+
+                ROUTE(' ',ANDROIDCONTACTUSPAGE,'ANDROIDSITE');
+
+            });
 
         });
 
-        NAVTEMPLATE(ELEMENTS,' ','98%','200px','1%',(ELS)=>{
+        VIEW(ELEMENT,'orange','98%','40%','1% auto',()=>{
 
-            STYLED(ELS,'border-radius','5px');
+        });
 
-            LEFTVIEW(ELS,'forestgreen','50%','100%','',(COMMENT)=>{
+        VIEW(ELEMENT,'orange','98%','40%','1% auto',()=>{
 
-                const Messag=`Located At the Heart of Mbale City ,Elite Robust Ontology is a Software Company that has specialized in the Following Sectors in Information and Technology.`;
-    
-                LEFTTEXT(COMMENT,'',Messag,'','18px','3%','5% auto',()=>{
-    
-                });
-    
-            });
+        });
 
-            RIGHTVIEW(ELS,' ','50%','100%','',(COMMENT)=>{
+        IMAGEBUTTON(ELEMENT,'orange','','',DOWNLOADICON,'','',()=>{
 
-                IMAGE(COMMENT,EROINNOVATIONSLOGOONE,'100%','100%','0',()=>{
+        });
 
-                });
-    
-            });
-
-        })
-
-        NAVTEMPLATE(ELEMENTS,' ','90%','50px','',(ELEMES)=>{
-
-            LEFTTEXT(ELEMES,'h1','Order Now','orange','22px','10%','5% auto',()=>{
-
-            });
-        
-            RIGHTTEXT(ELEMES,'h1','Contact Us','brown','22px','10%','5% auto',()=>{
-
-            });
+        NAVTEMPLATE(ELEMENT,'orange','98%','200px','',()=>{
 
         });
 
     });
-    
+        
+};
+
+const ANDROIDABOUTPAGE=()=>{
+
+    CLEAR('');
+
+    FULLSCROLLVIEW('','transparemt',(ELEMENT)=>{
+
+        NAVTEMPLATE(ELEMENT,'orange','98%','50px','',(ELEMENTS)=>{
+
+            LEFTIMAGE(ELEMENTS,BACKICON,'20px','20px','0.1rem','',()=>{
+
+                ROUTE('',ANDROIDSITE,'ANDROIDSITE');
+
+            });
+
+            RIGHTTEXT(ELEMENTS,'','About Us','','','',()=>{
+
+            });
+
+        });
+
+        VIEW(ELEMENT,'orange','98%','50%','1% auto',()=>{
+
+        });
+
+        VIEW(ELEMENT,'orange','98%','30%','5% auto',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'orange','98%','200px','',()=>{
+
+        });
+
+    });
+
+};
+
+const ANDROIDDEVELOPERPAGE=()=>{
+
+    CLEAR('');
+
+    FULLSCROLLVIEW('','transparemt',(ELEMENT)=>{
+
+        NAVTEMPLATE(ELEMENT,'orange','98%','50px','',(ELEMENTS)=>{
+
+            LEFTIMAGE(ELEMENTS,BACKICON,'20px','20px','0.1rem','',()=>{
+
+                ROUTE('',ANDROIDSITE,'ANDROIDSITE');
+
+            });
+
+            RIGHTTEXT(ELEMENTS,'','Developers','','','',()=>{
+
+            });
+
+        });
+
+        VIEW(ELEMENT,'orange','98%','50%','1% auto',()=>{
+
+        });
+
+        VIEW(ELEMENT,'orange','98%','30%','5% auto',()=>{
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'orange','98%','200px','',()=>{
+
+        });
+
+    });
+
+};
+
+const ANDROIDCONTACTUSPAGE=()=>{
+
+    CLEAR('');
+
+    FULLSCROLLVIEW('','transparemt',(ELEMENT)=>{
+
+        NAVTEMPLATE(ELEMENT,'orange','98%','50px','',(ELEMENTS)=>{
+
+            LEFTIMAGE(ELEMENTS,BACKICON,'20px','20px','0.1rem','',()=>{
+
+                ROUTE('',ANDROIDSITE,'ANDROIDSITE');
+
+            });
+
+            RIGHTTEXT(ELEMENTS,'','Contact Us','','','',()=>{
+
+            });
+
+        });
+
+        VIEW(ELEMENT,'orange','98%','40%','1% auto',()=>{
+
+        });
+
+    });
+
 };
 
 export{ANDROIDSITE}
