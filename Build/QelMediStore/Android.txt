@@ -482,9 +482,50 @@ const SETTINGSPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        VIEW(ELEMENT,'red','95%','300px','',(ELEMENTS)=>{
+        VIEW(ELEMENT,'','95%','300px','',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'border-radius','10px');
+            STYLED(ELEMENTS,'border','1px solid #cdcdcd50');
+
+            LEFTVIEW(ELEMENTS,' ','50%','100%','',(ELEMENSE)=>{
+
+                IMAGE(ELEMENSE,QELMODENORMAL,'100%','100%','',()=>{
+
+                });
+
+                FOOTER(ELEMENSE,' ','100%','50px',(ELEMENTE)=>{
+
+                    CONDITION(localStorage.getItem('AppTheme') === '#cdcdcd',()=>{
+
+                        LEFTIMAGE(ELEMENTE,BLACKLOCATIONICON,'20px','20px','1%','auto',()=>{
+            
+                            ROUTE(' ',LOCATIONPAGE,'SETTINGSPAGE');
+        
+                        });
+        
+                    },()=>{
+        
+                        LEFTIMAGE(ELEMENTE,WHITELOCATIONICON,'20px','20px','1%','auto',()=>{
+            
+                            ROUTE(' ',LOCATIONPAGE,'SETTINGSPAGE');
+        
+                        });
+        
+                    });
+            
+                    LEFTTEXT(ELEMENTE,'',localStorage.getItem('Location')||'Kampala',TEXTCOLOR,'','-20%','',()=>{
+        
+                        ROUTE(' ',LOCATIONPAGE,'SETTINGSPAGE');
+            
+                    });
+
+                });
+
+            });
+
+            RIGHTVIEW(ELEMENTS,'blue','50%','100%','',(ELEMENSE)=>{
+
+            });
 
         });
 
@@ -531,6 +572,8 @@ const SETTINGSPAGE=()=>{
         });
 
         BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Updates',TEXTCOLOR,WHITEMOBILEDEVELOPMENTICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',UPDATESPAGE,'SETTINGSPAGE');
 
         });
 
@@ -833,7 +876,15 @@ const LOCATIONPAGE=()=>{
 
             LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
 
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
+                CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
+
+                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                },()=>{
+
+                    ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+                });
     
             });
 
@@ -853,7 +904,15 @@ const LOCATIONPAGE=()=>{
 
                     STOREDATA(' ','Location',element.District);
 
-                    ROUTE(' ',HOMEPAGE,'HOMEPAGE');
+                    CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
+
+                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                    },()=>{
+    
+                        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+                    });
 
                 });
 
@@ -863,7 +922,15 @@ const LOCATIONPAGE=()=>{
 
                     STOREDATA(' ','Location',element.District);
 
-                    ROUTE(' ',HOMEPAGE,'HOMEPAGE');
+                    CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
+
+                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                    },()=>{
+    
+                        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+                    });
         
                 });
 
@@ -939,7 +1006,6 @@ const COMMUNITYPAGE=()=>{
 
 };
 
-
 const SELLERSPAGE=()=>{
 
     HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
@@ -955,6 +1021,32 @@ const SELLERSPAGE=()=>{
         });
 
         RIGHTTEXT(ELEMENT,'','Sellers',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+    });
+
+};
+
+const UPDATESPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Updates',TEXTCOLOR,'','2%','',()=>{
 
         });
 

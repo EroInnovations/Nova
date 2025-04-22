@@ -45,6 +45,7 @@ public class MainActivity extends Activity {
 
         webView = findViewById(R.id.webview);
         webView.setVisibility(View.INVISIBLE);
+
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
@@ -62,30 +63,58 @@ public class MainActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 String url = request.getUrl().toString();
+                String packageName = null;
 
                 if (url.startsWith("mailto:")) {
-                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                    emailIntent.setData(Uri.parse(url));
-                    if (emailIntent.resolveActivity(getPackageManager()) != null) {
-                        startActivity(emailIntent);
-                    } else {
-                        Toast.makeText(MainActivity.this, "No email app found!", Toast.LENGTH_SHORT).show();
-                    }
+                    Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse(url));
+                    startExternalIntent(intent, "No email app found!");
+                    return true;
+                } else if (url.startsWith("sms:")) {
+                    Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse(url));
+                    startExternalIntent(intent, "No SMS app found!");
+                    return true;
+                } else if (url.startsWith("tel:")) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(url));
+                    startExternalIntent(intent, "No phone app found!");
                     return true;
                 }
 
-                if (url.startsWith("sms:") || url.startsWith("tel:")) {
+                if (url.contains("youtube.com") || url.contains("youtu.be")) {
+                    packageName = "com.google.android.youtube";
+                } else if (url.contains("instagram.com")) {
+                    packageName = "com.instagram.android";
+                } else if (url.contains("tiktok.com")) {
+                    packageName = "com.zhiliaoapp.musically";
+                } else if (url.contains("facebook.com")) {
+                    packageName = "com.facebook.katana";
+                } else if (url.contains("twitter.com") || url.contains("x.com")) {
+                    packageName = "com.twitter.android";
+                } else if (url.contains("linkedin.com")) {
+                    packageName = "com.linkedin.android";
+                } else if (url.contains("snapchat.com")) {
+                    packageName = "com.snapchat.android";
+                } else if (url.contains("whatsapp.com")) {
+                    packageName = "com.whatsapp";
+                } else if (url.contains("zoom.us")) {
+                    packageName = "us.zoom.videomeetings";
+                } else if (url.contains("meet.google.com")) {
+                    packageName = "com.google.android.apps.meetings";
+                } else if (url.contains("drive.google.com")) {
+                    packageName = "com.google.android.apps.docs";
+                } else if (url.contains("contacts.google.com")) {
+                    packageName = "com.google.android.contacts";
+                } else if (url.contains("mail.google.com") || url.contains("gmail.com")) {
+                    packageName = "com.google.android.gm";
+                }
+
+                if (packageName != null && isAppInstalled(packageName)) {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startExternalIntent(intent, "No suitable app found!");
+                    intent.setPackage(packageName);
+                    startActivity(intent);
                     return true;
                 }
 
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                } else {
-                    view.loadUrl(url);
-                }
+                view.loadUrl(url);
                 return true;
             }
 
@@ -99,7 +128,7 @@ public class MainActivity extends Activity {
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onPermissionRequest(PermissionRequest request) {
-                MainActivity.this.runOnUiThread(() -> {
+                runOnUiThread(() -> {
                     if (hasPermissions(request.getResources())) {
                         request.grant(request.getResources());
                     } else {
@@ -124,7 +153,7 @@ public class MainActivity extends Activity {
 
                 Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 File photoFile = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "photo.jpg");
-                photoURI = FileProvider.getUriForFile(MainActivity.this, getApplicationContext().getPackageName() + ".provider", photoFile);
+                photoURI = FileProvider.getUriForFile(MainActivity.this, getPackageName() + ".provider", photoFile);
                 captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
 
                 Intent selectIntent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -156,11 +185,9 @@ public class MainActivity extends Activity {
             View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
             View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
             View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
         getWindow().setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
         getWindow().setStatusBarColor(android.graphics.Color.TRANSPARENT);
     }
 
@@ -181,15 +208,12 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        for (int i = 0; i < permissions.length; i++) {
-            if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, permissions[i] + " granted!", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, permissions[i] + " denied!", Toast.LENGTH_SHORT).show();
-            }
+    private boolean isAppInstalled(String packageName) {
+        try {
+            getPackageManager().getPackageInfo(packageName, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
         }
     }
 
@@ -203,6 +227,14 @@ public class MainActivity extends Activity {
         startActivity(intent);
 
         Toast.makeText(this, "Downloading: " + fileName, Toast.LENGTH_SHORT).show();
+    }
+
+    private void startExternalIntent(Intent intent, String errorMessage) {
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -226,14 +258,6 @@ public class MainActivity extends Activity {
             webView.goBack();
         } else {
             super.onBackPressed();
-        }
-    }
-
-    private void startExternalIntent(Intent intent, String errorMessage) {
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        } else {
-            Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
         }
     }
 }
