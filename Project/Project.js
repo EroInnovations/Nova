@@ -523,7 +523,37 @@ const SETTINGSPAGE=()=>{
 
             });
 
-            RIGHTVIEW(ELEMENTS,'blue','50%','100%','',(ELEMENSE)=>{
+            RIGHTVIEW(ELEMENTS,'transparent','50%','100%','',(ELEMENSE)=>{
+
+                BUTTONIMAGE(ELEMENSE,ELEMENTCOLOR,'UserName',TEXTCOLOR,WHITEUSERICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENSE,ELEMENTCOLOR,'UserEmail',TEXTCOLOR,WHITEGMAILICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENSE,ELEMENTCOLOR,'Update',TEXTCOLOR,WHITEUPLOADICON,'50px','2% auto',()=>{
+
+                });
+
+                FOOTER(ELEMENSE,'transparent','100%','50px',(ELEMENTE)=>{
+
+                    CONDITION(localStorage.getItem('User'),()=>{
+
+                        IMAGEBUTTON(ELEMENTE,ELEMENTCOLOR,'Log Out',TEXTCOLOR,WHITELOGOUTICON,'50px','2% auto',()=>{
+
+                        });
+
+                    },()=>{
+
+                        IMAGEBUTTON(ELEMENTE,ELEMENTCOLOR,'Log In',TEXTCOLOR,WHITEENTERICON,'50px','2% auto',()=>{
+
+                        });
+
+                    });
+
+                });
 
             });
 
@@ -649,7 +679,7 @@ const POLICYPAGE=()=>{
 
         GETINDEXEDDATA('Policies','Policies',(data)=>{
 
-            CHECKER(data.ID === 1 ,()=>{
+            CHECKER(data.ID === 'a7f2c9de-8b64-4e1a-a5d7-3fcb9182d4e6' ,()=>{
 
                 LEFTTEXT(ELEMENT,'p',data.Data,'','','0.1rem','',()=>{
 
