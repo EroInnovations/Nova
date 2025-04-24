@@ -6,6 +6,8 @@ const ELEMENTCOLOR=localStorage.getItem('AppTheme');
 
 const NOVASTART=()=>{
 
+    Android.setSystemBarColor("#FF0000", "#000000");   
+
     APPMODE(localStorage.getItem('AppTheme')||'#6b9c30');
 
     DOWNLOADSAVEINDEX(API,'Policies','Policies',()=>{
