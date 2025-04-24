@@ -6,7 +6,7 @@ const APPMODE = (COLOR) => {
 
     // If in production and AndroidColors interface is available
     if (localStorage.getItem('Enviroment') === 'Production') {
-        changeWebViewBackground(COLOR)
+        changeWebViewBackground(COLOR||'#000000')
     }
 };
 
