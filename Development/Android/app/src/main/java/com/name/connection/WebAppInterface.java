@@ -1,4 +1,4 @@
-package com.elite.testing;
+package com.elite.qel_medistore;
 
 import android.Manifest;
 import android.content.Context;
@@ -8,6 +8,9 @@ import android.webkit.WebView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import android.view.WindowManager;
+import android.graphics.Color;
+
 
 public class WebAppInterface {
 
@@ -145,26 +148,6 @@ public class WebAppInterface {
         return ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }
 
-    @JavascriptInterface
-    public void hideStatusBar() {
-        activity.runOnUiThread(() -> FullScreenUIHandler.hideStatusBar(activity));
-    }
-
-    @JavascriptInterface
-    public void showStatusBar() {
-        activity.runOnUiThread(() -> FullScreenUIHandler.showStatusBar(activity));
-    }
-
-    @JavascriptInterface
-    public void hideNavigationBar() {
-        activity.runOnUiThread(() -> FullScreenUIHandler.hideNavigationBar(activity));
-    }
-
-    @JavascriptInterface
-    public void showNavigationBar() {
-        activity.runOnUiThread(() -> FullScreenUIHandler.showNavigationBar(activity));
-    }
-
     public void onConfirmResult(boolean result) {
         webView.post(() -> webView.evaluateJavascript("handleConfirmResult(" + result + ");", null));
     }
@@ -172,4 +155,19 @@ public class WebAppInterface {
     public void onPromptResult(String input) {
         webView.post(() -> webView.evaluateJavascript("handlePromptResult('" + (input != null ? input : "") + "');", null));
     }
+
+    @JavascriptInterface
+    public void setSystemBarColor(final String statusBarColor, final String navigationBarColor) {
+        activity.runOnUiThread(() -> {
+            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+            if (statusBarColor != null && !statusBarColor.isEmpty()) {
+                activity.getWindow().setStatusBarColor(Color.parseColor(statusBarColor));
+            }
+            if (navigationBarColor != null && !navigationBarColor.isEmpty()) {
+                activity.getWindow().setNavigationBarColor(Color.parseColor(navigationBarColor));
+            }
+        });
+    }
+
 }

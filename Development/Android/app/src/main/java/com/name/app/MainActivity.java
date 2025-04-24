@@ -1,43 +1,43 @@
-package com.elite.testing;
+package com.elite.qel_medistore;
 
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.net.Uri;
 
 public class MainActivity extends AppCompatActivity {
 
     private WebView webView;
     private WebAppInterface webAppInterface;
     private FileChooserHelper fileChooserHelper;
-    
-    private ValueCallback<Uri[]> uploadMessage;
-    private static final int FILE_CHOOSER_REQUEST = 102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
+
+        // Enable drawing system bar backgrounds
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
         webView = findViewById(R.id.webView);
 
-        FullScreenUIHandler.hideStatusBar(this);
-        FullScreenUIHandler.hideNavigationBar(this);
-
-
+        // Enable JavaScript in WebView
         JavaScriptEnabler.enable(webView);
 
+        // Initialize WebAppInterface
         webAppInterface = new WebAppInterface(this, webView);
-
         webView.addJavascriptInterface(webAppInterface, "Android");
 
-        fileChooserHelper = new FileChooserHelper(this, this);
-
+        // Setup WebView client
         WebViewClientSetup.setClient(webView);
         WebViewLoader.loadFromAssets(webView, "index.html");
+
+        // Initialize file chooser helper
+        fileChooserHelper = new FileChooserHelper(this, this);
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override

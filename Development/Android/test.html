@@ -157,7 +157,11 @@
         EliteWebInterface.closeWebView();
     };
 
+    function changeWebViewBackground() {
+       
+        Android.setSystemBarColor("#FF0000", "#000000"); // Red status bar, Black navigation bar
 
+    }
 
 </script>
 
@@ -236,7 +240,8 @@
 
     <button onclick="site()">Open Site</button>
 
-
+    <button onclick="changeWebViewBackground()">Color</button> 
+    <br><br>
 
 </body>
 </html>
