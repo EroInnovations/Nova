@@ -1,4 +1,4 @@
-package com.elite.testing;
+package com.elite.qel_medistore;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,7 +9,6 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.pm.PackageManager;
 
-
 public class WebAppInterface {
     private WebView webView;
     private DialogHelper dialogHelper;
@@ -18,6 +17,7 @@ public class WebAppInterface {
     private NotificationHelper notificationHelper;
     private ContactHelper contactHelper;
     private BatteryHelper batteryHelper;
+    private WiFiHelper wifiHelper;
     private Context context;
     private Activity activity;
 
@@ -29,8 +29,9 @@ public class WebAppInterface {
         this.toastHelper = new ToastHelper(context);
         this.vibrationHelper = new VibrationHelper(context);
         this.notificationHelper = new NotificationHelper(context);
-        this.contactHelper = null; 
-        this.batteryHelper = new BatteryHelper(context); 
+        this.contactHelper = null;
+        this.batteryHelper = new BatteryHelper(context);
+        this.wifiHelper = new WiFiHelper(context);
     }
 
     @JavascriptInterface
@@ -88,7 +89,6 @@ public class WebAppInterface {
     @JavascriptInterface
     public String getContacts() {
         if (!hasContactPermission()) {
-            requestContactPermission();
             return "Permission required!";
         }
         initializeContactHelper();
@@ -97,30 +97,21 @@ public class WebAppInterface {
 
     @JavascriptInterface
     public boolean createContact(String name, String phone) {
-        if (!hasContactPermission()) {
-            requestContactPermission();
-            return false;
-        }
+        if (!hasContactPermission()) return false;
         initializeContactHelper();
         return contactHelper.createContact(name, phone);
     }
 
     @JavascriptInterface
     public boolean updateContact(String name, String newPhone) {
-        if (!hasContactPermission()) {
-            requestContactPermission();
-            return false;
-        }
+        if (!hasContactPermission()) return false;
         initializeContactHelper();
         return contactHelper.updateContact(name, newPhone);
     }
 
     @JavascriptInterface
     public boolean deleteContact(String name) {
-        if (!hasContactPermission()) {
-            requestContactPermission();
-            return false;
-        }
+        if (!hasContactPermission()) return false;
         initializeContactHelper();
         return contactHelper.deleteContact(name);
     }
@@ -136,5 +127,38 @@ public class WebAppInterface {
     @JavascriptInterface
     public String getBatteryStatus() {
         return batteryHelper.getBatteryStatus();
+    }
+
+    @JavascriptInterface
+    public boolean isWiFiEnabled() {
+        return wifiHelper.isWiFiEnabled();
+    }
+
+    @JavascriptInterface
+    public void setWiFiEnabled(boolean enable) {
+        wifiHelper.setWiFiEnabled(enable);
+    }
+
+    @JavascriptInterface
+    public String getNetworkStatus() {
+        return wifiHelper.getNetworkStatus();
+    }
+
+    @JavascriptInterface
+    public String getAvailableNetworks() {
+        if (!hasLocationPermission()) return "Permission required!";
+        return wifiHelper.getAvailableNetworks();
+    }
+
+    @JavascriptInterface
+    public void requestLocationPermission() {
+        if (!hasLocationPermission()) {
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }
+    }
+
+    @JavascriptInterface
+    public boolean hasLocationPermission() {
+        return ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }
 }

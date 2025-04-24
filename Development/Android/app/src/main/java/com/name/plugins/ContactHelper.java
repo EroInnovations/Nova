@@ -1,4 +1,4 @@
-package com.elite.testing;
+package com.elite.qel_medistore;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -22,7 +22,6 @@ public class ContactHelper {
         return instance;
     }
 
-    // Fetch contacts
     public String getContacts() {
         StringBuilder contacts = new StringBuilder();
         ContentResolver resolver = context.getContentResolver();
@@ -45,7 +44,6 @@ public class ContactHelper {
         return contacts.toString();
     }
 
-    // Create a new contact
     public boolean createContact(String name, String phone) {
         ContentValues values = new ContentValues();
         values.put(ContactsContract.RawContacts.ACCOUNT_TYPE, (String) null);
@@ -58,13 +56,11 @@ public class ContactHelper {
         long rawContactId = Long.parseLong(rawContactUri.getLastPathSegment());
         values.clear();
 
-        // Insert name
         values.put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
         values.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE);
         values.put(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, name);
         resolver.insert(ContactsContract.Data.CONTENT_URI, values);
 
-        // Insert phone number
         values.clear();
         values.put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
         values.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
@@ -75,11 +71,9 @@ public class ContactHelper {
         return true;
     }
 
-    // Update existing contact
     public boolean updateContact(String name, String newPhone) {
         ContentResolver resolver = context.getContentResolver();
 
-        // Find contact ID by name
         Cursor cursor = resolver.query(
                 ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
                 new String[]{ContactsContract.CommonDataKinds.Phone.CONTACT_ID},
@@ -109,11 +103,9 @@ public class ContactHelper {
         return false;
     }
 
-    // Delete contact
     public boolean deleteContact(String name) {
         ContentResolver resolver = context.getContentResolver();
 
-        // Find contact ID by name
         Cursor cursor = resolver.query(
                 ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
                 new String[]{ContactsContract.CommonDataKinds.Phone.CONTACT_ID},

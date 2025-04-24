@@ -70,7 +70,6 @@ task updateConfig {
             file.text = file.text.replaceAll('package\\s+[^;]+;', "package ${packageName};")
         }
 
-        // Update app name in strings.xml
         def stringsFile = file('src/main/res/values/strings.xml')
         if (stringsFile.exists()) {
             def stringsContent = stringsFile.text
@@ -80,7 +79,6 @@ task updateConfig {
             throw new GradleException("strings.xml not found at: ${stringsFile.absolutePath}")
         }
 
-        // **Update Colors in colors.xml**
         def colorsFile = file('src/main/res/values/colors.xml')
         if (colorsFile.exists()) {
             def colorsContent = colorsFile.text
@@ -94,7 +92,6 @@ task updateConfig {
     }
 }
 
-// **Task to Update AndroidManifest with Package Name**
 task updateManifest {
     doLast {
         def manifestFile = file("src/main/AndroidManifest.xml")
@@ -102,7 +99,6 @@ task updateManifest {
         if (manifestFile.exists()) {
             def manifestContent = manifestFile.text
 
-            // Replace the authority inside <provider>
             manifestContent = manifestContent.replaceAll(
                 'android:authorities=".*?\\.provider"',
                 "android:authorities=\"${packageName}.provider\""
@@ -115,7 +111,6 @@ task updateManifest {
     }
 }
 
-// Ensure updateManifest runs before the build
 preBuild.dependsOn updateManifest
 updateConfig.dependsOn moveAssets
 preBuild.dependsOn updateConfig

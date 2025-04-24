@@ -1,4 +1,4 @@
-package com.elite.testing;
+package com.elite.qel_medistore;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -32,25 +32,22 @@ public class NotificationHelper {
     }
 
     public void showNotification(String title, String message) {
-        // Create an intent to open the app when notification is clicked
+
         Intent intent = new Intent(context, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        // Wrap the intent in a PendingIntent
         PendingIntent pendingIntent = PendingIntent.getActivity(
             context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
 
-        // Build the notification with the intent
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.app_icon) // Ensure 'app_icon' exists in drawable
+            .setSmallIcon(R.drawable.app_icon) 
             .setContentTitle(title)
             .setContentText(message)
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent); // Attach the PendingIntent
+            .setContentIntent(pendingIntent); 
 
-        // Show the notification
         notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 }

@@ -1,4 +1,4 @@
-package com.elite.testing;
+package com.elite.qel_medistore;
 
 import android.webkit.WebView;
 

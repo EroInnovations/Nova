@@ -1,4 +1,4 @@
-package com.elite.testing;
+package com.elite.qel_medistore;
 
 import android.os.Build;
 import android.view.View;
