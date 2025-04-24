@@ -7,7 +7,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.view.View;
-import android.webkit.*;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.webkit.JavascriptInterface;
 
 public class WebViewClientSetup {
     
@@ -25,38 +29,48 @@ public class WebViewClientSetup {
         }
 
         @Override
-        public void onPageFinished(WebView view, String url) {
-            view.setAlpha(0f);
-            view.setVisibility(View.VISIBLE);
-            view.animate().alpha(1f).setDuration(300).start();
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            String url = request.getUrl().toString();
+
+            if (url.startsWith("http") || url.startsWith("https")) {
+                view.loadUrl(url);
+                return true; 
+            }
+
+            return handleDeepLink(view, url);
         }
 
         @Override
-        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-            return handleDeepLink(view, request.getUrl().toString());
+        public void onPageFinished(WebView view, String url) {
+            view.setVisibility(View.VISIBLE);
         }
 
         private boolean handleDeepLink(WebView view, String url) {
             Uri uri = Uri.parse(url);
             String scheme = uri.getScheme();
 
-            // Allow only HTTP/HTTPS links inside WebView
-            if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme)) {
-                view.loadUrl(url);
-                return false; // Let WebView handle it
+            if ("mailto".equalsIgnoreCase(scheme)) {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, uri);
+                view.getContext().startActivity(emailIntent);
+                return true; 
             }
 
-            // Handle external deep links (intent://, market://, etc.)
+            if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme)) {
+                view.loadUrl(url);
+                return false;
+            }
+
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             PackageManager pm = view.getContext().getPackageManager();
 
             if (intent.resolveActivity(pm) != null) {
                 view.getContext().startActivity(intent);
-                return true; // Prevent WebView from handling unsupported schemes
+                return true;
             }
 
             return false;
         }
+
     }
 
     private static class CustomWebChromeClient extends WebChromeClient {
@@ -67,24 +81,24 @@ public class WebViewClientSetup {
         }
 
         @Override
-        public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+        public boolean onJsAlert(WebView view, String url, String message, android.webkit.JsResult result) {
             showDialog(view, appName, message, result);
             return true;
         }
 
         @Override
-        public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
+        public boolean onJsConfirm(WebView view, String url, String message, android.webkit.JsResult result) {
             showDialog(view, appName, message, result);
             return true;
         }
 
         @Override
-        public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
+        public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, android.webkit.JsPromptResult result) {
             showPromptDialog(view, appName, message, defaultValue, result);
             return true;
         }
 
-        private void showDialog(WebView view, String title, String message, JsResult result) {
+        private void showDialog(WebView view, String title, String message, android.webkit.JsResult result) {
             new AlertDialog.Builder(view.getContext())
                 .setTitle(title)
                 .setMessage(message)
@@ -93,7 +107,7 @@ public class WebViewClientSetup {
                 .show();
         }
 
-        private void showPromptDialog(WebView view, String title, String message, String defaultValue, JsPromptResult result) {
+        private void showPromptDialog(WebView view, String title, String message, String defaultValue, android.webkit.JsPromptResult result) {
             android.widget.EditText input = new android.widget.EditText(view.getContext());
             input.setText(defaultValue);
 
