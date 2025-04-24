@@ -1,4 +1,4 @@
-package com.elite.qel_medistore;
+package com.elite.testing;
 
 import android.Manifest;
 import android.app.Activity;

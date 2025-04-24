@@ -1,4 +1,4 @@
-package com.elite.qel_medistore;
+package com.elite.testing;
 
 import android.content.Context;
 import android.widget.Toast;

@@ -1,4 +1,4 @@
-package com.elite.qel_medistore;
+package com.elite.testing;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -38,15 +38,24 @@ public class WebViewClientSetup {
 
         private boolean handleDeepLink(WebView view, String url) {
             Uri uri = Uri.parse(url);
+            String scheme = uri.getScheme();
+
+            // Allow only HTTP/HTTPS links inside WebView
+            if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme)) {
+                view.loadUrl(url);
+                return false; // Let WebView handle it
+            }
+
+            // Handle external deep links (intent://, market://, etc.)
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             PackageManager pm = view.getContext().getPackageManager();
 
             if (intent.resolveActivity(pm) != null) {
                 view.getContext().startActivity(intent);
-            } else {
-                view.loadUrl(url); 
+                return true; // Prevent WebView from handling unsupported schemes
             }
-            return true;
+
+            return false;
         }
     }
 
@@ -109,7 +118,6 @@ public class WebViewClientSetup {
         }
     }
 
-    // JavaScript Interface to Handle window.close()
     public static class WebAppInterface {
         private final WebView webView;
 

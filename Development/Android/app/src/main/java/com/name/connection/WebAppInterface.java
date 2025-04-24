@@ -1,15 +1,16 @@
-package com.elite.qel_medistore;
+package com.elite.testing;
 
-import android.app.Activity;
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import android.Manifest;
-import android.content.pm.PackageManager;
 
 public class WebAppInterface {
+
     private WebView webView;
     private DialogHelper dialogHelper;
     private ToastHelper toastHelper;
@@ -19,17 +20,17 @@ public class WebAppInterface {
     private BatteryHelper batteryHelper;
     private WiFiHelper wifiHelper;
     private Context context;
-    private Activity activity;
+    private AppCompatActivity activity;
 
-    WebAppInterface(Context context, WebView webView, Activity activity) {
-        this.context = context;
+    public WebAppInterface(AppCompatActivity activity, WebView webView) {
+        this.context = activity;
         this.activity = activity;
         this.webView = webView;
         this.dialogHelper = new DialogHelper(context, this);
         this.toastHelper = new ToastHelper(context);
         this.vibrationHelper = new VibrationHelper(context);
         this.notificationHelper = new NotificationHelper(context);
-        this.contactHelper = null;
+        this.contactHelper = ContactHelper.getInstance(context);
         this.batteryHelper = new BatteryHelper(context);
         this.wifiHelper = new WiFiHelper(context);
     }
@@ -75,53 +76,29 @@ public class WebAppInterface {
     }
 
     @JavascriptInterface
-    public boolean hasContactPermission() {
-        return ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED &&
-               ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_CONTACTS) == PackageManager.PERMISSION_GRANTED;
-    }
-
-    private void initializeContactHelper() {
-        if (contactHelper == null) {
-            contactHelper = ContactHelper.getInstance(context);
-        }
-    }
-
-    @JavascriptInterface
     public String getContacts() {
         if (!hasContactPermission()) {
             return "Permission required!";
         }
-        initializeContactHelper();
         return contactHelper.getContacts();
     }
 
     @JavascriptInterface
     public boolean createContact(String name, String phone) {
         if (!hasContactPermission()) return false;
-        initializeContactHelper();
         return contactHelper.createContact(name, phone);
     }
 
     @JavascriptInterface
     public boolean updateContact(String name, String newPhone) {
         if (!hasContactPermission()) return false;
-        initializeContactHelper();
         return contactHelper.updateContact(name, newPhone);
     }
 
     @JavascriptInterface
     public boolean deleteContact(String name) {
         if (!hasContactPermission()) return false;
-        initializeContactHelper();
         return contactHelper.deleteContact(name);
-    }
-
-    public void onConfirmResult(boolean result) {
-        webView.post(() -> webView.evaluateJavascript("handleConfirmResult(" + result + ");", null));
-    }
-
-    public void onPromptResult(String input) {
-        webView.post(() -> webView.evaluateJavascript("handlePromptResult('" + (input != null ? input : "") + "');", null));
     }
 
     @JavascriptInterface
@@ -158,7 +135,41 @@ public class WebAppInterface {
     }
 
     @JavascriptInterface
+    public boolean hasContactPermission() {
+        return ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED &&
+               ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_CONTACTS) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    @JavascriptInterface
     public boolean hasLocationPermission() {
         return ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    @JavascriptInterface
+    public void hideStatusBar() {
+        activity.runOnUiThread(() -> FullScreenUIHandler.hideStatusBar(activity));
+    }
+
+    @JavascriptInterface
+    public void showStatusBar() {
+        activity.runOnUiThread(() -> FullScreenUIHandler.showStatusBar(activity));
+    }
+
+    @JavascriptInterface
+    public void hideNavigationBar() {
+        activity.runOnUiThread(() -> FullScreenUIHandler.hideNavigationBar(activity));
+    }
+
+    @JavascriptInterface
+    public void showNavigationBar() {
+        activity.runOnUiThread(() -> FullScreenUIHandler.showNavigationBar(activity));
+    }
+
+    public void onConfirmResult(boolean result) {
+        webView.post(() -> webView.evaluateJavascript("handleConfirmResult(" + result + ");", null));
+    }
+
+    public void onPromptResult(String input) {
+        webView.post(() -> webView.evaluateJavascript("handlePromptResult('" + (input != null ? input : "") + "');", null));
     }
 }

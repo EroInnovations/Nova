@@ -1,4 +1,4 @@
-package com.elite.qel_medistore;
+package com.elite.testing;
 
 import android.os.Bundle;
 import android.webkit.ValueCallback;
@@ -24,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
         webView = findViewById(R.id.webView);
 
-        FullScreenUIHandler.setupFullscreen(this, webView);
+        FullScreenUIHandler.hideStatusBar(this);
+        FullScreenUIHandler.hideNavigationBar(this);
+
 
         JavaScriptEnabler.enable(webView);
 
-        webAppInterface = new WebAppInterface(this, webView, this);
+        webAppInterface = new WebAppInterface(this, webView);
 
         webView.addJavascriptInterface(webAppInterface, "Android");
 
