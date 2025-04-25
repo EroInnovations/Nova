@@ -14,7 +14,6 @@ const QELMEDISTORELOADER4=(body)=>{
 
         <br><br>
 
-        <div id='Lod' class="LoadingIconer"></div>
     
     `;
 

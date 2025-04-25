@@ -13,8 +13,6 @@ const QELMEDISTORELOADER1=(body)=>{
         <p>Checking Device Features</p>
 
         <br><br>
-
-        <div id='Lod' class="LoadingIconer"></div>
     
     `;
 
