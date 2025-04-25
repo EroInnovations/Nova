@@ -1,51 +1,14 @@
 const API='https://docs.google.com/spreadsheets/d/18BUoCg4yVUrxWv8RG885ZIn2fjkURGgjIrCi6otCxFk/edit?usp=sharing';
 
-const TEXTCOLOR='#cdcdcd';
-const APPCOLORS='#0F990F';
+const APPCOLORS='#ffffff';
 
 const NOVASTART=()=>{
 
+    APPMODE('#333333')
+
     APPDATA();
 
-    APPMODE(localStorage.getItem('DarkMode')||APPCOLORS);
-
-    CONDITION(localStorage.getItem('DarkMode'),()=>{
-
-        MYACCOUNT();
-
-    },()=>{
-
-        CLEAR('');
-
-        CENTERVIEW('','#333333',(ELEMENT)=>{
-    
-            CENTERTEXT(ELEMENT,'','Qel Manager',APPCOLORS,'30px','10% auto',()=>{
-    
-            });
-    
-            CENTERTEXT(ELEMENT,'','Choose App Mode',APPCOLORS,'15px','',()=>{
-    
-            });
-    
-            IMAGEBUTTON(ELEMENT,APPCOLORS,'Dark Mode','',WHITEMOONICON,'50px','10% auto auto auto',()=>{
-    
-                STOREDATA(' ','DarkMode','#333333');
-    
-               RELOAD();
-
-            });
-    
-            IMAGEBUTTON(ELEMENT,APPCOLORS,'Light Mode','',WHITESUNICON,'50px','5% auto',()=>{
-    
-                STOREDATA(' ','DarkMode',TEXTCOLOR);
-    
-                RELOAD();
-    
-            });
-    
-        });
-
-    });
+    MYACCOUNT();
 
 };
 
@@ -81,7 +44,7 @@ const HOMEPAGE=()=>{
 
     });
 
-    FLOATFIXEDBUTTON('',APPCOLORS,(ELEMENT)=>{
+    FLOATFIXEDBUTTON('','forestgreen',(ELEMENT)=>{
 
         IMAGE(ELEMENT,WHITEPOSTICON,'20px','20px','',()=>{
 
@@ -117,7 +80,7 @@ const LOGINPAGE=()=>{
 
     });
 
-    IMAGEBUTTON('',APPCOLORS,'Sign In','',WHITEENTERICON,'50px','10% auto',()=>{
+    IMAGEBUTTON('','forestgreen','Sign In','',WHITEENTERICON,'50px','10% auto',()=>{
 
         CONDITION(sessionStorage.getItem('UserEmail'),()=>{
 
@@ -187,7 +150,7 @@ const LOGINPAGE=()=>{
 
     });
 
-    NAVTEMPLATE('',APPCOLORS,'80%','50px','30% auto',(ELEMENT)=>{
+    NAVTEMPLATE('','transparent','80%','50px','30% auto',(ELEMENT)=>{
 
         LEFTTEXT(ELEMENT,'','Forgot Password!','','16px','1rem','',()=>{
 
@@ -224,7 +187,7 @@ const FORGOTPASSWORDPAGE=()=>{
     });
 
 
-    IMAGEBUTTON('',APPCOLORS,'Recover','',WHITEENTERICON,'50px','10% auto',()=>{
+    IMAGEBUTTON('','forestgreen','Recover','',WHITEENTERICON,'50px','10% auto',()=>{
 
         CONDITION( sessionStorage.getItem('UserEmail'),()=>{
 
@@ -277,7 +240,7 @@ const FORGOTPASSWORDPAGE=()=>{
 
     });
 
-    NAVTEMPLATE('',APPCOLORS,'80%','50px','30% auto',(ELEMENT)=>{
+    NAVTEMPLATE('','transparent','80%','50px','30% auto',(ELEMENT)=>{
 
         LEFTTEXT(ELEMENT,'','Login In','','16px','1rem','',()=>{
 
@@ -329,7 +292,7 @@ const CREATEACCOUNTPAGE=()=>{
 
     });
 
-    IMAGEBUTTON('',APPCOLORS,'Sign Up','',WHITEENTERICON,'50px','10% auto',()=>{
+    IMAGEBUTTON('','forestgreen','Sign Up','',WHITEENTERICON,'50px','10% auto',()=>{
 
         CONDITION(navigator.onLine,()=>{
 
@@ -425,7 +388,7 @@ const CREATEACCOUNTPAGE=()=>{
 
     });
 
-    NAVTEMPLATE('',APPCOLORS,'80%','50px','30% auto',(ELEMENT)=>{
+    NAVTEMPLATE('','transparent','80%','50px','30% auto',(ELEMENT)=>{
 
         LEFTTEXT(ELEMENT,'','Privacy Policy!','','16px','1rem','',()=>{
 
@@ -459,7 +422,7 @@ const EMAILVERIFICATIONPAGE=()=>{
 
     });
 
-    IMAGEBUTTON('',APPCOLORS,'Verify','',WHITECHECKICON,'50px','10% auto',()=>{
+    IMAGEBUTTON('','forestgreen','Verify','',WHITECHECKICON,'50px','10% auto',()=>{
 
         CONDITION(sessionStorage.getItem('Code'),()=>{
 
@@ -531,7 +494,7 @@ const EMAILVERIFICATIONPAGE=()=>{
         
     });
 
-    NAVTEMPLATE('',APPCOLORS,'80%','50px','30% auto',(ELEMENT)=>{
+    NAVTEMPLATE('','transparent','80%','50px','30% auto',(ELEMENT)=>{
 
         LEFTTEXT(ELEMENT,'','Login In','','16px','1rem','',()=>{
 
@@ -568,13 +531,13 @@ const CREATIONPAGE=()=>{
 
     },'Management',APPCOLORS,'',(ELEMENT)=>{
 
-        IMAGEBUTTON(ELEMENT,APPCOLORS,'New Catergory','',WHITEGROUPICON,'50px','1% auto',()=>{
+        IMAGEBUTTON(ELEMENT,'transparent','New Catergory','',WHITEGROUPICON,'50px','1% auto',()=>{
 
             ROUTE(' ',NEWCATERGORYPAGE,'CREATIONPAGE');
     
         });
         
-        IMAGEBUTTON(ELEMENT,APPCOLORS,'New Product','',WHITEGROUPICON,'50px','1% auto',()=>{
+        IMAGEBUTTON(ELEMENT,'transparent','New Product','',WHITEGROUPICON,'50px','1% auto',()=>{
 
             DELETEDATA('','Category');
             DELETEDATA('','CategoryName');
@@ -591,25 +554,25 @@ const CREATIONPAGE=()=>{
     
         });
 
-        IMAGEBUTTON(ELEMENT,APPCOLORS,'All Catergories','',WHITEGROUPICON,'50px','1% auto',()=>{
+        IMAGEBUTTON(ELEMENT,'transparent','All Catergories','',WHITEGROUPICON,'50px','1% auto',()=>{
 
             ROUTE(' ',ALLCATERGORYPAGE,'CREATIONPAGE');
     
         });
 
-        IMAGEBUTTON(ELEMENT,APPCOLORS,'HireEmployee','',WHITESUITCASEICON,'50px','1% auto',()=>{
+        IMAGEBUTTON(ELEMENT,'transparent','HireEmployee','',WHITESUITCASEICON,'50px','1% auto',()=>{
 
             alert('Still Under Development');
     
         });
 
-        IMAGEBUTTON(ELEMENT,APPCOLORS,'Sync App','',WHITEGROUPICON,'50px','1% auto',()=>{
+        IMAGEBUTTON(ELEMENT,'transparent','Sync App','',WHITEGROUPICON,'50px','1% auto',()=>{
 
             RELOAD();
     
         });
 
-        IMAGEBUTTON(ELEMENT,APPCOLORS,'Log Out','',WHITELOGOUTICON,'50px','1% auto',()=>{
+        IMAGEBUTTON(ELEMENT,'transparent','Log Out','',WHITELOGOUTICON,'50px','1% auto',()=>{
 
             DELETEDATA(' ','UserData');
 
@@ -633,7 +596,7 @@ const NEWCATERGORYPAGE=()=>{
 
         });
     
-        INPUT(ELEMENT, '', APPCOLORS, 'Enter Catergory Name', (data)=>{
+        INPUT(ELEMENT, '', 'transparent', 'Enter Catergory Name', (data)=>{
 
             STOREDATA('','Name',data);
     
@@ -659,7 +622,7 @@ const NEWCATERGORYPAGE=()=>{
 
         });
     
-        IMAGEBUTTON(ELEMENT,APPCOLORS,'Create','',WHITEENTERICON,'50px','10% auto',()=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','Create','',WHITEENTERICON,'50px','10% auto',()=>{
     
             CONDITION(sessionStorage.getItem('Name'),()=>{
 
@@ -775,7 +738,7 @@ const NEWPRODUCTPAGE=()=>{
 
         });
 
-        IMAGEBUTTON(ELEMENT,APPCOLORS,sessionStorage.getItem('CategoryName')||'Select Catergory','',sessionStorage.getItem('CategoryImage')||WHITEGROUPICON,'50px','',()=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen',sessionStorage.getItem('CategoryName')||'Select Catergory','',sessionStorage.getItem('CategoryImage')||WHITEGROUPICON,'50px','',()=>{
 
             CENTERVIEW('',APPCOLORS,(ELEMENTS)=>{
 
@@ -901,7 +864,7 @@ const NEWPRODUCTPAGE=()=>{
 
         });
 
-        IMAGEBUTTON(ELEMENT,APPCOLORS,'Add Product','',WHITECHECKICON,'50px','10% auto',()=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen','Add Product','',WHITECHECKICON,'50px','10% auto',()=>{
     
             CONDITION(sessionStorage.getItem('Category'),()=>{
 
@@ -1078,11 +1041,11 @@ const PRODUCTS=(ELEMENT)=>{
 
                 FOOTER(ELEMENTS,'#0F990F80','','50px',(ELEMENTSE)=>{
 
-                    LEFTTEXT(ELEMENTSE,'',data.ProductName,TEXTCOLOR,'14.1px','0.3rem','',()=>{
+                    LEFTTEXT(ELEMENTSE,'',data.ProductName,APPCOLORS,'14.1px','0.3rem','',()=>{
     
                     });
     
-                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice ,TEXTCOLOR,'16px','0.3rem','',()=>{
+                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice ,APPCOLORS,'16px','0.3rem','',()=>{
     
                     });
     
@@ -1092,11 +1055,11 @@ const PRODUCTS=(ELEMENT)=>{
 
                 FOOTER(ELEMENTS,'red','','50px',(ELEMENTSE)=>{
 
-                    LEFTTEXT(ELEMENTSE,'',data.ProductName,TEXTCOLOR,'14.1px','0.3rem','',()=>{
+                    LEFTTEXT(ELEMENTSE,'',data.ProductName,APPCOLORS,'14.1px','0.3rem','',()=>{
     
                     });
     
-                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice ,TEXTCOLOR,'16px','0.3rem','',()=>{
+                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice ,APPCOLORS,'16px','0.3rem','',()=>{
     
                     });
     
@@ -1136,7 +1099,7 @@ const PRODUTVIEWPAGE=()=>{
 
             });
 
-            INPUT(ELEMENT, '', APPCOLORS, data.ProductName||'Enter Product New Name', (data)=>{
+            INPUT(ELEMENT,' ', APPCOLORS, data.ProductName||'Enter Product New Name', (data)=>{
 
                 STOREDATA('','NewName',data);
 
@@ -1835,7 +1798,7 @@ const ALLCATERGORYPAGE=()=>{
 
             CHECKER(data.Approved,()=>{
     
-                IMAGEBUTTON(ELEMENT,APPCOLORS,data.ProductName,'',data.ProductImage,'50px','1% auto',(ELEMENT)=>{
+                IMAGEBUTTON(ELEMENT,'forestgreen',data.ProductName,'',data.ProductImage,'50px','1% auto',(ELEMENT)=>{
         
                 });
     
@@ -1893,4 +1856,4 @@ const USERMONITORING=()=>{
 
     });
 
-}
+};
