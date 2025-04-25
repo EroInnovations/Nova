@@ -549,6 +549,8 @@ const SETTINGSPAGE=()=>{
 
                         IMAGEBUTTON(ELEMENTE,ELEMENTCOLOR,'Log In',TEXTCOLOR,WHITEENTERICON,'50px','2% auto',()=>{
 
+                            ROUTE(' ',LOGINPAGE,'SETTINGSPAGE');
+
                         });
 
                     });
@@ -1077,6 +1079,33 @@ const UPDATESPAGE=()=>{
         });
 
         RIGHTTEXT(ELEMENT,'','Updates',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+    });
+
+};
+
+const LOGINPAGE=()=>{
+
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Accounts',TEXTCOLOR,'','2%','',()=>{
 
         });
 

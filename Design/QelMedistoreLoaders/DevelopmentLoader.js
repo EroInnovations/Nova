@@ -16,15 +16,6 @@ const QELMEDISTORELOADER1=(body)=>{
     
     `;
 
-    const DeliveryImage=document.querySelector('#DeliveryImage');
-    const Lod=document.querySelector('#Lod');
-
-    DeliveryImage.style.background='#ffffff';
-    DeliveryImage.style.borderRadius='20px';
-
-    Lod.style.border='1px solid orange';
-    Lod.style.boxShadow='1px 1px 100px 1px blue';
-
 };
 
 export{QELMEDISTORELOADER1};
