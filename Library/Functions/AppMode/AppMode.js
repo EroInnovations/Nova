@@ -3,7 +3,11 @@ const APPMODE = (COLOR) => {
 
     body.style.background = COLOR || '#cdcdcd';
 
-    changeWebViewBackground(COLOR);
+    if (localStorage.getItem('Environment') === 'Production' ) {
+
+        changeWebViewBackground(COLOR);
+        
+    };
     
 };
 
