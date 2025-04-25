@@ -5,8 +5,8 @@ const TEXTCOLOR=localStorage.getItem('TextColor');
 const ELEMENTCOLOR=localStorage.getItem('AppTheme');
 
 const NOVASTART=()=>{
- 
-    APPMODE(localStorage.getItem('AppTheme')||'#6b9c30');
+
+    APPMODE(localStorage.getItem('AppTheme')||'#333333');
 
     DOWNLOADSAVEINDEX(API,'Policies','Policies',()=>{
 
@@ -112,13 +112,12 @@ const HOMEPAGE=()=>{
 
     FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
 
-        VIEW(ELEMENT,'#00000050','100%','30%','',(ELEMENTS)=>{
+        VIEW(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
 
             STYLED(ELEMENTS,'overflow','hidden');
+            STYLED(ELEMENTS,'border-radius','10px'); 
 
-            IMAGE(ELEMENTS,QELMODENORMAL,'100%','100%','',()=>{
-
-            });
+            //IMAGE(ELEMENTS,'','100%','100%','',()=>{});
 
         });
 
@@ -548,6 +547,8 @@ const SETTINGSPAGE=()=>{
                     },()=>{
 
                         IMAGEBUTTON(ELEMENTE,ELEMENTCOLOR,'Log In',TEXTCOLOR,WHITEENTERICON,'50px','2% auto',()=>{
+
+                            ROUTE(' ',LOGINPAGE,'SETTINGSPAGE');
 
                         });
 
@@ -1077,6 +1078,32 @@ const UPDATESPAGE=()=>{
         });
 
         RIGHTTEXT(ELEMENT,'','Updates',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+    });
+
+};
+
+const LOGINPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Accounts',TEXTCOLOR,'','2%','',()=>{
 
         });
 
