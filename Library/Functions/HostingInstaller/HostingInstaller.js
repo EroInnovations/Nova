@@ -40,10 +40,22 @@ const HOSTINGINSTALLER=()=>{
                 if (element.AppState) {
 
                     localStorage.removeItem('Hosting');
+
+                    location.reload();
                     
                 } else {
 
-                    localStorage.setItem('Hosting','Active');
+                    if (localStorage.getItem('Hosting')) {
+
+                        localStorage.setItem('Hosting','Active');
+                        
+                    } else {
+
+                        localStorage.setItem('Hosting','Active');
+
+                        location.reload();
+                        
+                    };
 
                 };
 
