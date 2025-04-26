@@ -48,7 +48,7 @@ const HOSTINGCHECKER=(callback)=>{
 
                 sessionStorage.clear();
 
-                Reload();
+                location.reload();
 
             });
 
