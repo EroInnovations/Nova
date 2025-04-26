@@ -28,16 +28,40 @@ const HOMEPAGE=()=>{
 
         TEXT(ELEMENT,'h3','About Us',TEXTCOLOR,'20px','',()=>{
 
+            ROUTE(' ',ABOUTUSPAGE,'HOMEPAGE');
+
         });
 
         TEXT(ELEMENT,'h3','Contact Us',TEXTCOLOR,'20px','',()=>{
+
+            ROUTE(' ',CONTACTUSPAGE,'HOMEPAGE');
 
         });
 
         TEXT(ELEMENT,'h3','Donate',TEXTCOLOR,'20px','',()=>{
 
+            ROUTE(' ',DONATEPAGE,'HOMEPAGE');
+
         });
 
     });
     
+};
+
+const ABOUTUSPAGE=()=>{
+
+    CLEAR('');
+
+};
+
+const DONATEPAGE=()=>{
+
+    CLEAR('');
+
+};
+
+const CONTACTUSPAGE=()=>{
+
+    CLEAR('');
+
 };
