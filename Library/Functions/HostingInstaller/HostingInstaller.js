@@ -40,13 +40,15 @@ const HOSTINGINSTALLER=()=>{
                 if (element.AppState) {
 
                     localStorage.removeItem('Hosting');
+
+                    location.reload();
                     
                 } else {
 
                     localStorage.setItem('Hosting','Active');
 
-                }
-                
+                };
+
             };
 
         });
