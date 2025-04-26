@@ -3,18 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Assets/Images/MainSite/D3Oyon37TW06_512_512.png" type="image/x-icon">
     <title>Elite Robust Ontology</title>
 </head>
-<link rel="shortcut icon" href="NovaLogos/MainSite/D3Oyon37TW06_512_512.png" type="image/x-icon">
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: Cambria;
+    }
+    body{
+        overflow: hidden;
+        overflow-y: auto;
+    }
+</style>
+<script type="module" src="/Router/Router.js"></script>
 <body></body>
+<script>
 
-<script >
+    const INSPECTION = () => {
 
-localStorage.setItem('Environment','Web');
-localStorage.setItem('NAME','d8c2c6df-f989-44b3-9c81-d95c31892e28'); 
-    
+    if (localStorage.getItem("Environment") === 'Development') {
+
+        
+    } else {
+
+        document.addEventListener('contextmenu', function (e) {
+
+            e.preventDefault();
+            
+        });
+
+        document.addEventListener('keydown', function (e) {
+
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J'))) {
+                
+                e.preventDefault();
+
+            };
+
+        });
+
+        document.addEventListener('keydown', function (e) {
+
+            if (e.ctrlKey && e.key === 'u') {
+
+                e.preventDefault();
+
+            };
+
+        });
+
+        const detectDevTools = () => {
+
+            const threshold = 160; 
+
+            const devToolsOpen = window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold;
+            
+            if (devToolsOpen) {
+
+                window.resizeTo(window.outerWidth - 1, window.outerHeight - 1);  
+            
+                window.resizeTo(window.outerWidth + 1, window.outerHeight + 1);  
+        
+            };
+
+        };
+
+        setInterval(detectDevTools, 100);
+
+    };
+
+    };
+    INSPECTION();
+    localStorage.setItem('Environment','Web');
+    localStorage.setItem('NAME','a2aed934-667d-4828-b97a-4ffc8ef7ff7d');
+    const HOMEPAGE=()=>{
+        location.reload();
+    }
 </script>
-
-<script type="module" src="Main.js"></script>
-
 </html>

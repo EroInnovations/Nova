@@ -1,6 +1,7 @@
 import { COMMUNITYRISELOGO } from "../../Library/Assets/Icons/Logos/CommunityRise/CommunityRise.js";
 import { IMAGE } from "../../Library/Components/Image/Image.js";
 import { TEXT } from "../../Library/Components/Text/Text.js";
+import { VIEW } from "../../Library/Components/View/Views.js";
 import { APPMODE } from "../../Library/Functions/AppMode/AppMode.js"
 import { CLEAR } from "../../Library/Functions/Clear/Clear.js";
 import { ROUTE } from "../../Library/Functions/Route/Route.js";
@@ -47,8 +48,22 @@ const HOMEPAGE=()=>{
 
     });
 
+    VIEW('','orange','98%','300px','1% auto',()=>{
 
-    
+    });
+
+    VIEW('','orange','98%','300px','1% auto',()=>{
+
+    });
+
+    VIEW('','orange','98%','300px','1% auto',()=>{
+
+    });
+
+    NAVTEMPLATE('','red','98%','50px','auto 1%',()=>{
+
+    });
+  
 };
 
 const ABOUTUSPAGE=()=>{
