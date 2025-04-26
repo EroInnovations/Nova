@@ -16,7 +16,7 @@ const ELITECONNECTION=()=>{
 
     if (localStorage.getItem('OperatingSystem') === 'Windows' ) {
         
-        ANDROIDMAINSITE();
+        console.log('Under Development');
 
         return;
 
@@ -24,7 +24,7 @@ const ELITECONNECTION=()=>{
 
     if (localStorage.getItem('OperatingSystem') === 'Web' ) {
         
-        ANDROIDMAINSITE();
+        console.log('Under Development');
 
         return;
 
