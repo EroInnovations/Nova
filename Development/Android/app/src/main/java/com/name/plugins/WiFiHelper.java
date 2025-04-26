@@ -1,4 +1,4 @@
-package com.elite.qel_medistore;
+package com.elite.store;
 
 import android.Manifest;
 import android.content.Context;

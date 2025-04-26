@@ -1,4 +1,4 @@
-package com.elite.qel_medistore;
+package com.elite.store;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
