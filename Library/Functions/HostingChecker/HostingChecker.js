@@ -44,10 +44,6 @@ const HOSTINGCHECKER=(callback)=>{
 
             DeleteAllData.addEventListener('click',()=>{
 
-                localStorage.clear();
-
-                sessionStorage.clear();
-
                 location.reload();
 
             });
