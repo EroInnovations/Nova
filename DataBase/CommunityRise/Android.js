@@ -4,6 +4,7 @@ import { TEXT } from "../../Library/Components/Text/Text.js";
 import { APPMODE } from "../../Library/Functions/AppMode/AppMode.js"
 import { CLEAR } from "../../Library/Functions/Clear/Clear.js";
 import { ROUTE } from "../../Library/Functions/Route/Route.js";
+import { LEFTTEXTBACKHEADERBODY } from "../../Library/Templates/Components/LeftTextBackHeaderBody/LeftTextBackHeaderBody.js";
 import { NAVTEMPLATE } from "../../Library/Templates/Components/NavTemplate/NavTemplate.js";
 
 const TEXTCOLOR='#333333';
@@ -45,23 +46,49 @@ const HOMEPAGE=()=>{
         });
 
     });
+
+
     
 };
 
 const ABOUTUSPAGE=()=>{
 
-    CLEAR('');
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'About Us',TEXTCOLOR,()=>{
+
+    },()=>{
+
+    });
 
 };
 
 const DONATEPAGE=()=>{
 
-    CLEAR('');
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Contact Us',TEXTCOLOR,()=>{
+
+    },()=>{
+
+    });
 
 };
 
 const CONTACTUSPAGE=()=>{
 
-    CLEAR('');
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Donate',TEXTCOLOR,()=>{
+
+    },()=>{
+
+    });
 
 };
