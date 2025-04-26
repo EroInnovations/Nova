@@ -1,3 +1,5 @@
+import { DISPLAY } from "../Display/Display.js";
+
 const HOSTINGCHECKER=(callback)=>{
 
     if (localStorage.getItem('Hosting') === 'Active' ) {
