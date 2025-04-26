@@ -42,6 +42,7 @@ import { GETTEXTPACKAGE } from "./GetTextPackage/GetTextPackage.js";
 import { GMAIL } from "./Gmail/Gmail.js";
 import { HIDER } from "./Hider/Hider.js";
 import { HOSTINGCHECKER } from "./HostingChecker/HostingChecker.js";
+import { HOSTINGINSTALLER } from "./HostingInstaller/HostingInstaller.js";
 import { HOSTINGUPDATER } from "./HostingUpdater/HostingUpdater.js";
 import { ICONCOLOR } from "./IconColor/IconColor.js";
 import { IMAGEPICKER } from "./ImagePicker/ImagePicker.js";
@@ -175,6 +176,7 @@ const CAMERA=${CAMERA};
 const OPERATINGSYSTEM=${OPERATINGSYSTEM};
 const ELITEPAY=${ELITEPAY};
 const SAFEAREA=${SAFEAREA};
+const HOSTINGINSTALLER=${HOSTINGINSTALLER};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -183,6 +185,6 @@ export{FUNCTIONS};
 
 `
 
-const SAFEAREA=${SAFEAREA};
+const HOSTINGINSTALLER=${HOSTINGINSTALLER};
 
 `

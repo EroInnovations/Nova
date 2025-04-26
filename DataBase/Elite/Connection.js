@@ -4,7 +4,7 @@ const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSl
 
 const ELITECONNECTION=()=>{
 
-    VISITOR(API,'Visitor');
+    VISITOR(API,'Visitors');
 
     if (localStorage.getItem('OperatingSystem') === 'Android' ) {
         
