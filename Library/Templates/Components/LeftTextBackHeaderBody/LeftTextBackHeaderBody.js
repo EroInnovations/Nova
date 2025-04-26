@@ -4,7 +4,6 @@ import { HEADER } from "../../../Components/Header/Header.js";
 import { LEFTIMAGE } from "../../../Components/LeftImage/LeftImage.js";
 import { RIGHTTEXT } from "../../../Components/RightText/RightText.js";
 import { CLEAR } from "../../../Functions/Clear/Clear.js";
-import { CONDITION } from "../../../Functions/Condition/Condition.js";
 import { STYLED } from "../../../Functions/Style/Style.js";
 
 const LEFTTEXTBACKHEADERBODY=(ELEMENT,Backcallback,WORD,COLOR,TextCallback,BodyCallBack)=>{
@@ -13,23 +12,11 @@ const LEFTTEXTBACKHEADERBODY=(ELEMENT,Backcallback,WORD,COLOR,TextCallback,BodyC
 
     HEADER(ELEMENT,' ',(ELEMENTS)=>{
 
-        CONDITION(localStorage.getItem('Enviroment')==='Production',()=>{
+        LEFTIMAGE(ELEMENTS,WHITELEFTBACKICON,'20px','20px','0.5rem','',(ELEMS)=>{
 
-            LEFTIMAGE(ELEMENTS,WHITELEFTBACKICON,'20px','20px','0.5rem','',(ELEMS)=>{
+            Backcallback();
 
-                Backcallback();
-    
-            });
-
-        },()=>{
-
-            LEFTIMAGE(ELEMENTS,LEFTBACKICON,'20px','20px','0.5rem','',(ELEMS)=>{
-
-                Backcallback();
-    
-            });
-
-        })
+        });
 
         RIGHTTEXT(ELEMENTS,'p',WORD,COLOR,'20px','0.5rem','',(ELEMS)=>{
 
