@@ -3,7 +3,7 @@ import { ANDROIDCOMMUNITYRISE } from "./Android.js";
 
 const COMMUNITYRISE=()=>{
 
-    VISITOR('https://docs.google.com/spreadsheets/d/15BPlgHpUmm65nUNSLRwlRzaWv1hPenriWVvL5MDcmiw/edit?usp=sharing','Visitors')
+    VISITOR('https://docs.google.com/spreadsheets/d/15BPlgHpUmm65nUNSLRwlRzaWv1hPenriWVvL5MDcmiw/edit?usp=sharing','Visitors');
 
     if (localStorage.getItem('OperatingSystem') === 'Android' ) {
 
