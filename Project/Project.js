@@ -1,92 +1,30 @@
 const API='https://docs.google.com/spreadsheets/d/18BUoCg4yVUrxWv8RG885ZIn2fjkURGgjIrCi6otCxFk/edit?usp=sharing';
 
-const TEXTCOLOR=localStorage.getItem('TextColor');
-
-const ELEMENTCOLOR=localStorage.getItem('AppTheme');
+const APPCOLORS='#ffffff';
 
 const NOVASTART=()=>{
 
-    APPMODE(localStorage.getItem('AppTheme')||'#333333');
+    APPMODE('#333333')
 
-    DOWNLOADSAVEINDEX(API,'Policies','Policies',()=>{
+    APPDATA();
 
-    });
+    MYACCOUNT();
 
-    DOWNLOADSAVEINDEX(API,'Catergory','Catergory',()=>{
+};
 
-        DOWNLOADSAVEINDEX(API,'Products','Products',()=>{
+const MYACCOUNT=()=>{
 
-            CONDITION(localStorage.getItem('AppTheme'),()=>{
-
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-            },()=>{
-
-                ROUTE('',THEMEPAGE,'THEMEPAGE');
-
-            });
-
-        });
-
-    });
-
-    CONDITION(localStorage.getItem('AppTheme'),()=>{
+    ACCOUNTCHECKER(()=>{
 
         ROUTE('',HOMEPAGE,'HOMEPAGE');
 
     },()=>{
 
-        ROUTE('',THEMEPAGE,'THEMEPAGE');
+        ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
 
-    });
+    },()=>{
 
-};
-
-const THEMEPAGE=()=>{
-
-    CLEAR('');
-
-    CENTERTEXT('','h1','App Theme','#ffffff','30px','40% auto auto',()=>{
-
-    });
-
-    CENTERTEXT('','h1','Choose Your App Color','#ffffff','15px','5% auto ',()=>{
-
-    });
-
-    BUTTONIMAGE('','#333333','Dark Theme','#ffffff',WHITEMOONICON,'50px','1% auto',()=>{
-
-        STOREDATA(' ','AppTheme','#333333');
-
-        STOREDATA(' ','TextColor','#ffffff');
-
-        RELOAD();
-
-    });
-
-    BUTTONIMAGE('','#cdcdcd','Light Theme','#333333',BLACKSUNICON,'50px','2% auto',()=>{
-
-        STOREDATA(' ','AppTheme','#cdcdcd');
-
-        STOREDATA(' ','TextColor','#000');
-
-        RELOAD();
-
-    });
-
-};
-
-const BACKICONCOLOR=(callback)=>{
-
-    CHECKER(localStorage.getItem('AppTheme') === '#333333' ,()=>{
-
-        callback(WHITEBACKICON);
-
-    });
-
-    CHECKER(localStorage.getItem('AppTheme') === '#cdcdcd' ,()=>{
-
-        callback(BLACKBACKICON);
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
 
     });
 
@@ -94,996 +32,25 @@ const BACKICONCOLOR=(callback)=>{
 
 const HOMEPAGE=()=>{
 
-    DOWNLOADSAVEINDEX(API,'Catergory','Catergory',()=>{
+    USERMONITORING();
 
-    });
-
-    DOWNLOADSAVEINDEX(API,'Policies','Policies',()=>{
-
-    });
-
-    DOWNLOADSAVEINDEX(API,'Products','Products',()=>{
-
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-    });
+    APPDATA();
 
     CLEAR('');
 
-    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+    FULLSCROLLVIEW('',' ',(ELEMENTS)=>{
 
-        VIEW(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'overflow','hidden');
-            STYLED(ELEMENTS,'border-radius','10px'); 
-
-            //IMAGE(ELEMENTS,'','100%','100%','',()=>{});
-
-        });
-
-        NAVTEMPLATE(ELEMENT,'transparent','95%','50px','10% auto auto',(ELEMENTS)=>{
-
-            CONDITION(localStorage.getItem('AppTheme') === '#cdcdcd',()=>{
-
-                LEFTIMAGE(ELEMENTS,BLACKLOCATIONICON,'20px','20px','1%','auto',()=>{
-    
-                    ROUTE(' ',LOCATIONPAGE,'HOMEPAGE');
-
-                });
-
-            },()=>{
-
-                LEFTIMAGE(ELEMENTS,WHITELOCATIONICON,'20px','20px','1%','auto',()=>{
-    
-                    ROUTE(' ',LOCATIONPAGE,'HOMEPAGE');
-
-                });
-
-            });
-    
-            LEFTTEXT(ELEMENTS,'',localStorage.getItem('Location')||'Kampala',TEXTCOLOR,'','-20%','',()=>{
-
-                ROUTE(' ',LOCATIONPAGE,'HOMEPAGE');
-    
-            });
-
-            RIGHTTEXT(ELEMENTS,'','All Products',TEXTCOLOR,'','2%','',()=>{
-
-                ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
-    
-            });
-
-        });
-
-        LEFTTEXT(ELEMENT,'','Catergories',TEXTCOLOR,'','3%','1% auto',()=>{
-
-            ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
-
-        });
-
-        NAVTEMPLATE(ELEMENT,'#00000050','95%','10%','1% auto',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'border-radius','10px');
-            STYLED(ELEMENTS,'overflowX','auto');
-
-            GETINDEXEDDATA('Catergory','Catergory',(data)=>{
-
-                CHECKER(data.Approved,()=>{
-    
-                    VIEW(ELEMENTS,'#6b9c30','200px','50px','auto 2% auto',(ELEMENTES)=>{
-
-                        STYLED(ELEMENTES,'overflow','hidden');
-                        STYLED(ELEMENTES,'flex-shrink','0');
-                        STYLED(ELEMENTES,'display','inline-flex'); 
-                        STYLED(ELEMENTES,'border-radius','10px'); 
-
-                        TEXT(ELEMENTES,'',data.ProductName,'','20px','',()=>{
-
-                        });
-
-                        CLICK(ELEMENTES,()=>{
-
-                            STOREDATA('','SectionName',data.ProductName);
-
-                            STOREDATA('','SectionID',data.ID);
-
-                            ROUTE(' ',SPECIALPRODUCTSPAGE,'HOMEPAGE');
-
-                        });
-                    
-                    });
-    
-                });
-    
-            });
-
-        });
-
-        LEFTTEXT(ELEMENT,'','Best Selling',TEXTCOLOR,'','3%','1% auto',()=>{
-
-            ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
-
-        });
-
-        NAVTEMPLATE(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'border-radius','10px');
-            STYLED(ELEMENTS,'overflowX','auto');
-
-            GETINDEXEDDATA('Products','Products',(data)=>{
-
-                CHECKER(data.Approved,()=>{
-
-                    INLINEVIEW(ELEMENTS,'','150px','95%','','auto 2%',(ELEMENSE)=>{
-
-                        FREEIMAGE(ELEMENSE,data.ProductImage,'100%','100%','0',(ELEMS)=>{
-    
-                            STYLED(ELEMS,'border-radius','10px');
-                            STYLED(ELEMS,'position','absolute');
-                            STYLED(ELEMS,'left','0');
-                            STYLED(ELEMS,'right','0');
-                            STYLED(ELEMS,'top','0');
-                            STYLED(ELEMS,'bottom','0');
-        
-                        });
-        
-                        FOOTER(ELEMENSE,'#333333','100%','70px',(ELEMS)=>{
-        
-                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
-        
-                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
-        
-                            });
-        
-                        });
-
-                    });
-    
-                });
-    
-            });
-
-        });
-
-        LEFTTEXT(ELEMENT,'','New Arrivals',TEXTCOLOR,'','3%','1% auto',()=>{
-
-            ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
-
-        });
-
-        NAVTEMPLATE(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'border-radius','10px');
-            STYLED(ELEMENTS,'overflowX','auto');
-
-            GETINDEXEDDATA('Products','Products',(data)=>{
-
-                CHECKER(data.Approved,()=>{
-
-                    INLINEVIEW(ELEMENTS,'','150px','95%','','auto 2%',(ELEMENSE)=>{
-
-                        FREEIMAGE(ELEMENSE,data.ProductImage,'100%','100%','0',(ELEMS)=>{
-    
-                            STYLED(ELEMS,'border-radius','10px');
-                            STYLED(ELEMS,'position','absolute');
-                            STYLED(ELEMS,'left','0');
-                            STYLED(ELEMS,'right','0');
-                            STYLED(ELEMS,'top','0');
-                            STYLED(ELEMS,'bottom','0');
-        
-                        });
-        
-                        FOOTER(ELEMENSE,'#333333','100%','70px',(ELEMS)=>{
-        
-                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
-        
-                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
-        
-                            });
-        
-                        });
-
-                    });
-    
-                });
-    
-            });
-
-        });
-
-        LEFTTEXT(ELEMENT,'','Most Rated ',TEXTCOLOR,'','3%','1% auto',()=>{
-
-            ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
-
-        });
-
-        NAVTEMPLATE(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'border-radius','10px');
-            STYLED(ELEMENTS,'overflowX','auto');
-
-            GETINDEXEDDATA('Products','Products',(data)=>{
-
-                CHECKER(data.Approved,()=>{
-
-                    INLINEVIEW(ELEMENTS,'','150px','95%','','auto 2%',(ELEMENSE)=>{
-
-                        FREEIMAGE(ELEMENSE,data.ProductImage,'100%','100%','0',(ELEMS)=>{
-    
-                            STYLED(ELEMS,'border-radius','10px');
-                            STYLED(ELEMS,'position','absolute');
-                            STYLED(ELEMS,'left','0');
-                            STYLED(ELEMS,'right','0');
-                            STYLED(ELEMS,'top','0');
-                            STYLED(ELEMS,'bottom','0');
-        
-                        });
-        
-                        FOOTER(ELEMENSE,'#333333','100%','70px',(ELEMS)=>{
-        
-                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
-        
-                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
-        
-                            });
-        
-                        });
-
-                    });
-    
-                });
-    
-            });
-
-        });
-
-        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
-        
-    });
-
-    ROUNDFOOTER('','#333','95%','50px','10px','auto 2% 2%  ',(ELEMENT)=>{
-
-        ICON(ELEMENT,WHITEGRIDICON,'20px','20px','',()=>{
-
-            ROUTE(' ',CATERGORIESPAGE,'HOMEPAGE');
-
-        });
-
-
-        ICON(ELEMENT,WHITESAVEDICON,'20px','20px','',()=>{
-
-            ROUTE(' ',SAVEDITEMSPAGE,'HOMEPAGE');
-
-        });
-
-        ICON(ELEMENT,WHITESETTINGSICON,'20px','20px','',()=>{
-
-            ROUTE(' ',SETTINGSPAGE,'HOMEPAGE');
-
-        });
+        PRODUCTS(ELEMENTS);
 
     });
 
-};
+    FLOATFIXEDBUTTON('','forestgreen',(ELEMENT)=>{
 
-const CATERGORIESPAGE=()=>{
+        IMAGE(ELEMENT,WHITEPOSTICON,'20px','20px','',()=>{
 
-    BACKPAGE('HOMEPAGE');
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
-    
-            });
+            ROUTE(' ',CREATIONPAGE,'HOMEPAGE');
 
         });
-        
-        RIGHTTEXT(ELEMENT,'','Catergories',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        GETINDEXEDDATA('Catergory','Catergory',(data)=>{
-
-            CHECKER(data.Approved,()=>{
-
-                TABLEVIEW(ELEMENT,'transparent','30%','25%','','1%',(ELEMENTS)=>{
-
-                    FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
-    
-                        STYLED(ELEMS,'border-radius','10px');
-                        STYLED(ELEMS,'position','absolute');
-                        STYLED(ELEMS,'left','0');
-                        STYLED(ELEMS,'right','0');
-                        STYLED(ELEMS,'top','0');
-                        STYLED(ELEMS,'bottom','0');
-    
-                    });
-    
-                    FOOTER(ELEMENTS,'#333333','100%','70px',(ELEMS)=>{
-    
-                        STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
-    
-                        TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
-    
-                        });
-    
-                    });
-
-                    CLICK(ELEMENTS,()=>{
-
-                        STOREDATA('','SectionName',data.ProductName);
-
-                        STOREDATA('','SectionID',data.ID);
-
-                        ROUTE(' ',SPECIALPRODUCTSPAGE,'CATERGORIESPAGE');
-
-                    });
-    
-                }); 
-
-            });
-
-        });
-
-    });
-
-};
-
-const SAVEDITEMSPAGE=()=>{
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Favorites',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-    });
-
-};
-
-const SETTINGSPAGE=()=>{
-
-    BACKPAGE('HOMEPAGE');
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Preferences',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        VIEW(ELEMENT,'','95%','300px','',(ELEMENTS)=>{
-
-            STYLED(ELEMENTS,'border-radius','10px');
-            STYLED(ELEMENTS,'border','1px solid #cdcdcd50');
-
-            LEFTVIEW(ELEMENTS,' ','50%','100%','',(ELEMENSE)=>{
-
-                IMAGE(ELEMENSE,QELMODENORMAL,'100%','100%','',()=>{
-
-                });
-
-                FOOTER(ELEMENSE,' ','100%','50px',(ELEMENTE)=>{
-
-                    CONDITION(localStorage.getItem('AppTheme') === '#cdcdcd',()=>{
-
-                        LEFTIMAGE(ELEMENTE,BLACKLOCATIONICON,'20px','20px','1%','auto',()=>{
-            
-                            ROUTE(' ',LOCATIONPAGE,'SETTINGSPAGE');
-        
-                        });
-        
-                    },()=>{
-        
-                        LEFTIMAGE(ELEMENTE,WHITELOCATIONICON,'20px','20px','1%','auto',()=>{
-            
-                            ROUTE(' ',LOCATIONPAGE,'SETTINGSPAGE');
-        
-                        });
-        
-                    });
-            
-                    LEFTTEXT(ELEMENTE,'',localStorage.getItem('Location')||'Kampala',TEXTCOLOR,'','-20%','',()=>{
-        
-                        ROUTE(' ',LOCATIONPAGE,'SETTINGSPAGE');
-            
-                    });
-
-                });
-
-            });
-
-            RIGHTVIEW(ELEMENTS,'transparent','50%','100%','',(ELEMENSE)=>{
-
-                BUTTONIMAGE(ELEMENSE,ELEMENTCOLOR,'UserName',TEXTCOLOR,WHITEUSERICON,'50px','2% auto',()=>{
-
-                });
-
-                BUTTONIMAGE(ELEMENSE,ELEMENTCOLOR,'UserEmail',TEXTCOLOR,WHITEGMAILICON,'50px','2% auto',()=>{
-
-                });
-
-                BUTTONIMAGE(ELEMENSE,ELEMENTCOLOR,'Update',TEXTCOLOR,WHITEUPLOADICON,'50px','2% auto',()=>{
-
-                });
-
-                FOOTER(ELEMENSE,'transparent','100%','50px',(ELEMENTE)=>{
-
-                    CONDITION(localStorage.getItem('User'),()=>{
-
-                        IMAGEBUTTON(ELEMENTE,ELEMENTCOLOR,'Log Out',TEXTCOLOR,WHITELOGOUTICON,'50px','2% auto',()=>{
-
-                        });
-
-                    },()=>{
-
-                        IMAGEBUTTON(ELEMENTE,ELEMENTCOLOR,'Log In',TEXTCOLOR,WHITEENTERICON,'50px','2% auto',()=>{
-
-                            ROUTE(' ',LOGINPAGE,'SETTINGSPAGE');
-
-                        });
-
-                    });
-
-                });
-
-            });
-
-        });
-
-        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Community',TEXTCOLOR,WHITEGROUPICON,'50px','2% auto',()=>{
-
-            ROUTE(' ',COMMUNITYPAGE,'SETTINGSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Sellers',TEXTCOLOR,WHITECREATEDONICON,'50px','2% auto',()=>{
-
-            ROUTE(' ',SELLERSPAGE,'SETTINGSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Theme',TEXTCOLOR,WHITECONTRASTICON,'50px','2% auto',()=>{
-
-           ROUTE(' ',BACKTHEMEPAGE,'SETTINGSPAGE');
-    
-        });
-
-        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Terms and Conditions',TEXTCOLOR,WHITEPRIVACYPOLICYICON,'50px','2% auto',()=>{
-
-            ROUTE(' ',POLICYPAGE,'SETTINGSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Help',TEXTCOLOR,WHITEHELPICON,'50px','2% auto',()=>{
-
-            ROUTE(' ',HELPPAGE,'SETTINGSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Contact Us',TEXTCOLOR,WHITEPHONEICON,'50px','2% auto',()=>{
-
-            ROUTE(' ',CONTACTUSPAGE,'SETTINGSPAGE');
-
-        });
-
-        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Sync',TEXTCOLOR,WHITERETRYICON,'50px','2% auto',()=>{
-
-            RELOAD()
-     
-        });
-
-        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Updates',TEXTCOLOR,WHITEMOBILEDEVELOPMENTICON,'50px','2% auto',()=>{
-
-            ROUTE(' ',UPDATESPAGE,'SETTINGSPAGE');
-
-        });
-
-    });
-
-};
-
-const BACKTHEMEPAGE=()=>{
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Themes',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        BUTTONIMAGE(ELEMENT,'#333333','Dark Theme','#ffffff',WHITEMOONICON,'50px','1% auto',()=>{
-
-            STOREDATA(' ','AppTheme','#333333');
-    
-            STOREDATA(' ','TextColor','#ffffff');
-    
-            RELOAD();
-    
-        });
-    
-        BUTTONIMAGE(ELEMENT,'#cdcdcd','Light Theme','#333333',BLACKSUNICON,'50px','2% auto',()=>{
-    
-            STOREDATA(' ','AppTheme','#cdcdcd');
-    
-            STOREDATA(' ','TextColor','#000');
-    
-            RELOAD();
-    
-        });
-    
-    });
-
-};
-
-const POLICYPAGE=()=>{
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Policies',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        CLEAR(ELEMENT);
-
-        GETINDEXEDDATA('Policies','Policies',(data)=>{
-
-            CHECKER(data.ID === 'a7f2c9de-8b64-4e1a-a5d7-3fcb9182d4e6' ,()=>{
-
-                LEFTTEXT(ELEMENT,'p',data.Data,'','','0.1rem','',()=>{
-
-                });
-
-            });
-
-        });
-
-    });
-
-};
-
-const ALLPRODUCTPAGE=()=>{
-
-    BACKPAGE('HOMEPAGE');
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',HOMEPAGE,'HOMEPAGE');
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','All Products',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        CLEAR(ELEMENT);
-
-        GETINDEXEDDATA('Products','Products',(data)=>{
-
-            CHECKER(data.Approved,()=>{
-
-                TABLEVIEW(ELEMENT,'transparent','30%','25%','','1%',(ELEMENTS)=>{
-
-                    FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
-    
-                        STYLED(ELEMS,'border-radius','10px');
-                        STYLED(ELEMS,'position','absolute');
-                        STYLED(ELEMS,'left','0');
-                        STYLED(ELEMS,'right','0');
-                        STYLED(ELEMS,'top','0');
-                        STYLED(ELEMS,'bottom','0');
-    
-                    });
-    
-                    FOOTER(ELEMENTS,'#333333','100%','70px',(ELEMS)=>{
-    
-                        STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
-    
-                        TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
-    
-                        });
-    
-                    });
-    
-                }); 
-
-            });
-
-        });
-
-    });
-
-};
-
-const PRODUCTPAGE=()=>{
-
-    DEJSON(sessionStorage.getItem('CurrentProduct'),(data)=>{
-
-        console.log(data)
-
-        HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-            BACKICONCOLOR((Data)=>{
-    
-                LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-    
-                    ROUTE('',HOMEPAGE,'HOMEPAGE');
-        
-                });
-    
-            });
-    
-            RIGHTTEXT(ELEMENT,'',data.ProductName,TEXTCOLOR,'','2%','',()=>{
-    
-            });
-    
-        },(ELEMENT)=>{
-    
-            IMAGE(ELEMENT,data.ProductImage,'80%','50%','',()=>{
-
-            });
-     
-        });
-
-    });
-
-};
-
-const SPECIALPRODUCTSPAGE=()=>{
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-
-                CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
-
-                    ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-                },()=>{
-
-                    ROUTE('',CATERGORIESPAGE,'CATERGORIESPAGE');
-
-                });
-
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'',sessionStorage.getItem('SectionName'),TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        CLEAR(ELEMENT);
-
-        GETINDEXEDDATA('Products','Products',(data)=>{
-
-            CHECKER(data.Approved,()=>{
-
-                console.log(data);
-
-                CHECKER(data.ProductCatergory === sessionStorage.getItem('SectionID'),()=>{
-
-                    TABLEVIEW(ELEMENT,'transparent','30%','25%','','1%',(ELEMENTS)=>{
-
-                        FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
-        
-                            STYLED(ELEMS,'border-radius','10px');
-                            STYLED(ELEMS,'position','absolute');
-                            STYLED(ELEMS,'left','0');
-                            STYLED(ELEMS,'right','0');
-                            STYLED(ELEMS,'top','0');
-                            STYLED(ELEMS,'bottom','0');
-        
-                        });
-        
-                        FOOTER(ELEMENTS,'#333333','100%','70px',(ELEMS)=>{
-        
-                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
-        
-                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
-        
-                            });
-        
-                        });
-        
-                    }); 
-
-                });
-
-            });
-
-        });
-
-    });
-
-};
-
-const CONTACTUSPAGE=()=>{
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Reach Us',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'G-mail',TEXTCOLOR,WHITEGMAILICON,'50px','1% auto',()=>{
-
-            GMAIL('qelmedistore@gmail.com');
-    
-        });
-    
-        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Call',TEXTCOLOR,WHITEPHONEICON,'50px','2% auto',()=>{
-    
-            CALL('0781500455');
-           
-        });
-    
-    });
-
-};
-
-const LOCATIONPAGE=()=>{
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
-
-                    ROUTE('',HOMEPAGE,'HOMEPAGE');
-
-                },()=>{
-
-                    ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-
-                });
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Locations',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        REDUX(UGANDANDISTRICITS,(element)=>{
-
-            CONDITION(localStorage.getItem('AppTheme') === '#cdcdcd',()=>{
-
-                BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,element.District,TEXTCOLOR,BLACKLOCATIONICON,'50px','2% auto',()=>{
-
-                    STOREDATA(' ','Location',element.District);
-
-                    CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
-
-                        ROUTE('',HOMEPAGE,'HOMEPAGE');
-    
-                    },()=>{
-    
-                        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-    
-                    });
-
-                });
-
-            },()=>{
-
-                BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,element.District,TEXTCOLOR,WHITELOCATIONICON,'50px','2% auto',()=>{
-
-                    STOREDATA(' ','Location',element.District);
-
-                    CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
-
-                        ROUTE('',HOMEPAGE,'HOMEPAGE');
-    
-                    },()=>{
-    
-                        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-    
-                    });
-        
-                });
-
-            });
-
-        });
-    
-    });
-
-};
-
-const HELPPAGE=()=>{
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Help',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        CLEAR(ELEMENT);
-
-        GETINDEXEDDATA('Policies','Policies',(data)=>{
-
-            CHECKER(data.ID === 1 ,()=>{
-
-                LEFTTEXT(ELEMENT,'p',data.Data,'','','0.1rem','',()=>{
-
-                });
-
-            });
-
-        });
-
-    });
-
-};
-
-const COMMUNITYPAGE=()=>{
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Community',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        CLEAR(ELEMENT);
-
-    });
-
-};
-
-const SELLERSPAGE=()=>{
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Sellers',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        CLEAR(ELEMENT);
-
-    });
-
-};
-
-const UPDATESPAGE=()=>{
-
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
-
-        BACKICONCOLOR((Data)=>{
-
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
-
-                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
-    
-            });
-
-        });
-
-        RIGHTTEXT(ELEMENT,'','Updates',TEXTCOLOR,'','2%','',()=>{
-
-        });
-
-    },(ELEMENT)=>{
-
-        CLEAR(ELEMENT);
 
     });
 
@@ -1091,25 +58,1801 @@ const UPDATESPAGE=()=>{
 
 const LOGINPAGE=()=>{
 
-    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+    DELETEDATA('','UserEmail');
 
-        BACKICONCOLOR((Data)=>{
+    DELETEDATA('','UserPassword');
 
-            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+    CLEAR('');
 
-                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    CENTERTEXT('','','Qel Manager',APPCOLORS,'30px','20% auto',()=>{
+
+    });
+
+    INPUT('', 'email', APPCOLORS, 'Enter Admin Email', (data)=>{
+
+        STOREDATA('','UserEmail',data);
+
+    });
+
+    INPUT('', 'password', APPCOLORS, '********', (data)=>{
+
+        STOREDATA('','UserPassword',data);
+
+    });
+
+    IMAGEBUTTON('','forestgreen','Sign In','',WHITEENTERICON,'50px','10% auto',()=>{
+
+        CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+
+            CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Please Wait,While We Comfirm Admin','');
+
+                    GETDATA(API,'AdminUsers',(data)=>{
+
+                        FINDER(data,'UserEmail',sessionStorage.getItem('UserEmail'),(Users)=>{
+
+                            CONDITION(Users.UserEmail === sessionStorage.getItem('UserEmail'),()=>{
+
+                                CONDITION(Users.UserPassword === sessionStorage.getItem('UserPassword'),()=>{
+
+                                    CONDITION(Users.Approved,()=>{
+
+                                        JSONIFICATION(Users,(MyData)=>{
+
+                                            STOREDATA(' ','UserData',MyData);
     
+                                            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                                        });
+
+                                    },()=>{
+
+                                        MESSAGEDISPLAY('','Something Went Wrong','');
+
+                                    });
+
+                                } ,()=>{
+
+                                    MESSAGEDISPLAY('','Wrong Admin Password','');
+
+                                });
+
+                            } ,()=>{
+
+                                MESSAGEDISPLAY('','No Admin Found','');
+
+                            });
+
+                        });
+
+                    });
+
+                },()=>{
+        
+                    MESSAGEDISPLAY('','Your Offline,Check Your Internet','');
+        
+                });
+
+            },()=>{
+    
+                MESSAGEDISPLAY('','Enter Admin Password','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Admin Email','');
+
+        });
+
+    });
+
+    NAVTEMPLATE('','transparent','80%','50px','30% auto',(ELEMENT)=>{
+
+        LEFTTEXT(ELEMENT,'','Forgot Password!','','16px','1rem','',()=>{
+
+            ROUTE(' ',FORGOTPASSWORDPAGE,'LOGINPAGE');
+
+        });
+
+        CENTERTEXT(ELEMENT,'','||','Orange','38px','',()=>{
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Create Account?','','16px','1rem','',()=>{
+
+            ROUTE(' ',CREATEACCOUNTPAGE,'LOGINPAGE');
+
+        });
+
+    });
+    
+};
+
+const FORGOTPASSWORDPAGE=()=>{
+
+    CLEAR('');
+
+    CENTERTEXT('','','Qel Manager',APPCOLORS,'30px','20% auto',()=>{
+
+    });
+
+    INPUT('', 'email', APPCOLORS, 'Enter Admin Email', (data)=>{
+
+        STOREDATA('','UserEmail',data);
+
+    });
+
+
+    IMAGEBUTTON('','forestgreen','Recover','',WHITEENTERICON,'50px','10% auto',()=>{
+
+        CONDITION( sessionStorage.getItem('UserEmail'),()=>{
+
+            CONDITION(navigator.onLine,()=>{
+
+                MESSAGEDISPLAY('','Please Wait While We Verify User','');
+
+                GETDATA(API,'AdminUsers',(data)=>{
+        
+                    FINDER(data,'UserEmail',sessionStorage.getItem('UserEmail'),(Users)=>{
+
+                        CONDITION(Users.UserEmail === sessionStorage.getItem('UserEmail'),()=>{
+
+                            const MESSAGE=`Dear ${Users.UserName},\n\n Thank Your For Creating An Account With Qel Medistore\n\n Your Password To Your Account Is ====> ${Users.UserPassword}<====,\n\n Thank You ,From Qel Medistore Team;`
+
+                            QELMAIL(sessionStorage.getItem('UserEmail'),'Medi Store Account Password',MESSAGE,()=>{
+
+                                MESSAGEDISPLAY('','Password Link Sent to Your Email','');
+
+                                ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+                            },()=>{
+
+                                MESSAGEDISPLAY('','Failed to Send Verification Code','');
+
+                            });
+
+                        } ,()=>{
+
+                            
+                            MESSAGEDISPLAY('','No Admin Found With Email',''); 
+
+                        });
+
+                    });
+
+                });
+
+            },()=>{
+    
+                MESSAGEDISPLAY('','Check Your Internet','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Admin Email','');
+
+        });
+
+    });
+
+    NAVTEMPLATE('','transparent','80%','50px','30% auto',(ELEMENT)=>{
+
+        LEFTTEXT(ELEMENT,'','Login In','','16px','1rem','',()=>{
+
+            ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+        });
+
+        CENTERTEXT(ELEMENT,'','||','Orange','38px','',()=>{
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Create Account?','','16px','1rem','',()=>{
+
+            ROUTE('',CREATEACCOUNTPAGE,'LOGINPAGE');
+
+        });
+
+    });
+    
+};
+
+const CREATEACCOUNTPAGE=()=>{
+
+    DELETEDATA('','UserEmail');
+
+    DELETEDATA('','UserPassword');
+
+    CLEAR('');
+
+    CENTERTEXT('','','Qel Manager',APPCOLORS,'30px','20% auto',()=>{
+
+    });
+
+    INPUT('', 'text', APPCOLORS, 'Enter User Name', (data)=>{
+
+        STOREDATA('','UserName',data);
+
+    });
+
+    INPUT('', 'email', APPCOLORS, 'Enter Admin Email', (data)=>{
+
+        STOREDATA('','UserEmail',data);
+
+    });
+
+    INPUT('', 'password', APPCOLORS, '********', (data)=>{
+
+        STOREDATA('','UserPassword',data);
+
+    });
+
+    IMAGEBUTTON('','forestgreen','Sign Up','',WHITEENTERICON,'50px','10% auto',()=>{
+
+        CONDITION(navigator.onLine,()=>{
+
+            CONDITION(sessionStorage.getItem('UserName'),()=>{
+
+                CONDITION(sessionStorage.getItem('UserEmail'),()=>{
+    
+                    CONDITION(sessionStorage.getItem('UserPassword'),()=>{
+        
+                        CONDITION(navigator.onLine,()=>{
+        
+                            MESSAGEDISPLAY('','Please Wait,While We Comfirm Admin','');
+        
+                            GETDATA(API,'AdminUsers',(data)=>{
+        
+                                FINDER(data,'UserEmail',sessionStorage.getItem('UserEmail'),(Users)=>{
+        
+                                    CONDITION(Users.UserEmail === sessionStorage.getItem('UserEmail'),()=>{
+        
+                                        MESSAGEDISPLAY('','Admin Found With Email',''); 
+        
+                                    } ,()=>{
+
+                                        RANDOMCODE((code)=>{
+
+                                            const MESSAGE=`Dear ${sessionStorage.getItem('UserName')},\n\n Thank Your For Creating An Account as A new Employee of Qel Medistore\n\n Your Verification Code is ${code},\n\n Thank You ,From Qel Medistore Team;`
+
+                                            QELMAIL(sessionStorage.getItem('UserEmail'),'Medi Store Account Creation',MESSAGE,()=>{
+
+                                                STOREDATA(' ','VeriifcationCode',code);
+
+                                                ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+
+                                                const MaData={
+                                                        'UserName':sessionStorage.getItem('UserName'),
+                                                        'UserEmail':sessionStorage.getItem('UserEmail'),
+                                                        'UserPassword':sessionStorage.getItem('UserPassword'),
+                                                        'UserCode':code,
+                                                        'UserPhoto':'',
+                                                    }
+                                                
+
+                                                JSONIFICATION(MaData,(MyData)=>{
+                        
+                                                    STOREDATA(' ','UserDatata',MyData);
+            
+                                                });
+
+
+                                            },()=>{
+    
+                                                MESSAGEDISPLAY('','Failed to Send Verification Code','');
+    
+                                            });
+
+                                        });
+             
+                                    });
+        
+                                });
+        
+                            });
+        
+                        },()=>{
+                
+                            MESSAGEDISPLAY('','Your Offline,Check Your Internet','');
+                
+                        });
+        
+                    },()=>{
+            
+                        MESSAGEDISPLAY('','Enter Admin Password','');
+            
+                    });
+        
+                },()=>{
+        
+                    MESSAGEDISPLAY('','Enter Admin Email','');
+        
+                });
+    
+            },()=>{
+    
+                MESSAGEDISPLAY('','Enter Admin UserName','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Your Offline','');
+
+        });
+
+    });
+
+    NAVTEMPLATE('','transparent','80%','50px','30% auto',(ELEMENT)=>{
+
+        LEFTTEXT(ELEMENT,'','Privacy Policy!','','16px','1rem','',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'','||','Orange','38px','',()=>{
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Log In?','','16px','1rem','',()=>{
+
+            ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+        });
+
+    });
+    
+};
+
+const EMAILVERIFICATIONPAGE=()=>{
+
+    CLEAR('');
+
+    CENTERTEXT('','','Qel Manager',APPCOLORS,'30px','20% auto',()=>{
+
+    });
+
+    INPUT('', 'tel', APPCOLORS, 'Enter Verification Code', (data)=>{
+
+        STOREDATA('','Code',data);
+
+    });
+
+    IMAGEBUTTON('','forestgreen','Verify','',WHITECHECKICON,'50px','10% auto',()=>{
+
+        CONDITION(sessionStorage.getItem('Code'),()=>{
+
+            CONDITION(sessionStorage.getItem('Code') === localStorage.getItem('VeriifcationCode') ,()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Please Wait Admin Is Being Created','');
+
+                    DEJSON(localStorage.getItem('UserDatata'),(DAta)=>{
+
+                        console.log(DAta);
+
+                        STOREDATA('','Users',DAta.UserEmail);
+        
+                        const HEADER=['UserName','UserEmail','UserPassword','Date','RandomCode','UserPhoto','Approved'];
+            
+                        const INFO=[DAta.UserName,DAta.UserEmail,DAta.UserPassword,new Date(),DAta.UserCode,'','Approved'];
+
+                        INSERTDATA(API,'AdminUsers',HEADER,INFO,()=>{
+            
+                            GETDATA(API,'AdminUsers',(data)=>{
+
+                                FINDER(data,'UserEmail',sessionStorage.getItem('Users'),(Users)=>{
+
+                                    CONDITION(Users.UserEmail === sessionStorage.getItem('Users'),()=>{
+
+                                        JSONIFICATION(Users,(MyData)=>{
+
+                                            STOREDATA(' ','UserData',MyData);
+
+                                            ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                        });
+
+                                    } ,()=>{
+
+                                        MESSAGEDISPLAY('','No Admin Found','');
+
+                                    });
+
+                                });
+
+                            });
+
+                        },()=>{
+
+                        });
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
+            
+            },()=>{
+    
+                MESSAGEDISPLAY('','Wrong Verification Code','');
+    
+            });
+
+        },()=>{
+
+            MESSAGEDISPLAY('','Enter Verification Code','');
+
+        });
+        
+    });
+
+    NAVTEMPLATE('','transparent','80%','50px','30% auto',(ELEMENT)=>{
+
+        LEFTTEXT(ELEMENT,'','Login In','','16px','1rem','',()=>{
+
+            DELETEDATA(' ','VeriifcationCode');
+
+            ROUTE('',LOGINPAGE,'LOGINPAGE');
+
+
+        });
+
+        CENTERTEXT(ELEMENT,'','||','Orange','38px','',()=>{
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Create Account?','','16px','1rem','',()=>{
+
+            DELETEDATA(' ','VeriifcationCode');
+
+            ROUTE('',CREATEACCOUNTPAGE,'LOGINPAGE');
+
+        });
+
+    });
+    
+};
+
+const CREATIONPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Management',APPCOLORS,'',(ELEMENT)=>{
+
+        IMAGEBUTTON(ELEMENT,'transparent','New Catergory','',WHITEGROUPICON,'50px','1% auto',()=>{
+
+            ROUTE(' ',NEWCATERGORYPAGE,'CREATIONPAGE');
+    
+        });
+        
+        IMAGEBUTTON(ELEMENT,'transparent','New Product','',WHITEGROUPICON,'50px','1% auto',()=>{
+
+            DELETEDATA('','Category');
+            DELETEDATA('','CategoryName');
+            DELETEDATA('','Name');
+            DELETEDATA('','Price');
+            DELETEDATA('','Details');
+            DELETEDATA('','Image');
+            DELETEDATA('','ImageOne');
+            DELETEDATA('','ImageTwo');
+            DELETEDATA('','ImageThree');
+            DELETEDATA('','Number');
+
+            ROUTE(' ',NEWPRODUCTPAGE,'CREATIONPAGE');
+    
+        });
+
+        IMAGEBUTTON(ELEMENT,'transparent','All Catergories','',WHITEGROUPICON,'50px','1% auto',()=>{
+
+            ROUTE(' ',ALLCATERGORYPAGE,'CREATIONPAGE');
+    
+        });
+
+        IMAGEBUTTON(ELEMENT,'transparent','HireEmployee','',WHITESUITCASEICON,'50px','1% auto',()=>{
+
+            alert('Still Under Development');
+    
+        });
+
+        IMAGEBUTTON(ELEMENT,'transparent','Sync App','',WHITEGROUPICON,'50px','1% auto',()=>{
+
+            RELOAD();
+    
+        });
+
+        IMAGEBUTTON(ELEMENT,'transparent','Log Out','',WHITELOGOUTICON,'50px','1% auto',()=>{
+
+            DELETEDATA(' ','UserData');
+
+            RELOAD();
+    
+        });
+
+    });
+
+};
+
+const NEWCATERGORYPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',CREATIONPAGE,'CREATIONPAGE');
+
+    },'Catergory',APPCOLORS,'',(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Create a New Catergory',APPCOLORS,'30px','10% auto',()=>{
+
+        });
+    
+        INPUT(ELEMENT, '', 'transparent', 'Enter Catergory Name', (data)=>{
+
+            STOREDATA('','Name',data);
+    
+        });
+
+        TEXTAREA(ELEMENT,'',APPCOLORS,'300px','Describe The Catergory',(data)=>{
+
+            STOREDATA('','Details',data);
+
+        });
+
+        CENTERTEXT(ELEMENT,'','Add Catergory Image',APPCOLORS,'20px','10% auto',()=>{
+
+        });
+
+        IMAGE(ELEMENT,WHITEHOMEICON,'','300px','',(ELEMENTS)=>{
+
+            IMAGEPICKER(ELEMENTS, (data)=>{
+
+                STOREDATA('','Image',data);
+
+            });
+
+        });
+    
+        IMAGEBUTTON(ELEMENT,'forestgreen','Create','',WHITEENTERICON,'50px','10% auto',()=>{
+    
+            CONDITION(sessionStorage.getItem('Name'),()=>{
+
+                CONDITION(sessionStorage.getItem('Details'),()=>{
+
+                    CONDITION(sessionStorage.getItem('Image'),()=>{
+
+                        CONDITION(navigator.onLine,()=>{
+
+                            MESSAGEDISPLAY('','Please Wait','');
+
+                            GETDATA(API,'Catergory',(data)=>{
+
+                                FINDER(data,'ProductName',sessionStorage.getItem('Name'),(resback)=>{
+
+                                    CONDITION(resback.ProductName === sessionStorage.getItem('Name'),()=>{
+
+                                        MESSAGEDISPLAY('','Catergory Name Exists','');
+
+                                    },()=>{
+
+                                        MESSAGEDISPLAY('','Creating New Catergory','');
+
+                                        const HEADERS=['ProductName','ProductDetails','ProductImage','ProductDate','Approved','CreatedBy'];
+
+                                        const INFO=[sessionStorage.getItem('Name'),sessionStorage.getItem('Details'),sessionStorage.getItem('Image'),new Date(),'Approved',sessionStorage.getItem('UserID')];
+
+                                        INSERTDATA(API,'Catergory',HEADERS,INFO,()=>{
+
+                                            GETDATA(API,'Catergory',(data)=>{
+
+                                                const MYDATA={
+                                                    'Name':'Catergory',
+                                                    'data':data
+                                                }
+
+                                                STOREINDEXED('Catergory', 'Catergory', MYDATA, (datata)=>{
+
+                                                    CONDITION(datata === false,()=>{
+
+                                                        UPDATEINDEX('Catergory', 'Catergory', MYDATA,()=>{
+                                                          
+                                                            ROUTE('',HOMEPAGE,'HOMEPAGE');
+                                                            
+                                                        })
+
+                                                    } ,()=>{
+
+                                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                                    });
+
+                                                });
+
+                                            });
+
+                                        },()=>{
+
+                                            MESSAGEDISPLAY('','Failed To Create New Catergory','');
+
+                                        });
+
+                                    });
+
+                                    console.log(resback);
+                                });
+
+                            },(data)=>{
+
+                                console.log(data);
+
+                            });
+
+                        },()=>{
+            
+                            MESSAGEDISPLAY('','Your OffLine,Check Your Internet','');
+            
+                        });
+
+                    },()=>{
+        
+                        MESSAGEDISPLAY('','Add Catergory Image','');
+        
+                    });
+
+                },()=>{
+    
+                    MESSAGEDISPLAY('','Enter Catergory Details','');
+    
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Enter Catergory Name','');
+
             });
 
         });
 
-        RIGHTTEXT(ELEMENT,'','Accounts',TEXTCOLOR,'','2%','',()=>{
+    });
+
+};
+
+const NEWPRODUCTPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',CREATIONPAGE,'CREATIONPAGE');
+
+    },'Product',APPCOLORS,'',(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Create a New Product',APPCOLORS,'30px','10% auto',()=>{
 
         });
 
-    },(ELEMENT)=>{
+        IMAGEBUTTON(ELEMENT,'forestgreen',sessionStorage.getItem('CategoryName')||'Select Catergory','',sessionStorage.getItem('CategoryImage')||WHITEGROUPICON,'50px','',()=>{
 
-        CLEAR(ELEMENT);
+            CENTERVIEW('',APPCOLORS,(ELEMENTS)=>{
+
+                STYLED(ELEMENTS,'overflow','hidden');
+
+                HEADER(ELEMENTS,'#ffffff',(ELEMS)=>{
+
+                    LEFTTEXT(ELEMS,'','Catergories',APPCOLORS,'20px','','',()=>{
+
+                    });
+
+                    RIGHTTEXT(ELEMS,'','Close',APPCOLORS,'20px','','',()=>{
+
+                        STYLED(ELEMENTS,'display','none');
+
+                    });
+
+                });
+
+                VIEW(ELEMENTS,' ','','','',(ELEMENTSERS)=>{
+
+                    CLEAR(ELEMENTSERS);
+
+                    STYLED(ELEMENTSERS,'top','50px');
+
+                    GETINDEXEDDATA('Catergory', 'Catergory', (data)=>{
+
+                        CHECKER(data.Approved,()=>{
+
+                            IMAGEBUTTON(ELEMENTSERS,'#333',data.ProductName,'',data.ProductImage,'50px','1% auto',(ELEMENT)=>{
+
+                                STOREDATA('','Category',data.ID);
+
+                                STOREDATA('','CategoryName',data.ProductName);
+
+                                STOREDATA('','CategoryImage',data.ProductImage);
+
+                                STYLED(ELEMENTS,'display','none');
+
+                                NEWPRODUCTPAGE();
+
+                            });
+                
+                        });
+                
+                    });
+
+                })
+
+            });
+    
+        });
+    
+        INPUT(ELEMENT, '', APPCOLORS,sessionStorage.getItem('Name')|| 'Enter Product Name', (data)=>{
+
+            STOREDATA('','Name',data);
+    
+        });
+
+        INPUT(ELEMENT, 'tel', APPCOLORS,sessionStorage.getItem('Price')|| 'Enter Product Price', (data)=>{
+
+            STOREDATA('','Price',data);
+    
+        });
+
+        INPUT(ELEMENT, 'tel', APPCOLORS,sessionStorage.getItem('Number')|| 'Enter Product Qantity', (data)=>{
+
+            STOREDATA('','Number',data);
+    
+        });
+
+        TEXTAREA(ELEMENT,'',APPCOLORS,'300px',sessionStorage.getItem('Details')||'Describe The Product',(data)=>{
+
+            STOREDATA('','Details',data);
+
+        });
+
+        CENTERTEXT(ELEMENT,'','Add Product Image',APPCOLORS,'20px','10% auto',()=>{
+
+        });
+
+        IMAGE(ELEMENT,sessionStorage.getItem('Image')||WHITEHOMEICON,'','300px','',(ELEMENTS)=>{
+
+            IMAGEPICKER(ELEMENTS, (data)=>{
+
+                STOREDATA('','Image',data);
+
+            });
+
+        });
+
+        CENTERTEXT(ELEMENT,'','Add Other Image Of Same Product',APPCOLORS,'20px','10% auto',()=>{
+
+        });
+
+        IMAGE(ELEMENT,sessionStorage.getItem('ImageOne')||WHITEHOMEICON,'','300px','',(ELEMENTS)=>{
+
+            IMAGEPICKER(ELEMENTS, (data)=>{
+
+                STOREDATA('','ImageOne',data);
+
+            });
+
+        });
+
+        IMAGE(ELEMENT,sessionStorage.getItem('ImageTwo')||WHITEHOMEICON,'','300px','',(ELEMENTS)=>{
+
+            IMAGEPICKER(ELEMENTS, (data)=>{
+
+                STOREDATA('','ImageTwo',data);
+
+            });
+
+        });
+
+        IMAGE(ELEMENT,sessionStorage.getItem('ImageThree')||WHITEHOMEICON,'','300px','',(ELEMENTS)=>{
+
+            IMAGEPICKER(ELEMENTS, (data)=>{
+
+                STOREDATA('','ImageThree',data);
+
+            });
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Add Product','',WHITECHECKICON,'50px','10% auto',()=>{
+    
+            CONDITION(sessionStorage.getItem('Category'),()=>{
+
+                CONDITION(sessionStorage.getItem('Name'),()=>{
+
+                    CONDITION(sessionStorage.getItem('Price'),()=>{
+
+                        CONDITION(sessionStorage.getItem('Number'),()=>{
+
+                            CONDITION(sessionStorage.getItem('Details'),()=>{
+
+                                CONDITION(sessionStorage.getItem('Image'),()=>{
+        
+                                    CONDITION(navigator.onLine,()=>{
+        
+                                        MESSAGEDISPLAY('','Please Wait','');
+        
+                                        const HEADERS=['ProductName','ProductPrice','ProductDetails','ProductCatergory','ProductImage','ProductImageOne','ProductImageTwo','ProductImageThree','CreatedOn','CreatedBy','Approved','ProductNumber'];
+                        
+                                        const INFO=[sessionStorage.getItem('Name'),sessionStorage.getItem('Price'),sessionStorage.getItem('Details'),sessionStorage.getItem('Category'),sessionStorage.getItem('Image'),sessionStorage.getItem('ImageOne'),sessionStorage.getItem('ImageTwo'),sessionStorage.getItem('ImageThree'),new Date(),sessionStorage.getItem('UserID'),'Approved',sessionStorage.getItem('Number')];
+        
+                                        INSERTDATA(API,'Products',HEADERS,INFO,()=>{
+    
+                                            GETDATA(API,'Products',(data)=>{
+    
+                                                const MYDATA={
+                                                    'Name':'Products',
+                                                    'data':data
+                                                }
+    
+                                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                                    CONDITION(datata === false,()=>{
+    
+                                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                                          
+                                                            ROUTE('',HOMEPAGE,'HOMEPAGE');
+                                                            
+                                                        })
+    
+                                                    } ,()=>{
+    
+                                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                                                    });
+    
+                                                });
+    
+                                            });
+    
+                                        },()=>{
+    
+                                            MESSAGEDISPLAY('','Failed to Add Product','');
+    
+                                        });
+        
+                                    },()=>{
+                        
+                                        MESSAGEDISPLAY('','Check Your Internet','');
+                        
+                                    });
+        
+                                },()=>{
+                    
+                                    MESSAGEDISPLAY('','Add Product Details','');
+                    
+                                });
+        
+                            },()=>{
+                
+                                MESSAGEDISPLAY('','Product Details','');
+                
+                            });
+
+                        },()=>{
+
+                            MESSAGEDISPLAY('','Enter Product Qantity','');
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Enter Product Price','');
+
+                    });
+
+                },()=>{
+    
+                    MESSAGEDISPLAY('','Enter Product Name','');
+    
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Select Product Catergory','');
+
+            });
+
+        });
+
+    });
+
+};
+
+const APPDATA=()=>{
+
+    CHECKER(navigator.onLine,()=>{
+
+        GETDATA(API,'Catergory',(data)=>{
+
+            const MYDATA={
+                'Name':'Catergory',
+                'data':data
+            }
+    
+            STOREINDEXED('Catergory', 'Catergory', MYDATA, (datata)=>{
+    
+                CONDITION(datata === false,()=>{
+    
+                    UPDATEINDEX('Catergory', 'Catergory', MYDATA,()=>{
+                 
+                    })
+    
+                } ,()=>{
+    
+    
+                });
+    
+            });
+    
+        });
+
+        GETDATA(API,'Products',(data)=>{
+
+            const MYDATA={
+                'Name':'Products',
+                'data':data
+            }
+    
+            STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                CONDITION(datata === false,()=>{
+    
+                    UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                 
+                    })
+    
+                } ,()=>{
+    
+    
+                });
+    
+            });
+    
+        });
+
+    });
+
+};
+
+const PRODUCTS=(ELEMENT)=>{
+
+    GETINDEXEDDATA('Products', 'Products', (data)=>{
+
+        VIEW(ELEMENT,'transparent','45%','25%','1% 1% 5% 1%',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'display','inline-table');
+               
+            IMAGE(ELEMENTS,data.ProductImage,'100%','250px',' 0',()=>{
+
+            });
+
+            CONDITION(data.Approved,()=>{
+
+                FOOTER(ELEMENTS,'#0F990F80','','50px',(ELEMENTSE)=>{
+
+                    LEFTTEXT(ELEMENTSE,'',data.ProductName,APPCOLORS,'14.1px','0.3rem','',()=>{
+    
+                    });
+    
+                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice ,APPCOLORS,'16px','0.3rem','',()=>{
+    
+                    });
+    
+                });
+
+            },()=>{
+
+                FOOTER(ELEMENTS,'red','','50px',(ELEMENTSE)=>{
+
+                    LEFTTEXT(ELEMENTSE,'',data.ProductName,APPCOLORS,'14.1px','0.3rem','',()=>{
+    
+                    });
+    
+                    RIGHTTEXT(ELEMENTSE,'',data.ProductPrice ,APPCOLORS,'16px','0.3rem','',()=>{
+    
+                    });
+    
+                });
+
+            })
+
+            CLICK(ELEMENTS,()=>{
+
+                JSONIFICATION(data,(MyData)=>{
+
+                    STOREDATA('','Product',MyData);
+
+                    ROUTE(' ',PRODUTVIEWPAGE,'HOMEPAGE');
+
+                });
+
+            });
+
+        });
+
+    });
+
+};
+
+const PRODUTVIEWPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('Product'),(data)=>{
+
+        LEFTTEXTBACKHEADERBODY('',()=>{
+
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+        },data.ProductName,APPCOLORS,'',(ELEMENT)=>{
+
+            CENTERTEXT(ELEMENT,'',data.ProductName,APPCOLORS,'20px','',()=>{
+
+            });
+
+            INPUT(ELEMENT,' ', APPCOLORS, data.ProductName||'Enter Product New Name', (data)=>{
+
+                STOREDATA('','NewName',data);
+
+            });
+        
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Update Product Name','',WHITECHECKICON,'50px','auto auto 5% auto',()=>{
+
+                CONDITION(sessionStorage.getItem('NewName'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[sessionStorage.getItem('NewName'),data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,'Admin','Approved',data.ProductNumber];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Enter New Product Name','');
+
+                });
+        
+            });
+
+            INPUT(ELEMENT, 'tel', APPCOLORS, data.ProductPrice||'Enter Product New Price', (data)=>{
+
+                STOREDATA('','NewPrice',data);
+
+            });
+        
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Update Product Price','',WHITECHECKICON,'50px','',()=>{
+
+                CONDITION(sessionStorage.getItem('NewPrice'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,sessionStorage.getItem('NewPrice'),data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Enter New Product Price','');
+
+                });
+        
+            });
+
+            INPUT(ELEMENT, 'tel', APPCOLORS, data.ProductNumber||'Enter Product New Quantity', (data)=>{
+
+                STOREDATA('','NewNumber',data);
+
+            });
+        
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Update Product Quantity','',WHITECHECKICON,'50px','',()=>{
+
+                CONDITION(sessionStorage.getItem('NewNumber'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',sessionStorage.getItem('NewNumber')];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Enter New Product Quantity','');
+
+                });
+        
+            });
+
+            TEXTAREA(ELEMENT,'',APPCOLORS,'300px',data.ProductDetails,(data)=>{
+
+                STOREDATA('','NewDetails',data);
+    
+            });
+
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Update Product Details','',WHITECHECKICON,'50px','',()=>{
+
+                CONDITION(sessionStorage.getItem('NewDetails'),()=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,sessionStorage.getItem('NewDetails'),data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Enter New Product Details','');
+
+                });
+        
+            });
+
+            CENTERTEXT(ELEMENT,'','Click Image to Update',APPCOLORS,'20px','5% auto',()=>{
+
+            });
+    
+            IMAGE(ELEMENT,data.ProductImage||WHITEHOMEICON,'','300px','1% auto',(ELEMENTS)=>{
+
+                IMAGEPICKER(ELEMENTS, (datata)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,datata,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+    
+                });
+    
+            });
+
+            IMAGE(ELEMENT,data.ProductImageOne||WHITEHOMEICON,'','300px','1% auto',(ELEMENTS)=>{
+
+                IMAGEPICKER(ELEMENTS, (datata)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,datata,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+    
+                });
+    
+            });
+
+            IMAGE(ELEMENT,data.ProductImageTwo||WHITEHOMEICON,'','300px','1% auto',(ELEMENTS)=>{
+
+                IMAGEPICKER(ELEMENTS, (datata)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,datata,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+    
+                });
+    
+            });
+
+            IMAGE(ELEMENT,data.ProductImageThree||WHITEHOMEICON,'','300px','1% auto',(ELEMENTS)=>{
+
+                IMAGEPICKER(ELEMENTS, (datata)=>{
+
+                    CONDITION(navigator.onLine,()=>{
+
+                        MESSAGEDISPLAY('','Product Is Being Updated','');
+    
+                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,datata,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
+        
+                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+    
+                            GETDATA(API,'Products',(data)=>{
+    
+                                const MYDATA={
+                                    'Name':'Products',
+                                    'data':data
+                                }
+    
+                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+    
+                                    CONDITION(datata === false,()=>{
+    
+                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                          
+                                            MESSAGEDISPLAY('','Product Updated','');
+                                            
+                                        })
+    
+                                    } ,()=>{
+    
+                                        MESSAGEDISPLAY('','Product Updated','');
+    
+                                    });
+    
+                                });
+    
+                            });
+    
+                        },()=>{
+    
+                            MESSAGEDISPLAY('','Failed to Update Product','');
+    
+                        });
+    
+                    },()=>{
+    
+                        MESSAGEDISPLAY('','Check Your Internet','');
+    
+                    });
+    
+                });
+    
+            });
+
+            IMAGEBUTTON(ELEMENT,'blue','Now In Stock','',WHITECHECKICON,'50px','1% auto',()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Product Is Being Updated','');
+
+                    const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
+
+                    UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+
+                        GETDATA(API,'Products',(data)=>{
+
+                            const MYDATA={
+                                'Name':'Products',
+                                'data':data
+                            }
+
+                            STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+
+                                CONDITION(datata === false,()=>{
+
+                                    UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                      
+                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+                                        
+                                    })
+
+                                } ,()=>{
+
+                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                });
+
+                            });
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Failed to Update Product','');
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
+  
+            });
+
+            IMAGEBUTTON(ELEMENT,APPCOLORS,'Catergory','',WHITEGROUPICON,'50px','',()=>{
+
+                CENTERVIEW('',APPCOLORS,(ELEMENTS)=>{
+    
+                    STYLED(ELEMENTS,'overflow','hidden');
+    
+                    HEADER(ELEMENTS,'#ffffff',(ELEMS)=>{
+    
+                        LEFTTEXT(ELEMS,'','Catergories',APPCOLORS,'20px','','',()=>{
+    
+                        });
+    
+                        RIGHTTEXT(ELEMS,'','Close',APPCOLORS,'20px','','',()=>{
+    
+                            STYLED(ELEMENTS,'display','none');
+    
+                        });
+    
+                    });
+    
+                    VIEW(ELEMENTS,' ','','','',(ELEMENTSERS)=>{
+    
+                        CLEAR(ELEMENTSERS);
+    
+                        STYLED(ELEMENTSERS,'top','50px');
+    
+                        GETINDEXEDDATA('Catergory', 'Catergory', (datate)=>{
+    
+                            CHECKER(datate.Approved,()=>{
+    
+                                IMAGEBUTTON(ELEMENTSERS,'#333',datate.ProductName,'',WHITEGROUPICON,'50px','1% auto',()=>{
+
+                                    CONDITION(navigator.onLine,()=>{
+
+                                        MESSAGEDISPLAY('','Product Is Being Updated','');
+                    
+                                        const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,datate.ID,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'Approved',data.ProductNumber];
+                        
+                                        UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+                    
+                                            GETDATA(API,'Products',(data)=>{
+                    
+                                                const MYDATA={
+                                                    'Name':'Products',
+                                                    'data':data
+                                                }
+                    
+                                                STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+                    
+                                                    CONDITION(datata === false,()=>{
+                    
+                                                        UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                                          
+                                                            MESSAGEDISPLAY('','Product Updated','');
+
+                                                            STYLED(ELEMENTS,'display','none');
+                                                            
+                                                        })
+                    
+                                                    } ,()=>{
+                    
+                                                        MESSAGEDISPLAY('','Product Updated','');
+
+                                                        STYLED(ELEMENTS,'display','none');
+                    
+                                                    });
+                    
+                                                });
+                    
+                                            });
+                    
+                                        },()=>{
+                    
+                                            MESSAGEDISPLAY('','Failed to Update Product','');
+                    
+                                        });
+                    
+                                    },()=>{
+                    
+                                        MESSAGEDISPLAY('','Check Your Internet','');
+                    
+                                    });
+    
+                                });
+                    
+                            });
+                    
+                        });
+    
+                    })
+    
+                });
+        
+            });
+    
+            IMAGEBUTTON(ELEMENT,'brown','Out Of Stock','',WHITECLOSEICON,'50px','1% auto',()=>{
+
+                CONDITION(navigator.onLine,()=>{
+
+                    MESSAGEDISPLAY('','Product Is Being Updated','');
+
+                    const INFO=[data.ProductName,data.ProductPrice,data.ProductDetails,data.ProductCatergory,data.ProductImage,data.ProductImageOne,data.ProductImageTwo,data.ProductImageThree,data.CreatedOn,sessionStorage.getItem('UserID'),'',data.ProductNumber];
+    
+                    UPDATEDATA(API,'Products',data.ID,INFO,()=>{
+
+                        GETDATA(API,'Products',(data)=>{
+
+                            const MYDATA={
+                                'Name':'Products',
+                                'data':data
+                            }
+
+                            STOREINDEXED('Products', 'Products', MYDATA, (datata)=>{
+
+                                CONDITION(datata === false,()=>{
+
+                                    UPDATEINDEX('Products', 'Products', MYDATA,()=>{
+                                      
+                                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+                                        
+                                    })
+
+                                } ,()=>{
+
+                                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                                });
+
+                            });
+
+                        });
+
+                    },()=>{
+
+                        MESSAGEDISPLAY('','Failed to Update Product','');
+
+                    });
+
+                },()=>{
+
+                    MESSAGEDISPLAY('','Check Your Internet','');
+
+                });
+
+            });
+
+        });
+
+    });
+
+};
+
+const ALLCATERGORYPAGE=()=>{
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'All Catergories',APPCOLORS,'',(ELEMENT)=>{
+
+        GETINDEXEDDATA('Catergory', 'Catergory', (data)=>{
+
+            CHECKER(data.Approved,()=>{
+    
+                IMAGEBUTTON(ELEMENT,'forestgreen',data.ProductName,'',data.ProductImage,'50px','1% auto',(ELEMENT)=>{
+        
+                });
+    
+            });
+    
+        });
+    
+    });
+
+};
+
+const USERMONITORING=()=>{
+
+    DEJSON(localStorage.getItem('UserData'),(MaData)=>{
+
+        GETDATA(API,'AdminUsers',(data)=>{
+
+            FINDER(data,'UserEmail',MaData.UserEmail,(Users)=>{
+    
+                CONDITION(Users.UserEmail === MaData.UserEmail,()=>{
+    
+                    CONDITION(Users.Approved,()=>{
+    
+                        JSONIFICATION(Users,(MyData)=>{
+
+                            STOREDATA(' ','UserData',MyData);
+
+                            STOREDATA('','UserData',Users.UserEmail);
+
+                            STOREDATA('','UserID',Users.ID);
+
+                        });
+
+                    },()=>{
+
+                        DELETEDATA(' ','UserData');
+
+                        RELOAD();
+
+                    });
+    
+                } ,()=>{
+    
+                    MESSAGEDISPLAY('','No Admin Found','');
+
+                    DELETEDATA(' ','UserData');
+
+                    RELOAD();
+    
+                });
+    
+            });
+    
+        });
 
     });
 

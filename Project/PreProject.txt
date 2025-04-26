@@ -1,0 +1,1116 @@
+const API='https://docs.google.com/spreadsheets/d/18BUoCg4yVUrxWv8RG885ZIn2fjkURGgjIrCi6otCxFk/edit?usp=sharing';
+
+const TEXTCOLOR=localStorage.getItem('TextColor');
+
+const ELEMENTCOLOR=localStorage.getItem('AppTheme');
+
+const NOVASTART=()=>{
+
+    APPMODE(localStorage.getItem('AppTheme')||'#333333');
+
+    DOWNLOADSAVEINDEX(API,'Policies','Policies',()=>{
+
+    });
+
+    DOWNLOADSAVEINDEX(API,'Catergory','Catergory',()=>{
+
+        DOWNLOADSAVEINDEX(API,'Products','Products',()=>{
+
+            CONDITION(localStorage.getItem('AppTheme'),()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+            },()=>{
+
+                ROUTE('',THEMEPAGE,'THEMEPAGE');
+
+            });
+
+        });
+
+    });
+
+    CONDITION(localStorage.getItem('AppTheme'),()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },()=>{
+
+        ROUTE('',THEMEPAGE,'THEMEPAGE');
+
+    });
+
+};
+
+const THEMEPAGE=()=>{
+
+    CLEAR('');
+
+    CENTERTEXT('','h1','App Theme','#ffffff','30px','40% auto auto',()=>{
+
+    });
+
+    CENTERTEXT('','h1','Choose Your App Color','#ffffff','15px','5% auto ',()=>{
+
+    });
+
+    BUTTONIMAGE('','#333333','Dark Theme','#ffffff',WHITEMOONICON,'50px','1% auto',()=>{
+
+        STOREDATA(' ','AppTheme','#333333');
+
+        STOREDATA(' ','TextColor','#ffffff');
+
+        RELOAD();
+
+    });
+
+    BUTTONIMAGE('','#cdcdcd','Light Theme','#333333',BLACKSUNICON,'50px','2% auto',()=>{
+
+        STOREDATA(' ','AppTheme','#cdcdcd');
+
+        STOREDATA(' ','TextColor','#000');
+
+        RELOAD();
+
+    });
+
+};
+
+const BACKICONCOLOR=(callback)=>{
+
+    CHECKER(localStorage.getItem('AppTheme') === '#333333' ,()=>{
+
+        callback(WHITEBACKICON);
+
+    });
+
+    CHECKER(localStorage.getItem('AppTheme') === '#cdcdcd' ,()=>{
+
+        callback(BLACKBACKICON);
+
+    });
+
+};
+
+const HOMEPAGE=()=>{
+
+    DOWNLOADSAVEINDEX(API,'Catergory','Catergory',()=>{
+
+    });
+
+    DOWNLOADSAVEINDEX(API,'Policies','Policies',()=>{
+
+    });
+
+    DOWNLOADSAVEINDEX(API,'Products','Products',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    });
+
+    CLEAR('');
+
+    FULLSCROLLVIEW('','transparent',(ELEMENT)=>{
+
+        VIEW(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'overflow','hidden');
+            STYLED(ELEMENTS,'border-radius','10px'); 
+
+            //IMAGE(ELEMENTS,'','100%','100%','',()=>{});
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'transparent','95%','50px','10% auto auto',(ELEMENTS)=>{
+
+            CONDITION(localStorage.getItem('AppTheme') === '#cdcdcd',()=>{
+
+                LEFTIMAGE(ELEMENTS,BLACKLOCATIONICON,'20px','20px','1%','auto',()=>{
+    
+                    ROUTE(' ',LOCATIONPAGE,'HOMEPAGE');
+
+                });
+
+            },()=>{
+
+                LEFTIMAGE(ELEMENTS,WHITELOCATIONICON,'20px','20px','1%','auto',()=>{
+    
+                    ROUTE(' ',LOCATIONPAGE,'HOMEPAGE');
+
+                });
+
+            });
+    
+            LEFTTEXT(ELEMENTS,'',localStorage.getItem('Location')||'Kampala',TEXTCOLOR,'','-20%','',()=>{
+
+                ROUTE(' ',LOCATIONPAGE,'HOMEPAGE');
+    
+            });
+
+            RIGHTTEXT(ELEMENTS,'','All Products',TEXTCOLOR,'','2%','',()=>{
+
+                ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
+    
+            });
+
+        });
+
+        LEFTTEXT(ELEMENT,'','Catergories',TEXTCOLOR,'','3%','1% auto',()=>{
+
+            ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'#00000050','95%','10%','1% auto',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'border-radius','10px');
+            STYLED(ELEMENTS,'overflowX','auto');
+
+            GETINDEXEDDATA('Catergory','Catergory',(data)=>{
+
+                CHECKER(data.Approved,()=>{
+    
+                    VIEW(ELEMENTS,'#6b9c30','200px','50px','auto 2% auto',(ELEMENTES)=>{
+
+                        STYLED(ELEMENTES,'overflow','hidden');
+                        STYLED(ELEMENTES,'flex-shrink','0');
+                        STYLED(ELEMENTES,'display','inline-flex'); 
+                        STYLED(ELEMENTES,'border-radius','10px'); 
+
+                        TEXT(ELEMENTES,'',data.ProductName,'','20px','',()=>{
+
+                        });
+
+                        CLICK(ELEMENTES,()=>{
+
+                            STOREDATA('','SectionName',data.ProductName);
+
+                            STOREDATA('','SectionID',data.ID);
+
+                            ROUTE(' ',SPECIALPRODUCTSPAGE,'HOMEPAGE');
+
+                        });
+                    
+                    });
+    
+                });
+    
+            });
+
+        });
+
+        LEFTTEXT(ELEMENT,'','Best Selling',TEXTCOLOR,'','3%','1% auto',()=>{
+
+            ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'border-radius','10px');
+            STYLED(ELEMENTS,'overflowX','auto');
+
+            GETINDEXEDDATA('Products','Products',(data)=>{
+
+                CHECKER(data.Approved,()=>{
+
+                    INLINEVIEW(ELEMENTS,'','150px','95%','','auto 2%',(ELEMENSE)=>{
+
+                        FREEIMAGE(ELEMENSE,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                            STYLED(ELEMS,'border-radius','10px');
+                            STYLED(ELEMS,'position','absolute');
+                            STYLED(ELEMS,'left','0');
+                            STYLED(ELEMS,'right','0');
+                            STYLED(ELEMS,'top','0');
+                            STYLED(ELEMS,'bottom','0');
+        
+                        });
+        
+                        FOOTER(ELEMENSE,'#333333','100%','70px',(ELEMS)=>{
+        
+                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+        
+                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+        
+                            });
+        
+                        });
+
+                    });
+    
+                });
+    
+            });
+
+        });
+
+        LEFTTEXT(ELEMENT,'','New Arrivals',TEXTCOLOR,'','3%','1% auto',()=>{
+
+            ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'border-radius','10px');
+            STYLED(ELEMENTS,'overflowX','auto');
+
+            GETINDEXEDDATA('Products','Products',(data)=>{
+
+                CHECKER(data.Approved,()=>{
+
+                    INLINEVIEW(ELEMENTS,'','150px','95%','','auto 2%',(ELEMENSE)=>{
+
+                        FREEIMAGE(ELEMENSE,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                            STYLED(ELEMS,'border-radius','10px');
+                            STYLED(ELEMS,'position','absolute');
+                            STYLED(ELEMS,'left','0');
+                            STYLED(ELEMS,'right','0');
+                            STYLED(ELEMS,'top','0');
+                            STYLED(ELEMS,'bottom','0');
+        
+                        });
+        
+                        FOOTER(ELEMENSE,'#333333','100%','70px',(ELEMS)=>{
+        
+                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+        
+                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+        
+                            });
+        
+                        });
+
+                    });
+    
+                });
+    
+            });
+
+        });
+
+        LEFTTEXT(ELEMENT,'','Most Rated ',TEXTCOLOR,'','3%','1% auto',()=>{
+
+            ROUTE(' ',ALLPRODUCTPAGE,'HOMEPAGE');
+
+        });
+
+        NAVTEMPLATE(ELEMENT,'#00000050','95%','30%','1% auto',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'border-radius','10px');
+            STYLED(ELEMENTS,'overflowX','auto');
+
+            GETINDEXEDDATA('Products','Products',(data)=>{
+
+                CHECKER(data.Approved,()=>{
+
+                    INLINEVIEW(ELEMENTS,'','150px','95%','','auto 2%',(ELEMENSE)=>{
+
+                        FREEIMAGE(ELEMENSE,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                            STYLED(ELEMS,'border-radius','10px');
+                            STYLED(ELEMS,'position','absolute');
+                            STYLED(ELEMS,'left','0');
+                            STYLED(ELEMS,'right','0');
+                            STYLED(ELEMS,'top','0');
+                            STYLED(ELEMS,'bottom','0');
+        
+                        });
+        
+                        FOOTER(ELEMENSE,'#333333','100%','70px',(ELEMS)=>{
+        
+                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+        
+                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+        
+                            });
+        
+                        });
+
+                    });
+    
+                });
+    
+            });
+
+        });
+
+        BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);BREAK(ELEMENT);
+        
+    });
+
+    ROUNDFOOTER('','#333','95%','50px','10px','auto 2% 2%  ',(ELEMENT)=>{
+
+        ICON(ELEMENT,WHITEGRIDICON,'20px','20px','',()=>{
+
+            ROUTE(' ',CATERGORIESPAGE,'HOMEPAGE');
+
+        });
+
+
+        ICON(ELEMENT,WHITESAVEDICON,'20px','20px','',()=>{
+
+            ROUTE(' ',SAVEDITEMSPAGE,'HOMEPAGE');
+
+        });
+
+        ICON(ELEMENT,WHITESETTINGSICON,'20px','20px','',()=>{
+
+            ROUTE(' ',SETTINGSPAGE,'HOMEPAGE');
+
+        });
+
+    });
+
+};
+
+const CATERGORIESPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
+
+        });
+        
+        RIGHTTEXT(ELEMENT,'','Catergories',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        GETINDEXEDDATA('Catergory','Catergory',(data)=>{
+
+            CHECKER(data.Approved,()=>{
+
+                TABLEVIEW(ELEMENT,'transparent','30%','25%','','1%',(ELEMENTS)=>{
+
+                    FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                        STYLED(ELEMS,'border-radius','10px');
+                        STYLED(ELEMS,'position','absolute');
+                        STYLED(ELEMS,'left','0');
+                        STYLED(ELEMS,'right','0');
+                        STYLED(ELEMS,'top','0');
+                        STYLED(ELEMS,'bottom','0');
+    
+                    });
+    
+                    FOOTER(ELEMENTS,'#333333','100%','70px',(ELEMS)=>{
+    
+                        STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+    
+                        TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+    
+                        });
+    
+                    });
+
+                    CLICK(ELEMENTS,()=>{
+
+                        STOREDATA('','SectionName',data.ProductName);
+
+                        STOREDATA('','SectionID',data.ID);
+
+                        ROUTE(' ',SPECIALPRODUCTSPAGE,'CATERGORIESPAGE');
+
+                    });
+    
+                }); 
+
+            });
+
+        });
+
+    });
+
+};
+
+const SAVEDITEMSPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Favorites',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+    });
+
+};
+
+const SETTINGSPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Preferences',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        VIEW(ELEMENT,'','95%','300px','',(ELEMENTS)=>{
+
+            STYLED(ELEMENTS,'border-radius','10px');
+            STYLED(ELEMENTS,'border','1px solid #cdcdcd50');
+
+            LEFTVIEW(ELEMENTS,' ','50%','100%','',(ELEMENSE)=>{
+
+                IMAGE(ELEMENSE,QELMODENORMAL,'100%','100%','',()=>{
+
+                });
+
+                FOOTER(ELEMENSE,' ','100%','50px',(ELEMENTE)=>{
+
+                    CONDITION(localStorage.getItem('AppTheme') === '#cdcdcd',()=>{
+
+                        LEFTIMAGE(ELEMENTE,BLACKLOCATIONICON,'20px','20px','1%','auto',()=>{
+            
+                            ROUTE(' ',LOCATIONPAGE,'SETTINGSPAGE');
+        
+                        });
+        
+                    },()=>{
+        
+                        LEFTIMAGE(ELEMENTE,WHITELOCATIONICON,'20px','20px','1%','auto',()=>{
+            
+                            ROUTE(' ',LOCATIONPAGE,'SETTINGSPAGE');
+        
+                        });
+        
+                    });
+            
+                    LEFTTEXT(ELEMENTE,'',localStorage.getItem('Location')||'Kampala',TEXTCOLOR,'','-20%','',()=>{
+        
+                        ROUTE(' ',LOCATIONPAGE,'SETTINGSPAGE');
+            
+                    });
+
+                });
+
+            });
+
+            RIGHTVIEW(ELEMENTS,'transparent','50%','100%','',(ELEMENSE)=>{
+
+                BUTTONIMAGE(ELEMENSE,ELEMENTCOLOR,'UserName',TEXTCOLOR,WHITEUSERICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENSE,ELEMENTCOLOR,'UserEmail',TEXTCOLOR,WHITEGMAILICON,'50px','2% auto',()=>{
+
+                });
+
+                BUTTONIMAGE(ELEMENSE,ELEMENTCOLOR,'Update',TEXTCOLOR,WHITEUPLOADICON,'50px','2% auto',()=>{
+
+                });
+
+                FOOTER(ELEMENSE,'transparent','100%','50px',(ELEMENTE)=>{
+
+                    CONDITION(localStorage.getItem('User'),()=>{
+
+                        IMAGEBUTTON(ELEMENTE,ELEMENTCOLOR,'Log Out',TEXTCOLOR,WHITELOGOUTICON,'50px','2% auto',()=>{
+
+                        });
+
+                    },()=>{
+
+                        IMAGEBUTTON(ELEMENTE,ELEMENTCOLOR,'Log In',TEXTCOLOR,WHITEENTERICON,'50px','2% auto',()=>{
+
+                            ROUTE(' ',LOGINPAGE,'SETTINGSPAGE');
+
+                        });
+
+                    });
+
+                });
+
+            });
+
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Community',TEXTCOLOR,WHITEGROUPICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',COMMUNITYPAGE,'SETTINGSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Sellers',TEXTCOLOR,WHITECREATEDONICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',SELLERSPAGE,'SETTINGSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Theme',TEXTCOLOR,WHITECONTRASTICON,'50px','2% auto',()=>{
+
+           ROUTE(' ',BACKTHEMEPAGE,'SETTINGSPAGE');
+    
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Terms and Conditions',TEXTCOLOR,WHITEPRIVACYPOLICYICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',POLICYPAGE,'SETTINGSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Help',TEXTCOLOR,WHITEHELPICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',HELPPAGE,'SETTINGSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Contact Us',TEXTCOLOR,WHITEPHONEICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',CONTACTUSPAGE,'SETTINGSPAGE');
+
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'App Sync',TEXTCOLOR,WHITERETRYICON,'50px','2% auto',()=>{
+
+            RELOAD()
+     
+        });
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Updates',TEXTCOLOR,WHITEMOBILEDEVELOPMENTICON,'50px','2% auto',()=>{
+
+            ROUTE(' ',UPDATESPAGE,'SETTINGSPAGE');
+
+        });
+
+    });
+
+};
+
+const BACKTHEMEPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Themes',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        BUTTONIMAGE(ELEMENT,'#333333','Dark Theme','#ffffff',WHITEMOONICON,'50px','1% auto',()=>{
+
+            STOREDATA(' ','AppTheme','#333333');
+    
+            STOREDATA(' ','TextColor','#ffffff');
+    
+            RELOAD();
+    
+        });
+    
+        BUTTONIMAGE(ELEMENT,'#cdcdcd','Light Theme','#333333',BLACKSUNICON,'50px','2% auto',()=>{
+    
+            STOREDATA(' ','AppTheme','#cdcdcd');
+    
+            STOREDATA(' ','TextColor','#000');
+    
+            RELOAD();
+    
+        });
+    
+    });
+
+};
+
+const POLICYPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Policies',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+        GETINDEXEDDATA('Policies','Policies',(data)=>{
+
+            CHECKER(data.ID === 'a7f2c9de-8b64-4e1a-a5d7-3fcb9182d4e6' ,()=>{
+
+                LEFTTEXT(ELEMENT,'p',data.Data,'','','0.1rem','',()=>{
+
+                });
+
+            });
+
+        });
+
+    });
+
+};
+
+const ALLPRODUCTPAGE=()=>{
+
+    BACKPAGE('HOMEPAGE');
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','All Products',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+        GETINDEXEDDATA('Products','Products',(data)=>{
+
+            CHECKER(data.Approved,()=>{
+
+                TABLEVIEW(ELEMENT,'transparent','30%','25%','','1%',(ELEMENTS)=>{
+
+                    FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+    
+                        STYLED(ELEMS,'border-radius','10px');
+                        STYLED(ELEMS,'position','absolute');
+                        STYLED(ELEMS,'left','0');
+                        STYLED(ELEMS,'right','0');
+                        STYLED(ELEMS,'top','0');
+                        STYLED(ELEMS,'bottom','0');
+    
+                    });
+    
+                    FOOTER(ELEMENTS,'#333333','100%','70px',(ELEMS)=>{
+    
+                        STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+    
+                        TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+    
+                        });
+    
+                    });
+    
+                }); 
+
+            });
+
+        });
+
+    });
+
+};
+
+const PRODUCTPAGE=()=>{
+
+    DEJSON(sessionStorage.getItem('CurrentProduct'),(data)=>{
+
+        console.log(data)
+
+        HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+            BACKICONCOLOR((Data)=>{
+    
+                LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+    
+                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+        
+                });
+    
+            });
+    
+            RIGHTTEXT(ELEMENT,'',data.ProductName,TEXTCOLOR,'','2%','',()=>{
+    
+            });
+    
+        },(ELEMENT)=>{
+    
+            IMAGE(ELEMENT,data.ProductImage,'80%','50%','',()=>{
+
+            });
+     
+        });
+
+    });
+
+};
+
+const SPECIALPRODUCTSPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+
+                CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
+
+                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                },()=>{
+
+                    ROUTE('',CATERGORIESPAGE,'CATERGORIESPAGE');
+
+                });
+
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'',sessionStorage.getItem('SectionName'),TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+        GETINDEXEDDATA('Products','Products',(data)=>{
+
+            CHECKER(data.Approved,()=>{
+
+                console.log(data);
+
+                CHECKER(data.ProductCatergory === sessionStorage.getItem('SectionID'),()=>{
+
+                    TABLEVIEW(ELEMENT,'transparent','30%','25%','','1%',(ELEMENTS)=>{
+
+                        FREEIMAGE(ELEMENTS,data.ProductImage,'100%','100%','0',(ELEMS)=>{
+        
+                            STYLED(ELEMS,'border-radius','10px');
+                            STYLED(ELEMS,'position','absolute');
+                            STYLED(ELEMS,'left','0');
+                            STYLED(ELEMS,'right','0');
+                            STYLED(ELEMS,'top','0');
+                            STYLED(ELEMS,'bottom','0');
+        
+                        });
+        
+                        FOOTER(ELEMENTS,'#333333','100%','70px',(ELEMS)=>{
+        
+                            STYLED(ELEMS,'border-radius','0px 0px 10px 10px');
+        
+                            TEXT(ELEMS,'',data.ProductName,'#ffffff','16px','',()=>{
+        
+                            });
+        
+                        });
+        
+                    }); 
+
+                });
+
+            });
+
+        });
+
+    });
+
+};
+
+const CONTACTUSPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Reach Us',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'G-mail',TEXTCOLOR,WHITEGMAILICON,'50px','1% auto',()=>{
+
+            GMAIL('qelmedistore@gmail.com');
+    
+        });
+    
+        BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,'Call',TEXTCOLOR,WHITEPHONEICON,'50px','2% auto',()=>{
+    
+            CALL('0781500455');
+           
+        });
+    
+    });
+
+};
+
+const LOCATIONPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
+
+                    ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+                },()=>{
+
+                    ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+
+                });
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Locations',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        REDUX(UGANDANDISTRICITS,(element)=>{
+
+            CONDITION(localStorage.getItem('AppTheme') === '#cdcdcd',()=>{
+
+                BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,element.District,TEXTCOLOR,BLACKLOCATIONICON,'50px','2% auto',()=>{
+
+                    STOREDATA(' ','Location',element.District);
+
+                    CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
+
+                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                    },()=>{
+    
+                        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+                    });
+
+                });
+
+            },()=>{
+
+                BUTTONIMAGE(ELEMENT,ELEMENTCOLOR,element.District,TEXTCOLOR,WHITELOCATIONICON,'50px','2% auto',()=>{
+
+                    STOREDATA(' ','Location',element.District);
+
+                    CONDITION(sessionStorage.getItem('PreviousPage') === 'HOMEPAGE',()=>{
+
+                        ROUTE('',HOMEPAGE,'HOMEPAGE');
+    
+                    },()=>{
+    
+                        ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+                    });
+        
+                });
+
+            });
+
+        });
+    
+    });
+
+};
+
+const HELPPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Help',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+        GETINDEXEDDATA('Policies','Policies',(data)=>{
+
+            CHECKER(data.ID === 1 ,()=>{
+
+                LEFTTEXT(ELEMENT,'p',data.Data,'','','0.1rem','',()=>{
+
+                });
+
+            });
+
+        });
+
+    });
+
+};
+
+const COMMUNITYPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Community',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+    });
+
+};
+
+const SELLERSPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Sellers',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+    });
+
+};
+
+const UPDATESPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Updates',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+    });
+
+};
+
+const LOGINPAGE=()=>{
+
+    HOMEHEADERTEMPLATE('',' ',' ',(ELEMENT)=>{
+
+        BACKICONCOLOR((Data)=>{
+
+            LEFTIMAGE(ELEMENT,Data,'20px','20px','1%','',()=>{
+
+                ROUTE('',SETTINGSPAGE,'SETTINGSPAGE');
+    
+            });
+
+        });
+
+        RIGHTTEXT(ELEMENT,'','Accounts',TEXTCOLOR,'','2%','',()=>{
+
+        });
+
+    },(ELEMENT)=>{
+
+        CLEAR(ELEMENT);
+
+    });
+
+};
