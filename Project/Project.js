@@ -1,6 +1,24 @@
 const NOVASTART=()=>{
+    
+    CLEAR('');
 
-    ROUTE('',HOMEPAGE,'HOMEPAGE');
+   // ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+   FOOTER('',' ','100%','60px',(ELEMENT)=>{
+
+        ICONTEXT(ELEMENT,WHITEHOMEICON,'orange','#fff','40%','75%','23px','23px','Home','',()=>{
+            alert('OKAY');
+        });
+
+        ICONTEXT(ELEMENT,WHITEHOMEICON,'forestgreen','#fff','40%','75%','23px','23px','Home','',()=>{
+
+        });
+
+        ICONTEXT(ELEMENT,WHITEUSERICON,'tan','teal','40%','75%','23px','23px','Account','',()=>{
+
+        });
+
+    });
 
 };
 

@@ -15,6 +15,7 @@ import { FREEIMAGE } from "./FreeImage/FreeImage.js";
 import { FULLSCROLLVIEW } from "./FullScrollView/FullScrollView.js";
 import { HEADER } from "./Header/Header.js";
 import { ICON } from "./Icon/Icon.js";
+import { ICONTEXT } from "./IconText/IconText.js";
 import { IFRAME } from "./Iframe/Iframe.js";
 import { IMAGE } from "./Image/Image.js";
 import { IMAGEBUTTON } from "./ImageButton/ImageButton.js";
@@ -83,12 +84,13 @@ const COMPONENTS=()=>{
     const FREEIMAGE=${FREEIMAGE};
     const TEXTICON=${TEXTICON};
     const INLINEVIEW=${INLINEVIEW};
+    const ICONTEXT=${ICONTEXT};
     `;
     localStorage.setItem('COMPONENTS',DATA);    
 }
 export{COMPONENTS};
 
 `
-const INLINEVIEW=${INLINEVIEW};
+const ICONTEXT=${ICONTEXT};
 
 `
