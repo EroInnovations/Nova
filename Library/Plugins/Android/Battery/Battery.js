@@ -1,9 +1,8 @@
 const BATTERY=(callback)=>{
 
-    var battery=JSON.parse(Android.getBatteryLevel());
+    var batteryStatus = Android.getBatteryStatus();
 
-    callback(battery);
-    
-};
+    callback(batteryStatus);
 
+}
 export{BATTERY};

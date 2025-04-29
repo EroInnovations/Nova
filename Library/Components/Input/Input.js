@@ -1,4 +1,4 @@
-const INPUT = (ELEMENT, TYPE, COLOR, PLACEHOLDER, callback) => {
+const INPUT = (ELEMENT, TYPE, COLOR, PLACEHOLDER,MARGIN,callback) => {
     const ELEMENTS = document.createElement("input");
 
     ELEMENTS.style.width = '95%';
@@ -8,8 +8,7 @@ const INPUT = (ELEMENT, TYPE, COLOR, PLACEHOLDER, callback) => {
     ELEMENTS.style.borderBottom = '1px solid #cdcdcd';
     ELEMENTS.style.outline = 'none';
     ELEMENTS.style.color = COLOR || '#cdcdcd';
-    ELEMENTS.style.marginTop = '1%';
-    ELEMENTS.style.marginBottom = '1%';
+    ELEMENTS.style.margin =MARGIN ||'1%';
 
     ELEMENTS.maxLength = 49000;
     ELEMENTS.type = TYPE || 'text';

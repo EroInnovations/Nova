@@ -1,7 +1,6 @@
-const NOTIFICATIONS=(TITLE,MESSAGE)=>{
+const NOTIFICATION=(TITLE,MESSAGE)=>{
 
-    Android.showNotification(`${TITLE}`,`${MESSAGE}`);
+    Android.showNotification(TITLE,MESSAGE);
 
-};
-
-export{NOTIFICATIONS};
+}
+export{NOTIFICATION}

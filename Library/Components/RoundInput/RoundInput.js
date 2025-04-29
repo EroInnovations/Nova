@@ -1,4 +1,4 @@
-const ROUNDINPUT=(ELEMENT,TYPE,COLOR,BGCOLOR,PLACEHOLDER,callback)=>{
+const ROUNDINPUT=(ELEMENT,TYPE,COLOR,BGCOLOR,PLACEHOLDER,MARGIN,callback)=>{
 
     const ELEMENTS=document.createElement("input");
  
@@ -9,8 +9,7 @@ const ROUNDINPUT=(ELEMENT,TYPE,COLOR,BGCOLOR,PLACEHOLDER,callback)=>{
     ELEMENTS.style.border='1px solid #cdcdcd';
     ELEMENTS.style.outline='none';
     ELEMENTS.style.color=COLOR||'#cdcdcd';
-    ELEMENTS.style.marginTop='1%';
-    ELEMENTS.style.marginBottom='1%';
+    ELEMENTS.style.margin =MARGIN ||'1%';
     ELEMENTS.style.padding='1px';
 
     ELEMENTS.placeholder=PLACEHOLDER||'Your Text';

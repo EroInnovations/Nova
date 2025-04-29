@@ -1,6 +1,10 @@
-const VIBRATION=(Time)=>{
+const VIBRATION=(TIME)=>{
 
-    Android.vibrate(Time||500);
+    if (localStorage.getItem('Environment') === 'Production' ) {
+        
+        Android.vibrate(TIME||500);
+
+    };
 
 };
 
