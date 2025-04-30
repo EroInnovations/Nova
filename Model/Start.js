@@ -4,7 +4,7 @@ import { QELMEDISTORELOADER4 } from "../Design/QelMedistoreLoaders/DeveloperLoad
 
 const NOVASTARTER=()=>{
 
-    const PROJECTPATH='https://eroinnovations.github.io/Nova/Build/';
+    const PROJECTPATH='https://eroinnovations.site/Build/';
 
     const DATA={
         "spreadsheetUrl":"https://docs.google.com/spreadsheets/d/1Utfr1wkoZSRvM9TOKaTxOX6orYE8AuN2mu4dDtQmhFQ/edit?gid=0#gid=0",
