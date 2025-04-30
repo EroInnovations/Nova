@@ -27,7 +27,7 @@ const DATA=`const AUTORUN=()=>{
 
     else {
             
-        const LINK='https://eroinnovations.github.io/Nova/Start/Start.js'
+        const LINK='https://eroinnovations.site/Start/Start.js'
 
         import(LINK)
 
