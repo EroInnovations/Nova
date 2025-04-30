@@ -1,6 +1,7 @@
 import { COMMUNITYRISE } from "../DataBase/CommunityRise/Connection.js";
 import { ELITECONNECTION } from "../DataBase/Elite/Connection.js";
 import { ELITEAFTERPAYCONNECTION } from "../DataBase/ElitePay/Connection.js";
+import { QELCONNECTION } from "../DataBase/QelMedistore/Connection.js";
 import { HOSTINGCHECKER } from "../Library/Functions/HostingChecker/HostingChecker.js";
 import { HOSTINGINSTALLER } from "../Library/Functions/HostingInstaller/HostingInstaller.js";
 import { HOSTINGUPDATER } from "../Library/Functions/HostingUpdater/HostingUpdater.js";
@@ -38,6 +39,14 @@ const ROUTED=()=>{
         if (localStorage.getItem('NAME') === 'b1f9d667-f2fe-4d28-a0d1-f6f5cda87f70' ) {
         
             ELITEAFTERPAYCONNECTION();
+    
+            return;
+    
+        };
+
+        if (localStorage.getItem('NAME') === '17ea81ea-b4fa-4b7a-8f3e-10ef438b880f' ) {
+        
+            QELCONNECTION();
     
             return;
     

@@ -3,6 +3,7 @@ import { AUDIO } from "./Audio/Audio.js";
 import { BORDERROUNDINPUT } from "./BorderInput/BorderInput.js";
 import { BOTTOMLEFTIMAGE } from "./BottomLeftImage/BottomLeftImage.js";
 import { BOTTOMRIGHTIMAGE } from "./BottomRightImage/BottomRightImage.js";
+import { BOTTOMTEXT } from "./ButtomText/ButtomText.js";
 import { BUTTON } from "./Button/Button.js";
 import { BUTTONIMAGE } from "./ButtonImage/ButtonImage.js";
 import { CENTERTEXT } from "./CenterText/CenterText.js";
@@ -85,12 +86,13 @@ const COMPONENTS=()=>{
     const TEXTICON=${TEXTICON};
     const INLINEVIEW=${INLINEVIEW};
     const ICONTEXT=${ICONTEXT};
+    const BOTTOMTEXT=${BOTTOMTEXT};
     `;
     localStorage.setItem('COMPONENTS',DATA);    
 }
 export{COMPONENTS};
 
 `
-const ICONTEXT=${ICONTEXT};
+const BOTTOMTEXT=${BOTTOMTEXT};
 
 `

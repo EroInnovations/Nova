@@ -1,4 +1,4 @@
-const ELITEPAY=(EMAIL,AMOUNT,DESCRIPTION,Callback)=>{
+const ELITEPAY=(NAME,EMAIL,AMOUNT,DESCRIPTION,LINK,Callback)=>{
 
     fetch('https://script.google.com/macros/s/AKfycbw6BSTEaPrr8sPokyKMtuNVJdvTo-9tZy7w42g-Du43C--ebEIgkplQDtkdM91GKJThHQ/exec')
     .then(res =>res.json())
@@ -23,13 +23,13 @@ const ELITEPAY=(EMAIL,AMOUNT,DESCRIPTION,Callback)=>{
                         "amount": AMOUNT,
                         "currency":"USD",
                         "description":DESCRIPTION||"Payment On Elite Pay",
-                        "callback_url": "https://eroinnovations.site/AfterPay.html",
+                        "callback_url": "https://eroinnovations.site/AfterPay.html"+NAME+AMOUNT+EMAIL+DESCRIPTION+LINK+newDate(),
                         "notification_id": datata.ipn_id,
                         "billing_address": {
                           "email_address":EMAIL,
                           "phone_number": "",
                           "country_code": "",
-                          "first_name": EMAIL,
+                          "first_name": NAME||EMAIL,
                           "middle_name": "",
                           "last_name": "",
                           "line_1": "",

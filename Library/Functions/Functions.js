@@ -70,6 +70,8 @@ import { SAFEAREA } from "./SafeArea/SafeArea.js";
 import { SCREENHEIGHT } from "./ScreenHeight/ScreenHeight.js";
 import { SCREENWIDTH } from "./ScreenWidth/ScreenWidth.js";
 import { SCROLL } from "./Scroll/Scroll.js";
+import { SESSIONDEJSONDATA } from "./SessionDejsonData/SessionDejsonData.js";
+import { SITECLOSE } from "./SiteClose/SiteClose.js";
 import { SMS } from "./Sms/Sms.js";
 import { STOPCOLORCHANGER } from "./StopColorChanger/StopColorChanger.js";
 import { STOREDATA } from "./StoreData/StoreData.js";
@@ -179,6 +181,8 @@ const ELITEPAY=${ELITEPAY};
 const SAFEAREA=${SAFEAREA};
 const HOSTINGINSTALLER=${HOSTINGINSTALLER};
 const DOLLAREXCHANGE=${DOLLAREXCHANGE};
+const SITECLOSE=${SITECLOSE};
+const SESSIONDEJSONDATA=${SESSIONDEJSONDATA};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -187,6 +191,6 @@ export{FUNCTIONS};
 
 `
 
-const DOLLAREXCHANGE=${DOLLAREXCHANGE};
+const SESSIONDEJSONDATA=${SESSIONDEJSONDATA};
 
 `
