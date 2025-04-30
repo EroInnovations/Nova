@@ -29,7 +29,7 @@ const ELITEPAY=(EMAIL,AMOUNT,DESCRIPTION,Callback)=>{
                           "email_address":EMAIL,
                           "phone_number": "",
                           "country_code": "",
-                          "first_name": "",
+                          "first_name": EMAIL,
                           "middle_name": "",
                           "last_name": "",
                           "line_1": "",

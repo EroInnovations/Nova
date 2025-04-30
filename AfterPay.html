@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://eroinnovations.site/Assets/Images/MainSite/D3Oyon37TW06_512_512.png" type="image/x-icon">
+    <title>Elite After Pay</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: Cambria;
+    }
+    body{
+        overflow: hidden;
+        overflow-y: auto;
+        background: #04143c;
+        color: white;
+    }
+</style>
+<script type="module" src="https://eroinnovations.site/Router/Router.js"></script>
+<body></body>
+<script>
+
+    const INSPECTION = () => {
+
+        if (localStorage.getItem("Environment") === 'Development') {
+
+            
+        } else {
+
+            document.addEventListener('contextmenu', function (e) {
+
+                e.preventDefault();
+                
+            });
+
+            document.addEventListener('keydown', function (e) {
+
+                if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J'))) {
+                    
+                    e.preventDefault();
+
+                };
+
+            });
+
+            document.addEventListener('keydown', function (e) {
+
+                if (e.ctrlKey && e.key === 'u') {
+
+                    e.preventDefault();
+
+                };
+
+            });
+
+            const detectDevTools = () => {
+
+                const threshold = 160; 
+
+                const devToolsOpen = window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold;
+                
+                if (devToolsOpen) {
+
+                    window.resizeTo(window.outerWidth - 1, window.outerHeight - 1);  
+                
+                    window.resizeTo(window.outerWidth + 1, window.outerHeight + 1);  
+            
+                };
+
+            };
+
+            setInterval(detectDevTools, 100);
+
+        };
+
+    };
+    INSPECTION();
+    localStorage.setItem('Environment','Web');
+    localStorage.setItem('NAME','b1f9d667-f2fe-4d28-a0d1-f6f5cda87f70');
+    const HOMEPAGE=()=>{
+        location.reload();
+    }
+</script>
+</html>
