@@ -45,8 +45,10 @@ task moveAssets {
     doLast {
         def rootDirPath = file("${rootDir}")
         def drawablePath = file("src/main/res/drawable")
+        def assetsPath = file("src/main/assets") // Define the assets directory
 
         drawablePath.mkdirs()
+        assetsPath.mkdirs() // Ensure assets folder exists
 
         def filesToMove = ["app_icon.png", "splash_screen.png"]
 
@@ -59,6 +61,15 @@ task moveAssets {
             } else {
                 println "${fileName} not found in project root, skipping..."
             }
+        }
+
+        def logoSource = new File(rootDirPath, "Logo.png")
+        def logoDestination = new File(assetsPath, "Logo.png")
+
+        if (logoSource.exists()) {
+            Files.move(logoSource.toPath(), logoDestination.toPath(), StandardCopyOption.REPLACE_EXISTING)
+        } else {
+            println "Logo.png not found in project root, skipping..."
         }
     }
 }

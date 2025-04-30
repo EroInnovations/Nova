@@ -1,4 +1,4 @@
-package com.elite.store;
+package com.elite.wallet;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;

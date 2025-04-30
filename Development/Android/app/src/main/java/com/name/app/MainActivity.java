@@ -1,4 +1,4 @@
-package com.elite.store;
+package com.elite.wallet;
 
 import android.graphics.Color;
 import android.net.Uri;

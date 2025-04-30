@@ -1,6 +1,6 @@
 {
-    "package_name": "com.elite.store",
-    "app_name": "Elite Store",
+    "package_name": "com.elite.wallet",
+    "app_name": "Elite Wallet",
     "version_code": 1,
     "version_name": "1",
     "min_sdk": 21,
