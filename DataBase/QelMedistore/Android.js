@@ -9,6 +9,7 @@ import { VIEW } from "../../Library/Components/View/Views.js";
 import { CLEAR } from "../../Library/Functions/Clear/Clear.js";
 import { DOWNLOADIMAGE } from "../../Library/Functions/DownloadFile/DownloadFile.js";
 import { STYLED } from "../../Library/Functions/Style/Style.js";
+import { WEBSITE } from "../../Library/Functions/WebSite/WebSite.js";
 
 export const QELANDROIDSEITE=()=>{
 
@@ -71,9 +72,10 @@ export const QELANDROIDSEITE=()=>{
     });
 
     BUTTONIMAGE('','forestgreen','Download App','',DOWNLOADICON,'50px','',()=>{
+
+        WEBSITE('https://eroinnovations.site/Store/Qel.apk');
         
     });
 
     
- 
 };        
