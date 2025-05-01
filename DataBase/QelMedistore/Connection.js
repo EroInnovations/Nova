@@ -17,6 +17,8 @@ const QELCONNECTION=()=>{
         
     } else {
         
+        QELANDROIDSEITE();
+
     }
 
 };
