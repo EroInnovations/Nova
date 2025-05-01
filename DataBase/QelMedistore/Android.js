@@ -80,7 +80,7 @@ export const QELANDROIDSEITE=()=>{
 
     });
 
-    BUTTONIMAGE('','forestgreen','Download App','',DOWNLOADICON,'50px','',()=>{
+    BUTTONIMAGE('','forestgreen','Download App','',DOWNLOADICON,'50px','auto 1%',()=>{
 
         WEBSITE('https://eroinnovations.site/Store/Qel.apk');
         
