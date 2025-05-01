@@ -1,3 +1,7 @@
 https://eroinnovations.github.io/Nova/;
 
 https://eroinnovations.github.io/Nova/Router/Router.js
+
+FOR QEL 
+
+https://eroinnovations.github.io/Qel/
