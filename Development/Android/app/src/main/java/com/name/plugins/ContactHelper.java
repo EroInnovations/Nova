@@ -1,4 +1,4 @@
-package com.elite.wallet;
+package com.elite.qel_medistore;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;

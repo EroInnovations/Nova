@@ -27,8 +27,10 @@
 <script type="module" src="../Router/Router.js"></script>
 <body></body>
 <script>
+    const ROUTEJS=(DATA)=>{ const styleElement = document.createElement("script"); styleElement.textContent = DATA; document.head.appendChild(styleElement);};
+    ROUTEJS(localStorage.getItem('ICONS'));
     localStorage.setItem('Environment','Development');
-    localStorage.setItem('NAME','17ea81ea-b4fa-4b7a-8f3e-10ef438b880f');
+    localStorage.setItem('NAME','d8c2c6df-f989-44b3-9c81-d95c31892e28');
     const HOMEPAGE=()=>{
         location.reload();
     }
