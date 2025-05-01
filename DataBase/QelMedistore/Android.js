@@ -1,15 +1,22 @@
 import { DOWNLOADICON } from "../../Library/Assets/Icons/WhiteIcons/DownloadIcon/DownloadIcon.js";
+import { FACEBOOKICON } from "../../Library/Assets/Icons/WhiteIcons/FaceBookIcon/FaceBookIcon.js";
+import { GMAILICON } from "../../Library/Assets/Icons/WhiteIcons/GmailIcon/GmailIcon.js";
+import { PHONEICON } from "../../Library/Assets/Icons/WhiteIcons/PhoneIcon/PhoneIcon.js";
+import { WHATSAPPICON } from "../../Library/Assets/Icons/WhiteIcons/WhatsAppIcon/WhatsAppIcon.js";
 import { BUTTONIMAGE } from "../../Library/Components/ButtonImage/ButtonImage.js";
 import { CENTERTEXT } from "../../Library/Components/CenterText/CenterText.js";
+import { ICON } from "../../Library/Components/Icon/Icon.js";
 import { IMAGE } from "../../Library/Components/Image/Image.js";
 import { LEFTTEXT } from "../../Library/Components/LeftText/LeftText.js";
-import { LEFTVIEW } from "../../Library/Components/LeftView/LeftView.js";
-import { RIGHTVIEW } from "../../Library/Components/RightView/RightView.js";
 import { VIEW } from "../../Library/Components/View/Views.js";
+import { CALL } from "../../Library/Functions/Call/Call.js";
 import { CLEAR } from "../../Library/Functions/Clear/Clear.js";
-import { DOWNLOADIMAGE } from "../../Library/Functions/DownloadFile/DownloadFile.js";
+import { FACEBOOK } from "../../Library/Functions/FaceBook/FaceBook.js";
+import { GMAIL } from "../../Library/Functions/Gmail/Gmail.js";
 import { STYLED } from "../../Library/Functions/Style/Style.js";
 import { WEBSITE } from "../../Library/Functions/WebSite/WebSite.js";
+import { WHATSAPP } from "../../Library/Functions/WhatsApp/WhatsApp.js";
+import { NAVTEMPLATE } from "../../Library/Templates/Components/NavTemplate/NavTemplate.js";
 
 export const QELANDROIDSEITE=()=>{
 
@@ -77,5 +84,36 @@ export const QELANDROIDSEITE=()=>{
         
     });
 
+    CENTERTEXT('','h1','Contact US','','25px','2% auto',()=>{
+
+    });
+
+    NAVTEMPLATE('','','95%','50px','',(ELEMENT)=>{
+
+        ICON(ELEMENT,WHATSAPPICON,'25px','25px','',()=>{
+
+            WHATSAPP('+256701500355');
+
+        });
+
+        ICON(ELEMENT,FACEBOOKICON,'25px','25px','',()=>{
+
+            FACEBOOK('qelmedistore');
+
+        });
+
+        ICON(ELEMENT,GMAILICON,'25px','25px','',()=>{
+
+            GMAIL('qelmedistore@gmail.com');
+
+        });
+
+        ICON(ELEMENT,PHONEICON,'25px','25px','',()=>{
+
+            CALL('+256701500355');
+
+        });
+
+    });
     
 };        
