@@ -20,10 +20,6 @@ const ROUTED=()=>{
 
     SITECONNECTIONS();
 
-    HOSTINGCHECKER(()=>{
-
-    });
-
 };
 
 ROUTED();
