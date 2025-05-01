@@ -36,13 +36,13 @@ export const QELANDROIDSEITE=()=>{
         
     });
 
-    VIEW('','transparent','90%','340px','3%',(ELEMENT)=>{
+    VIEW('','transparent','90%','350px','3%',(ELEMENT)=>{
 
         STYLED(ELEMENT,'border-radius','20px');
         STYLED(ELEMENT,'border','1px solid #000000');
         STYLED(ELEMENT,'overflow','hidden');
 
-        const TEXTED='Qel Medsitaore is a Fully Registered and Approved Company In Uganda that Ventures in Selling of Medical and Laboratory Equipments ,Located In Kampala Uganda and has Branchies Around Uganda and Has Mobile App Where You Get Medical Supplies Today,<br><br> Qel Medistore Sells in Bulk For Large Business Owners and Also Those In Retail Not Forgetting Those Customers For are Purchasing For Personal Use,We got Your Covered.';
+        const TEXTED='Qel Medistore is a Fully Registered and Approved Company In Uganda that Ventures in Selling of Medical and Laboratory Equipments ,Located In Kampala Uganda and has Branchs Around Uganda and has a Mobile App Where You can get Medical Supplies Today,<br><br> Qel Medistore Sells in Bulk For Large Business Owners and Also Those In Retail Not Forgetting Those Customers For are Purchasing For Personal Use,We got Your Covered.';
 
         LEFTTEXT(ELEMENT,'',TEXTED,'','','2%','5%',()=>{
 
@@ -72,7 +72,7 @@ export const QELANDROIDSEITE=()=>{
         STYLED(ELEMENT,'border','5px solid #000000');
         STYLED(ELEMENT,'overflow','hidden');
 
-        const TEXTED='Download the Qel App and Start Showing Today For Your Business or Personal Usage Products';
+        const TEXTED='Download the Qel App and Start Shopping Today For Your Business or Personal Usage Products';
 
         LEFTTEXT(ELEMENT,'',TEXTED,'','','2%','5%',()=>{
 
