@@ -3,7 +3,7 @@ import { QELANDROIDSEITE } from "./Android.js";
 
 const QELCONNECTION=()=>{
 
-    APPMODE('#cdcdcd');
+    APPMODE('#333333');
 
     if (localStorage.getItem('OperatingSystem') === 'Android') {
 
