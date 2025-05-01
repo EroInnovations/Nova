@@ -5,7 +5,13 @@ const QELCONNECTION=()=>{
 
     APPMODE('#cdcdcd');
 
-    QELANDROIDSEITE();
+    if (localStorage.getItem('OperatingSystem') === 'Android') {
+
+        QELANDROIDSEITE();
+        
+    } else {
+        
+    }
 
 };
 
