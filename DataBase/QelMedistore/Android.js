@@ -1,4 +1,3 @@
-import { QELMODENORMAL } from "../../Library/Assets/Icons/SpecialColors/Qel/ModeColor.js";
 import { CENTERTEXT } from "../../Library/Components/CenterText/CenterText.js";
 import { IMAGE } from "../../Library/Components/Image/Image.js";
 import { LEFTVIEW } from "../../Library/Components/LeftView/LeftView.js";
