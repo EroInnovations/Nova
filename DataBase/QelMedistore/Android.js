@@ -3,12 +3,14 @@ import { FACEBOOKICON } from "../../Library/Assets/Icons/WhiteIcons/FaceBookIcon
 import { GMAILICON } from "../../Library/Assets/Icons/WhiteIcons/GmailIcon/GmailIcon.js";
 import { PHONEICON } from "../../Library/Assets/Icons/WhiteIcons/PhoneIcon/PhoneIcon.js";
 import { WHATSAPPICON } from "../../Library/Assets/Icons/WhiteIcons/WhatsAppIcon/WhatsAppIcon.js";
+import { BUTTON } from "../../Library/Components/Button/Button.js";
 import { BUTTONIMAGE } from "../../Library/Components/ButtonImage/ButtonImage.js";
 import { CENTERTEXT } from "../../Library/Components/CenterText/CenterText.js";
 import { ICON } from "../../Library/Components/Icon/Icon.js";
 import { IMAGE } from "../../Library/Components/Image/Image.js";
 import { LEFTTEXT } from "../../Library/Components/LeftText/LeftText.js";
 import { VIEW } from "../../Library/Components/View/Views.js";
+import { BREAK } from "../../Library/Functions/Break/Break.js";
 import { CALL } from "../../Library/Functions/Call/Call.js";
 import { CLEAR } from "../../Library/Functions/Clear/Clear.js";
 import { FACEBOOK } from "../../Library/Functions/FaceBook/FaceBook.js";
@@ -84,6 +86,26 @@ export const QELANDROIDSEITE=()=>{
         
     });
 
+    LEFTTEXT('','h1','Our Branchs','','20px','2%','2% auto',()=>{
+
+    });
+
+    NAVTEMPLATE('','','95%','50px','',(ELEMENT)=>{
+
+        BUTTON(ELEMENT,'100px','50px','teal','','Kampala','',()=>{
+
+        });
+
+        BUTTON(ELEMENT,'100px','50px','teal','','Mbale','',()=>{
+
+        });
+
+        BUTTON(ELEMENT,'100px','50px','teal','','Soroti','',()=>{
+
+        });
+
+    });
+    
     CENTERTEXT('','h1','Contact US','','25px','2% auto',()=>{
 
     });
@@ -115,5 +137,15 @@ export const QELANDROIDSEITE=()=>{
         });
 
     });
+
+    BREAK('');
+
+    CENTERTEXT('','h1','Powered by <br>Elite Robust Ontology','forestgreen','18px','2% auto auto',()=>{
+
+        WEBSITE('https://eroinnovations.site');
+
+    });
+
+    BREAK(''); BREAK('');
     
 };        
