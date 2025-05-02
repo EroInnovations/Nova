@@ -194,7 +194,7 @@ const DEPOSITMONEYPAGE=()=>{
 
                         CONDITION(navigator.onLine,()=>{
 
-                            DISPLAY(ELEMENTS,'...Please Wait ....');
+                            MESSAGEDISPLAY('','Processing Payments','');
 
                             const LINK=''
 

@@ -11,11 +11,5 @@ const ANDROIDAFTERPAY=()=>{
 
     });
 
-    HIDER(1000,()=>{
-
-        SITECLOSE();
-
-    });
-
 };
 export{ANDROIDAFTERPAY};
