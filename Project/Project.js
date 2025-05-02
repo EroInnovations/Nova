@@ -198,7 +198,9 @@ const DEPOSITMONEYPAGE=()=>{
 
                             const LINK='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSlJk7KFiJiCOgYOQ/edit?usp=sharing'
 
-                            ELITEPAY(sessionStorage.getItem('Email'),sessionStorage.getItem('Email'),sessionStorage.getItem('AmountSaved'),sessionStorage.getItem('Messsage'),LINK,'001',(Url)=>{
+                            const RETURNLINK='index.html';
+
+                            ELITEPAY(sessionStorage.getItem('Email'),sessionStorage.getItem('Email'),sessionStorage.getItem('AmountSaved'),sessionStorage.getItem('Messsage'),LINK,'001',RETURNLINK,(Url)=>{
 
                                 WEBSITE(Url);
 
