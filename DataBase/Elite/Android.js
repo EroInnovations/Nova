@@ -204,13 +204,6 @@ export const ANDROIDMAINSITE=()=>{
 
     BREAK('');BREAK('');
 
-    HIDER(3000,()=>{
-
-        Android.reloadApp();
-
-
-    });
-
 };
 
 const DEVELOPERSPAGE=()=>{

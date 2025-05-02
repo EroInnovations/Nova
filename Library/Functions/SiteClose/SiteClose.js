@@ -1,14 +1,14 @@
 const SITECLOSE=()=>{
 
-    if (localStorage.getItem('Environment') === 'Production' ) {
+    if (localStorage.getItem('Environment') === 'Production'||localStorage.getItem('OperatingSystem') === 'Android' ) {
         
-        EliteWebInterface.closeWebView();
+        Android.reloadApp();
 
     } else {
 
-        close();
+        window.close();
         
-    }
+    };
   
 };
 export{SITECLOSE}

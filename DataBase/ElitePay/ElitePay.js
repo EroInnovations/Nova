@@ -6,9 +6,7 @@ import { RIGHTTEXT } from "../../Library/Components/RightText/RightText.js";
 import { BREAK } from "../../Library/Functions/Break/Break.js";
 import { CLEAR } from "../../Library/Functions/Clear/Clear.js"
 import { DOLLAREXCHANGE } from "../../Library/Functions/DollarExchnager/DollarExchange.js";
-import { HIDER } from "../../Library/Functions/Hider/Hider.js";
 import { INSERTDATA } from "../../Library/Functions/InsertData/InsertData.js";
-import { REDUX } from "../../Library/Functions/Redux/Redux.js";
 import { RELOAD } from "../../Library/Functions/Reload/Reload.js";
 import { SESSIONDEJSONDATA } from "../../Library/Functions/SessionDejsonData/SessionDejsonData.js";
 import { SITECLOSE } from "../../Library/Functions/SiteClose/SiteClose.js";
@@ -121,7 +119,7 @@ const ANDROIDAFTERPAY=()=>{
 
             INSERTDATA(data.query.ReturnLink,'ElitePay',HEADER,DATA,(resback)=>{
 
-                location.href='index.html';
+                SITECLOSE();
 
             },()=>{
     
