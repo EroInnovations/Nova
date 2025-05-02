@@ -196,7 +196,9 @@ const DEPOSITMONEYPAGE=()=>{
 
                             DISPLAY(ELEMENTS,'...Please Wait ....');
 
-                            ELITEPAY(sessionStorage.getItem('Email'),sessionStorage.getItem('AmountSaved'),sessionStorage.getItem('Messsage'),(Url)=>{
+                            const LINK=''
+
+                            ELITEPAY(sessionStorage.getItem('Email'),sessionStorage.getItem('Email'),sessionStorage.getItem('AmountSaved'),sessionStorage.getItem('Messsage'),LINK,(url)=>{
 
                                 WEBSITE(Url);
 
