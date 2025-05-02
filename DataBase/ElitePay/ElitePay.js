@@ -121,7 +121,7 @@ const ANDROIDAFTERPAY=()=>{
 
             INSERTDATA(data.query.ReturnLink,'ElitePay',HEADER,DATA,(resback)=>{
 
-                SITECLOSE();
+                location.href='index.html';
 
             },()=>{
     
