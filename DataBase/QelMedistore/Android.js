@@ -28,11 +28,11 @@ export const QELANDROIDSEITE=()=>{
         
     })
 
-    CENTERTEXT('','h3','Enhancing Logistics','','18px','1% auto',()=>{
+    CENTERTEXT('','h3','Enhancing Diagnostics','','18px','1% auto',()=>{
         
     })
 
-    CENTERTEXT('','h3','For Your Daily Medical and Laboratory Equipments','','15px','1% auto',()=>{
+    CENTERTEXT('','h3','Daily Medical,Laboratory and Safety Consumables and Equipments','','13px','1% auto',()=>{
         
     });
 
