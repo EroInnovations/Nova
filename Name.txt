@@ -8,4 +8,4 @@ https://eroinnovations.github.io/Qel/
 
 For Payments
 
-https://eroinnovations.site/AfterPay.html?Name=eroinnovations@gmail.com&Amount=0.13638843426077468&Email=eroinnovations@gmail.com&Details=Testing&ReturnLink=https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSlJk7KFiJiCOgYOQ/edit?usp=sharing&PayeeId=Fri%20May%2002%202025%2016:15:29%20GMT+0300%20(East%20Africa%20Time)&UserId=001&OrderTrackingId=91469063-23e9-4367-a5b3-dbdbf3329f7a&OrderMerchantReference=2025-05-02T13:15:29.428Z
+https://eroinnovations.site/AfterPay.html?Name=eroinnovations@gmail.com&Amount=0.13638843426077468&Email=eroinnovations@gmail.com&Details=Testing&ReturnLink=https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSlJk7KFiJiCOgYOQ/edit?usp=sharing&PayeeId=Fri%20May%2002%202025%2016:15:29%20GMT+0300%20(East%20Africa%20Time)&UserId=001&ReOrderTrackingId=91469063-23e9-4367-a5b3-dbdbf3329f7a&OrderMerchantReference=2025-05-02T13:15:29.428Z

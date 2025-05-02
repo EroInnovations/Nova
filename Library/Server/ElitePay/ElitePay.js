@@ -23,7 +23,7 @@ const ELITEPAY=(NAME,EMAIL,AMOUNT,DESCRIPTION,LINK,USERID,RETURNLINK,Callback)=>
                         "amount": AMOUNT,
                         "currency":"USD",
                         "description":DESCRIPTION||"Payment On Elite Pay",
-                        "callback_url":"https://eroinnovations.site/AfterPay.html?"+'Name='+NAME+'&'+'Amount='+AMOUNT+'&'+'Email='+EMAIL+'&'+'Details='+DESCRIPTION+'&'+'ReturnLink='+LINK+'&'+'PayeeId='+new Date()+'&'+'UserId='+USERID+'&'+RETURNLINK,
+                        "callback_url":"https://eroinnovations.site/AfterPay.html?"+'Name='+NAME+'&'+'Amount='+AMOUNT+'&'+'Email='+EMAIL+'&'+'Details='+DESCRIPTION+'&'+'ReturnLink='+LINK+'&'+'PayeeId='+new Date()+'&'+'UserId='+USERID+'&'+'Redirected='+RETURNLINK,
                         "notification_id": datata.ipn_id,
                         "billing_address": {
                           "email_address":EMAIL,
