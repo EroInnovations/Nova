@@ -206,7 +206,8 @@ export const ANDROIDMAINSITE=()=>{
 
     HIDER(3000,()=>{
 
-        WEBSITE('file:///android_asset/index.html');
+        Android.reloadApp();
+
 
     });
 

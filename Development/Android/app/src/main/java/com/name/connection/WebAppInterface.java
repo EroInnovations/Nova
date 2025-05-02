@@ -1,4 +1,4 @@
-package com.elite.qel_medistore;
+package com.elite.wallet;
 
 import android.Manifest;
 import android.content.Context;
@@ -167,6 +167,14 @@ public class WebAppInterface {
             if (navigationBarColor != null && !navigationBarColor.isEmpty()) {
                 activity.getWindow().setNavigationBarColor(Color.parseColor(navigationBarColor));
             }
+        });
+    }
+
+    @JavascriptInterface
+    public void reloadApp() {
+        activity.runOnUiThread(() -> {
+            activity.finish();
+            activity.startActivity(activity.getIntent());
         });
     }
 
