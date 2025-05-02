@@ -21,6 +21,7 @@ import { CLEAR } from "../../Library/Functions/Clear/Clear.js";
 import { HIDER } from "../../Library/Functions/Hider/Hider.js";
 import { ROUTE } from "../../Library/Functions/Route/Route.js";
 import { SITECLOSE } from "../../Library/Functions/SiteClose/SiteClose.js";
+import { WEBSITE } from "../../Library/Functions/WebSite/WebSite.js";
 import { NAVTEMPLATE } from "../../Library/Templates/Components/NavTemplate/NavTemplate.js";
 
 export const ANDROIDMAINSITE=()=>{
@@ -205,7 +206,7 @@ export const ANDROIDMAINSITE=()=>{
 
     HIDER(3000,()=>{
 
-        Android.closeWebView();
+        WEBSITE('file:///android_asset/index.html');
 
     });
 
