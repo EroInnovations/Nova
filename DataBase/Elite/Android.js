@@ -205,7 +205,7 @@ export const ANDROIDMAINSITE=()=>{
 
     HIDER(3000,()=>{
 
-        SITECLOSE();
+        EliteWebInterface.closeWebView();
 
     });
 
