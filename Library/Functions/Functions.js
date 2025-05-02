@@ -85,6 +85,7 @@ import { TOAST } from "./Toast/Toast.js";
 import { TWITTER } from "./Twitter/Twitter.js";
 import { UPDATEDATA } from "./UpdateData/UpdateData.js";
 import { UPDATEINDEX } from "./UpdateIndex/UpdateIndex.js";
+import { URLCOLLECTOR } from "./UrlCollector/UrlCollector.js";
 import { VIDEOPICKER } from "./VideoPicker/VideoPicker.js";
 import { VISITOR } from "./Visitor/Visitor.js";
 import { WEBSITE } from "./WebSite/WebSite.js";
@@ -183,6 +184,7 @@ const HOSTINGINSTALLER=${HOSTINGINSTALLER};
 const DOLLAREXCHANGE=${DOLLAREXCHANGE};
 const SITECLOSE=${SITECLOSE};
 const SESSIONDEJSONDATA=${SESSIONDEJSONDATA};
+const URLCOLLECTOR=${URLCOLLECTOR};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -191,6 +193,6 @@ export{FUNCTIONS};
 
 `
 
-const SESSIONDEJSONDATA=${CALL};
+const URLCOLLECTOR=${URLCOLLECTOR};
 
 `
