@@ -42,7 +42,7 @@ const HOMEPAGE=()=>{
 
             });
 
-            RIGHTIMAGE(ELEMENT,WHITEUSERICON,'28px','28px','1%','',()=>{
+            RIGHTIMAGE(ELEMENT,WHITEUSERPROFILEICON,'28px','28px','1%','',()=>{
 
                 ROUTE('',USERACCOUNTPAGE,'HOMEPAGE');
 
