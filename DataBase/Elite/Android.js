@@ -18,7 +18,9 @@ import { VIEW } from "../../Library/Components/View/Views.js";
 import { BACKPAGE } from "../../Library/Functions/BackPage/BackPage.js";
 import { BREAK } from "../../Library/Functions/Break/Break.js";
 import { CLEAR } from "../../Library/Functions/Clear/Clear.js";
+import { HIDER } from "../../Library/Functions/Hider/Hider.js";
 import { ROUTE } from "../../Library/Functions/Route/Route.js";
+import { SITECLOSE } from "../../Library/Functions/SiteClose/SiteClose.js";
 import { NAVTEMPLATE } from "../../Library/Templates/Components/NavTemplate/NavTemplate.js";
 
 export const ANDROIDMAINSITE=()=>{
@@ -200,6 +202,12 @@ export const ANDROIDMAINSITE=()=>{
     });
 
     BREAK('');BREAK('');
+
+    HIDER(3000,()=>{
+
+        SITECLOSE();
+
+    });
 
 };
 
