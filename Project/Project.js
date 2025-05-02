@@ -200,7 +200,7 @@ const DEPOSITMONEYPAGE=()=>{
 
                             const RETURNLINK='index.html';
 
-                            ELITEPAY(sessionStorage.getItem('Email'),sessionStorage.getItem('Email'),sessionStorage.getItem('AmountSaved'),sessionStorage.getItem('Messsage'),LINK,'001',RETURNLINK,(Url)=>{
+                            ELITEPAY('Elite Robust Ontology',sessionStorage.getItem('Email'),sessionStorage.getItem('AmountSaved'),sessionStorage.getItem('Messsage'),LINK,'001',RETURNLINK,(Url)=>{
 
                                 WEBSITE(Url);
 
