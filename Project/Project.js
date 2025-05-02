@@ -198,7 +198,7 @@ const DEPOSITMONEYPAGE=()=>{
 
                             const LINK=''
 
-                            ELITEPAY(sessionStorage.getItem('Email'),sessionStorage.getItem('Email'),sessionStorage.getItem('AmountSaved'),sessionStorage.getItem('Messsage'),LINK,(url)=>{
+                            ELITEPAY(sessionStorage.getItem('Email'),sessionStorage.getItem('Email'),sessionStorage.getItem('AmountSaved'),sessionStorage.getItem('Messsage'),LINK,'001',(Url)=>{
 
                                 WEBSITE(Url);
 
