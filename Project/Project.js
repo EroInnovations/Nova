@@ -50,6 +50,10 @@ const HOMEPAGE=()=>{
 
                 });
 
+                CLICK(ELEMENTES,()=>{
+                    WEBSITE('https://eroinnovations.site');
+                })
+
             });
 
             TABLEVIEW(ELEMENTS,'#cdcdcd30','180px','200px','','2%',(ELEMENTES)=>{
