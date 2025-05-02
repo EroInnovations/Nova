@@ -128,6 +128,7 @@ import { QELMODENORMAL } from "./SpecialColors/Qel/ModeColor.js";
 import { DARKSUN } from "./BlackIcons/SunIcon/Sun.js";
 import { DARKBACKICON } from "./BlackIcons/BacKIcon/BackIcon.js";
 import { DARKLOCATIONICON } from "./BlackIcons/LocationIcon/LocationIcon.js";
+import { USERPROFILEICON } from "./WhiteIcons/UserProfileIcon/UserProfileIcon.js";
 const ICONS=()=>{
 const DATA=`const FISKONICON='${FISKONICON}';
 const WHITEMENUICON='${MENUICON}';
@@ -259,12 +260,13 @@ const QELMODENORMAL='${QELMODENORMAL}';
 const BLACKSUNICON='${DARKSUN}';
 const BLACKBACKICON='${DARKBACKICON}';
 const BLACKLOCATIONICON='${DARKLOCATIONICON}';
+const WHITEUSERPROFILEICON='${USERPROFILEICON}';
 `;
 localStorage.setItem("ICONS",DATA);
 };
 export{ICONS};
 
 `
-const BLACKLOCATIONICON='${DARKLOCATIONICON}';
+const WHITEUSERPROFILEICON='${USERPROFILEICON}';
 
 `
