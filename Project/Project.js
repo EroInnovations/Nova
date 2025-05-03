@@ -261,7 +261,7 @@ const ACCOUNTMONEYPAGE=()=>{
 
         });
 
-        ROUNDINPUT(ELEMENT,'tel','','transparent','Enter Name','',(data)=>{
+        ROUNDINPUT(ELEMENT,'text','','transparent','Enter Name','',(data)=>{
 
             STOREDATA('','Name',data);
 
