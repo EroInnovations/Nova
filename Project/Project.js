@@ -44,15 +44,17 @@ const HOMEPAGE=()=>{
 
                     STYLED(ELEMS,'border-radius','0px 0px 5px 5px');
 
-                    CENTERTEXT(ELEMS,'','My Account','','20px','',()=>{
+                    CENTERTEXT(ELEMS,'','Generate Receipt','','20px','',()=>{
 
                     });
 
                 });
 
                 CLICK(ELEMENTES,()=>{
-                    WEBSITE('https://eroinnovations.site');
-                })
+
+                    ROUTE(' ',ACCOUNTMONEYPAGE,'HOMEPAGE');
+                   
+                });
 
             });
 
@@ -231,6 +233,135 @@ const DEPOSITMONEYPAGE=()=>{
             },()=>{
 
                 MESSAGEDISPLAY('','Enter Amount','');
+
+            });
+
+        });
+
+    });
+
+};
+
+const ACCOUNTMONEYPAGE=()=>{
+
+    DELETEDATA('','Name');
+    DELETEDATA('','AmountSaved');
+    DELETEDATA('','Email');
+    DELETEDATA('','Messsage');
+
+    LEFTTEXTBACKHEADERBODY('',()=>{
+
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
+
+    },'Pre Pay Funds','',()=>{
+
+    },(ELEMENT)=>{
+
+        CENTERTEXT(ELEMENT,'','Generate Receipt for Payment','','25px','',()=>{
+
+        });
+
+        ROUNDINPUT(ELEMENT,'tel','','transparent','Enter Name','',(data)=>{
+
+            STOREDATA('','Name',data);
+
+        });
+
+        ROUNDINPUT(ELEMENT,'tel','','transparent','Enter Amount','',(data)=>{
+
+            CONDITION(data <=499,()=>{
+
+                MESSAGEDISPLAY('','Mininium Amount Is 500','');
+                
+                DELETEDATA('','AmountSaved');
+
+            },()=>{
+
+                DOLLAREXCHANGE('USD',data,(Amount)=>{
+
+                    STOREDATA('','AmountSaved',Amount);
+    
+                });
+
+            });
+
+        });
+
+        ROUNDINPUT(ELEMENT,'email','','transparent','Enter Your Email','',(data)=>{
+
+            STOREDATA('','Email',data);
+
+        });
+
+        TEXTAREA(ELEMENT,'','95%','200px','Compose Message','',(data)=>{
+
+            STOREDATA('','Messsage',data);
+
+        });
+
+        IMAGEBUTTON(ELEMENT,'forestgreen','Generate Link','',WHITECHECKICON,'50px','',(ELEMENTS)=>{
+
+            CONDITION(sessionStorage.getItem('Name'),()=>{
+
+                CONDITION(sessionStorage.getItem('AmountSaved'),()=>{
+
+                    CONDITION(sessionStorage.getItem('Email'),()=>{
+    
+                        CONDITION(sessionStorage.getItem('Messsage'),()=>{
+    
+                            CONDITION(navigator.onLine,()=>{
+    
+                                MESSAGEDISPLAY('','Generating Link','');
+
+                                const RETURNLINK='index.html';
+
+                                const LINK='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSlJk7KFiJiCOgYOQ/edit?usp=sharing'
+
+                                const GENERATEDLINK="https://eroinnovations.site/Pay.html?"+'Name='+sessionStorage.getItem('Name')+'&'+'Amount='+sessionStorage.getItem('AmountSaved')+'&'+'Email='+sessionStorage.getItem('Email')+'&'+'Details='+sessionStorage.getItem('Messsage')+'&'+'ReturnLink='+LINK+'&'+'PayeeId='+new Date()+'&'+'UserId='+new Date()+'&'+'Redirected='+RETURNLINK;
+    
+                                BREAK(ELEMENT);BREAK(ELEMENT);
+
+                                BUTTON(ELEMENT,'50%','50px','teal','','Copy Link','auto 25%',()=>{
+
+                                    COPY(GENERATEDLINK);
+
+                                    MESSAGEDISPLAY('','Generated Link Copied.','');
+
+                                    HIDER(1000,()=>{
+
+                                        ACCOUNTMONEYPAGE();
+
+                                    });
+
+                                });
+
+                            },()=>{
+                
+                                MESSAGEDISPLAY('','Check Your Internet Connection','');
+                
+                            });
+    
+                        },()=>{
+            
+                            MESSAGEDISPLAY('','Compose A Message','');
+            
+                        });
+    
+                    },()=>{
+        
+                        MESSAGEDISPLAY('','Enter Your Email','');
+        
+                    });
+    
+                },()=>{
+    
+                    MESSAGEDISPLAY('','Enter Amount','');
+    
+                });
+
+            },()=>{
+
+                MESSAGEDISPLAY('','Enter Name','');
 
             });
 

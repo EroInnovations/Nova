@@ -75,7 +75,7 @@ const ELITEBEFOREPAYSTART=()=>{
 
             });
     
-            RIGHTTEXT(ELEMENT,'',data.query.OrderTrackingId,'orange','20px','1%','',()=>{
+            RIGHTTEXT(ELEMENT,'',new Date(),'orange','20px','1%','',()=>{
     
             });
 
