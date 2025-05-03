@@ -1,3 +1,7 @@
+import { HEADER } from "../../../Components/Header/Header.js";
+import { LEFTIMAGE } from "../../../Components/LeftImage/LeftImage.js";
+import { RIGHTTEXT } from "../../../Components/RightText/RightText.js";
+
 const LEFTTEXTBACKHEADER=(ELEMENT,Backcallback,WORD,COLOR,TextCallback)=>{
 
     HEADER(ELEMENT,' ',(ELEMENTS)=>{

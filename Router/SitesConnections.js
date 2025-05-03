@@ -1,4 +1,5 @@
 import { COMMUNITYRISE } from "../DataBase/CommunityRise/Connection.js";
+import { ELGONCONNECTION } from "../DataBase/ElgonScriptureUnion/Connection.js";
 import { ELITECONNECTION } from "../DataBase/Elite/Connection.js";
 import { ELITEAFTERPAYCONNECTION, ELITEBEFOREPAY } from "../DataBase/ElitePay/Connection.js";
 import { QELCONNECTION } from "../DataBase/QelMedistore/Connection.js";
@@ -38,6 +39,14 @@ export const SITECONNECTIONS=()=>{
     if (localStorage.getItem('NAME') === '17ea81ea-b4fa-4b7a-8f3e-10ef438b880f' ) {
     
         QELCONNECTION();
+
+        return;
+
+    };
+
+    if (localStorage.getItem('NAME') === 'Elgon' ) {
+    
+        ELGONCONNECTION();
 
         return;
 
