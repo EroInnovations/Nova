@@ -1,16 +1,16 @@
-import { BUTTON } from "../../Library/Components/Button/Button.js";
-import { CENTERTEXT } from "../../Library/Components/CenterText/CenterText.js";
-import { LEFTTEXT } from "../../Library/Components/LeftText/LeftText.js";
-import { MESSAGEDISPLAY } from "../../Library/Components/MessageDisplay/MessageDisplay.js";
-import { RIGHTTEXT } from "../../Library/Components/RightText/RightText.js";
-import { BREAK } from "../../Library/Functions/Break/Break.js";
-import { CLEAR } from "../../Library/Functions/Clear/Clear.js"
-import { DOLLAREXCHANGE } from "../../Library/Functions/DollarExchnager/DollarExchange.js";
-import { INSERTDATA } from "../../Library/Functions/InsertData/InsertData.js";
-import { RELOAD } from "../../Library/Functions/Reload/Reload.js";
-import { SESSIONDEJSONDATA } from "../../Library/Functions/SessionDejsonData/SessionDejsonData.js";
-import { SITECLOSE } from "../../Library/Functions/SiteClose/SiteClose.js";
-import { NAVTEMPLATE } from "../../Library/Templates/Components/NavTemplate/NavTemplate.js";
+import { BUTTON } from "../../../Library/Components/Button/Button.js";
+import { CENTERTEXT } from "../../../Library/Components/CenterText/CenterText.js";
+import { LEFTTEXT } from "../../../Library/Components/LeftText/LeftText.js";
+import { MESSAGEDISPLAY } from "../../../Library/Components/MessageDisplay/MessageDisplay.js";
+import { RIGHTTEXT } from "../../../Library/Components/RightText/RightText.js";
+import { BREAK } from "../../../Library/Functions/Break/Break.js";
+import { CLEAR } from "../../../Library/Functions/Clear/Clear.js"
+import { DOLLAREXCHANGE } from "../../../Library/Functions/DollarExchnager/DollarExchange.js";
+import { INSERTDATA } from "../../../Library/Functions/InsertData/InsertData.js";
+import { RELOAD } from "../../../Library/Functions/Reload/Reload.js";
+import { SESSIONDEJSONDATA } from "../../../Library/Functions/SessionDejsonData/SessionDejsonData.js";
+import { SITECLOSE } from "../../../Library/Functions/SiteClose/SiteClose.js";
+import { NAVTEMPLATE } from "../../../Library/Templates/Components/NavTemplate/NavTemplate.js";
 
 const ANDROIDAFTERPAY=()=>{
 

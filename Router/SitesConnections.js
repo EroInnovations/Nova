@@ -1,6 +1,6 @@
 import { COMMUNITYRISE } from "../DataBase/CommunityRise/Connection.js";
 import { ELITECONNECTION } from "../DataBase/Elite/Connection.js";
-import { ELITEAFTERPAYCONNECTION } from "../DataBase/ElitePay/Connection.js";
+import { ELITEAFTERPAYCONNECTION, ELITEBEFOREPAY } from "../DataBase/ElitePay/Connection.js";
 import { QELCONNECTION } from "../DataBase/QelMedistore/Connection.js";
 
 export const SITECONNECTIONS=()=>{
@@ -23,9 +23,15 @@ export const SITECONNECTIONS=()=>{
 
     if (localStorage.getItem('NAME') === 'b1f9d667-f2fe-4d28-a0d1-f6f5cda87f70' ) {
     
-        ELITEAFTERPAYCONNECTION();
+        if (localStorage.getItem('POS') === 'Paid' ) {
 
-        return;
+            ELITEAFTERPAYCONNECTION();
+            
+        } else {
+
+            ELITEBEFOREPAY();
+            
+        };
 
     };
 
