@@ -24,7 +24,7 @@ const ANDROIDAFTERPAY=()=>{
 
     });
 
-    CENTERTEXT('','','Elite Robust Ontology Recipt','Teal','18px','1% auto',()=>{
+    CENTERTEXT('','','Elite Robust Ontology Receipt','Teal','18px','1% auto',()=>{
 
     });
 
