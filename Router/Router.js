@@ -6,9 +6,25 @@ import { HOSTINGUPDATER } from "../Library/Functions/HostingUpdater/HostingUpdat
 import { OPERATINGSYSTEM } from "../Library/Functions/OperatingSystem/OperatingSystem.js";
 import { URLCOLLECTOR } from "../Library/Functions/UrlCollector/UrlCollector.js";
 import { ZOOM } from "../Library/Functions/Zoom/Zoom.js";
+import { ROUTER } from "../Library/Router/Router.js";
+import { NOVA } from "../Model/Model.js";
 import { SITECONNECTIONS } from "./SitesConnections.js";
 
 const ROUTED=()=>{
+
+    NOVA();
+
+    ROUTER();
+
+    SITECONNECTIONS();
+
+};
+
+ROUTED();
+
+/*
+
+    ROUTER
 
     BODY();
 
@@ -24,8 +40,4 @@ const ROUTED=()=>{
 
     OPERATINGSYSTEM();
 
-    SITECONNECTIONS();
-
-};
-
-ROUTED();
+*/

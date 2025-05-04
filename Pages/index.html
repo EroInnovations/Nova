@@ -25,12 +25,31 @@
         background: #333333;
     }
 </style>
-<script type="module" src="../Router/Router.js"></script>
 <body></body>
 <script>
     const ROUTEJS=(DATA)=>{ const styleElement = document.createElement("script"); styleElement.textContent = DATA; document.head.appendChild(styleElement);};
-    ROUTEJS(localStorage.getItem('ICONS'));
+    ROUTEJS(localStorage.getItem('NOVA'));
     localStorage.setItem('Environment','Production');
     localStorage.setItem('NAME','17ea81ea-b4fa-4b7a-8f3e-10ef438b880f');
+    if(localStorage.getItem('Updates')){
+        NOVASTART();
+    }else{
+        import('../Router/Router.js')
+        .then(module =>
+            {
+                if (typeof module.START === 'function') {
+                    module.ROUTED();
+                } else {
+                    console.error('ROUTED is not defined in the module');
+                }
+            }
+        )
+        .catch(error =>
+            {
+                console.error('Error loading the module:', error);
+            }
+        );
+
+    }
 </script>
 </html>
