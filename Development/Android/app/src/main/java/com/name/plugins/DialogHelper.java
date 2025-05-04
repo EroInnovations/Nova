@@ -1,4 +1,4 @@
-package com.elite.wallet;
+package com.elite.mt_elgon;
 
 import android.app.AlertDialog;
 import android.content.Context;

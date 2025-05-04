@@ -1,4 +1,4 @@
-package com.elite.wallet;
+package com.elite.mt_elgon;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
