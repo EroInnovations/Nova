@@ -44,7 +44,7 @@ export const SITECONNECTIONS=()=>{
 
     };
 
-    if (localStorage.getItem('NAME') === 'Elgon' ) {
+    if (localStorage.getItem('NAME') === '8e66d79d-84b7-4ba0-9d60-0e74189675b6' ) {
     
         ELGONCONNECTION();
 

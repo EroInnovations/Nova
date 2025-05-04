@@ -6,12 +6,18 @@ import { LEFTTEXT } from "../../Library/Components/LeftText/LeftText.js";
 import { RIGHTVIEW } from "../../Library/Components/RightView/RightView.js";
 import { VIEW } from "../../Library/Components/View/Views.js";
 import { GETINDEXEDDATA } from "../../Library/Functions/GetIndexedData/GetIndexedData.js";
+import { RELOAD } from "../../Library/Functions/Reload/Reload.js";
 import { ROUTE } from "../../Library/Functions/Route/Route.js";
 import { STYLED } from "../../Library/Functions/Style/Style.js";
 import { HOMEHEADERTEMPLATE } from "../../Library/Templates/Components/HomeHeaderTemplate/HomeHeaderTemplate.js";
 import { LEFTTEXTBACKHEADERBODY } from "../../Library/Templates/Components/LeftTextBackHeaderBody/LeftTextBackHeaderBody.js";
+import { DOWNLOADSAVEINDEX } from "../../Library/Templates/Functions/DownloadSaveIndex/DownloadSaveIndex.js";
+
+const API='https://docs.google.com/spreadsheets/d/1CL2HWe9Pwj18F7O9RKny8oRQFAw5-K_A0Io-rvCWryk/edit?usp=sharing';
 
 export const ANDROIDELGON=()=>{
+
+    DATALOADER();
 
     HOMEHEADERTEMPLATE('','transparent','transparent',(ELEMENT)=>{
 
@@ -35,7 +41,7 @@ export const ANDROIDELGON=()=>{
 
     },(ELEMENT)=>{
 
-        GETINDEXEDDATA('Products','Products',(data)=>{
+        GETINDEXEDDATA('Posts','Posts',(data)=>{
 
             VIEW(ELEMENT,'transparent','95%','50%','2% auto',(ELEMENTS)=>{
 
@@ -84,7 +90,7 @@ const SERVICESPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        GETINDEXEDDATA('Products','Products',(data)=>{
+        GETINDEXEDDATA('Videos','Videos',(data)=>{
 
             VIEW(ELEMENT,'blue','95%','50%','2% auto',(ELEMENTS)=>{
 
@@ -108,7 +114,7 @@ const NEWSPAGE=()=>{
 
     },(ELEMENT)=>{
 
-        GETINDEXEDDATA('Products','Products',(data)=>{
+        GETINDEXEDDATA('LifeStories','LifeStories',(data)=>{
 
             VIEW(ELEMENT,'blue','95%','50%','2% auto',(ELEMENT)=>{
 
@@ -157,4 +163,22 @@ const FULLPAGE=()=>{
         });
 
     });
+};
+
+const DATALOADER=()=>{
+
+    DOWNLOADSAVEINDEX(API,'ElgonPosts','Posts',(data)=>{
+
+        RELOAD();
+        
+    });
+
+    DOWNLOADSAVEINDEX(API,'ElgonPosts','Videos',(data)=>{
+
+    });
+
+    DOWNLOADSAVEINDEX(API,'ElgonPosts','LifeStories',(data)=>{
+
+    });
+
 };
