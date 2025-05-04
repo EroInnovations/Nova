@@ -7,7 +7,7 @@ import { LOCATIONROUTER } from "../Functions/Routing/LocationRouter.js";
 
 export const HOMENAV=(ELEMENT)=>{
 
-    NAVTEMPLATE(ELEMENT,'transparent','95%','50px','',(ELEMENT)=>{
+    NAVTEMPLATE(ELEMENT,'transparent','95%','50px','1% auto',(ELEMENT)=>{
 
         LEFTIMAGE(ELEMENT,WHITELOCATIONICON,'25px','25px','0','',(ELEMENTS)=>{
 
