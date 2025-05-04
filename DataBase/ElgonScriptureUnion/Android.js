@@ -25,19 +25,19 @@ export const ANDROIDELGON=()=>{
 
         ICONTEXT(ELEMENT,WHITEMOVIEICON,'transparent','#fff','80px','40px','20px','20px','Services','auto 5%',()=>{
 
-            ROUTE(' ',SERVICESPAGE,'ANDROIDELGON');
+            ROUTE(' ',SERVICESPAGE,'HOMEPAGE');
 
         });
 
         ICONTEXT(ELEMENT,WHITETRENDINGTOPICSICON,'transparent','#fff','70px','40px','20px','20px','Stories','auto  20% 5%',()=>{
 
-            ROUTE(' ',NEWSPAGE,'ANDROIDELGON');
+            ROUTE(' ',NEWSPAGE,'HOMEPAGE');
 
         });
 
         ICONTEXT(ELEMENT,WHITEPHONEICON,'transparent','#fff','150px','40px','20px','20px','Contact Us','auto  1%',()=>{
 
-            ROUTE(' ',CONTACTPAGE,'ANDROIDELGON');
+            ROUTE(' ',CONTACTPAGE,'HOMEPAGE');
 
         });
 
@@ -66,7 +66,7 @@ export const ANDROIDELGON=()=>{
 
                         CENTERTEXT(ELE,'','Full Story','#fff','20px','5%',()=>{
 
-                            ROUTE(' ',FULLPAGE,'ANDROIDELGON');
+                            ROUTE(' ',FULLPAGE,'HOMEPAGE');
 
                         });
 
@@ -86,7 +86,7 @@ const SERVICESPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE(' ',ANDROIDELGON,'ANDROIDELGON');
+        ROUTE(' ',HOMEPAGE,'HOMEPAGE');
 
     },'Video Services','',()=>{
 
@@ -127,7 +127,7 @@ const NEWSPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE(' ',ANDROIDELGON,'ANDROIDELGON');
+        ROUTE(' ',HOMEPAGE,'HOMEPAGE');
 
     },'Life Changing Stories','',()=>{
 
@@ -151,7 +151,7 @@ const CONTACTPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE(' ',ANDROIDELGON,'ANDROIDELGON');
+        ROUTE(' ',HOMEPAGE,'HOMEPAGE');
 
     },'Contact Us','',()=>{
 
@@ -164,7 +164,7 @@ const FULLPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE(' ',ANDROIDELGON,'ANDROIDELGON');
+        ROUTE(' ',HOMEPAGE,'HOMEPAGE');
 
     },'Life Changing Stories','',()=>{
 
