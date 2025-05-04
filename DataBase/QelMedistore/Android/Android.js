@@ -3,7 +3,7 @@ import { RELOAD } from "../../../Library/Functions/Reload/Reload.js";
 import { STOREDATA } from "../../../Library/Functions/StoreData/StoreData.js";
 import { QELANDROIDHOMEPAGE } from "./HomePage.js";
 
-const QELANDROIDAPP=()=>{
+export const QELANDROIDAPP=()=>{
 
     CONDITION(localStorage.getItem('Updates'),()=>{
 
@@ -18,5 +18,3 @@ const QELANDROIDAPP=()=>{
     });
 
 };
-
-export{QELANDROIDAPP};

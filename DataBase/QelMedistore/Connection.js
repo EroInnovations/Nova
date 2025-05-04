@@ -5,7 +5,7 @@ import { QELANDROIDAPP } from "./Android/Android.js";
 
 const API='https://docs.google.com/spreadsheets/d/18BUoCg4yVUrxWv8RG885ZIn2fjkURGgjIrCi6otCxFk/edit?usp=sharing';
 
-const QELCONNECTION=()=>{
+export const QELCONNECTION=()=>{
 
     VISITOR(API,'Visitors');
 
@@ -22,5 +22,3 @@ const QELCONNECTION=()=>{
     };
 
 };
-
-export{QELCONNECTION};
