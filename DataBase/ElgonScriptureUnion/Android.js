@@ -6,13 +6,18 @@ import { IMAGE } from "../../Library/Components/Image/Image.js";
 import { LEFTTEXT } from "../../Library/Components/LeftText/LeftText.js";
 import { RIGHTTEXT } from "../../Library/Components/RightText/RightText.js";
 import { RIGHTVIEW } from "../../Library/Components/RightView/RightView.js";
+import { TEXT } from "../../Library/Components/Text/Text.js";
 import { VIEW } from "../../Library/Components/View/Views.js";
 import { GETINDEXEDDATA } from "../../Library/Functions/GetIndexedData/GetIndexedData.js";
+import { JSONIFICATION } from "../../Library/Functions/Jsonification/Jsonification.js";
 import { RELOAD } from "../../Library/Functions/Reload/Reload.js";
 import { ROUTE } from "../../Library/Functions/Route/Route.js";
+import { SESSIONDEJSONDATA } from "../../Library/Functions/SessionDejsonData/SessionDejsonData.js";
+import { STOREDATA } from "../../Library/Functions/StoreData/StoreData.js";
 import { STYLED } from "../../Library/Functions/Style/Style.js";
 import { HOMEHEADERTEMPLATE } from "../../Library/Templates/Components/HomeHeaderTemplate/HomeHeaderTemplate.js";
 import { LEFTTEXTBACKHEADERBODY } from "../../Library/Templates/Components/LeftTextBackHeaderBody/LeftTextBackHeaderBody.js";
+import { NAVTEMPLATE } from "../../Library/Templates/Components/NavTemplate/NavTemplate.js";
 import { DOWNLOADSAVEINDEX } from "../../Library/Templates/Functions/DownloadSaveIndex/DownloadSaveIndex.js";
 
 const API='https://docs.google.com/spreadsheets/d/1CL2HWe9Pwj18F7O9RKny8oRQFAw5-K_A0Io-rvCWryk/edit?usp=sharing';
@@ -66,7 +71,13 @@ export const ANDROIDELGON=()=>{
 
                         CENTERTEXT(ELE,'','Full Story','#fff','20px','5%',()=>{
 
-                            ROUTE(' ',FULLPAGE,'HOMEPAGE');
+                            JSONIFICATION(data,(MyData)=>{
+
+                                STOREDATA('','CurrentPost',MyData);
+
+                                ROUTE(' ',FULLPAGE,'HOMEPAGE');
+
+                            });
 
                         });
 
@@ -162,26 +173,49 @@ const CONTACTPAGE=()=>{
 
 const FULLPAGE=()=>{
 
-    LEFTTEXTBACKHEADERBODY('',()=>{
+    SESSIONDEJSONDATA('CurrentPost',(data)=>{
 
-        ROUTE(' ',HOMEPAGE,'HOMEPAGE');
+        console.log(data);
 
-    },'Life Changing Stories','',()=>{
+        LEFTTEXTBACKHEADERBODY('',()=>{
 
-    },(ELEMENT)=>{
+            ROUTE(' ',HOMEPAGE,'HOMEPAGE');
+    
+        },data.Name,'',()=>{
+    
+        },(ELEMENT)=>{
 
-        GETINDEXEDDATA('Products','Products',(data)=>{
-
-            VIEW(ELEMENT,'blue','95%','50%','2% auto',(ELEMENT)=>{
-
-                
-                STYLED(ELEMENT,'border-radius','5px');
+            IMAGE(ELEMENT,data.Main,'95%','50%','',()=>{
 
             });
 
-        });
+            VIEW(ELEMENT,'','95%','auto','',(ELEMENTES)=>{
 
+                LEFTTEXT(ELEMENTES,'',data.Long,'20px','','1%','5%',()=>{
+
+                });
+
+            });
+
+            NAVTEMPLATE(ELEMENT,'','95%','50px','',(ELE)=>{
+
+                LEFTTEXT(ELE,'','Posted On:'+data.Time,'20px','','1%','5%',()=>{
+
+                });
+
+            });
+
+            NAVTEMPLATE(ELEMENT,'','95%','50px','',(ELE)=>{
+
+                LEFTTEXT(ELE,'','Posted By:'+data.Posted,'20px','','1%','5%',()=>{
+
+                });
+
+            })
+  
+        })
     });
+
 };
 
 const DATALOADER=()=>{
