@@ -19,7 +19,7 @@ export const HOMENAV=(ELEMENT)=>{
 
         });
 
-        LEFTTEXT(ELEMENT,'','Kamapla','#FFFFFF','20px','-30%','',(ELEMENTS)=>{
+        LEFTTEXT(ELEMENT,'','Kamapla','#FFFFFF','20px','-27%','',(ELEMENTS)=>{
 
             CLICK(ELEMENTS,()=>{
 
