@@ -1,3 +1,9 @@
+import { FULLSCROLLVIEW } from "../../../Components/FullScrollView/FullScrollView.js";
+import { HEADER } from "../../../Components/Header/Header.js";
+import { VIEW } from "../../../Components/View/Views.js";
+import { CLEAR } from "../../../Functions/Clear/Clear.js";
+import { STYLED } from "../../../Functions/Style/Style.js";
+
 const HOMESCROLLHEADERTEMPLATE=(ELEMENT,HeaderColor,BodyColor,callback,HomeCallBack)=>{
 
     CLEAR(ELEMENT);

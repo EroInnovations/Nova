@@ -1,3 +1,12 @@
+import { BUTTON } from "../../../Components/Button/Button.js";
+import { CENTERTEXT } from "../../../Components/CenterText/CenterText";
+import { FULLSCROLLVIEW } from "../../../Components/FullScrollView/FullScrollView.js";
+import { MESSAGEDISPLAY } from "../../../Components/MessageDisplay/MessageDisplay.js";
+import { BREAK } from "../../../Functions/Break/Break.js";
+import { CHECKER } from "../../../Functions/Checker/Checker.js";
+import { CLEAR } from "../../../Functions/Clear/Clear";
+import { CONDITION } from "../../../Functions/Condition/Condition";
+
 const OFFLINEPAGETEMPLATE=(ReconnectCallBack,HomeCallBack,Margin)=>{
 
     CHECKER(!navigator.onLine,()=>{

@@ -1,3 +1,9 @@
+import { FULLSCROLLVIEW } from "../../../Components/FullScrollView/FullScrollView.js";
+import { HEADER } from "../../../Components/Header/Header.js";
+import { RIGHTIMAGE } from "../../../Components/RightImage/RightImage.js";
+import { CLEAR } from "../../../Functions/Clear/Clear.js";
+import { STYLED } from "../../../Functions/Style/Style.js";
+
 const RIGHTTEXTBACKHEADERBODY=(ELEMENT,Backcallback,WORD,COLOR,TextCallback,BodyCallBack)=>{
 
     CLEAR(ELEMENT);

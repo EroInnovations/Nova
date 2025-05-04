@@ -1,5 +1,12 @@
-const FULLMENUTEMPLATE=(ELEMENT,COLOR,WIDTH,POSITION,callback)=>{
+import { HEADER } from "../../../Components/Header/Header.js";
+import { LEFTIMAGE } from "../../../Components/LeftImage/LeftImage.js";
+import { RIGHTTEXT } from "../../../Components/RightText/RightText.js";
+import { VIEW } from "../../../Components/View/Views.js";
+import { CONDITION } from "../../../Functions/Condition/Condition.js";
+import { STYLED } from "../../../Functions/Style/Style.js";
 
+const FULLMENUTEMPLATE=(ELEMENT,COLOR,WIDTH,POSITION,callback)=>{
+   
     VIEW(ELEMENT,COLOR,WIDTH||'50%','100%','',(ELEMENTSES)=>{
 
         STYLED(ELEMENTSES,'display','block');

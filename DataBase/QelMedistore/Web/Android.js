@@ -1,24 +1,24 @@
-import { DOWNLOADICON } from "../../Library/Assets/Icons/WhiteIcons/DownloadIcon/DownloadIcon.js";
-import { FACEBOOKICON } from "../../Library/Assets/Icons/WhiteIcons/FaceBookIcon/FaceBookIcon.js";
-import { GMAILICON } from "../../Library/Assets/Icons/WhiteIcons/GmailIcon/GmailIcon.js";
-import { PHONEICON } from "../../Library/Assets/Icons/WhiteIcons/PhoneIcon/PhoneIcon.js";
-import { WHATSAPPICON } from "../../Library/Assets/Icons/WhiteIcons/WhatsAppIcon/WhatsAppIcon.js";
-import { BUTTON } from "../../Library/Components/Button/Button.js";
-import { BUTTONIMAGE } from "../../Library/Components/ButtonImage/ButtonImage.js";
-import { CENTERTEXT } from "../../Library/Components/CenterText/CenterText.js";
-import { ICON } from "../../Library/Components/Icon/Icon.js";
-import { IMAGE } from "../../Library/Components/Image/Image.js";
-import { LEFTTEXT } from "../../Library/Components/LeftText/LeftText.js";
-import { VIEW } from "../../Library/Components/View/Views.js";
-import { BREAK } from "../../Library/Functions/Break/Break.js";
-import { CALL } from "../../Library/Functions/Call/Call.js";
-import { CLEAR } from "../../Library/Functions/Clear/Clear.js";
-import { FACEBOOK } from "../../Library/Functions/FaceBook/FaceBook.js";
-import { GMAIL } from "../../Library/Functions/Gmail/Gmail.js";
-import { STYLED } from "../../Library/Functions/Style/Style.js";
-import { WEBSITE } from "../../Library/Functions/WebSite/WebSite.js";
-import { WHATSAPP } from "../../Library/Functions/WhatsApp/WhatsApp.js";
-import { NAVTEMPLATE } from "../../Library/Templates/Components/NavTemplate/NavTemplate.js";
+import { DOWNLOADICON } from "../../../Library/Assets/Icons/WhiteIcons/DownloadIcon/DownloadIcon.js";
+import { FACEBOOKICON } from "../../../Library/Assets/Icons/WhiteIcons/FaceBookIcon/FaceBookIcon.js";
+import { GMAILICON } from "../../../Library/Assets/Icons/WhiteIcons/GmailIcon/GmailIcon.js";
+import { PHONEICON } from "../../../Library/Assets/Icons/WhiteIcons/PhoneIcon/PhoneIcon.js";
+import { WHATSAPPICON } from "../../../Library/Assets/Icons/WhiteIcons/WhatsAppIcon/WhatsAppIcon.js";
+import { BUTTON } from "../../../Library/Components/Button/Button.js";
+import { BUTTONIMAGE } from "../../../Library/Components/ButtonImage/ButtonImage.js";
+import { CENTERTEXT } from "../../../Library/Components/CenterText/CenterText.js";
+import { ICON } from "../../../Library/Components/Icon/Icon.js";
+import { IMAGE } from "../../../Library/Components/Image/Image.js";
+import { LEFTTEXT } from "../../../Library/Components/LeftText/LeftText.js";
+import { VIEW } from "../../../Library/Components/View/Views.js";
+import { BREAK } from "../../../Library/Functions/Break/Break.js";
+import { CALL } from "../../../Library/Functions/Call/Call.js";
+import { CLEAR } from "../../../Library/Functions/Clear/Clear.js";
+import { FACEBOOK } from "../../../Library/Functions/FaceBook/FaceBook.js";
+import { GMAIL } from "../../../Library/Functions/Gmail/Gmail.js";
+import { STYLED } from "../../../Library/Functions/Style/Style.js";
+import { WEBSITE } from "../../../Library/Functions/WebSite/WebSite.js";
+import { WHATSAPP } from "../../../Library/Functions/WhatsApp/WhatsApp.js";
+import { NAVTEMPLATE } from "../../../Library/Templates/Components/NavTemplate/NavTemplate.js";
 
 export const QELANDROIDSEITE=()=>{
 

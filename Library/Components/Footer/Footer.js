@@ -17,7 +17,6 @@ const FOOTER=(ELEMENT,COLOR,WIDTH,HEIGHT,callback)=>{
         
     } else {
 
-
         document.querySelector("body").append(ELEMENT1);
         
     };

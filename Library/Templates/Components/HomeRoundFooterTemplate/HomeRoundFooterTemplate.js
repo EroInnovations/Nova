@@ -1,7 +1,12 @@
+import { FULLSCROLLVIEW } from "../../../Components/FullScrollView/FullScrollView.js";
+import { ROUNDFOOTER } from "../../../Components/RoundFooter/RoundFooter.js";
+import { CLEAR } from "../../../Functions/Clear/Clear.js";
+import { STYLED } from "../../../Functions/Style/Style.js";
+
 const HOMEROUNDFOOTERTEMPLATE=(ELEMENT,FooterColor,HomeCallBack,FooterCallBack)=>{
 
     CLEAR(ELEMENT);
-
+    
     FULLSCROLLVIEW(ELEMENT,'transparent',(ELEMS)=>{
 
         HomeCallBack(ELEMS);
