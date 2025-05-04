@@ -5,7 +5,7 @@ const APPMODE = (COLOR) => {
 
     if (localStorage.getItem('Environment') === 'Production' ) {
 
-        changeWebViewBackground(COLOR);
+       // changeWebViewBackground(COLOR);
         
     };
     

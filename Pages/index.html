@@ -16,7 +16,7 @@
         text-decoration: none;
     }
     body{
-        position: relative;
+        position: fixed;
         width: 100%;
         height: 100%;
         display: block;
@@ -30,7 +30,7 @@
 <script>
     const ROUTEJS=(DATA)=>{ const styleElement = document.createElement("script"); styleElement.textContent = DATA; document.head.appendChild(styleElement);};
     ROUTEJS(localStorage.getItem('ICONS'));
-    localStorage.setItem('Environment','Web');
+    localStorage.setItem('Environment','Production');
     localStorage.setItem('NAME','17ea81ea-b4fa-4b7a-8f3e-10ef438b880f');
 </script>
 </html>
