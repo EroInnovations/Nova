@@ -1,4 +1,4 @@
-package com.elite.mt_elgon;
+package com.elite.qel_medistore;
 
 import android.graphics.Color;
 import android.net.Uri;

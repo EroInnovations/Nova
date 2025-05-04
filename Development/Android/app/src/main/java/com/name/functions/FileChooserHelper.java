@@ -1,4 +1,4 @@
-package com.elite.mt_elgon;
+package com.elite.qel_medistore;
 
 import android.Manifest;
 import android.app.Activity;

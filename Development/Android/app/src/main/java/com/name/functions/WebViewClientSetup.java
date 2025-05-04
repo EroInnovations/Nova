@@ -1,4 +1,4 @@
-package com.elite.mt_elgon;
+package com.elite.qel_medistore;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -11,16 +11,14 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.webkit.JavascriptInterface;
 
 public class WebViewClientSetup {
-    
+
     public static void setClient(WebView webView) {
         webView.setWebViewClient(new CustomWebViewClient(webView));
         webView.setWebChromeClient(new CustomWebChromeClient(webView.getContext()));
-        webView.addJavascriptInterface(new WebAppInterface(webView), "EliteWebInterface");
     }
-    
+
     private static class CustomWebViewClient extends WebViewClient {
         private final WebView webView;
 
@@ -129,19 +127,6 @@ public class WebViewClientSetup {
                 applicationInfo = null;
             }
             return (applicationInfo != null) ? packageManager.getApplicationLabel(applicationInfo).toString() : "App";
-        }
-    }
-
-    public static class WebAppInterface {
-        private final WebView webView;
-
-        public WebAppInterface(WebView webView) {
-            this.webView = webView;
-        }
-
-        @JavascriptInterface
-        public void closeWebView() {
-            webView.loadUrl("file:///android_asset/index.html");
         }
     }
 }
