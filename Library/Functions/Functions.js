@@ -59,6 +59,7 @@ import { OPERATINGSYSTEM } from "./OperatingSystem/OperatingSystem.js";
 import { POSTDRIVEFILE } from "./PostDriveFile/PostDriveFile.js";
 import { POSTPACKAGE } from "./PostPackage/PostPackage.js";
 import { POSTTEXTPACKAGE } from "./PostTextPackage/PostTextPackage.js";
+import { PROJECTUPDATE } from "./ProjectUpdater/ProjectUpdater.js";
 import { QELMAIL } from "./QelEmail/QelEmail.js";
 import { RANDOMCODE } from "./RandomCode/RandomCode.js";
 import { REDUX } from "./Redux/Redux.js";
@@ -187,6 +188,7 @@ const SITECLOSE=${SITECLOSE};
 const SESSIONDEJSONDATA=${SESSIONDEJSONDATA};
 const URLCOLLECTOR=${URLCOLLECTOR};
 const YOUTUBEUD=${YOUTUBEUD};
+const PROJECTUPDATE=${PROJECTUPDATE};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -195,6 +197,6 @@ export{FUNCTIONS};
 
 `
 
-const YOUTUBEUD=${YOUTUBEUD};
+const PROJECTUPDATE=${PROJECTUPDATE};
 
 `

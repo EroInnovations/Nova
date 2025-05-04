@@ -1,19 +1,11 @@
-import { CONDITION } from "../../../Library/Functions/Condition/Condition.js";
-import { RELOAD } from "../../../Library/Functions/Reload/Reload.js";
-import { STOREDATA } from "../../../Library/Functions/StoreData/StoreData.js";
+import { PROJECTUPDATE } from "../../../Library/Functions/ProjectUpdater/ProjectUpdater.js";
 import { QELANDROIDHOMEPAGE } from "./Pages/HomePage.js";
 
 export const QELANDROIDAPP=()=>{
 
-    CONDITION(localStorage.getItem('Updates'),()=>{
+    PROJECTUPDATE(()=>{
 
         QELANDROIDHOMEPAGE();
-
-    },()=>{
-
-        STOREDATA(' ','Updates','Approved');        
-
-        RELOAD();
 
     });
 
