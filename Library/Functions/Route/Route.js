@@ -1,31 +1,26 @@
-const ROUTE=(NEWPAGE, FUNCTION, FUNCTIONBACK)=>{
-    
-    sessionStorage.setItem("PreviousPage", FUNCTIONBACK);
+let previousPageFunction = null;
 
+const ROUTE = (NEWPAGE, FUNCTION, FUNCTIONBACK) => {
+    
+    previousPageFunction = FUNCTIONBACK;
+
+    // Push or replace history state
+    const stateData = { data: FUNCTION() };
     if (NEWPAGE) {
-    
-        history.pushState({ data: FUNCTION() }, "", "");
-
+        history.pushState(stateData, "", "");
     } else {
-
-        history.replaceState({ data: FUNCTION() }, "", "");
-
-    };
-    
-    window.addEventListener("popstate", function (event) {
-    
-        const previousPageFunction = sessionStorage.getItem("PreviousPage");
-    
-        if (previousPageFunction) {
-    
-            const func = new Function("return " + previousPageFunction)();
-    
-            func();
-    
-        };
-    
-    });
-
+        history.replaceState(stateData, "", "");
+    }
 };
 
-export{ROUTE};
+// Ensure the popstate listener is added only once
+if (!window._popStateListenerAttached) {
+    window.addEventListener("popstate", function (event) {
+        if (typeof previousPageFunction === "function") {
+            previousPageFunction();
+        }
+    });
+    window._popStateListenerAttached = true;
+}
+
+export { ROUTE };

@@ -1,7 +1,7 @@
 import { CONDITION } from "../../../Library/Functions/Condition/Condition.js";
 import { RELOAD } from "../../../Library/Functions/Reload/Reload.js";
 import { STOREDATA } from "../../../Library/Functions/StoreData/StoreData.js";
-import { QELANDROIDHOMEPAGE } from "./HomePage.js";
+import { QELANDROIDHOMEPAGE } from "./Pages/HomePage.js";
 
 export const QELANDROIDAPP=()=>{
 
