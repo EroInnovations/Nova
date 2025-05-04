@@ -1,4 +1,3 @@
-import { LEFTBACKICON } from "../../../Assets/Icons/WhiteIcons/LeftBackIcon/LeftBackIcon.js";
 import { FULLSCROLLVIEW } from "../../../Components/FullScrollView/FullScrollView.js";
 import { HEADER } from "../../../Components/Header/Header.js";
 import { LEFTIMAGE } from "../../../Components/LeftImage/LeftImage.js";

@@ -28,7 +28,7 @@ const GETINDEXEDDATA = (dbName, storeName, callback) => {
 
             data.forEach(element => {
 
-                element.data.forEach(elements => {
+                element.data.reverse().forEach(elements => {
 
                     callback(elements);
  

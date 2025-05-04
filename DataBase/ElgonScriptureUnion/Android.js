@@ -1,8 +1,10 @@
 import { CENTERTEXT } from "../../Library/Components/CenterText/CenterText.js";
 import { FOOTER } from "../../Library/Components/Footer/Footer.js";
 import { ICONTEXT } from "../../Library/Components/IconText/IconText.js";
+import { IFRAME } from "../../Library/Components/Iframe/Iframe.js";
 import { IMAGE } from "../../Library/Components/Image/Image.js";
 import { LEFTTEXT } from "../../Library/Components/LeftText/LeftText.js";
+import { RIGHTTEXT } from "../../Library/Components/RightText/RightText.js";
 import { RIGHTVIEW } from "../../Library/Components/RightView/RightView.js";
 import { VIEW } from "../../Library/Components/View/Views.js";
 import { GETINDEXEDDATA } from "../../Library/Functions/GetIndexedData/GetIndexedData.js";
@@ -48,13 +50,13 @@ export const ANDROIDELGON=()=>{
                 STYLED(ELEMENTS,'border-radius','5px');
                 STYLED(ELEMENTS,'overflow','hidden');
 
-                IMAGE(ELEMENTS,data.ProductImage,'100%','100%','',()=>{
+                IMAGE(ELEMENTS,data.Main,'100%','100%','',()=>{
 
                 });
 
                 FOOTER(ELEMENTS,'#000000','100%','100px',(ELEMENTES)=>{
 
-                    LEFTTEXT(ELEMENTES,'',data.ProductDetails,'','20px','1%','0 auto',()=>{
+                    LEFTTEXT(ELEMENTES,'',data.Short,'','20px','1%','0 auto',()=>{
 
                     });
 
@@ -92,9 +94,26 @@ const SERVICESPAGE=()=>{
 
         GETINDEXEDDATA('Videos','Videos',(data)=>{
 
-            VIEW(ELEMENT,'blue','95%','50%','2% auto',(ELEMENTS)=>{
+            console.log(data);
 
-                STYLED(ELEMENT,'border-radius','5px');
+            VIEW(ELEMENT,'transparent','95%','50%','2% auto',(ELEMENTS)=>{
+
+                LEFTTEXT(ELEMENTS,'',data.Name,'','','','',()=>{
+
+                });
+
+                RIGHTTEXT(ELEMENTS,'',data.Time,'','','','',()=>{
+
+                });
+
+                STYLED(ELEMENTS,'border-radius','5px');
+                STYLED(ELEMENTS,'overflow','hidden');
+
+                IFRAME(ELEMENTS,(ELE)=>{
+
+                    ELE.src=data.Long;
+
+                });
                 
             });
 
@@ -173,11 +192,11 @@ const DATALOADER=()=>{
         
     });
 
-    DOWNLOADSAVEINDEX(API,'ElgonPosts','Videos',(data)=>{
+    DOWNLOADSAVEINDEX(API,'ElgonServices','Videos',(data)=>{
 
     });
 
-    DOWNLOADSAVEINDEX(API,'ElgonPosts','LifeStories',(data)=>{
+    DOWNLOADSAVEINDEX(API,'ElgonNews','LifeStories',(data)=>{
 
     });
 

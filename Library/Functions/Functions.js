@@ -90,6 +90,7 @@ import { VIDEOPICKER } from "./VideoPicker/VideoPicker.js";
 import { VISITOR } from "./Visitor/Visitor.js";
 import { WEBSITE } from "./WebSite/WebSite.js";
 import { WHATSAPP } from "./WhatsApp/WhatsApp.js";
+import { YOUTUBEUD } from "./YouTubeId/YouTubeId.js";
 import { ZOOM } from "./Zoom/Zoom.js";
 const FUNCTIONS=()=>{
 const DATA=`const ADD=${ADD};
@@ -185,6 +186,7 @@ const DOLLAREXCHANGE=${DOLLAREXCHANGE};
 const SITECLOSE=${SITECLOSE};
 const SESSIONDEJSONDATA=${SESSIONDEJSONDATA};
 const URLCOLLECTOR=${URLCOLLECTOR};
+const YOUTUBEUD=${YOUTUBEUD};
 `;
 localStorage.setItem('FUNCTIONS',DATA);
 };
@@ -193,6 +195,6 @@ export{FUNCTIONS};
 
 `
 
-const URLCOLLECTOR=${URLCOLLECTOR};
+const YOUTUBEUD=${YOUTUBEUD};
 
 `
