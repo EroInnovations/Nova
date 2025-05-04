@@ -1,8 +1,16 @@
 import { ICONTEXT } from "../../../../Library/Components/IconText/IconText.js";
+import { CLICK } from "../../../../Library/Functions/Click/Click.js";
+import { SECTIONROUTER } from "../Functions/Routing/SectionRoute.js";
 
 export const HOMEFOOTER=(ELEMENT)=>{
 
-    ICONTEXT(ELEMENT,WHITEGRIDICON,'transparent','#ffffff','70px','40px','20px','20px','Sections','',()=>{
+    ICONTEXT(ELEMENT,WHITEGRIDICON,'transparent','#ffffff','70px','40px','20px','20px','Sections','',(ELEMENT)=>{
+
+        CLICK(ELEMENT,()=>{
+
+            SECTIONROUTER();
+
+        });
 
     });
 
