@@ -6,7 +6,6 @@ import { IMAGE } from "../../Library/Components/Image/Image.js";
 import { LEFTTEXT } from "../../Library/Components/LeftText/LeftText.js";
 import { RIGHTTEXT } from "../../Library/Components/RightText/RightText.js";
 import { RIGHTVIEW } from "../../Library/Components/RightView/RightView.js";
-import { TEXT } from "../../Library/Components/Text/Text.js";
 import { VIEW } from "../../Library/Components/View/Views.js";
 import { GETINDEXEDDATA } from "../../Library/Functions/GetIndexedData/GetIndexedData.js";
 import { JSONIFICATION } from "../../Library/Functions/Jsonification/Jsonification.js";
