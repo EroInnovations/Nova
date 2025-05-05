@@ -36,19 +36,19 @@ export const ANDROIDMAINSITE=()=>{
 
         TEXT(ELEMENT,'h3','Developers','','','',()=>{
 
-            ROUTE(' ',DEVELOPERSPAGE,'HOMEPAGE');
+            ROUTE(' ',DEVELOPERSPAGE,HOMEPAGE);
 
         });
 
         TEXT(ELEMENT,'h3','About Us','','','',()=>{
 
-            ROUTE(' ',ABOUTUSPAGE,'HOMEPAGE');
+            ROUTE(' ',ABOUTUSPAGE,HOMEPAGE);
 
         });
 
         TEXT(ELEMENT,'h3','Contact Us','','','',()=>{
 
-            ROUTE(' ',CONTACTUSPAGE,'HOMEPAGE');
+            ROUTE(' ',CONTACTUSPAGE,HOMEPAGE);
 
         });
 
@@ -218,7 +218,7 @@ const DEVELOPERSPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',ANDROIDMAINSITE,'ANDROIDMAINSITE');
+            ROUTE('',ANDROIDMAINSITE,ANDROIDMAINSITE);
 
         });
 
@@ -248,19 +248,19 @@ const ABOUTUSPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',ANDROIDMAINSITE,'ANDROIDMAINSITE');
+            ROUTE('',ANDROIDMAINSITE,ANDROIDMAINSITE);
 
         });
 
         TEXT(ELEMENT,'h3','Pricing','','','',()=>{
 
-            ROUTE(' ',PRICINGPAGE,'ABOUTUSPAGE');
+            ROUTE(' ',PRICINGPAGE,ABOUTUSPAGE);
 
         });
 
         TEXT(ELEMENT,'h3','Metrics','','','',()=>{
 
-            ROUTE(' ',METRICSPAGE,'ABOUTUSPAGE');
+            ROUTE(' ',METRICSPAGE,ABOUTUSPAGE);
 
         });
 
@@ -336,13 +336,13 @@ const CONTACTUSPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',ANDROIDMAINSITE,'ANDROIDMAINSITE');
+            ROUTE('',ANDROIDMAINSITE,ANDROIDMAINSITE);
 
         });
 
         TEXT(ELEMENT,'h3','Social Media','','','',()=>{
 
-            ROUTE(' ',SOCIALMEDIAPAGE,'HOMEPAGE');
+            ROUTE(' ',SOCIALMEDIAPAGE,HOMEPAGE);
 
         });
 
@@ -387,7 +387,7 @@ const PRICINGPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',ABOUTUSPAGE,'ABOUTUSPAGE');
+            ROUTE('',ABOUTUSPAGE,ABOUTUSPAGE);
 
         });
 
@@ -639,7 +639,7 @@ const METRICSPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',ABOUTUSPAGE,'ABOUTUSPAGE');
+            ROUTE('',ABOUTUSPAGE,ABOUTUSPAGE);
 
         });
 
@@ -715,7 +715,7 @@ const SOCIALMEDIAPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
+            ROUTE('',CONTACTUSPAGE,CONTACTUSPAGE);
 
         });
 
