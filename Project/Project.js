@@ -4,4 +4,4 @@ const NOVASTART=()=>{
 
     DISPLAY('','Working');
 
-}
+};

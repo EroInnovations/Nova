@@ -15,7 +15,7 @@ const NOVASTARTER=()=>{
 
             localStorage.setItem('Updates','On');
 
-            Reload();
+            location.reload();
             
         };
 
@@ -79,7 +79,7 @@ const NOVASTARTER=()=>{
         
                         sessionStorage.clear();
         
-                        Reload();
+                        location.reload();
         
                     });
 
