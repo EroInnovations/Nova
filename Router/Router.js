@@ -9,8 +9,6 @@ import { SITECONNECTIONS } from "./SitesConnections.js";
 
 const ROUTED=()=>{
 
-    SITECONNECTIONS();
-
     BODY();
 
     URLCOLLECTOR();
@@ -24,6 +22,8 @@ const ROUTED=()=>{
     HOSTINGUPDATER();
 
     OPERATINGSYSTEM();
+
+    SITECONNECTIONS();
     
 };
 
