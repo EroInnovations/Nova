@@ -29,7 +29,7 @@ const HOSTINGINSTALLER=()=>{
     
                         localStorage.setItem("Hosting",'Active');
         
-                        Reload();
+                        location.reload();
                             
                     };
     

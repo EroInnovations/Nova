@@ -11,7 +11,7 @@ const BODY=()=>{
     ELEMENT.style.textDecoration='none';
     ELEMENT.style.fontFamily='sans-serif,Camberia';
 
-    if (localStorage.getItem('Environment') === 'Web' ) {
+    if (localStorage.getItem('Environment') === 'Web'||'Development' ) {
 
         ELEMENT.style.overflowY='auto';
         ELEMENT.style.overflowX='hidden';
