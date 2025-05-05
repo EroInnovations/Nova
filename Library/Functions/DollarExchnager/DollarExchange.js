@@ -2,7 +2,7 @@ const DOLLAREXCHANGE=(CONVERSION,AMOUNT,callback)=>{
 
     if (CONVERSION ==='USD') {
 
-        const Amount = AMOUNT/3666;
+        const Amount = AMOUNT/3668.62;
         
         callback(Amount);
 
