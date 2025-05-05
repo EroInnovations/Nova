@@ -19,7 +19,7 @@ const CONNECTIONLINK='https://docs.google.com/spreadsheets/d/15BPlgHpUmm65nUNSLR
 
 export const ANDROIDCOMMUNITYRISE=()=>{
 
-    ROUTE('',ANDROIDHOMEPAGE,'HOMEPAGE');
+    ROUTE('',ANDROIDHOMEPAGE,ANDROIDHOMEPAGE);
 
 };
 
