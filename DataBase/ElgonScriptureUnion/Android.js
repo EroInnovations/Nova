@@ -22,6 +22,12 @@ import { DOWNLOADSAVEINDEX } from "../../Library/Templates/Functions/DownloadSav
 
 const API='https://docs.google.com/spreadsheets/d/1CL2HWe9Pwj18F7O9RKny8oRQFAw5-K_A0Io-rvCWryk/edit?usp=sharing';
 
+const HOMEPAGE=()=>{
+
+    ANDROIDELGON();
+
+};
+
 export const ANDROIDELGON=()=>{
 
     DATALOADER();
@@ -30,19 +36,19 @@ export const ANDROIDELGON=()=>{
 
         ICONTEXT(ELEMENT,WHITEMOVIEICON,'transparent','#fff','80px','40px','20px','20px','Services','auto 5%',()=>{
 
-            ROUTE(' ',SERVICESPAGE,'HOMEPAGE');
+            ROUTE(' ',SERVICESPAGE,HOMEPAGE);
 
         });
 
         ICONTEXT(ELEMENT,WHITETRENDINGTOPICSICON,'transparent','#fff','70px','40px','20px','20px','Stories','auto  20% 5%',()=>{
 
-            ROUTE(' ',NEWSPAGE,'HOMEPAGE');
+            ROUTE(' ',NEWSPAGE,HOMEPAGE);
 
         });
 
         ICONTEXT(ELEMENT,WHITEPHONEICON,'transparent','#fff','150px','40px','20px','20px','Contact Us','auto  1%',()=>{
 
-            ROUTE(' ',CONTACTPAGE,'HOMEPAGE');
+            ROUTE(' ',CONTACTPAGE,HOMEPAGE);
 
         });
 
@@ -75,7 +81,7 @@ export const ANDROIDELGON=()=>{
 
                                 STOREDATA('','CurrentPost',MyData);
 
-                                ROUTE(' ',FULLPAGE,'HOMEPAGE');
+                                ROUTE(' ',FULLPAGE,HOMEPAGE);
 
                             });
 
@@ -97,7 +103,7 @@ const SERVICESPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE(' ',HOMEPAGE,'HOMEPAGE');
+        ROUTE(' ',HOMEPAGE,HOMEPAGE);
 
     },'Video Services','',()=>{
 
@@ -138,7 +144,7 @@ const NEWSPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE(' ',HOMEPAGE,'HOMEPAGE');
+        ROUTE(' ',HOMEPAGE,HOMEPAGE);
 
     },'Life Changing Stories','',()=>{
 
@@ -162,7 +168,7 @@ const CONTACTPAGE=()=>{
 
     LEFTTEXTBACKHEADERBODY('',()=>{
 
-        ROUTE(' ',HOMEPAGE,'HOMEPAGE');
+        ROUTE(' ',HOMEPAGE,HOMEPAGE);
 
     },'Contact Us','',()=>{
 
@@ -179,7 +185,7 @@ const FULLPAGE=()=>{
 
         LEFTTEXTBACKHEADERBODY('',()=>{
 
-            ROUTE(' ',HOMEPAGE,'HOMEPAGE');
+            ROUTE(' ',HOMEPAGE,HOMEPAGE);
     
         },data.Name,'',()=>{
     
