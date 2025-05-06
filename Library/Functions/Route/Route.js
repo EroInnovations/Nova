@@ -4,7 +4,7 @@ const ROUTE = (NEWPAGE, FUNCTION, FUNCTIONBACK) => {
     
     previousPageFunction = FUNCTIONBACK;
 
-    // Push or replace history state
+    // Push or replace history statea
     const stateData = { data: FUNCTION() };
     if (NEWPAGE) {
         history.pushState(stateData, "", "");

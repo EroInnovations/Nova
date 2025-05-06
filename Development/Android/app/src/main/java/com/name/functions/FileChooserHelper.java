@@ -1,4 +1,4 @@
-package com.elite.qel_medistore;
+package com.elite.qel_medistore_manager;
 
 import android.Manifest;
 import android.app.Activity;

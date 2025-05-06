@@ -1,4 +1,4 @@
-package com.elite.qel_medistore;
+package com.elite.qel_medistore_manager;
 
 import android.graphics.Color;
 import android.net.Uri;

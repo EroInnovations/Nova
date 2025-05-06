@@ -16,15 +16,15 @@ const MYACCOUNT=()=>{
 
     ACCOUNTCHECKER(()=>{
 
-        ROUTE('',HOMEPAGE,'HOMEPAGE');
+        ROUTE('',HOMEPAGE,HOMEPAGE);
 
     },()=>{
 
-        ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
+        ROUTE('',EMAILVERIFICATIONPAGE,EMAILVERIFICATIONPAGE);
 
     },()=>{
 
-        ROUTE('',LOGINPAGE,'LOGINPAGE');
+        ROUTE('',LOGINPAGE,LOGINPAGE);
 
     });
 
@@ -48,7 +48,7 @@ const HOMEPAGE=()=>{
 
         IMAGE(ELEMENT,WHITEPOSTICON,'20px','20px','',()=>{
 
-            ROUTE(' ',CREATIONPAGE,'HOMEPAGE');
+            ROUTE(' ',CREATIONPAGE,HOMEPAGE);
 
         });
 
@@ -68,19 +68,19 @@ const LOGINPAGE=()=>{
 
     });
 
-    INPUT('', 'email', APPCOLORS, 'Enter Admin Email', (data)=>{
+    INPUT('', 'email', APPCOLORS, 'Enter Admin Email','',(data)=>{
 
         STOREDATA('','UserEmail',data);
 
     });
 
-    INPUT('', 'password', APPCOLORS, '********', (data)=>{
+    INPUT('', 'password', APPCOLORS, '********','', (data)=>{
 
         STOREDATA('','UserPassword',data);
 
     });
 
-    IMAGEBUTTON('','forestgreen','Sign In','',WHITEENTERICON,'50px','10% auto',()=>{
+    IMAGEBUTTON('','forestgreen','Sign In','',WHITECHECKICON,'50px','10% auto',()=>{
 
         CONDITION(sessionStorage.getItem('UserEmail'),()=>{
 
@@ -104,7 +104,7 @@ const LOGINPAGE=()=>{
 
                                             STOREDATA(' ','UserData',MyData);
     
-                                            ROUTE('',HOMEPAGE,'HOMEPAGE');
+                                            ROUTE('',HOMEPAGE,HOMEPAGE);
     
                                         });
 
@@ -154,7 +154,7 @@ const LOGINPAGE=()=>{
 
         LEFTTEXT(ELEMENT,'','Forgot Password!','','16px','1rem','',()=>{
 
-            ROUTE(' ',FORGOTPASSWORDPAGE,'LOGINPAGE');
+            ROUTE(' ',FORGOTPASSWORDPAGE,LOGINPAGE);
 
         });
 
@@ -164,7 +164,7 @@ const LOGINPAGE=()=>{
 
         RIGHTTEXT(ELEMENT,'','Create Account?','','16px','1rem','',()=>{
 
-            ROUTE(' ',CREATEACCOUNTPAGE,'LOGINPAGE');
+            ROUTE(' ',CREATEACCOUNTPAGE,LOGINPAGE);
 
         });
 
