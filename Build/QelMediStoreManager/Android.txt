@@ -1033,13 +1033,13 @@ const PRODUCTS=(ELEMENT)=>{
 
             STYLED(ELEMENTS,'display','inline-table');
                
-            IMAGE(ELEMENTS,data.ProductImage,'100%','250px',' 0',()=>{
+            IMAGE(ELEMENTS,data.ProductImage,'100%','250px','0',()=>{
 
             });
 
             CONDITION(data.Approved,()=>{
 
-                FOOTER(ELEMENTS,'#0F990F80','','50px',(ELEMENTSE)=>{
+                FOOTER(ELEMENTS,'#0F990F80','100%','50px',(ELEMENTSE)=>{
 
                     LEFTTEXT(ELEMENTSE,'',data.ProductName,APPCOLORS,'14.1px','0.3rem','',()=>{
     
@@ -1095,11 +1095,7 @@ const PRODUTVIEWPAGE=()=>{
     
         },data.ProductName,APPCOLORS,'',(ELEMENT)=>{
 
-            CENTERTEXT(ELEMENT,'',data.ProductName,APPCOLORS,'20px','',()=>{
-
-            });
-
-            INPUT(ELEMENT,' ', APPCOLORS, data.ProductName||'Enter Product New Name', (data)=>{
+            INPUT(ELEMENT,' ', APPCOLORS, data.ProductName||'Enter Product New Name','',(data)=>{
 
                 STOREDATA('','NewName',data);
 
@@ -1164,7 +1160,7 @@ const PRODUTVIEWPAGE=()=>{
         
             });
 
-            INPUT(ELEMENT, 'tel', APPCOLORS, data.ProductPrice||'Enter Product New Price', (data)=>{
+            INPUT(ELEMENT, 'tel', APPCOLORS, data.ProductPrice||'Enter Product New Price','',(data)=>{
 
                 STOREDATA('','NewPrice',data);
 
@@ -1229,7 +1225,7 @@ const PRODUTVIEWPAGE=()=>{
         
             });
 
-            INPUT(ELEMENT, 'tel', APPCOLORS, data.ProductNumber||'Enter Product New Quantity', (data)=>{
+            INPUT(ELEMENT, 'tel', APPCOLORS, data.ProductNumber||'Enter Product New Quantity','',(data)=>{
 
                 STOREDATA('','NewNumber',data);
 
@@ -1294,7 +1290,7 @@ const PRODUTVIEWPAGE=()=>{
         
             });
 
-            TEXTAREA(ELEMENT,'',APPCOLORS,'300px',data.ProductDetails,(data)=>{
+            TEXTAREA(ELEMENT,APPCOLORS,'95%','300px',data.ProductDetails,'',(data)=>{
 
                 STOREDATA('','NewDetails',data);
     
