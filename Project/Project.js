@@ -16,15 +16,15 @@ const MYACCOUNT=()=>{
 
     ACCOUNTCHECKER(()=>{
 
-        ROUTE('',HOMEPAGE,HOMEPAGE);
+        ROUTE('',HOMEPAGE,'HOMEPAGE');
 
     },()=>{
 
-        ROUTE('',EMAILVERIFICATIONPAGE,EMAILVERIFICATIONPAGE);
+        ROUTE('',EMAILVERIFICATIONPAGE,'EMAILVERIFICATIONPAGE');
 
     },()=>{
 
-        ROUTE('',LOGINPAGE,LOGINPAGE);
+        ROUTE('',LOGINPAGE,'LOGINPAGE');
 
     });
 
@@ -48,7 +48,7 @@ const HOMEPAGE=()=>{
 
         IMAGE(ELEMENT,WHITEPOSTICON,'20px','20px','',()=>{
 
-            ROUTE(' ',CREATIONPAGE,HOMEPAGE);
+            ROUTE(' ',CREATIONPAGE,'HOMEPAGE');
 
         });
 
@@ -104,7 +104,7 @@ const LOGINPAGE=()=>{
 
                                             STOREDATA(' ','UserData',MyData);
     
-                                            ROUTE('',HOMEPAGE,HOMEPAGE);
+                                            ROUTE('',HOMEPAGE,'HOMEPAGE');
     
                                         });
 

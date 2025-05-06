@@ -1,26 +1,47 @@
-let previousPageFunction = null;
-
-const ROUTE = (NEWPAGE, FUNCTION, FUNCTIONBACK) => {
+const ROUTE=(NEWPAGE, FUNCTION, FUNCTIONBACK)=>{
     
-    previousPageFunction = FUNCTIONBACK;
-
-    // Push or replace history statea
-    const stateData = { data: FUNCTION() };
-    if (NEWPAGE) {
-        history.pushState(stateData, "", "");
+    sessionStorage.setItem("PreviousPage", FUNCTIONBACK);
+    
+    if (localStorage.getItem("Environment") === "Production") {
+    
+        if (NEWPAGE) {
+    
+            history.pushState({ data: FUNCTION() }, "", "file:///android_res/");
+    
+        } else {
+    
+            history.replaceState({ data: FUNCTION() }, "", "file:///android_res/");
+    
+        };
+    
     } else {
-        history.replaceState(stateData, "", "");
-    }
-};
-
-// Ensure the popstate listener is added only once
-if (!window._popStateListenerAttached) {
+    
+        if (NEWPAGE) {
+    
+            history.pushState({ data: FUNCTION() }, "", "");
+    
+        } else {
+    
+            history.replaceState({ data: FUNCTION() }, "", "");
+    
+        };
+    
+    };
+    
     window.addEventListener("popstate", function (event) {
-        if (typeof previousPageFunction === "function") {
-            previousPageFunction();
-        }
+    
+        const previousPageFunction = sessionStorage.getItem("PreviousPage");
+    
+        if (previousPageFunction) {
+    
+            const func = new Function("return " + previousPageFunction)();
+    
+            func();
+    
+        };
+    
     });
-    window._popStateListenerAttached = true;
-}
+
+};
 
 export { ROUTE };
