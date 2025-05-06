@@ -596,13 +596,13 @@ const NEWCATERGORYPAGE=()=>{
 
         });
     
-        INPUT(ELEMENT, '', 'transparent', 'Enter Catergory Name', (data)=>{
+        INPUT(ELEMENT, '', 'transparent', 'Enter Catergory Name','',(data)=>{
 
             STOREDATA('','Name',data);
     
         });
 
-        TEXTAREA(ELEMENT,'',APPCOLORS,'300px','Describe The Catergory',(data)=>{
+        TEXTAREA(ELEMENT,APPCOLORS,'95%','300px','Describe The Catergory','',(data)=>{
 
             STOREDATA('','Details',data);
 
@@ -792,25 +792,25 @@ const NEWPRODUCTPAGE=()=>{
     
         });
     
-        INPUT(ELEMENT, '', APPCOLORS,sessionStorage.getItem('Name')|| 'Enter Product Name', (data)=>{
+        INPUT(ELEMENT, '', APPCOLORS,sessionStorage.getItem('Name')|| 'Enter Product Name','',(data)=>{
 
             STOREDATA('','Name',data);
     
         });
 
-        INPUT(ELEMENT, 'tel', APPCOLORS,sessionStorage.getItem('Price')|| 'Enter Product Price', (data)=>{
+        INPUT(ELEMENT, 'tel', APPCOLORS,sessionStorage.getItem('Price')|| 'Enter Product Price','',(data)=>{
 
             STOREDATA('','Price',data);
     
         });
 
-        INPUT(ELEMENT, 'tel', APPCOLORS,sessionStorage.getItem('Number')|| 'Enter Product Qantity', (data)=>{
+        INPUT(ELEMENT, 'tel', APPCOLORS,sessionStorage.getItem('Number')|| 'Enter Product Qantity','',(data)=>{
 
             STOREDATA('','Number',data);
     
         });
 
-        TEXTAREA(ELEMENT,'',APPCOLORS,'300px',sessionStorage.getItem('Details')||'Describe The Product',(data)=>{
+        TEXTAREA(ELEMENT,APPCOLORS,'95%','300px',sessionStorage.getItem('Details')||'Describe The Product','',(data)=>{
 
             STOREDATA('','Details',data);
 
