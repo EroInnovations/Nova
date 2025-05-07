@@ -18,10 +18,7 @@ import { VIEW } from "../../Library/Components/View/Views.js";
 import { BACKPAGE } from "../../Library/Functions/BackPage/BackPage.js";
 import { BREAK } from "../../Library/Functions/Break/Break.js";
 import { CLEAR } from "../../Library/Functions/Clear/Clear.js";
-import { HIDER } from "../../Library/Functions/Hider/Hider.js";
 import { ROUTE } from "../../Library/Functions/Route/Route.js";
-import { SITECLOSE } from "../../Library/Functions/SiteClose/SiteClose.js";
-import { WEBSITE } from "../../Library/Functions/WebSite/WebSite.js";
 import { NAVTEMPLATE } from "../../Library/Templates/Components/NavTemplate/NavTemplate.js";
 
 export const ANDROIDMAINSITE=()=>{
@@ -36,19 +33,19 @@ export const ANDROIDMAINSITE=()=>{
 
         TEXT(ELEMENT,'h3','Developers','','','',()=>{
 
-            ROUTE(' ',DEVELOPERSPAGE,HOMEPAGE);
+            ROUTE(' ',DEVELOPERSPAGE,'HOMEPAGE');
 
         });
 
         TEXT(ELEMENT,'h3','About Us','','','',()=>{
 
-            ROUTE(' ',ABOUTUSPAGE,HOMEPAGE);
+            ROUTE(' ',ABOUTUSPAGE,'HOMEPAGE');
 
         });
 
         TEXT(ELEMENT,'h3','Contact Us','','','',()=>{
 
-            ROUTE(' ',CONTACTUSPAGE,HOMEPAGE);
+            ROUTE(' ',CONTACTUSPAGE,'HOMEPAGE');
 
         });
 
@@ -218,7 +215,7 @@ const DEVELOPERSPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',ANDROIDMAINSITE,ANDROIDMAINSITE);
+            ROUTE('',ANDROIDMAINSITE,'HOMEPAGE');
 
         });
 
@@ -248,19 +245,19 @@ const ABOUTUSPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',ANDROIDMAINSITE,ANDROIDMAINSITE);
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
 
         });
 
         TEXT(ELEMENT,'h3','Pricing','','','',()=>{
 
-            ROUTE(' ',PRICINGPAGE,ABOUTUSPAGE);
+            ROUTE(' ',PRICINGPAGE,'ABOUTUSPAGE');
 
         });
 
         TEXT(ELEMENT,'h3','Metrics','','','',()=>{
 
-            ROUTE(' ',METRICSPAGE,ABOUTUSPAGE);
+            ROUTE(' ',METRICSPAGE,'ABOUTUSPAGE');
 
         });
 
@@ -336,13 +333,13 @@ const CONTACTUSPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',ANDROIDMAINSITE,ANDROIDMAINSITE);
+            ROUTE('',HOMEPAGE,'HOMEPAGE');
 
         });
 
         TEXT(ELEMENT,'h3','Social Media','','','',()=>{
 
-            ROUTE(' ',SOCIALMEDIAPAGE,HOMEPAGE);
+            ROUTE(' ',SOCIALMEDIAPAGE,'HOMEPAGE');
 
         });
 
@@ -387,7 +384,7 @@ const PRICINGPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',ABOUTUSPAGE,ABOUTUSPAGE);
+            ROUTE('',ABOUTUSPAGE,'ABOUTUSPAGE');
 
         });
 
@@ -639,7 +636,7 @@ const METRICSPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',ABOUTUSPAGE,ABOUTUSPAGE);
+            ROUTE('',ABOUTUSPAGE,'ABOUTUSPAGE');
 
         });
 
@@ -715,7 +712,7 @@ const SOCIALMEDIAPAGE=()=>{
 
         TEXT(ELEMENT,'h3','Home','','','',()=>{
 
-            ROUTE('',CONTACTUSPAGE,CONTACTUSPAGE);
+            ROUTE('',CONTACTUSPAGE,'CONTACTUSPAGE');
 
         });
 

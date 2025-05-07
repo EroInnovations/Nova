@@ -4,7 +4,7 @@ import { ANDROIDCOMMUNITYRISE } from "./Android.js";
 
 const COMMUNITYRISE=()=>{
 
-    APPMODE('purple');
+    APPMODE('red');
 
     VISITOR('https://docs.google.com/spreadsheets/d/15BPlgHpUmm65nUNSLRwlRzaWv1hPenriWVvL5MDcmiw/edit?usp=sharing','Visitors');
 
