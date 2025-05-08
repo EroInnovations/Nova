@@ -3,8 +3,11 @@ import { ELGONCONNECTION } from "../DataBase/ElgonScriptureUnion/Connection.js";
 import { ELITECONNECTION } from "../DataBase/Elite/Connection.js";
 import { ELITEAFTERPAYCONNECTION, ELITEBEFOREPAY } from "../DataBase/ElitePay/Connection.js";
 import { QELCONNECTION } from "../DataBase/QelMedistore/Connection.js";
+import { BODY } from "../Library/Functions/Body/Body.js";
 
 export const SITECONNECTIONS=()=>{
+
+    BODY();
 
     if (localStorage.getItem('NAME') === 'd8c2c6df-f989-44b3-9c81-d95c31892e28' ) {
         

@@ -133,10 +133,10 @@
   INSPECTION();
   const HOMEPAGE=()=>{
     sessionStorage.removeItem('PreviousPage');
-    import('../Router/Router.js')
+    import('../Router/SitesConnections.js')
     .then(module => {
-    if (typeof module.ROUTED === 'function') {
-      module.ROUTED();
+    if (typeof module.SITECONNECTIONS === 'function') {
+      module.SITECONNECTIONS();
     } else {
       console.error('START is not defined in the module');
       }
