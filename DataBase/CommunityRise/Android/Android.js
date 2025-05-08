@@ -13,7 +13,6 @@ import { TEXT } from "../../../Library/Components/Text/Text.js";
 import { VIEW } from "../../../Library/Components/View/Views.js";
 import { BREAK } from "../../../Library/Functions/Break/Break.js";
 import { CLEAR } from "../../../Library/Functions/Clear/Clear.js";
-import { FACEBOOK } from "../../../Library/Functions/FaceBook/FaceBook.js";
 import { INSTAGRAM } from "../../../Library/Functions/Instagram/Instagram.js";
 import { ROUTE } from "../../../Library/Functions/Route/Route.js";
 import { STYLED } from "../../../Library/Functions/Style/Style.js";
@@ -161,7 +160,7 @@ export const ANDROIDCOMMUNITYRISE=()=>{
 
         ICONTEXT(ELEMENT,FACEBOOKICON,' ','98px','70px','45px','25px','25px','Facebook','',()=>{
 
-            FACEBOOK('');
+            WEBSITE('https://www.facebook.com/share/gGoc7h3UY95qyPvU/?mibextid=wwXIfr')
 
         });
 
