@@ -23,12 +23,6 @@ export const ANDROIDCOMMUNITYRISE=()=>{
 
 };
 
-const HOMEPAGE=()=>{
-
-    ROUTE('',ANDROIDHOMEPAGE,'ANDROIDHOMEPAGE');
-
-}
-
 const ANDROIDHOMEPAGE=()=>{
 
     CLEAR('');

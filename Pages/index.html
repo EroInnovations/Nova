@@ -132,5 +132,18 @@
     };
   };
   INSPECTION();
+  const HOMEPAGE=()=>{
+    import('../Router/Router.js')
+    .then(module => {
+    if (typeof module.ROUTED === 'function') {
+      module.ROUTED();
+    } else {
+      console.error('START is not defined in the module');
+      }
+    })
+    .catch(error => {
+      console.error('Error loading the module:', error);
+    });
+  };
 </script>
 </html>
