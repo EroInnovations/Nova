@@ -72,6 +72,9 @@ const HOSTINGINSTALLER=()=>{
             console.log(error);
         
         });
+
+
+        return;
         
     }
 

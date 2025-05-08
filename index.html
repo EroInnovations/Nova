@@ -64,7 +64,6 @@
       font-size: 20px;
     }
 </style>
-<script type="module" src="https://eroinnovations.site/Router/Router.js"></script>
 <body>
   <div class="loader">
     <div class="dot"></div>
@@ -133,6 +132,7 @@
   };
   INSPECTION();
   const HOMEPAGE=()=>{
+    sessionStorage.removeItem('PreviousPage');
     import('https://eroinnovations.site/Router/Router.js')
     .then(module => {
     if (typeof module.ROUTED === 'function') {
@@ -145,5 +145,6 @@
       console.error('Error loading the module:', error);
     });
   };
+  HOMEPAGE();
 </script>
 </html>

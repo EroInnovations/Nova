@@ -64,7 +64,6 @@
       font-size: 20px;
     }
 </style>
-<script type="module" src="../Router/Router.js"></script>
 <body>
   <div class="loader">
     <div class="dot"></div>
@@ -133,5 +132,20 @@
     };
   };
   INSPECTION();
+  const HOMEPAGE=()=>{
+    sessionStorage.removeItem('PreviousPage');
+    import('https://eroinnovations.site/Router/Router.js')
+    .then(module => {
+    if (typeof module.ROUTED === 'function') {
+      module.ROUTED();
+    } else {
+      console.error('START is not defined in the module');
+      }
+    })
+    .catch(error => {
+      console.error('Error loading the module:', error);
+    });
+  };
+  HOMEPAGE();
 </script>
 </html>

@@ -1,6 +1,6 @@
 import { APPMODE } from "../../Library/Functions/AppMode/AppMode.js";
 import { VISITOR } from "../../Library/Functions/Visitor/Visitor.js";
-import { ANDROIDCOMMUNITYRISE } from "./Android.js";
+import { ANDROIDCOMMUNITYRISE } from "./Android/Android.js";
 
 const COMMUNITYRISE=()=>{
 
@@ -14,6 +14,8 @@ const COMMUNITYRISE=()=>{
         
     } else {
         
+        ANDROIDCOMMUNITYRISE();
+
     }
     
 };

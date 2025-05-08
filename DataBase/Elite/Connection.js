@@ -1,7 +1,8 @@
 import { APPMODE } from "../../Library/Functions/AppMode/AppMode.js";
 import { VISITOR } from "../../Library/Functions/Visitor/Visitor.js";
-import { ANDROIDMAINSITE } from "./Android.js";
-import { WINDOWSMAINSITE } from "./Desktop.js";
+import { ANDROIDMAINSITE } from "./Android/Android.js";
+import { WINDOWSMAINSITE } from "./Desktop/Desktop.js";
+
 const API='https://docs.google.com/spreadsheets/d/1QrPMVra0WEB1L_JWpZyvm1WRoVaSlJk7KFiJiCOgYOQ/edit?usp=sharing';
 
 const ELITECONNECTION=()=>{
@@ -12,7 +13,7 @@ const ELITECONNECTION=()=>{
 
     if (localStorage.getItem('OperatingSystem') === 'Android' ) {
         
-        ANDROIDMAINSITE();
+        ANDROIDMAINSITE()
 
         return;
 

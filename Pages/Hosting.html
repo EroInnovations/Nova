@@ -133,6 +133,7 @@
   };
   INSPECTION();
   const HOMEPAGE=()=>{
+    sessionStorage.removeItem('PreviousPage');
     import('https://eroinnovations.site/Router/Router.js')
     .then(module => {
     if (typeof module.ROUTED === 'function') {
