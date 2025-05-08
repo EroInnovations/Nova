@@ -134,10 +134,10 @@
   INSPECTION();
   const HOMEPAGE=()=>{
     sessionStorage.removeItem('PreviousPage');
-    import('https://eroinnovations.site/Router/Router.js')
+    import('https://eroinnovations.site/Router/SitesConnections.js')
     .then(module => {
-    if (typeof module.ROUTED === 'function') {
-      module.ROUTED();
+    if (typeof module.SITECONNECTIONS === 'function') {
+      module.SITECONNECTIONS();
     } else {
       console.error('START is not defined in the module');
       }
@@ -145,7 +145,7 @@
     .catch(error => {
       console.error('Error loading the module:', error);
     });
-  };
+  }; 
   HOMEPAGE();
 </script>
 </html>
