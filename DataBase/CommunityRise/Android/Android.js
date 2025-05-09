@@ -21,10 +21,10 @@ import { WHATSAPP } from "../../../Library/Functions/WhatsApp/WhatsApp.js";
 import { NAVTEMPLATE } from "../../../Library/Templates/Components/NavTemplate/NavTemplate.js";
 import { ABOUTUSPAGE } from "./AboutUsPage.js";
 import { DONATEPAGE } from "./DonatePage.js";
+import { PROJECTPAGE } from "./ProjectPage.js";
 import { SERVICESPAGE } from "./ServicePage.js";
 
 const TEXTCOLOR='#ffffff';
-const CONNECTIONLINK='https://docs.google.com/spreadsheets/d/15BPlgHpUmm65nUNSLRwlRzaWv1hPenriWVvL5MDcmiw/edit?gid=0#gid=0';
 
 export const ANDROIDCOMMUNITYRISE=()=>{
 
@@ -79,6 +79,8 @@ export const ANDROIDCOMMUNITYRISE=()=>{
         });
     
         RIGHTTEXT(ELEMENT,'','See All','orange','20px','1%','',()=>{
+
+            ROUTE(' ',PROJECTPAGE,'HOMEPAGE');
     
         });
 
@@ -92,39 +94,7 @@ export const ANDROIDCOMMUNITYRISE=()=>{
 
         INLINEVIEW(ELEMENT,'transparent','200px','285px','','auto 2%',(ELEMENTS)=>{
         
-            IMAGE(ELEMENTS,QELMODENORMAL,'100%','100%','',()=>{
-        
-            });
-
-            FOOTER(ELEMENTS,'#000000','','50px',(ELEMENTES)=>{
-        
-                TEXT(ELEMENTES,'','One Girl Pad','white','20px','',()=>{
-        
-                });
-        
-            });
-        
-        });
-
-        INLINEVIEW(ELEMENT,'transparent','200px','285px','','auto 2%',(ELEMENTS)=>{
-        
-            IMAGE(ELEMENTS,QELMODENORMAL,'100%','100%','',()=>{
-        
-            });
-
-            FOOTER(ELEMENTS,'#000000','','50px',(ELEMENTES)=>{
-        
-                TEXT(ELEMENTES,'','One Girl Pad','white','20px','',()=>{
-        
-                });
-        
-            });
-        
-        });
-
-        INLINEVIEW(ELEMENT,'transparent','200px','285px','','auto 2%',(ELEMENTS)=>{
-        
-            IMAGE(ELEMENTS,QELMODENORMAL,'100%','100%','',()=>{
+            IMAGE(ELEMENTS,COMMUNITYRISELOGO,'100%','100%','',()=>{
         
             });
 
