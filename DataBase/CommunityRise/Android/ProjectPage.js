@@ -5,6 +5,10 @@ import { TABLEVIEW } from "../../../Library/Components/TableView/TabeView.js";
 import { IMAGE } from "../../../Library/Components/Image/Image.js";
 import { FOOTER } from "../../../Library/Components/Footer/Footer.js";
 import { TEXT } from "../../../Library/Components/Text/Text.js";
+import { CLICK } from "../../../Library/Functions/Click/Click.js";
+import { JSONIFICATION } from "../../../Library/Functions/Jsonification/Jsonification.js";
+import { STOREDATA } from "../../../Library/Functions/StoreData/StoreData.js";
+import { NEWSPAGE } from "./NewsPage.js";
 const TEXTCOLOR='#ffffff';
 export const PROJECTPAGE=()=>{
 
@@ -22,19 +26,31 @@ export const PROJECTPAGE=()=>{
 
            TABLEVIEW(ELEMENT,'transparent','190px','285px','','auto 1%',(ELEMENTS)=>{
         
-            IMAGE(ELEMENTS,data.ImageOne||COMMUNITYRISELOGO,'100%','100%','',()=>{
-        
-            });
+                IMAGE(ELEMENTS,data.ImageOne||COMMUNITYRISELOGO,'100%','100%','',()=>{
+            
+                });
 
-            FOOTER(ELEMENTS,'#000000','','50px',(ELEMENTES)=>{
-        
-                TEXT(ELEMENTES,'',data.Name||'Community Rise Ventures','white','20px','',()=>{
-        
+                FOOTER(ELEMENTS,'#000000','','50px',(ELEMENTES)=>{
+            
+                    TEXT(ELEMENTES,'',data.Name||'Community Rise Ventures','white','20px','',()=>{
+            
+                    });
+            
+                });
+
+                CLICK(ELEMENTS,()=>{
+
+                    JSONIFICATION(data,(MyData)=>{
+
+                        STOREDATA('','CurrentStory',MyData);
+
+                        ROUTE(' ',NEWSPAGE,'HOMEPAGE');
+
+                    });
+
                 });
         
             });
-        
-        });
 
         });
 

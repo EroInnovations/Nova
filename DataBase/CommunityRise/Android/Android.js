@@ -13,14 +13,19 @@ import { TEXT } from "../../../Library/Components/Text/Text.js";
 import { VIEW } from "../../../Library/Components/View/Views.js";
 import { BREAK } from "../../../Library/Functions/Break/Break.js";
 import { CLEAR } from "../../../Library/Functions/Clear/Clear.js";
+import { CLICK } from "../../../Library/Functions/Click/Click.js";
+import { GETINDEXEDDATA } from "../../../Library/Functions/GetIndexedData/GetIndexedData.js";
 import { INSTAGRAM } from "../../../Library/Functions/Instagram/Instagram.js";
+import { JSONIFICATION } from "../../../Library/Functions/Jsonification/Jsonification.js";
 import { ROUTE } from "../../../Library/Functions/Route/Route.js";
+import { STOREDATA } from "../../../Library/Functions/StoreData/StoreData.js";
 import { STYLED } from "../../../Library/Functions/Style/Style.js";
 import { WEBSITE } from "../../../Library/Functions/WebSite/WebSite.js";
 import { WHATSAPP } from "../../../Library/Functions/WhatsApp/WhatsApp.js";
 import { NAVTEMPLATE } from "../../../Library/Templates/Components/NavTemplate/NavTemplate.js";
 import { ABOUTUSPAGE } from "./AboutUsPage.js";
 import { DONATEPAGE } from "./DonatePage.js";
+import { NEWSPAGE } from "./NewsPage.js";
 import { PROJECTPAGE } from "./ProjectPage.js";
 import { SERVICESPAGE } from "./ServicePage.js";
 
@@ -91,22 +96,38 @@ export const ANDROIDCOMMUNITYRISE=()=>{
     });
 
     INLINEVIEW('','','98%','300px','','1%',(ELEMENT)=>{
+        
+        GETINDEXEDDATA('News','News',(data)=>{
 
-        INLINEVIEW(ELEMENT,'transparent','200px','285px','','auto 2%',(ELEMENTS)=>{
+            INLINEVIEW(ELEMENT,'transparent','200px','285px','','auto 2%',(ELEMENTS)=>{
         
-            IMAGE(ELEMENTS,COMMUNITYRISELOGO,'100%','100%','',()=>{
-        
-            });
+                IMAGE(ELEMENTS,data.ImageOne||COMMUNITYRISELOGO,'100%','100%','',()=>{
+            
+                });
 
-            FOOTER(ELEMENTS,'#000000','','50px',(ELEMENTES)=>{
-        
-                TEXT(ELEMENTES,'','One Girl Pad','white','20px','',()=>{
-        
+                FOOTER(ELEMENTS,'#000000','','50px',(ELEMENTES)=>{
+            
+                    TEXT(ELEMENTES,'',data.Name||'Community Rise Ventures','white','20px','',()=>{
+            
+                    });
+            
+                });
+
+                CLICK(ELEMENTS,()=>{
+
+                    JSONIFICATION(data,(MyData)=>{
+
+                        STOREDATA('','CurrentStory',MyData);
+
+                        ROUTE(' ',NEWSPAGE,'HOMEPAGE');
+
+                    });
+
                 });
         
-            });
-        
-        });
+            }); 
+
+        })
 
     });
 
