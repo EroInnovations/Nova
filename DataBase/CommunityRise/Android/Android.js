@@ -131,7 +131,47 @@ export const ANDROIDCOMMUNITYRISE=()=>{
 
     });
 
-    VIEW('','','98%','300px','1% auto',()=>{
+    CENTERTEXT('','p','Discover More',TEXTCOLOR,'25px','2% auto',()=>{
+
+    });
+
+    VIEW('','transparent','98%','300px','1% auto',(ELEMENT)=>{
+
+        STYLED(ELEMENT,'overflow','hidden');
+
+        const Message='Community Rise Ventures involes itself in developing the communnity via the following activities ';
+
+        LEFTTEXT(ELEMENT,'p',Message,'#fff','20px','1%','2%',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'p','Religious Places Building','#fff','20px','1%','2%',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'p','Safe Water Delivery','#fff','20px','1%','2%',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'p','Sheltering the Homeless','#fff','20px','1%','2%',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'p','Feeding the Needy','#fff','20px','1%','2%',()=>{
+
+        });
+
+        LEFTTEXT(ELEMENT,'p','Girl Child Health and Sanitation','#fff','20px','1%','2%',()=>{
+
+        });
+
+        CENTERTEXT(ELEMENT,'p','Discover More Here','orange','20px','',()=>{
+
+            ROUTE(' ',SERVICESPAGE,'HOMEPAGE');
+
+        });
+
+        BREAK(ELEMENT)
 
     });
 
