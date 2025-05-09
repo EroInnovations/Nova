@@ -95,7 +95,7 @@ export const ANDROIDCOMMUNITYRISE=()=>{
     
     });
 
-    INLINEVIEW('','','98%','300px','','1%',(ELEMENT)=>{
+    INLINEVIEW('','transparent','98%','300px','','1%',(ELEMENT)=>{
         
         GETINDEXEDDATA('News','News',(data)=>{
 
